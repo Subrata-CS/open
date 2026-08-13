@@ -1,0 +1,58 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.canvas,
+.canvasDocs {
+  position: absolute;
+  opacity: 0.16;
+  animation: fade 1.2s ease both;
+}
+
+/* homepage: large, centred behind the fold */
+.canvas {
+  top: 46%;
+  left: 50%;
+  width: min(1500px, 145vw);
+  transform: translate(-50%, -50%);
+}
+
+/* docs pages: pushed to the right so it never sits under the text column */
+.canvasDocs {
+  top: 50%;
+  right: -6%;
+  width: min(820px, 62vw);
+  transform: translateY(-50%);
+  opacity: 0.12;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+.caption {
+  position: absolute;
+  right: 1.35rem;
+  bottom: 6.6rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--open-code-dim);
+  opacity: 0.5;
+}
+
+@media (max-width: 996px) {
+  .canvasDocs {
+    display: none;
+  }
+  .caption {
+    display: none;
+  }
+}

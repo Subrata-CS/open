@@ -1,0 +1,38 @@
+---
+title: "JOIN"
+sidebar_position: 5
+sidebar_label: "JOIN"
+slug: /database-systems/join
+description: "JOIN — Database Systems | Open CS Hub"
+---
+
+# JOIN
+
+:::note[Draft]
+This page has not been written yet. To contribute, click **Edit this page** below.
+:::
+
+## Overview
+
+_A short introduction to JOIN._
+
+## Key Concepts
+
+-
+-
+-
+
+## Example
+
+```python
+# code example
+```
+
+## Practice Questions
+
+1.
+2.
+
+## References
+
+-

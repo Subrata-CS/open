@@ -1,0 +1,38 @@
+---
+title: "Requirement Engineering"
+sidebar_position: 2
+sidebar_label: "Requirement Engineering"
+slug: /software-engineering/requirement-engineering
+description: "Requirement Engineering — Software Engineering | Open CS Hub"
+---
+
+# Requirement Engineering
+
+:::note[Draft]
+This page has not been written yet. To contribute, click **Edit this page** below.
+:::
+
+## Overview
+
+_A short introduction to Requirement Engineering._
+
+## Key Concepts
+
+-
+-
+-
+
+## Example
+
+```python
+# code example
+```
+
+## Practice Questions
+
+1.
+2.
+
+## References
+
+-

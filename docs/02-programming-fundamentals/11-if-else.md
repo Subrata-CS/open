@@ -1,0 +1,38 @@
+---
+title: "If-Else"
+sidebar_position: 11
+sidebar_label: "If-Else"
+slug: /programming-fundamentals/if-else
+description: "If-Else — Programming Fundamentals | Open CS Hub"
+---
+
+# If-Else
+
+:::note[Draft]
+This page has not been written yet. To contribute, click **Edit this page** below.
+:::
+
+## Overview
+
+_A short introduction to If-Else._
+
+## Key Concepts
+
+-
+-
+-
+
+## Example
+
+```python
+# code example
+```
+
+## Practice Questions
+
+1.
+2.
+
+## References
+
+-

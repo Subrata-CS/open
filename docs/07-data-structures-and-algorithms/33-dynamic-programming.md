@@ -1,0 +1,38 @@
+---
+title: "Dynamic Programming"
+sidebar_position: 33
+sidebar_label: "Dynamic Programming"
+slug: /data-structures-and-algorithms/dynamic-programming
+description: "Dynamic Programming — Data Structures & Algorithms | Open CS Hub"
+---
+
+# Dynamic Programming
+
+:::note[Draft]
+This page has not been written yet. To contribute, click **Edit this page** below.
+:::
+
+## Overview
+
+_A short introduction to Dynamic Programming._
+
+## Key Concepts
+
+-
+-
+-
+
+## Example
+
+```python
+# code example
+```
+
+## Practice Questions
+
+1.
+2.
+
+## References
+
+-

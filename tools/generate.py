@@ -59,7 +59,7 @@ description: {desc}
 
 # {plain}
 
-:::note Draft
+:::note[Draft]
 This page has not been written yet. To contribute, click **Edit this page** below.
 :::
 
@@ -200,7 +200,7 @@ An **open learning hub** covering everything from programming fundamentals to
 Data Structures, Algorithms, Machine Learning, Deep Learning, Generative AI
 and Computer Vision.
 
-:::tip Always up to date
+:::tip[Always up to date]
 This site is built **automatically** from the
 [github.com/Subrata-CS/open](https://github.com/Subrata-CS/open) repository.
 Edit any file, commit it, and the change is live within about two minutes —

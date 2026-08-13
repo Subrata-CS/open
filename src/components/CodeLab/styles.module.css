@@ -1,0 +1,294 @@
+.lab {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.1rem;
+  align-items: start;
+}
+
+.pane {
+  border: 1px solid var(--open-border);
+  border-radius: 14px;
+  background: var(--open-code-bg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 9rem);
+}
+
+.paneHead {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--open-border);
+  background: var(--open-code-head);
+}
+
+.paneTitle {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.paneHint {
+  margin-left: auto;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.68rem;
+  color: var(--open-code-dim);
+}
+
+.paneBody {
+  padding: 0.9rem;
+  overflow-y: auto;
+  flex: 1;
+  scroll-behavior: smooth;
+}
+
+.empty {
+  color: var(--open-code-dim);
+  font-size: 0.9rem;
+}
+
+/* ---------------- lesson side ---------------- */
+
+.lesson {
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px dashed var(--open-border);
+}
+
+.lesson:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.lessonTitle {
+  font-size: 1.02rem;
+  margin-bottom: 0.35rem;
+}
+
+.lessonNote {
+  color: var(--open-code-dim);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 0.7rem;
+}
+
+.lessonOut,
+.out,
+.outErr {
+  position: relative;
+  margin: 0.7rem 0 0;
+  padding: 1.5rem 0.85rem 0.85rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid var(--open-border);
+  color: #34d399;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.outErr {
+  color: #fca5a5;
+}
+
+.outLabel {
+  position: absolute;
+  top: 0.35rem;
+  left: 0.85rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--open-code-dim);
+}
+
+.tryBtn {
+  appearance: none;
+  cursor: pointer;
+  margin-top: 0.75rem;
+  padding: 0.42rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  background: rgba(129, 140, 248, 0.12);
+  border: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.tryBtn:hover {
+  border-color: var(--ifm-color-primary);
+}
+
+/* ---------------- notebook side ---------------- */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--open-border);
+}
+
+.tool,
+.toolPrimary,
+.run,
+.icon,
+.addBig {
+  appearance: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: transform 0.12s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.tool {
+  font-size: 0.75rem;
+  padding: 0.38rem 0.7rem;
+  color: var(--open-code-dim);
+  background: transparent;
+  border: 1px solid var(--open-border);
+}
+
+.tool:hover {
+  color: var(--ifm-font-color-base);
+  border-color: var(--ifm-color-primary);
+}
+
+.toolPrimary,
+.run {
+  font-size: 0.78rem;
+  padding: 0.38rem 0.9rem;
+  border: 0;
+  color: #0b1020;
+  background: linear-gradient(100deg, var(--ifm-color-primary), #a855f7);
+}
+
+.run:disabled {
+  opacity: 0.5;
+  cursor: progress;
+}
+
+.stdin {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--open-border);
+  outline: none;
+  resize: vertical;
+  padding: 0.7rem 0.9rem;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--open-code-fg);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78rem;
+}
+
+.cell {
+  border: 1px solid var(--open-border);
+  border-radius: 11px;
+  margin-bottom: 0.9rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.cellHead {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--open-border);
+}
+
+.cellIndex {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.72rem;
+  color: var(--open-code-dim);
+}
+
+.select {
+  appearance: none;
+  font-size: 0.74rem;
+  font-family: var(--ifm-font-family-monospace);
+  padding: 0.22rem 0.5rem;
+  border-radius: 7px;
+  border: 1px solid var(--open-border);
+  background: var(--open-code-head);
+  color: var(--open-code-fg);
+  cursor: pointer;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.icon {
+  width: 26px;
+  height: 26px;
+  font-size: 0.8rem;
+  line-height: 1;
+  color: var(--open-code-dim);
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.icon:hover {
+  color: var(--ifm-color-primary);
+  border-color: var(--open-border);
+}
+
+.editor {
+  width: 100%;
+  border: 0;
+  outline: none;
+  resize: vertical;
+  padding: 0.75rem 0.85rem;
+  background: transparent;
+  color: var(--open-code-fg);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  tab-size: 4;
+}
+
+.cellBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 0.7rem;
+  border-top: 1px solid var(--open-border);
+}
+
+.status {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.7rem;
+  color: var(--open-code-dim);
+}
+
+.addBig {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--open-code-dim);
+  background: transparent;
+  border: 1px dashed var(--open-border);
+}
+
+.addBig:hover {
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+@media (max-width: 1100px) {
+  .lab {
+    grid-template-columns: 1fr;
+  }
+  .pane {
+    max-height: none;
+  }
+  .paneBody {
+    max-height: 70vh;
+  }
+}

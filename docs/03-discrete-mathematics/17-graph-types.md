@@ -1,0 +1,38 @@
+---
+title: "Graph Types"
+sidebar_position: 17
+sidebar_label: "Graph Types"
+slug: /discrete-mathematics/graph-types
+description: "Graph Types — Discrete Mathematics | Open CS Hub"
+---
+
+# Graph Types
+
+:::note[Draft]
+This page has not been written yet. To contribute, click **Edit this page** below.
+:::
+
+## Overview
+
+_A short introduction to Graph Types._
+
+## Key Concepts
+
+-
+-
+-
+
+## Example
+
+```python
+# code example
+```
+
+## Practice Questions
+
+1.
+2.
+
+## References
+
+-

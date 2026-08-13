@@ -1,0 +1,38 @@
+---
+title: "RAG Retrieval-Augmented Generation"
+sidebar_position: 66
+sidebar_label: "RAG Retrieval-Augmented Generation"
+slug: /specialized-ai-fields/rag-retrieval-augmented-generation
+description: "RAG Retrieval-Augmented Generation — Specialized AI Fields | Open CS Hub"
+---
+
+# RAG Retrieval-Augmented Generation
+
+:::note[Draft]
+This page has not been written yet. To contribute, click **Edit this page** below.
+:::
+
+## Overview
+
+_A short introduction to RAG Retrieval-Augmented Generation._
+
+## Key Concepts
+
+-
+-
+-
+
+## Example
+
+```python
+# code example
+```
+
+## Practice Questions
+
+1.
+2.
+
+## References
+
+-
