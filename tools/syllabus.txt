@@ -1,0 +1,618 @@
+01. Computer Fundamentals
+Computer Basics
+History of Computers
+Generations of Computers
+Types of Computers
+Hardware
+CPU
+Motherboard
+RAM
+ROM
+Cache Memory
+Storage Devices
+Input & Output
+Keyboard
+Mouse
+Monitor
+Printer
+Number System
+Binary
+Decimal
+Octal
+Hexadecimal
+System Basics
+BIOS
+UEFI
+Boot Process
+File System
+Internet Basics
+Browser
+Search Engine
+Email
+Cloud Storage
+02. Programming Fundamentals
+Programming Concepts
+Algorithm
+Flowchart
+Pseudocode
+Variables & Data Types
+Integer
+Float
+String
+Boolean
+Control Flow
+If-Else
+Switch
+Loops
+Functions
+Parameters
+Return Values
+Recursion
+Data Structures Basics
+Array
+String Basics
+Pointer
+Structure
+Object-Oriented Programming
+Class
+Object
+Inheritance
+Polymorphism
+Encapsulation
+Abstraction
+Languages
+C
+C++
+Python
+Java
+JavaScript
+Go
+Rust
+03. Discrete Mathematics
+Logic
+Propositions
+Truth Tables
+Predicate Logic
+Set Theory
+Union
+Intersection
+Power Set
+Relations
+Equivalence
+Partial Order
+Functions in Discrete Math
+Injective
+Surjective
+Bijective
+Graph Theory
+Graph Types
+Trees
+Traversal
+Combinatorics
+Permutation
+Combination
+04. Linear Algebra
+Vectors
+Vector Operations
+Dot Product
+Cross Product
+Matrices
+Matrix Operations
+Matrix Multiplication
+Inverse
+Advanced Topics
+Eigenvalues
+Eigenvectors
+SVD
+05. Probability & Statistics
+Probability
+Random Variables
+Conditional Probability
+Bayes Theorem
+Distributions
+Normal
+Binomial
+Poisson
+Statistics
+Mean
+Median
+Variance
+Standard Deviation
+Inference
+Hypothesis Testing
+Confidence Interval
+06. Calculus
+Limits
+Differentiation
+Chain Rule
+Partial Derivatives
+Integration
+Definite Integral
+Indefinite Integral
+Optimization
+Gradient
+Gradient Descent
+07. Data Structures & Algorithms
+Complexity
+Big O
+Big Theta
+Big Omega
+Linear Structures
+Array DS
+Linked List
+Stack
+Queue
+Non-Linear Structures
+Tree
+BST
+AVL
+Heap
+Trie
+Graph
+Sorting
+Bubble
+Merge
+Quick
+Heap Sort
+Searching
+Linear Search
+Binary Search
+Graph Algorithms
+BFS
+DFS
+Dijkstra
+Bellman-Ford
+Floyd-Warshall
+MST
+Advanced Algorithms
+Dynamic Programming
+Greedy
+Divide & Conquer
+Backtracking
+08. Computer Organization & Architecture
+Digital Logic
+Gates
+Flip-Flops
+CPU Architecture
+ALU
+Registers
+Control Unit
+Memory
+Cache
+Main Memory
+Virtual Memory
+Performance
+Pipelining
+Parallel Processing
+09. Operating Systems
+Processes
+Process States
+PCB
+Threads
+Multithreading
+Scheduling
+FCFS
+SJF
+Round Robin
+Synchronization
+Mutex
+Semaphore
+Monitor
+Deadlocks
+Prevention
+Detection
+Memory Management
+Paging
+Segmentation
+Linux
+Shell
+Bash
+Permissions
+Containers
+cgroups
+Namespaces
+10. Computer Networks
+Network Basics
+OSI Model
+7 Layers
+TCP/IP
+TCP
+UDP
+IP Addressing
+IPv4
+IPv6
+Subnetting
+Protocols
+HTTP
+HTTPS
+FTP
+SMTP
+DNS
+Routing
+RIP
+OSPF
+BGP
+Modern Networking
+QUIC
+VPN
+11. Database Systems
+DBMS Basics
+ER Model
+SQL
+SELECT
+JOIN
+GROUP BY
+Subquery
+Transactions
+ACID
+Optimization Techniques
+Indexing
+Query Optimization
+NoSQL
+MongoDB
+Redis
+Cassandra
+12. Software Engineering
+SDLC
+Requirement Engineering
+UML
+Agile
+Scrum
+Kanban
+Testing
+Unit Testing
+Integration Testing
+Design Patterns
+Singleton
+Factory
+Observer
+13. Git & GitHub
+Git Basics
+Init
+Commit
+Push
+Branching
+Merge
+Rebase
+Pull Requests
+GitHub Actions
+14. Web Development
+Frontend
+HTML
+CSS
+JavaScript Web
+React
+Next.js
+Backend
+Node.js
+Express
+Django
+Flask
+FastAPI
+APIs
+REST
+GraphQL
+Authentication
+JWT
+OAuth
+15. Mobile Development
+Android
+Kotlin
+Jetpack
+Flutter
+React Native
+Deployment
+Play Store
+App Store
+16. Cloud Computing
+Cloud Basics
+AWS
+EC2
+S3
+Lambda
+Azure
+Google Cloud
+Docker
+Kubernetes
+Cloud Networking
+IAM
+VPC
+Load Balancer
+17. Cybersecurity
+Cryptography
+AES
+RSA
+SHA
+Web Security
+XSS
+SQL Injection
+Ethical Hacking
+Penetration Testing
+Malware
+Digital Forensics
+Security Operations
+SIEM
+SOC
+Zero Trust
+18. Compiler Design
+Lexical Analysis
+Syntax Analysis
+Parsing
+LL
+LR
+Semantic Analysis
+Code Generation
+Compiler Optimization
+19. Theory of Computation
+DFA
+NFA
+Regular Expressions
+Context-Free Grammar
+Pushdown Automata
+Turing Machine
+NP-Complete
+20. Distributed Systems
+Architecture
+RPC
+gRPC
+CAP Theorem
+Consensus
+Paxos
+Raft
+Replication
+Fault Tolerance
+Kafka
+Microservices
+21. Parallel Computing
+Multicore
+OpenMP
+MPI
+CUDA
+GPU Computing
+22. Computer Graphics
+2D Graphics
+3D Graphics
+OpenGL
+Transformations
+Lighting
+Ray Tracing
+23. Human-Computer Interaction
+UX
+UI
+Accessibility
+Wireframing
+Prototyping
+User Testing
+24. Embedded Systems
+Microcontrollers
+ARM
+GPIO
+Interrupts
+RTOS
+25. Real-Time Systems
+Hard Real-Time
+Soft Real-Time
+RT Scheduling
+Timing Constraints
+26. Data Science
+Data Collection
+Data Cleaning
+NumPy
+Pandas
+Visualization
+EDA
+27. Data Mining
+Association Rules
+Classification
+Clustering
+Outlier Detection
+28. Information Retrieval
+Search Engines
+Inverted Index
+TF-IDF
+BM25
+Dense Retrieval
+Sparse Retrieval
+29. Artificial Intelligence
+AI Basics
+Intelligent Agents
+Search Algorithms
+Knowledge Representation
+Planning
+Reasoning
+Expert Systems
+30. Machine Learning
+ML Workflow
+Data Preprocessing
+Feature Engineering
+Supervised Learning
+Linear Regression
+Logistic Regression
+Decision Trees
+Unsupervised Learning
+K-Means
+PCA
+Reinforcement Learning
+Ensemble Learning
+Random Forest
+XGBoost
+LightGBM
+CatBoost
+Model Evaluation
+Cross Validation
+Precision
+Recall
+F1 Score
+31. Deep Learning
+Neural Networks
+Backpropagation
+CNN
+RNN
+LSTM
+GRU
+Autoencoders
+GAN
+Diffusion Models
+Transformers
+Mixture of Experts
+Frameworks
+TensorFlow
+PyTorch
+32. Specialized AI Fields
+NLP Natural Language Processing
+Text Processing
+Tokenization
+Stemming
+Lemmatization
+Linguistics
+POS Tagging
+NER
+Dependency Parsing
+Embeddings
+Word2Vec
+GloVe
+FastText
+Transformer Models
+BERT
+GPT
+T5
+NLP Applications
+Machine Translation
+Text Summarization
+Sentiment Analysis
+Question Answering
+Computer Vision
+Image Processing
+OpenCV
+CNN for Vision
+Object Detection
+YOLO
+Faster R-CNN
+Segmentation
+U-Net
+OCR
+Vision Transformers
+Speech Recognition
+Audio Processing
+MFCC
+Whisper
+Speech-to-Text
+Text-to-Speech
+Speaker Recognition
+Recommendation Systems
+Content-Based
+Collaborative Filtering
+Matrix Factorization
+Hybrid Systems
+Cold Start
+Generative AI
+Foundation Models
+Prompt Engineering
+VAE
+Multimodal AI
+LLM Large Language Models
+Transformer Architecture
+Self-Attention
+Positional Encoding
+Pretraining
+Fine-Tuning
+Instruction Tuning
+RLHF
+LoRA
+PEFT
+Quantization
+Tool Calling
+KV Cache
+vLLM
+RAG Retrieval-Augmented Generation
+Chunking
+Vector Databases
+FAISS
+ChromaDB
+Pinecone
+Retrieval
+Hybrid Search
+Reranking
+LangChain
+LlamaIndex
+GraphRAG
+Agentic RAG
+AI Agents
+Agent Architecture
+Agent Planning
+Agent Reasoning
+Agent Memory
+Tool Use
+Browser Agents
+Coding Agents
+Multi-Agent Systems
+LangGraph
+CrewAI
+AutoGen
+MCP
+33. MLOps
+ML Pipeline
+MLflow
+Kubeflow
+Model Registry
+Monitoring
+Deployment
+34. DevOps
+Docker DevOps
+Kubernetes DevOps
+Jenkins
+GitHub Actions CI
+Terraform
+DevOps Monitoring
+35. Blockchain
+Blockchain Basics
+Consensus Mechanisms
+Smart Contracts
+Ethereum
+Solidity
+Web3
+36. Internet of Things
+Arduino
+Raspberry Pi
+Sensors
+MQTT
+IoT Security
+37. Robotics
+Robot Kinematics
+Robot Sensors
+Actuators
+SLAM
+ROS
+Path Planning
+38. Quantum Computing
+Qubits
+Quantum Gates
+Circuits
+Entanglement
+Quantum Algorithms
+Qiskit
+39. Research Methodology
+Literature Review
+Research Gap
+Problem Statement
+Research Questions
+Hypothesis
+Experimental Design
+Data Analysis
+Research Paper Writing
+LaTeX
+Citation
+Peer Review
+Journal Selection
+Conference Selection
+40. Advanced Research Areas
+Explainable AI
+Federated Learning
+Graph Neural Networks
+Edge AI
+Digital Twins
+Privacy-Preserving AI
+Responsible AI
+Bioinformatics
+High Performance Computing
+Quantum Information Science

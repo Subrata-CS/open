@@ -1,0 +1,17 @@
+---
+title: "22. Computer Graphics"
+sidebar_position: 0
+slug: /computer-graphics
+description: "Computer Graphics — all topics | Open CS Hub"
+---
+
+# 22. Computer Graphics
+
+Ei section e **6** ta topic ache.
+
+- [2D Graphics](/docs/computer-graphics/2d-graphics)
+- [3D Graphics](/docs/computer-graphics/3d-graphics)
+- [OpenGL](/docs/computer-graphics/opengl)
+- [Transformations](/docs/computer-graphics/transformations)
+- [Lighting](/docs/computer-graphics/lighting)
+- [Ray Tracing](/docs/computer-graphics/ray-tracing)

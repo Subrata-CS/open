@@ -1,0 +1,38 @@
+---
+title: "FCFS"
+sidebar_position: 7
+sidebar_label: "FCFS"
+slug: /operating-systems/fcfs
+description: "FCFS — Operating Systems | Open CS Hub"
+---
+
+# FCFS
+
+:::note Draft
+Ei page ta ekhono lekha hoyni. Contribute korte chaile upor-e **Edit this page** e click koro.
+:::
+
+## Overview
+
+_FCFS ki, ek-dui line e likho._
+
+## Key Concepts
+
+-
+-
+-
+
+## Example
+
+```python
+# code example
+```
+
+## Exam / Interview Questions
+
+1.
+2.
+
+## References
+
+-

@@ -1,0 +1,38 @@
+---
+title: "Advanced Algorithms"
+sidebar_position: 32
+sidebar_label: "Advanced Algorithms"
+slug: /data-structures-and-algorithms/advanced-algorithms
+description: "Advanced Algorithms — Data Structures & Algorithms | Open CS Hub"
+---
+
+# Advanced Algorithms
+
+:::note Draft
+Ei page ta ekhono lekha hoyni. Contribute korte chaile upor-e **Edit this page** e click koro.
+:::
+
+## Overview
+
+_Advanced Algorithms ki, ek-dui line e likho._
+
+## Key Concepts
+
+-
+-
+-
+
+## Example
+
+```python
+# code example
+```
+
+## Exam / Interview Questions
+
+1.
+2.
+
+## References
+
+-
