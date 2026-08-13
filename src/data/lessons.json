@@ -1,0 +1,252 @@
+[
+ {
+  "id": "python",
+  "label": "Python Basics",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Collections, comprehensions and f-strings",
+    "note": "Lists, dicts and comprehensions cover most day-to-day Python; f-strings handle the formatting.",
+    "lang": "python",
+    "code": "# Everything is an object, and names are just labels\nnums = [4, 8, 15, 16, 23, 42]\n\nsquares = [n * n for n in nums if n % 2 == 0]\ntotal   = sum(nums)\n\nprint(\"numbers :\", nums)\nprint(\"squares :\", squares)\nprint(\"total   :\", total, \" mean:\", round(total / len(nums), 2))\n\nlookup = {name: len(name) for name in [\"algorithm\", \"cache\", \"pointer\"]}\nfor word, length in sorted(lookup.items(), key=lambda kv: kv[1]):\n    print(f\"{word:<10} {length} letters\")",
+    "output": "numbers : [4, 8, 15, 16, 23, 42]\nsquares : [16, 64, 256, 1764]\ntotal   : 108  mean: 18.0\ncache      5 letters\npointer    7 letters\nalgorithm  9 letters"
+   },
+   {
+    "title": "Reading and writing files",
+    "note": "Open, write, read back, then count words — the shape of almost every text-processing script.",
+    "lang": "python",
+    "code": "# Write a file, read it back, count the words\ntext = \"\"\"the quick brown fox\njumps over the lazy dog\nthe dog barks\"\"\"\n\nwith open(\"notes.txt\", \"w\") as f:\n    f.write(text)\n\nwith open(\"notes.txt\") as f:\n    lines = f.read().splitlines()\n\ncounts = {}\nfor line in lines:\n    for word in line.split():\n        counts[word] = counts.get(word, 0) + 1\n\nprint(f\"{len(lines)} lines, {sum(counts.values())} words, {len(counts)} unique\")\nfor word, n in sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))[:5]:\n    print(f\"  {word:<6} {n}\")",
+    "output": "3 lines, 12 words, 9 unique\n  the    3\n  dog    2\n  barks  1\n  brown  1\n  fox    1"
+   }
+  ]
+ },
+ {
+  "id": "algo",
+  "label": "Algorithms & DSA",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Linear vs binary search",
+    "note": "Both find the same element. Watch how the gap widens as n grows — that is O(n) against O(log n).",
+    "lang": "python",
+    "code": "import time, random\n\ndef linear_search(a, target):\n    for i, v in enumerate(a):\n        if v == target:\n            return i\n    return -1\n\ndef binary_search(a, target):\n    lo, hi, steps = 0, len(a) - 1, 0\n    while lo <= hi:\n        mid = (lo + hi) // 2\n        steps += 1\n        if a[mid] == target:\n            return mid, steps\n        if a[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1, steps\n\nfor n in (1_000, 100_000, 1_000_000):\n    data = list(range(n))\n    target = n - 1\n    t0 = time.perf_counter(); linear_search(data, target); t1 = time.perf_counter()\n    _, steps = binary_search(data, target)\n    print(f\"n={n:>9}   linear {(t1-t0)*1000:8.2f} ms   binary {steps:>2} steps\")"
+   },
+   {
+    "title": "Breadth-first traversal",
+    "note": "BFS visits every node at distance k before any node at distance k+1, which is why it finds shortest paths.",
+    "lang": "python",
+    "code": "from collections import deque\n\ngraph = {\n    \"A\": [\"B\", \"C\"],\n    \"B\": [\"D\", \"E\"],\n    \"C\": [\"F\"],\n    \"D\": [], \"E\": [\"F\"], \"F\": [],\n}\n\ndef bfs(start):\n    seen, order, q = {start}, [], deque([(start, 0)])\n    while q:\n        node, depth = q.popleft()\n        order.append((node, depth))\n        for nxt in graph[node]:\n            if nxt not in seen:\n                seen.add(nxt)\n                q.append((nxt, depth + 1))\n    return order\n\nprint(\"BFS from A:\")\nfor node, depth in bfs(\"A\"):\n    print(\"  \" * depth + f\"{node}  (level {depth})\")",
+    "output": "BFS from A:\nA  (level 0)\n  B  (level 1)\n  C  (level 1)\n    D  (level 2)\n    E  (level 2)\n    F  (level 2)"
+   }
+  ]
+ },
+ {
+  "id": "c",
+  "label": "C",
+  "lang": "c",
+  "lesson": [
+   {
+    "title": "Pointers and arrays",
+    "note": "An array name decays to a pointer to its first element — which is why pointer arithmetic indexes the array.",
+    "lang": "c",
+    "code": "#include <stdio.h>\n\nint main(void) {\n    int a[5] = {10, 20, 30, 40, 50};\n    int *p = a;\n\n    for (int i = 0; i < 5; i++)\n        printf(\"a[%d] = %2d   *(p+%d) = %2d\\n\", i, a[i], i, *(p + i));\n\n    printf(\"\\nsizeof(a) = %zu bytes, sizeof(p) = %zu bytes\\n\", sizeof(a), sizeof(p));\n    return 0;\n}",
+    "output": "a[0] = 10   *(p+0) = 10\na[1] = 20   *(p+1) = 20\na[2] = 30   *(p+2) = 30\na[3] = 40   *(p+3) = 40\na[4] = 50   *(p+4) = 50\n\nsizeof(a) = 20 bytes, sizeof(p) = 8 bytes"
+   },
+   {
+    "title": "Recursion and the call stack",
+    "note": "Factorial and Euclid's algorithm, both expressed as one-line recurrences.",
+    "lang": "c",
+    "code": "#include <stdio.h>\n\nlong long fact(int n) { return n <= 1 ? 1 : n * fact(n - 1); }\n\nint gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b); }\n\nint main(void) {\n    for (int n = 1; n <= 10; n++)\n        printf(\"%2d! = %lld\\n\", n, fact(n));\n\n    printf(\"\\ngcd(1071, 462) = %d\\n\", gcd(1071, 462));\n    return 0;\n}",
+    "output": "1! = 1\n 2! = 2\n 3! = 6\n 4! = 24\n 5! = 120\n 6! = 720\n 7! = 5040\n 8! = 40320\n 9! = 362880\n10! = 3628800\n\ngcd(1071, 462) = 21"
+   }
+  ]
+ },
+ {
+  "id": "cpp",
+  "label": "C++",
+  "lang": "cpp",
+  "lesson": [
+   {
+    "title": "Merge sort on 200,000 elements",
+    "note": "A hand-written merge sort, then a check that the result really is ordered.",
+    "lang": "cpp",
+    "code": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <chrono>\n\nstd::vector<int> merge_sort(std::vector<int> a) {\n    if (a.size() <= 1) return a;\n    auto mid = a.begin() + a.size() / 2;\n    auto L = merge_sort({a.begin(), mid});\n    auto R = merge_sort({mid, a.end()});\n    std::vector<int> out;\n    out.reserve(a.size());\n    std::merge(L.begin(), L.end(), R.begin(), R.end(), std::back_inserter(out));\n    return out;\n}\n\nint main() {\n    std::vector<int> data;\n    for (int i = 0; i < 200000; i++) data.push_back((i * 7919) % 100003);\n\n    auto t0 = std::chrono::steady_clock::now();\n    auto sorted = merge_sort(data);\n    auto t1 = std::chrono::steady_clock::now();\n\n    std::cout << \"sorted \" << sorted.size() << \" items in \"\n              << std::chrono::duration_cast<std::chrono::milliseconds>(t1 - t0).count()\n              << \" ms\\n\";\n    std::cout << \"is_sorted: \" << std::boolalpha\n              << std::is_sorted(sorted.begin(), sorted.end()) << \"\\n\";\n    std::cout << \"first 8:\";\n    for (int i = 0; i < 8; i++) std::cout << ' ' << sorted[i];\n    std::cout << \"\\n\";\n}"
+   }
+  ]
+ },
+ {
+  "id": "java",
+  "label": "Java / OOP",
+  "lang": "java",
+  "lesson": [
+   {
+    "title": "Interfaces, records and polymorphism",
+    "note": "The same call site dispatches to different implementations at runtime — the core idea behind interfaces.",
+    "lang": "java",
+    "code": "interface Shape {\n    double area();\n}\n\nrecord Circle(double r) implements Shape {\n    public double area() { return Math.PI * r * r; }\n}\n\nrecord Rect(double w, double h) implements Shape {\n    public double area() { return w * h; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Shape[] shapes = { new Circle(2), new Rect(3, 4), new Circle(0.5) };\n        double total = 0;\n        for (Shape s : shapes) {\n            System.out.printf(\"%-22s area = %8.4f%n\", s, s.area());\n            total += s.area();\n        }\n        System.out.printf(\"%ntotal area = %.4f%n\", total);\n    }\n}",
+    "output": "Circle[r=2.0]          area =  12.5664\nRect[w=3.0, h=4.0]     area =  12.0000\nCircle[r=0.5]          area =   0.7854\n\ntotal area = 25.3518"
+   }
+  ]
+ },
+ {
+  "id": "js",
+  "label": "JavaScript",
+  "lang": "javascript",
+  "lesson": [
+   {
+    "title": "Closures and the event loop",
+    "note": "Note the ordering at the end: synchronous code, then microtasks, then timers.",
+    "lang": "javascript",
+    "code": "// Closures, higher-order functions and the event loop\nconst counter = (() => {\n  let n = 0;\n  return () => ++n;\n})();\n\nconsole.log('counter:', counter(), counter(), counter());\n\nconst users = [\n  { name: 'Asha', score: 91 },\n  { name: 'Rahul', score: 78 },\n  { name: 'Meera', score: 95 },\n];\n\nconst top = users\n  .filter(u => u.score > 80)\n  .sort((a, b) => b.score - a.score)\n  .map(u => `${u.name} (${u.score})`);\n\nconsole.log('top scorers:', top.join(', '));\n\nconsole.log('sync 1');\nPromise.resolve().then(() => console.log('microtask'));\nsetTimeout(() => console.log('macrotask'), 0);\nconsole.log('sync 2');",
+    "output": "counter: 1 2 3\ntop scorers: Meera (95), Asha (91)\nsync 1\nsync 2\nmicrotask\nmacrotask"
+   }
+  ]
+ },
+ {
+  "id": "go",
+  "label": "Go / Concurrency",
+  "lang": "go",
+  "lesson": [
+   {
+    "title": "Goroutines, channels and a WaitGroup",
+    "note": "Three workers pull from one job channel — Go's answer to a thread pool, in a dozen lines.",
+    "lang": "go",
+    "code": "package main\n\nimport (\n\t\"fmt\"\n\t\"sync\"\n)\n\nfunc main() {\n\tjobs := make(chan int, 10)\n\tresults := make(chan string, 10)\n\tvar wg sync.WaitGroup\n\n\tfor w := 1; w <= 3; w++ {\n\t\twg.Add(1)\n\t\tgo func(id int) {\n\t\t\tdefer wg.Done()\n\t\t\tfor n := range jobs {\n\t\t\t\tresults <- fmt.Sprintf(\"worker %d squared %d = %d\", id, n, n*n)\n\t\t\t}\n\t\t}(w)\n\t}\n\n\tfor n := 1; n <= 6; n++ {\n\t\tjobs <- n\n\t}\n\tclose(jobs)\n\twg.Wait()\n\tclose(results)\n\n\tcount := 0\n\tfor range results {\n\t\tcount++\n\t}\n\tfmt.Printf(\"%d jobs completed by 3 workers\\n\", count)\n}",
+    "output": "6 jobs completed by 3 workers"
+   }
+  ]
+ },
+ {
+  "id": "sql",
+  "label": "SQL & Databases",
+  "lang": "sql",
+  "lesson": [
+   {
+    "title": "Grouping and aggregation",
+    "note": "GROUP BY collapses rows into buckets; HAVING filters those buckets after aggregation, unlike WHERE.",
+    "lang": "sql",
+    "code": "CREATE TABLE marks(student TEXT, subject TEXT, score INTEGER);\n\nINSERT INTO marks VALUES\n  ('Asha','Maths',91), ('Asha','Physics',84),\n  ('Rahul','Maths',78), ('Rahul','Physics',88),\n  ('Meera','Maths',95), ('Meera','Physics',72);\n\n.mode column\n.headers on\n\nSELECT student,\n       COUNT(*)            AS papers,\n       ROUND(AVG(score),2) AS average,\n       MAX(score)          AS best\nFROM marks\nGROUP BY student\nHAVING AVG(score) > 80\nORDER BY average DESC;",
+    "output": "student  papers  average  best\n-------  ------  -------  ----\nAsha     2       87.5     91  \nMeera    2       83.5     95  \nRahul    2       83.0     88"
+   }
+  ]
+ },
+ {
+  "id": "os",
+  "label": "Operating Systems",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Round-robin scheduling",
+    "note": "Each process gets a fixed quantum before being sent to the back of the queue — the basis of time-sharing.",
+    "lang": "python",
+    "code": "# Round-robin scheduling with a quantum of 3\njobs = [(\"P1\", 7), (\"P2\", 4), (\"P3\", 9), (\"P4\", 2)]\nquantum, clock = 3, 0\nremaining = dict(jobs)\nqueue = [name for name, _ in jobs]\nfinish = {}\n\nwhile queue:\n    name = queue.pop(0)\n    slice_ = min(quantum, remaining[name])\n    print(f\"t={clock:>2}  run {name} for {slice_}\")\n    clock += slice_\n    remaining[name] -= slice_\n    if remaining[name]:\n        queue.append(name)\n    else:\n        finish[name] = clock\n\nprint()\ntotal = 0\nfor name, burst in jobs:\n    turnaround = finish[name]\n    total += turnaround\n    print(f\"{name}  burst {burst}  finished at {finish[name]:>2}  turnaround {turnaround}\")\nprint(f\"\\naverage turnaround: {total/len(jobs):.2f}\")",
+    "output": "t= 0  run P1 for 3\nt= 3  run P2 for 3\nt= 6  run P3 for 3\nt= 9  run P4 for 2\nt=11  run P1 for 3\nt=14  run P2 for 1\nt=15  run P3 for 3\nt=18  run P1 for 1\nt=19  run P3 for 3\n\nP1  burst 7  finished at 19  turnaround 19\nP2  burst 4  finished at 15  turnaround 15\nP3  burst 9  finished at 22  turnaround 22\nP4  burst 2  finished at 11  turnaround 11\n\naverage turnaround: 16.75"
+   }
+  ]
+ },
+ {
+  "id": "net",
+  "label": "Computer Networks",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Subnetting a /24",
+    "note": "Splitting an address block into smaller subnets, with the usable host range for each.",
+    "lang": "python",
+    "code": "import ipaddress\n\nnet = ipaddress.ip_network(\"192.168.10.0/24\")\nprint(f\"network   {net}\")\nprint(f\"netmask   {net.netmask}\")\nprint(f\"hosts     {net.num_addresses - 2}\")\nprint()\n\nprint(\"split into /26 subnets:\")\nfor sub in net.subnets(new_prefix=26):\n    hosts = list(sub.hosts())\n    print(f\"  {str(sub):<18} {hosts[0]} .. {hosts[-1]}\")",
+    "output": "network   192.168.10.0/24\nnetmask   255.255.255.0\nhosts     254\n\nsplit into /26 subnets:\n  192.168.10.0/26    192.168.10.1 .. 192.168.10.62\n  192.168.10.64/26   192.168.10.65 .. 192.168.10.126\n  192.168.10.128/26  192.168.10.129 .. 192.168.10.190\n  192.168.10.192/26  192.168.10.193 .. 192.168.10.254"
+   }
+  ]
+ },
+ {
+  "id": "security",
+  "label": "Security & Crypto",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Hashing and the avalanche effect",
+    "note": "One changed character rewrites roughly half the digest bits — and chaining hashes gives you a blockchain.",
+    "lang": "python",
+    "code": "import hashlib\n\ndef sha(text):\n    return hashlib.sha256(text.encode()).hexdigest()\n\n# One changed character avalanches through the whole digest\na, b = \"open computer science\", \"open computer scienca\"\nha, hb = sha(a), sha(b)\n\nprint(f\"{a!r}\\n  {ha}\")\nprint(f\"{b!r}\\n  {hb}\")\n\ndiff = sum(x != y for x, y in zip(bin(int(ha,16))[2:].zfill(256), bin(int(hb,16))[2:].zfill(256)))\nprint(f\"\\n{diff} of 256 bits differ ({diff/256:.1%})\")\n\n# A three-block chain, each block committing to the one before\nprev = \"0\" * 64\nfor i, payload in enumerate([\"alice->bob 5\", \"bob->carol 2\", \"carol->dan 1\"], 1):\n    prev = sha(prev + payload)\n    print(f\"block {i}  {payload:<14} {prev[:32]}...\")",
+    "output": "'open computer science'\n  05c9bc8e5e00a123b1356eea8ea75c803849c0b8102b47b950c4a62a5a30e521\n'open computer scienca'\n  bde6c35cbd57ce8dca68ce5c25c7f1921fc67979290bcbf65d84ce6fd4b3055b\n\n128 of 256 bits differ (50.0%)\nblock 1  alice->bob 5   cb5de720d08242ea3d1891652d47e9aa...\nblock 2  bob->carol 2   188f36380addcdda5a904d2bab32d7a3...\nblock 3  carol->dan 1   fc236795ebdfa4cfdd4c1cf6b4156b63..."
+   }
+  ]
+ },
+ {
+  "id": "discrete",
+  "label": "Discrete Maths",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Truth tables and counting",
+    "note": "Every propositional connective in one table, then permutations and combinations from factorials.",
+    "lang": "python",
+    "code": "from itertools import product\n\nprint(\" p  q | p^q  pvq  p->q  p<->q\")\nprint(\"-\" * 33)\nfor p, q in product([True, False], repeat=2):\n    implies = (not p) or q\n    iff     = p == q\n    print(f\" {int(p)}  {int(q)} |  {int(p and q)}    {int(p or q)}     {int(implies)}      {int(iff)}\")\n\nprint()\nn = 5\nfact = lambda k: 1 if k <= 1 else k * fact(k - 1)\nprint(f\"permutations P(5,3) = {fact(5)//fact(2)}\")\nprint(f\"combinations C(5,3) = {fact(5)//(fact(3)*fact(2))}\")",
+    "output": "p  q | p^q  pvq  p->q  p<->q\n---------------------------------\n 1  1 |  1    1     1      1\n 1  0 |  0    1     0      0\n 0  1 |  0    1     1      0\n 0  0 |  0    0     1      1\n\npermutations P(5,3) = 60\ncombinations C(5,3) = 10"
+   }
+  ]
+ },
+ {
+  "id": "linalg",
+  "label": "Linear Algebra",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Solving systems and finding eigenvalues",
+    "note": "NumPy's linear algebra module answers most matrix questions in one line each.",
+    "lang": "python",
+    "code": "import numpy as np\n\nA = np.array([[2., 1.], [1., 3.]])\nb = np.array([8., 13.])\n\nx = np.linalg.solve(A, b)\nvals, vecs = np.linalg.eig(A)\n\nprint(\"solving Ax = b\")\nprint(\"  x        =\", np.round(x, 4))\nprint(\"  check Ax =\", np.round(A @ x, 4))\nprint()\nprint(\"eigenvalues  :\", np.round(np.sort(vals), 4))\nprint(\"determinant  :\", round(float(np.linalg.det(A)), 4))\nprint(\"condition no :\", round(float(np.linalg.cond(A)), 4))",
+    "output": "solving Ax = b\n  x        = [2.2 3.6]\n  check Ax = [ 8. 13.]\n\neigenvalues  : [1.382 3.618]\ndeterminant  : 5.0\ncondition no : 2.618"
+   }
+  ]
+ },
+ {
+  "id": "stats",
+  "label": "Probability & Statistics",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Sampling and the shape of a distribution",
+    "note": "Ten thousand dice rolls converge on the theoretical mean and produce the familiar triangular shape.",
+    "lang": "python",
+    "code": "import random, statistics\n\nrandom.seed(7)\nrolls = [random.randint(1, 6) + random.randint(1, 6) for _ in range(10_000)]\n\nprint(f\"mean   {statistics.mean(rolls):.3f}   (theory 7.000)\")\nprint(f\"stdev  {statistics.pstdev(rolls):.3f}   (theory 2.415)\")\nprint()\nfor total in range(2, 13):\n    n = rolls.count(total)\n    bar = \"#\" * round(n / 40)\n    print(f\"{total:>2} {n:>5}  {bar}\")",
+    "output": "mean   6.975   (theory 7.000)\nstdev  2.419   (theory 2.415)\n\n 2   278  #######\n 3   565  ##############\n 4   855  #####################\n 5  1119  ############################\n 6  1382  ###################################\n 7  1700  ##########################################\n 8  1391  ###################################\n 9  1061  ###########################\n10   826  #####################\n11   517  #############\n12   306  ########"
+   }
+  ]
+ },
+ {
+  "id": "ml",
+  "label": "Machine Learning",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Fitting a line by least squares",
+    "note": "The closed-form solution recovers the slope and intercept that generated the data, even through the noise.",
+    "lang": "python",
+    "code": "import numpy as np\n\nrng = np.random.default_rng(0)\nx = np.linspace(0, 10, 60)\ny = 2.4 * x + 1.7 + rng.normal(0, 1.5, x.size)\n\nX = np.column_stack([np.ones_like(x), x])\nw = np.linalg.lstsq(X, y, rcond=None)[0]\n\npred = X @ w\nr2 = 1 - ((y - pred) ** 2).sum() / ((y - y.mean()) ** 2).sum()\n\nprint(f\"intercept : {w[0]:.3f}   (true 1.700)\")\nprint(f\"slope     : {w[1]:.3f}   (true 2.400)\")\nprint(f\"R^2       : {r2:.4f}\")",
+    "output": "intercept : 1.406   (true 1.700)\nslope     : 2.482   (true 2.400)\nR^2       : 0.9680"
+   },
+   {
+    "title": "Gradient descent, step by step",
+    "note": "Minimising a quadratic by hand shows exactly what an optimiser does inside every training loop.",
+    "lang": "python",
+    "code": "def f(w):    return (w - 3) ** 2 + 2\ndef grad(w): return 2 * (w - 3)\n\nw, lr = -4.0, 0.15\nfor step in range(31):\n    if step % 5 == 0:\n        print(f\"step {step:>2}   w = {w:8.4f}   loss = {f(w):8.4f}\")\n    w -= lr * grad(w)\n\nprint(f\"\\nconverged to w = {w:.6f}  (true minimum 3.0)\")",
+    "output": "step  0   w =  -4.0000   loss =  51.0000\nstep  5   w =   1.8235   loss =   3.3841\nstep 10   w =   2.8023   loss =   2.0391\nstep 15   w =   2.9668   loss =   2.0011\nstep 20   w =   2.9944   loss =   2.0000\nstep 25   w =   2.9991   loss =   2.0000\nstep 30   w =   2.9998   loss =   2.0000\n\nconverged to w = 2.999890  (true minimum 3.0)"
+   }
+  ]
+ },
+ {
+  "id": "dl",
+  "label": "Deep Learning",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Backpropagation from scratch",
+    "note": "A 2-4-1 network learns XOR with no framework at all — just matrix multiplies and the chain rule.",
+    "lang": "python",
+    "code": "import numpy as np\n\n# A 2-2-1 network learning XOR, written out by hand\nrng = np.random.default_rng(1)\nX = np.array([[0,0],[0,1],[1,0],[1,1]], dtype=float)\ny = np.array([[0],[1],[1],[0]], dtype=float)\n\nsig  = lambda z: 1 / (1 + np.exp(-z))\ndsig = lambda a: a * (1 - a)\n\nW1, b1 = rng.normal(0, 1, (2, 4)), np.zeros((1, 4))\nW2, b2 = rng.normal(0, 1, (4, 1)), np.zeros((1, 1))\n\nfor epoch in range(1, 4001):\n    h  = sig(X @ W1 + b1)\n    out = sig(h @ W2 + b2)\n    loss = ((out - y) ** 2).mean()\n\n    d2 = (out - y) * dsig(out)\n    d1 = (d2 @ W2.T) * dsig(h)\n    W2 -= 0.5 * h.T @ d2;  b2 -= 0.5 * d2.sum(0, keepdims=True)\n    W1 -= 0.5 * X.T @ d1;  b1 -= 0.5 * d1.sum(0, keepdims=True)\n\n    if epoch % 1000 == 0:\n        print(f\"epoch {epoch:>4}   loss {loss:.6f}\")\n\nprint()\nfor xi, p in zip(X, sig(sig(X @ W1 + b1) @ W2 + b2)):\n    print(f\"  {int(xi[0])} XOR {int(xi[1])} -> {p[0]:.4f}\")",
+    "output": "epoch 1000   loss 0.013528\nepoch 2000   loss 0.002318\nepoch 3000   loss 0.001190\nepoch 4000   loss 0.000787\n\n  0 XOR 0 -> 0.0223\n  0 XOR 1 -> 0.9719\n  1 XOR 0 -> 0.9738\n  1 XOR 1 -> 0.0342"
+   }
+  ]
+ }
+]

@@ -61,10 +61,6 @@ import RunInLab from '@site/src/components/RunInLab';
 
 # {plain}
 
-:::note[Draft]
-This page has not been written yet. To contribute, click **Edit this page** below.
-:::
-
 ## Overview
 
 _A short introduction to {plain}._

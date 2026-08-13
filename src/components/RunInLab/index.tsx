@@ -40,9 +40,7 @@ export default function RunInLab({ topic, lang = 'python', code }: RunInLabProps
     <div className={styles.box}>
       <div className={styles.head}>
         <span className={styles.dot} />
-        <span className={styles.label}>
-          Practice {topic} in {langById(lang).label}
-        </span>
+        <span className={styles.label}>Practice</span>
       </div>
 
       {code && <CodeBlock language={langById(lang).prism}>{code}</CodeBlock>}
