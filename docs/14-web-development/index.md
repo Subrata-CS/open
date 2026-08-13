@@ -7,7 +7,7 @@ description: "Web Development — all topics | Open CS Hub"
 
 # 14. Web Development
 
-Ei section e **18** ta topic ache.
+This section covers **18** topics.
 
 - [Frontend](/docs/web-development/frontend)
 - [HTML](/docs/web-development/html)

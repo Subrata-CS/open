@@ -7,7 +7,7 @@ description: "Machine Learning — all topics | Open CS Hub"
 
 # 30. Machine Learning
 
-Ei section e **21** ta topic ache.
+This section covers **21** topics.
 
 - [ML Workflow](/docs/machine-learning/ml-workflow)
 - [Data Preprocessing](/docs/machine-learning/data-preprocessing)

@@ -7,7 +7,7 @@ description: "Database Systems — all topics | Open CS Hub"
 
 # 11. Database Systems
 
-Ei section e **16** ta topic ache.
+This section covers **16** topics.
 
 - [DBMS Basics](/docs/database-systems/dbms-basics)
 - [ER Model](/docs/database-systems/er-model)

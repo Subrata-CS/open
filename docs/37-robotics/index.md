@@ -7,7 +7,7 @@ description: "Robotics — all topics | Open CS Hub"
 
 # 37. Robotics
 
-Ei section e **6** ta topic ache.
+This section covers **6** topics.
 
 - [Robot Kinematics](/docs/robotics/robot-kinematics)
 - [Robot Sensors](/docs/robotics/robot-sensors)

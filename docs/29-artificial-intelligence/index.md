@@ -7,7 +7,7 @@ description: "Artificial Intelligence — all topics | Open CS Hub"
 
 # 29. Artificial Intelligence
 
-Ei section e **7** ta topic ache.
+This section covers **7** topics.
 
 - [AI Basics](/docs/artificial-intelligence/ai-basics)
 - [Intelligent Agents](/docs/artificial-intelligence/intelligent-agents)

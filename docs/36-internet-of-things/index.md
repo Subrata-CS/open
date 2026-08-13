@@ -7,7 +7,7 @@ description: "Internet of Things — all topics | Open CS Hub"
 
 # 36. Internet of Things
 
-Ei section e **5** ta topic ache.
+This section covers **5** topics.
 
 - [Arduino](/docs/internet-of-things/arduino)
 - [Raspberry Pi](/docs/internet-of-things/raspberry-pi)

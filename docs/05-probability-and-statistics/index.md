@@ -7,7 +7,7 @@ description: "Probability & Statistics — all topics | Open CS Hub"
 
 # 05. Probability & Statistics
 
-Ei section e **16** ta topic ache.
+This section covers **16** topics.
 
 - [Probability](/docs/probability-and-statistics/probability)
 - [Random Variables](/docs/probability-and-statistics/random-variables)

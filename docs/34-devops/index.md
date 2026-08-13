@@ -7,7 +7,7 @@ description: "DevOps — all topics | Open CS Hub"
 
 # 34. DevOps
 
-Ei section e **6** ta topic ache.
+This section covers **6** topics.
 
 - [Docker DevOps](/docs/devops/docker-devops)
 - [Kubernetes DevOps](/docs/devops/kubernetes-devops)

@@ -7,7 +7,7 @@ description: "Computer Networks — all topics | Open CS Hub"
 
 # 10. Computer Networks
 
-Ei section e **23** ta topic ache.
+This section covers **23** topics.
 
 - [Network Basics](/docs/computer-networks/network-basics)
 - [OSI Model](/docs/computer-networks/osi-model)

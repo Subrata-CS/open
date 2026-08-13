@@ -7,7 +7,7 @@ description: "Research Methodology — all topics | Open CS Hub"
 
 # 39. Research Methodology
 
-Ei section e **13** ta topic ache.
+This section covers **13** topics.
 
 - [Literature Review](/docs/research-methodology/literature-review)
 - [Research Gap](/docs/research-methodology/research-gap)

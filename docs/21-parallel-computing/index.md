@@ -7,7 +7,7 @@ description: "Parallel Computing — all topics | Open CS Hub"
 
 # 21. Parallel Computing
 
-Ei section e **5** ta topic ache.
+This section covers **5** topics.
 
 - [Multicore](/docs/parallel-computing/multicore)
 - [OpenMP](/docs/parallel-computing/openmp)

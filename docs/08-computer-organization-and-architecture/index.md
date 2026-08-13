@@ -7,7 +7,7 @@ description: "Computer Organization & Architecture — all topics | Open CS Hub"
 
 # 08. Computer Organization & Architecture
 
-Ei section e **14** ta topic ache.
+This section covers **14** topics.
 
 - [Digital Logic](/docs/computer-organization-and-architecture/digital-logic)
 - [Gates](/docs/computer-organization-and-architecture/gates)

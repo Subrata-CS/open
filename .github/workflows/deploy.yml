@@ -1,8 +1,8 @@
 name: Deploy site
 
-# Kokhon chalu hobe:
-#  - main branch e push korle (jekono .md / .mdx / component edit korlei)
-#  - ba manually Actions tab theke
+# Runs when:
+#  - anything is pushed to the main branch (any .md / .mdx / component edit)
+#  - or manually from the Actions tab
 on:
   push:
     branches: [main]
@@ -13,7 +13,7 @@ permissions:
   pages: write
   id-token: write
 
-# Ekbare ekta deploy — pore push korle age-r ta cancel hobe na, queue e thakbe
+# One deployment at a time; later pushes queue instead of cancelling
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # showLastUpdateTime er jonno full git history dorkar
+          fetch-depth: 0 # full git history is required for showLastUpdateTime
 
       - uses: actions/setup-node@v4
         with:

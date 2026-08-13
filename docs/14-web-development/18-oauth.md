@@ -9,12 +9,12 @@ description: "OAuth — Web Development | Open CS Hub"
 # OAuth
 
 :::note Draft
-Ei page ta ekhono lekha hoyni. Contribute korte chaile upor-e **Edit this page** e click koro.
+This page has not been written yet. To contribute, click **Edit this page** below.
 :::
 
 ## Overview
 
-_OAuth ki, ek-dui line e likho._
+_A short introduction to OAuth._
 
 ## Key Concepts
 
@@ -28,7 +28,7 @@ _OAuth ki, ek-dui line e likho._
 # code example
 ```
 
-## Exam / Interview Questions
+## Practice Questions
 
 1.
 2.

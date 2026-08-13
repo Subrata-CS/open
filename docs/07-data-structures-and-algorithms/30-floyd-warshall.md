@@ -9,12 +9,12 @@ description: "Floyd-Warshall — Data Structures & Algorithms | Open CS Hub"
 # Floyd-Warshall
 
 :::note Draft
-Ei page ta ekhono lekha hoyni. Contribute korte chaile upor-e **Edit this page** e click koro.
+This page has not been written yet. To contribute, click **Edit this page** below.
 :::
 
 ## Overview
 
-_Floyd-Warshall ki, ek-dui line e likho._
+_A short introduction to Floyd-Warshall._
 
 ## Key Concepts
 
@@ -28,7 +28,7 @@ _Floyd-Warshall ki, ek-dui line e likho._
 # code example
 ```
 
-## Exam / Interview Questions
+## Practice Questions
 
 1.
 2.

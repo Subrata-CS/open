@@ -9,12 +9,12 @@ description: "Conditional Probability — Probability & Statistics | Open CS Hub
 # Conditional Probability
 
 :::note Draft
-Ei page ta ekhono lekha hoyni. Contribute korte chaile upor-e **Edit this page** e click koro.
+This page has not been written yet. To contribute, click **Edit this page** below.
 :::
 
 ## Overview
 
-_Conditional Probability ki, ek-dui line e likho._
+_A short introduction to Conditional Probability._
 
 ## Key Concepts
 
@@ -28,7 +28,7 @@ _Conditional Probability ki, ek-dui line e likho._
 # code example
 ```
 
-## Exam / Interview Questions
+## Practice Questions
 
 1.
 2.

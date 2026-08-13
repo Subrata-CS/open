@@ -7,7 +7,7 @@ description: "Discrete Mathematics — all topics | Open CS Hub"
 
 # 03. Discrete Mathematics
 
-Ei section e **22** ta topic ache.
+This section covers **22** topics.
 
 - [Logic](/docs/discrete-mathematics/logic)
 - [Propositions](/docs/discrete-mathematics/propositions)

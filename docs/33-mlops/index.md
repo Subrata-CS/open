@@ -7,7 +7,7 @@ description: "MLOps — all topics | Open CS Hub"
 
 # 33. MLOps
 
-Ei section e **6** ta topic ache.
+This section covers **6** topics.
 
 - [ML Pipeline](/docs/mlops/ml-pipeline)
 - [MLflow](/docs/mlops/mlflow)

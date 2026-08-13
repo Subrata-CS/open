@@ -7,7 +7,7 @@ description: "Mobile Development — all topics | Open CS Hub"
 
 # 15. Mobile Development
 
-Ei section e **8** ta topic ache.
+This section covers **8** topics.
 
 - [Android](/docs/mobile-development/android)
 - [Kotlin](/docs/mobile-development/kotlin)

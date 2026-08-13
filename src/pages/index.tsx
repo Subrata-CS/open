@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import HeroVisual from '@site/src/components/HeroVisual';
 import stats from '@site/src/data/stats.json';
 import styles from './index.module.css';
 
@@ -16,13 +16,15 @@ const TRACKS: Track[] = [
   {
     label: 'Foundations',
     to: '/docs/computer-fundamentals',
-    blurb: 'Computer basics, programming fundamentals, discrete math, linear algebra, probability, calculus.',
+    blurb:
+      'Computer basics, programming fundamentals, discrete math, linear algebra, probability, calculus.',
     badge: '01 – 06',
   },
   {
     label: 'Core CS',
     to: '/docs/data-structures-and-algorithms',
-    blurb: 'DSA, computer architecture, operating systems, networks, databases, software engineering.',
+    blurb:
+      'DSA, computer architecture, operating systems, networks, databases, software engineering.',
     badge: '07 – 12',
   },
   {
@@ -34,7 +36,8 @@ const TRACKS: Track[] = [
   {
     label: 'AI & Data',
     to: '/docs/machine-learning',
-    blurb: 'Data science, ML, deep learning, NLP, computer vision, LLMs, RAG, AI agents, MLOps.',
+    blurb:
+      'Data science, ML, deep learning, NLP, computer vision, LLMs, RAG, AI agents, MLOps.',
     badge: '26 – 34',
   },
   {
@@ -46,45 +49,51 @@ const TRACKS: Track[] = [
   {
     label: 'Research',
     to: '/docs/research-methodology',
-    blurb: 'Literature review, problem framing, experiment design, paper writing, XAI, federated learning.',
+    blurb:
+      'Literature review, problem framing, experiment design, paper writing, XAI, federated learning.',
     badge: '39 – 40',
   },
 ];
 
 function Hero(): ReactNode {
-  const { siteConfig } = useDocusaurusContext();
   return (
     <header className={styles.hero}>
-      <div className={styles.heroInner}>
-        <p className={styles.eyebrow}>Open source · MIT licensed · Free forever</p>
-        <h1 className={styles.title}>
-          A to Z <span className={styles.gradient}>Computer Science</span>
-        </h1>
-        <p className={styles.subtitle}>{siteConfig.tagline}</p>
+      <div className={styles.heroGrid}>
+        <div className={styles.heroText}>
+          <span className={styles.eyebrow}>// Open source · MIT licensed · Free forever</span>
 
-        <div className={styles.actions}>
-          <Link className={styles.primaryBtn} to="/docs">
-            Start learning →
-          </Link>
-          <Link className={styles.secondaryBtn} to="https://github.com/Subrata-CS/open">
-            View on GitHub
-          </Link>
+          <h1 className={styles.title}>
+            A to Z <span className={styles.gradient}>Computer Science</span>
+          </h1>
+
+          <p className={styles.subtitle}>
+            One place to learn it all — from your first line of C to transformers, RAG and AI
+            agents. Notes, examples and practice questions, organised topic by topic.
+          </p>
+
+          <div className={styles.chips}>
+            <span className={styles.chip}>
+              <b>{stats.sections}</b> sections
+            </span>
+            <span className={styles.chip}>
+              <b>{stats.topics}</b> topics
+            </span>
+            <span className={styles.chip}>Always free</span>
+          </div>
+
+          <div className={styles.actions}>
+            <Link className={styles.primaryBtn} to="/docs">
+              Explore topics <span aria-hidden="true">→</span>
+            </Link>
+            <Link className={styles.secondaryBtn} to="https://github.com/Subrata-CS/open">
+              View on GitHub
+            </Link>
+          </div>
         </div>
 
-        <dl className={styles.stats}>
-          <div className={styles.stat}>
-            <dt>{stats.sections}</dt>
-            <dd>Sections</dd>
-          </div>
-          <div className={styles.stat}>
-            <dt>{stats.topics}</dt>
-            <dd>Topics</dd>
-          </div>
-          <div className={styles.stat}>
-            <dt>∞</dt>
-            <dd>Cost</dd>
-          </div>
-        </dl>
+        <div className={styles.heroVisual}>
+          <HeroVisual />
+        </div>
       </div>
     </header>
   );
@@ -93,10 +102,12 @@ function Hero(): ReactNode {
 function Tracks(): ReactNode {
   return (
     <section className={styles.section}>
+      <p className={styles.kicker}>01 · Where to start</p>
       <h2 className={styles.sectionTitle}>Choose a track</h2>
       <p className={styles.sectionLead}>
-        Puro syllabus ta 40 ta section e vaga — jekono jayga theke shuru korte paro.
+        The full syllabus is split into {stats.sections} sections — start wherever you like.
       </p>
+
       <div className={styles.grid}>
         {TRACKS.map((track) => (
           <Link key={track.label} to={track.to} className={styles.card}>
@@ -111,46 +122,6 @@ function Tracks(): ReactNode {
   );
 }
 
-function HowItWorks(): ReactNode {
-  const steps = [
-    {
-      n: '1',
-      t: 'Edit Markdown',
-      d: 'Repo te kono .md file edit koro — GitHub web editor tei hobe, local setup lagbe na.',
-    },
-    {
-      n: '2',
-      t: 'Commit',
-      d: 'Commit korar sathe sathe GitHub Actions workflow nijei chalu hoye jay.',
-    },
-    {
-      n: '3',
-      t: 'Live in ~2 min',
-      d: 'Site rebuild hoye GitHub Pages e deploy hoy. Sidebar, search, TOC — sob auto update.',
-    },
-  ];
-  return (
-    <section className={styles.sectionAlt}>
-      <h2 className={styles.sectionTitle}>Backend edit → frontend live</h2>
-      <p className={styles.sectionLead}>
-        Kono manual deploy nei, kono config file edit korte hobe na.
-      </p>
-      <div className={styles.steps}>
-        {steps.map((s) => (
-          <div key={s.n} className={styles.step}>
-            <span className={styles.stepNum}>{s.n}</span>
-            <h3 className={styles.cardTitle}>{s.t}</h3>
-            <p className={styles.cardBlurb}>{s.d}</p>
-          </div>
-        ))}
-      </div>
-      <p className={styles.credit}>
-        Prepared by <strong>Subrata Pramanik</strong>
-      </p>
-    </section>
-  );
-}
-
 export default function Home(): ReactNode {
   return (
     <Layout
@@ -159,7 +130,6 @@ export default function Home(): ReactNode {
       <Hero />
       <main>
         <Tracks />
-        <HowItWorks />
       </main>
     </Layout>
   );

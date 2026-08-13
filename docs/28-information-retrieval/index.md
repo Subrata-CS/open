@@ -7,7 +7,7 @@ description: "Information Retrieval — all topics | Open CS Hub"
 
 # 28. Information Retrieval
 
-Ei section e **6** ta topic ache.
+This section covers **6** topics.
 
 - [Search Engines](/docs/information-retrieval/search-engines)
 - [Inverted Index](/docs/information-retrieval/inverted-index)

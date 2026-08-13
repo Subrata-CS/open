@@ -7,7 +7,7 @@ description: "Advanced Research Areas — all topics | Open CS Hub"
 
 # 40. Advanced Research Areas
 
-Ei section e **10** ta topic ache.
+This section covers **10** topics.
 
 - [Explainable AI](/docs/advanced-research-areas/explainable-ai)
 - [Federated Learning](/docs/advanced-research-areas/federated-learning)

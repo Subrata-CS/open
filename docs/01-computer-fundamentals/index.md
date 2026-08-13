@@ -7,7 +7,7 @@ description: "Computer Fundamentals — all topics | Open CS Hub"
 
 # 01. Computer Fundamentals
 
-Ei section e **31** ta topic ache.
+This section covers **31** topics.
 
 - [Computer Basics](/docs/computer-fundamentals/computer-basics)
 - [History of Computers](/docs/computer-fundamentals/history-of-computers)

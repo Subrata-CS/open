@@ -7,7 +7,7 @@ description: "Data Science — all topics | Open CS Hub"
 
 # 26. Data Science
 
-Ei section e **6** ta topic ache.
+This section covers **6** topics.
 
 - [Data Collection](/docs/data-science/data-collection)
 - [Data Cleaning](/docs/data-science/data-cleaning)

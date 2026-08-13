@@ -7,7 +7,7 @@ description: "Software Engineering — all topics | Open CS Hub"
 
 # 12. Software Engineering
 
-Ei section e **13** ta topic ache.
+This section covers **13** topics.
 
 - [SDLC](/docs/software-engineering/sdlc)
 - [Requirement Engineering](/docs/software-engineering/requirement-engineering)

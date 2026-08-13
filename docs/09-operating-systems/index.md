@@ -7,7 +7,7 @@ description: "Operating Systems — all topics | Open CS Hub"
 
 # 09. Operating Systems
 
-Ei section e **26** ta topic ache.
+This section covers **26** topics.
 
 - [Processes](/docs/operating-systems/processes)
 - [Process States](/docs/operating-systems/process-states)

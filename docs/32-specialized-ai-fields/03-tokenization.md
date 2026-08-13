@@ -9,12 +9,12 @@ description: "Tokenization — Specialized AI Fields | Open CS Hub"
 # Tokenization
 
 :::note Draft
-Ei page ta ekhono lekha hoyni. Contribute korte chaile upor-e **Edit this page** e click koro.
+This page has not been written yet. To contribute, click **Edit this page** below.
 :::
 
 ## Overview
 
-_Tokenization ki, ek-dui line e likho._
+_A short introduction to Tokenization._
 
 ## Key Concepts
 
@@ -28,7 +28,7 @@ _Tokenization ki, ek-dui line e likho._
 # code example
 ```
 
-## Exam / Interview Questions
+## Practice Questions
 
 1.
 2.

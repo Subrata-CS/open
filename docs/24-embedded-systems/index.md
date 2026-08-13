@@ -7,7 +7,7 @@ description: "Embedded Systems — all topics | Open CS Hub"
 
 # 24. Embedded Systems
 
-Ei section e **5** ta topic ache.
+This section covers **5** topics.
 
 - [Microcontrollers](/docs/embedded-systems/microcontrollers)
 - [ARM](/docs/embedded-systems/arm)

@@ -1,20 +1,20 @@
 # tools/
 
-`generate.py` — `syllabus.txt` theke `docs/` tree banay.
+`generate.py` builds the `docs/` tree from `syllabus.txt`.
 
 ```bash
 cd tools && python generate.py
 ```
 
-**Safe by design:** je `.md` file already ache seta **kokhono overwrite kore na**.
-Sudhu missing file create hoy, ar `_category_.json` / `docs/intro.md` /
-`src/data/stats.json` regenerate hoy (sidebar + counter sync rakhar jonno).
+**Safe by design:** existing `.md` files are **never overwritten**. Only missing
+files are created. `_category_.json`, `docs/intro.md` and `src/data/stats.json`
+are regenerated so the sidebar and counters stay in sync.
 
-## Notun topic add korte
+## Adding new topics
 
-1. `syllabus.txt` e line add koro (section header format: `41. New Section`)
-2. `python generate.py` chalao
-3. `git add . && git commit && git push` — site auto rebuild
+1. Add lines to `syllabus.txt` (section header format: `41. New Section`)
+2. Run `python generate.py`
+3. `git add . && git commit && git push` — the site rebuilds automatically
 
-Ekta topic sudhu ekbar-i add korte chaile generate.py na cholieo hobe —
-`docs/<section>/NN-topic.md` file ta hate banao, sidebar-e automatically chole ashbe.
+For a single topic you don't need the script at all: create
+`docs/<section>/NN-topic-name.md` by hand and it appears in the sidebar on its own.

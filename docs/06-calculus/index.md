@@ -7,7 +7,7 @@ description: "Calculus — all topics | Open CS Hub"
 
 # 06. Calculus
 
-Ei section e **10** ta topic ache.
+This section covers **10** topics.
 
 - [Limits](/docs/calculus/limits)
 - [Differentiation](/docs/calculus/differentiation)

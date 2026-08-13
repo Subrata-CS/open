@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-generate.py — syllabus.txt theke Docusaurus `docs/` tree banay.
+generate.py - builds the Docusaurus `docs/` tree from syllabus.txt
 
 Usage:
     cd tools && python generate.py
 
 Rules:
-  - Je .md file ALREADY ache seta touch kore na  -> tomar lekha 100% safe
-  - _category_.json ar docs/intro.md regenerate hoy (sidebar sync rakhar jonno)
-  - Notun topic add korte: syllabus.txt e line add koro -> re-run -> commit
+  - Existing .md files are NEVER overwritten -> your written content is safe
+  - _category_.json, docs/intro.md and src/data/stats.json are regenerated
+    so the sidebar and counters stay in sync
+  - To add topics: add lines to syllabus.txt -> re-run -> commit
 """
 import json
 import os
@@ -59,12 +60,12 @@ description: {desc}
 # {plain}
 
 :::note Draft
-Ei page ta ekhono lekha hoyni. Contribute korte chaile upor-e **Edit this page** e click koro.
+This page has not been written yet. To contribute, click **Edit this page** below.
 :::
 
 ## Overview
 
-_{plain} ki, ek-dui line e likho._
+_A short introduction to {plain}._
 
 ## Key Concepts
 
@@ -78,7 +79,7 @@ _{plain} ki, ek-dui line e likho._
 # code example
 ```
 
-## Exam / Interview Questions
+## Practice Questions
 
 1.
 2.
@@ -97,7 +98,7 @@ description: {desc}
 
 # {plain}
 
-Ei section e **{count}** ta topic ache.
+This section covers **{count}** topics.
 
 {links}
 """
@@ -157,8 +158,8 @@ def main():
                     "label": sec_title,
                     "position": int(sec["num"]),
                     "collapsed": True,
-                    # index.md ta Docusaurus NIJEI category index hisebe dhore ney,
-                    # tai ekhane "link" dewar dorkar nei.
+                    # Docusaurus picks up index.md as the category index
+                    # automatically, so no explicit "link" is needed here.
                 },
                 indent=2,
                 ensure_ascii=False,
@@ -195,13 +196,15 @@ description: "A to Z Computer Science learning hub — 40 sections, {total} topi
 
 # Open — A to Z Computer Science
 
-Ekta **open learning hub** — programming fundamentals theke shuru kore Data Structures,
-Algorithms, Machine Learning, Deep Learning, Generative AI o Computer Vision porjonto.
+An **open learning hub** covering everything from programming fundamentals to
+Data Structures, Algorithms, Machine Learning, Deep Learning, Generative AI
+and Computer Vision.
 
-:::tip Kivabe update hoy
-Ei site ta [github.com/Subrata-CS/open](https://github.com/Subrata-CS/open) repo theke
-**automatically** build hoy. Repo te kono file edit kore commit korlei ~2 minute er
-moddhe ei website e live hoye jay. Kono manual deploy lagbe na.
+:::tip Always up to date
+This site is built **automatically** from the
+[github.com/Subrata-CS/open](https://github.com/Subrata-CS/open) repository.
+Edit any file, commit it, and the change is live within about two minutes —
+no manual deployment step.
 :::
 
 ## Syllabus map
@@ -214,14 +217,14 @@ moddhe ei website e live hoye jay. Kono manual deploy lagbe na.
 
 ---
 
-## Kivabe contribute korbe
+## How to contribute
 
-1. Je page e ache sekhane niche **Edit this page** e click koro
-2. Markdown likhe **Commit changes** koro
-3. GitHub Action nijei rebuild kore site update kore debe
+1. Open any page and click **Edit this page** at the bottom
+2. Write Markdown and hit **Commit changes**
+3. A GitHub Action rebuilds and redeploys the site automatically
 
-Notun topic add korte sudhu `docs/` er vitor ekta notun `.md` file banao —
-sidebar-e automatically chole ashbe. Kono config edit korte hobe na.
+To add a new topic, simply create a new `.md` file inside `docs/` — it appears
+in the sidebar on its own. No configuration file needs to be touched.
 
 ---
 

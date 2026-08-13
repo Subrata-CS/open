@@ -7,7 +7,7 @@ description: "Compiler Design — all topics | Open CS Hub"
 
 # 18. Compiler Design
 
-Ei section e **8** ta topic ache.
+This section covers **8** topics.
 
 - [Lexical Analysis](/docs/compiler-design/lexical-analysis)
 - [Syntax Analysis](/docs/compiler-design/syntax-analysis)

@@ -7,7 +7,7 @@ description: "Real-Time Systems — all topics | Open CS Hub"
 
 # 25. Real-Time Systems
 
-Ei section e **4** ta topic ache.
+This section covers **4** topics.
 
 - [Hard Real-Time](/docs/real-time-systems/hard-real-time)
 - [Soft Real-Time](/docs/real-time-systems/soft-real-time)

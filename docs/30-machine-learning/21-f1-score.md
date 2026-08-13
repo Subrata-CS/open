@@ -9,12 +9,12 @@ description: "F1 Score — Machine Learning | Open CS Hub"
 # F1 Score
 
 :::note Draft
-Ei page ta ekhono lekha hoyni. Contribute korte chaile upor-e **Edit this page** e click koro.
+This page has not been written yet. To contribute, click **Edit this page** below.
 :::
 
 ## Overview
 
-_F1 Score ki, ek-dui line e likho._
+_A short introduction to F1 Score._
 
 ## Key Concepts
 
@@ -28,7 +28,7 @@ _F1 Score ki, ek-dui line e likho._
 # code example
 ```
 
-## Exam / Interview Questions
+## Practice Questions
 
 1.
 2.

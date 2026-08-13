@@ -7,7 +7,7 @@ description: "Data Structures & Algorithms — all topics | Open CS Hub"
 
 # 07. Data Structures & Algorithms
 
-Ei section e **36** ta topic ache.
+This section covers **36** topics.
 
 - [Complexity](/docs/data-structures-and-algorithms/complexity)
 - [Big O](/docs/data-structures-and-algorithms/big-o)

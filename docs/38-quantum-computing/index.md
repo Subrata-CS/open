@@ -7,7 +7,7 @@ description: "Quantum Computing — all topics | Open CS Hub"
 
 # 38. Quantum Computing
 
-Ei section e **6** ta topic ache.
+This section covers **6** topics.
 
 - [Qubits](/docs/quantum-computing/qubits)
 - [Quantum Gates](/docs/quantum-computing/quantum-gates)

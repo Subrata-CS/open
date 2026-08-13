@@ -7,7 +7,7 @@ description: "Blockchain — all topics | Open CS Hub"
 
 # 35. Blockchain
 
-Ei section e **6** ta topic ache.
+This section covers **6** topics.
 
 - [Blockchain Basics](/docs/blockchain/blockchain-basics)
 - [Consensus Mechanisms](/docs/blockchain/consensus-mechanisms)

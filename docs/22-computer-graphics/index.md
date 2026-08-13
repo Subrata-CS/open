@@ -7,7 +7,7 @@ description: "Computer Graphics — all topics | Open CS Hub"
 
 # 22. Computer Graphics
 
-Ei section e **6** ta topic ache.
+This section covers **6** topics.
 
 - [2D Graphics](/docs/computer-graphics/2d-graphics)
 - [3D Graphics](/docs/computer-graphics/3d-graphics)

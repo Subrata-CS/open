@@ -26,6 +26,10 @@
   --open-surface: #ffffff;
   --open-muted: #64748b;
   --open-border: #e2e8f0;
+  --open-code-bg: #0f1428;
+  --open-code-head: #161d38;
+  --open-code-fg: #e2e8f0;
+  --open-code-dim: #8b96b4;
 }
 
 [data-theme='dark'] {
@@ -46,6 +50,10 @@
   --open-surface: #111731;
   --open-muted: #94a3b8;
   --open-border: #1f2a4a;
+  --open-code-bg: #0d1226;
+  --open-code-head: #141b33;
+  --open-code-fg: #e2e8f0;
+  --open-code-dim: #8b96b4;
 }
 
 html {
@@ -73,8 +81,22 @@ html {
   mask-repeat: no-repeat;
 }
 
-.header-github-link:hover::before {
+.header-github-link:hover::before,
+.header-linkedin-link:hover::before {
   background-color: var(--ifm-color-primary);
+}
+
+/* LinkedIn icon in navbar */
+.header-linkedin-link::before {
+  content: '';
+  width: 22px;
+  height: 22px;
+  display: flex;
+  background-color: var(--ifm-navbar-link-color);
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 013.37-1.85c3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 110-4.13 2.07 2.07 0 010 4.13zm1.78 13.02H3.55V9h3.57zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }
 
 /* Cleaner sidebar for a 578-topic tree */
@@ -109,6 +131,16 @@ article .markdown h1:first-child {
 
 .table-of-contents__link--active {
   font-weight: 600;
+}
+
+/* Footer without link columns stays compact */
+.footer--dark {
+  --ifm-footer-background-color: #0b1020;
+  padding: 2rem 0;
+}
+
+.footer__bottom {
+  margin-top: 0;
 }
 
 /* Wider content on large screens */

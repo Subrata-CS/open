@@ -9,12 +9,12 @@ description: "Transformations — Computer Graphics | Open CS Hub"
 # Transformations
 
 :::note Draft
-Ei page ta ekhono lekha hoyni. Contribute korte chaile upor-e **Edit this page** e click koro.
+This page has not been written yet. To contribute, click **Edit this page** below.
 :::
 
 ## Overview
 
-_Transformations ki, ek-dui line e likho._
+_A short introduction to Transformations._
 
 ## Key Concepts
 
@@ -28,7 +28,7 @@ _Transformations ki, ek-dui line e likho._
 # code example
 ```
 
-## Exam / Interview Questions
+## Practice Questions
 
 1.
 2.

@@ -7,7 +7,7 @@ description: "Programming Fundamentals — all topics | Open CS Hub"
 
 # 02. Programming Fundamentals
 
-Ei section e **37** ta topic ache.
+This section covers **37** topics.
 
 - [Programming Concepts](/docs/programming-fundamentals/programming-concepts)
 - [Algorithm](/docs/programming-fundamentals/algorithm)

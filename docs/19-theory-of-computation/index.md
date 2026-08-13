@@ -7,7 +7,7 @@ description: "Theory of Computation — all topics | Open CS Hub"
 
 # 19. Theory of Computation
 
-Ei section e **7** ta topic ache.
+This section covers **7** topics.
 
 - [DFA](/docs/theory-of-computation/dfa)
 - [NFA](/docs/theory-of-computation/nfa)

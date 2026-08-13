@@ -7,7 +7,7 @@ description: "Distributed Systems — all topics | Open CS Hub"
 
 # 20. Distributed Systems
 
-Ei section e **11** ta topic ache.
+This section covers **11** topics.
 
 - [Architecture](/docs/distributed-systems/architecture)
 - [RPC](/docs/distributed-systems/rpc)

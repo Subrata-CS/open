@@ -9,12 +9,12 @@ description: "RAG Retrieval-Augmented Generation — Specialized AI Fields | Ope
 # RAG Retrieval-Augmented Generation
 
 :::note Draft
-Ei page ta ekhono lekha hoyni. Contribute korte chaile upor-e **Edit this page** e click koro.
+This page has not been written yet. To contribute, click **Edit this page** below.
 :::
 
 ## Overview
 
-_RAG Retrieval-Augmented Generation ki, ek-dui line e likho._
+_A short introduction to RAG Retrieval-Augmented Generation._
 
 ## Key Concepts
 
@@ -28,7 +28,7 @@ _RAG Retrieval-Augmented Generation ki, ek-dui line e likho._
 # code example
 ```
 
-## Exam / Interview Questions
+## Practice Questions
 
 1.
 2.

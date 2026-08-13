@@ -7,13 +7,15 @@ description: "A to Z Computer Science learning hub — 40 sections, 578 topics."
 
 # Open — A to Z Computer Science
 
-Ekta **open learning hub** — programming fundamentals theke shuru kore Data Structures,
-Algorithms, Machine Learning, Deep Learning, Generative AI o Computer Vision porjonto.
+An **open learning hub** covering everything from programming fundamentals to
+Data Structures, Algorithms, Machine Learning, Deep Learning, Generative AI
+and Computer Vision.
 
-:::tip Kivabe update hoy
-Ei site ta [github.com/Subrata-CS/open](https://github.com/Subrata-CS/open) repo theke
-**automatically** build hoy. Repo te kono file edit kore commit korlei ~2 minute er
-moddhe ei website e live hoye jay. Kono manual deploy lagbe na.
+:::tip Always up to date
+This site is built **automatically** from the
+[github.com/Subrata-CS/open](https://github.com/Subrata-CS/open) repository.
+Edit any file, commit it, and the change is live within about two minutes —
+no manual deployment step.
 :::
 
 ## Syllabus map
@@ -65,14 +67,14 @@ moddhe ei website e live hoye jay. Kono manual deploy lagbe na.
 
 ---
 
-## Kivabe contribute korbe
+## How to contribute
 
-1. Je page e ache sekhane niche **Edit this page** e click koro
-2. Markdown likhe **Commit changes** koro
-3. GitHub Action nijei rebuild kore site update kore debe
+1. Open any page and click **Edit this page** at the bottom
+2. Write Markdown and hit **Commit changes**
+3. A GitHub Action rebuilds and redeploys the site automatically
 
-Notun topic add korte sudhu `docs/` er vitor ekta notun `.md` file banao —
-sidebar-e automatically chole ashbe. Kono config edit korte hobe na.
+To add a new topic, simply create a new `.md` file inside `docs/` — it appears
+in the sidebar on its own. No configuration file needs to be touched.
 
 ---
 

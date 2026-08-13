@@ -7,7 +7,7 @@ description: "Specialized AI Fields — all topics | Open CS Hub"
 
 # 32. Specialized AI Fields
 
-Ei section e **91** ta topic ache.
+This section covers **91** topics.
 
 - [NLP Natural Language Processing](/docs/specialized-ai-fields/nlp-natural-language-processing)
 - [Text Processing](/docs/specialized-ai-fields/text-processing)

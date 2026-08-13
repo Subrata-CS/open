@@ -7,7 +7,7 @@ description: "Data Mining — all topics | Open CS Hub"
 
 # 27. Data Mining
 
-Ei section e **4** ta topic ache.
+This section covers **4** topics.
 
 - [Association Rules](/docs/data-mining/association-rules)
 - [Classification](/docs/data-mining/classification)

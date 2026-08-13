@@ -7,7 +7,7 @@ description: "Linear Algebra — all topics | Open CS Hub"
 
 # 04. Linear Algebra
 
-Ei section e **12** ta topic ache.
+This section covers **12** topics.
 
 - [Vectors](/docs/linear-algebra/vectors)
 - [Vector Operations](/docs/linear-algebra/vector-operations)

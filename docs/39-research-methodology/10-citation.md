@@ -9,12 +9,12 @@ description: "Citation — Research Methodology | Open CS Hub"
 # Citation
 
 :::note Draft
-Ei page ta ekhono lekha hoyni. Contribute korte chaile upor-e **Edit this page** e click koro.
+This page has not been written yet. To contribute, click **Edit this page** below.
 :::
 
 ## Overview
 
-_Citation ki, ek-dui line e likho._
+_A short introduction to Citation._
 
 ## Key Concepts
 
@@ -28,7 +28,7 @@ _Citation ki, ek-dui line e likho._
 # code example
 ```
 
-## Exam / Interview Questions
+## Practice Questions
 
 1.
 2.

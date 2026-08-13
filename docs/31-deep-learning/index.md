@@ -7,7 +7,7 @@ description: "Deep Learning — all topics | Open CS Hub"
 
 # 31. Deep Learning
 
-Ei section e **14** ta topic ache.
+This section covers **14** topics.
 
 - [Neural Networks](/docs/deep-learning/neural-networks)
 - [Backpropagation](/docs/deep-learning/backpropagation)

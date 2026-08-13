@@ -9,12 +9,12 @@ description: "Median — Probability & Statistics | Open CS Hub"
 # Median
 
 :::note Draft
-Ei page ta ekhono lekha hoyni. Contribute korte chaile upor-e **Edit this page** e click koro.
+This page has not been written yet. To contribute, click **Edit this page** below.
 :::
 
 ## Overview
 
-_Median ki, ek-dui line e likho._
+_A short introduction to Median._
 
 ## Key Concepts
 
@@ -28,7 +28,7 @@ _Median ki, ek-dui line e likho._
 # code example
 ```
 
-## Exam / Interview Questions
+## Practice Questions
 
 1.
 2.

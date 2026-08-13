@@ -7,7 +7,7 @@ description: "Cloud Computing — all topics | Open CS Hub"
 
 # 16. Cloud Computing
 
-Ei section e **13** ta topic ache.
+This section covers **13** topics.
 
 - [Cloud Basics](/docs/cloud-computing/cloud-basics)
 - [AWS](/docs/cloud-computing/aws)

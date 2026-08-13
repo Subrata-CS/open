@@ -9,12 +9,12 @@ description: "Non-Linear Structures — Data Structures & Algorithms | Open CS H
 # Non-Linear Structures
 
 :::note Draft
-Ei page ta ekhono lekha hoyni. Contribute korte chaile upor-e **Edit this page** e click koro.
+This page has not been written yet. To contribute, click **Edit this page** below.
 :::
 
 ## Overview
 
-_Non-Linear Structures ki, ek-dui line e likho._
+_A short introduction to Non-Linear Structures._
 
 ## Key Concepts
 
@@ -28,7 +28,7 @@ _Non-Linear Structures ki, ek-dui line e likho._
 # code example
 ```
 
-## Exam / Interview Questions
+## Practice Questions
 
 1.
 2.

@@ -7,7 +7,7 @@ description: "Human-Computer Interaction — all topics | Open CS Hub"
 
 # 23. Human-Computer Interaction
 
-Ei section e **6** ta topic ache.
+This section covers **6** topics.
 
 - [UX](/docs/human-computer-interaction/ux)
 - [UI](/docs/human-computer-interaction/ui)

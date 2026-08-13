@@ -7,7 +7,7 @@ description: "Cybersecurity — all topics | Open CS Hub"
 
 # 17. Cybersecurity
 
-Ei section e **15** ta topic ache.
+This section covers **15** topics.
 
 - [Cryptography](/docs/cybersecurity/cryptography)
 - [AES](/docs/cybersecurity/aes)

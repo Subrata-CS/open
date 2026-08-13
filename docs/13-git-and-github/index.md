@@ -7,7 +7,7 @@ description: "Git & GitHub — all topics | Open CS Hub"
 
 # 13. Git & GitHub
 
-Ei section e **9** ta topic ache.
+This section covers **9** topics.
 
 - [Git Basics](/docs/git-and-github/git-basics)
 - [Init](/docs/git-and-github/init)
