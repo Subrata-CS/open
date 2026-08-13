@@ -6,7 +6,7 @@
 
 ### 🌐 Live site → https://subrata-cs.github.io/open/
 
-**40 sections · 578 topics** · Built with Docusaurus 3 + React 19 + TypeScript + MDX
+
 
 *Prepared by **Subrata Pramanik***
 
