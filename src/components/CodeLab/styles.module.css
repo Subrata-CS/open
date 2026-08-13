@@ -292,3 +292,135 @@
     max-height: 70vh;
   }
 }
+
+/* ---------------- data panel ---------------- */
+
+.toolOn {
+  composes: tool;
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.backLink {
+  margin-left: auto;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60%;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.dataPanel {
+  padding: 0.9rem;
+  border-bottom: 1px solid var(--open-border);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.dataLead {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--open-code-dim);
+  margin-bottom: 0.8rem;
+}
+
+.dataLead code {
+  font-size: 0.78rem;
+  background: rgba(129, 140, 248, 0.14);
+  border: 0;
+  color: var(--ifm-color-primary);
+}
+
+.dataActions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.fileList {
+  list-style: none;
+  margin: 0 0 0.9rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.file {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--open-border);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.76rem;
+}
+
+.fileName {
+  color: var(--open-code-fg);
+}
+
+.fileSize {
+  margin-left: auto;
+  color: var(--open-code-dim);
+}
+
+.dataSub {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--open-code-dim);
+  margin-bottom: 0.55rem;
+}
+
+.sampleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.55rem;
+}
+
+.sample {
+  appearance: none;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid var(--open-border);
+  background: transparent;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.sample:hover {
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+}
+
+.sampleName {
+  font-weight: 600;
+  font-size: 0.86rem;
+  color: var(--open-code-fg);
+}
+
+.sampleMeta {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.7rem;
+  color: var(--ifm-color-primary);
+}
+
+.sampleBlurb {
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--open-code-dim);
+}

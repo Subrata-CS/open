@@ -6,53 +6,98 @@
   overflow: hidden;
 }
 
+/* soft depth wash so the animation reads as lighting, not a pasted image */
+.layer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1200px 700px at 78% 42%, rgba(99, 102, 241, 0.14), transparent 68%),
+    radial-gradient(900px 600px at 12% 78%, rgba(168, 85, 247, 0.09), transparent 70%);
+}
+
+/* faint engineering grid — reads as precision at any resolution */
+.layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(1000px 700px at 70% 45%, #000 10%, transparent 78%);
+}
+
 .canvas,
 .canvasDocs {
   position: absolute;
-  opacity: 0.16;
-  animation: fade 1.2s ease both;
+  animation: fade 1.1s ease both;
+  filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.22));
 }
 
-/* homepage: large, centred behind the fold */
+/* homepage — large and centred, fully inside the viewport */
 .canvas {
-  top: 46%;
+  top: 50%;
   left: 50%;
-  width: min(1500px, 145vw);
+  width: min(1280px, 88vw);
   transform: translate(-50%, -50%);
+  opacity: 0.2;
 }
 
-/* docs pages: pushed to the right so it never sits under the text column */
+/* docs pages — parked in the empty gutter right of the text column,
+   sized so nothing is ever clipped by the viewport edge */
 .canvasDocs {
   top: 50%;
-  right: -6%;
-  width: min(820px, 62vw);
-  transform: translateY(-50%);
-  opacity: 0.12;
+  left: calc(50% + 22rem);
+  width: min(560px, 34vw);
+  transform: translate(-50%, -50%);
+  opacity: 0.17;
 }
 
 @keyframes fade {
   from {
     opacity: 0;
+    transform: translate(-50%, -50%) scale(0.985);
   }
 }
 
 .caption {
   position: absolute;
-  right: 1.35rem;
-  bottom: 6.6rem;
+  right: 1.4rem;
+  bottom: 7rem;
   font-family: var(--ifm-font-family-monospace);
-  font-size: 0.66rem;
-  letter-spacing: 0.14em;
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--open-code-dim);
-  opacity: 0.5;
+  opacity: 0.45;
+}
+
+/* below the docs breakpoint there is no gutter to park in */
+@media (max-width: 1416px) {
+  .canvasDocs {
+    left: auto;
+    right: 1.5rem;
+    width: min(420px, 30vw);
+    transform: translateY(-50%);
+    opacity: 0.12;
+  }
 }
 
 @media (max-width: 996px) {
-  .canvasDocs {
-    display: none;
-  }
+  .canvasDocs,
   .caption {
     display: none;
+  }
+  .canvas {
+    width: 118vw;
+    opacity: 0.14;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .canvas,
+  .canvasDocs {
+    animation: none;
   }
 }

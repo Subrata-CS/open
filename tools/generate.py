@@ -57,6 +57,8 @@ slug: {docslug}
 description: {desc}
 ---
 
+import RunInLab from '@site/src/components/RunInLab';
+
 # {plain}
 
 :::note[Draft]
@@ -78,6 +80,10 @@ _A short introduction to {plain}._
 ```python
 # code example
 ```
+
+## Run your code
+
+<RunInLab topic="{plain}" lang="python" />
 
 ## Practice Questions
 
@@ -132,7 +138,7 @@ def main():
 
         links = []
         for i, topic in enumerate(sec["topics"], start=1):
-            fname = f"{i:02d}-{slug(topic)}.md"
+            fname = f"{i:02d}-{slug(topic)}.mdx"
             fpath = os.path.join(folder, fname)
             tslug = f"/{slug(sec['title'])}/{slug(topic)}"
             body = TOPIC_TMPL.format(

@@ -101,6 +101,7 @@ const config: Config = {
       },
       hideOnScroll: true,
       items: [
+        { to: '/', label: 'Home', position: 'left', activeBaseRegex: '^/open/$' },
         {
           type: 'docSidebar',
           sidebarId: 'csSidebar',
@@ -126,7 +127,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [],
-      copyright: `Prepared by Subrata Pramanik · MIT License · © ${new Date().getFullYear()} Open CS Hub`,
+      copyright: `MIT License · © ${new Date().getFullYear()} Subrata Pramanik`,
     },
     prism: {
       theme: prismThemes.github,

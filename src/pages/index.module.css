@@ -3,7 +3,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 4.5rem 1rem 4rem;
+  padding: 5.5rem 1rem 4.5rem;
   background:
     radial-gradient(1100px 520px at 12% -20%, rgba(99, 102, 241, 0.30), transparent 60%),
     radial-gradient(900px 460px at 92% 8%, rgba(168, 85, 247, 0.22), transparent 62%),
@@ -22,18 +22,6 @@
 
 .heroText {
   min-width: 0;
-}
-
-.eyebrow {
-  display: inline-block;
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  color: var(--ifm-color-primary);
-  padding: 0.35rem 0.75rem;
-  border: 1px solid var(--open-border);
-  border-radius: 999px;
-  margin-bottom: 1.4rem;
 }
 
 .title {

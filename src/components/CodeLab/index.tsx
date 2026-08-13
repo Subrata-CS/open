@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import Link from '@docusaurus/Link';
 import CodeBlock from '@theme/CodeBlock';
 import { LANGS, langById, runCode, type LangId } from '@site/src/lib/runners';
+import { removeDataFile, writeDataFiles, writeTextFile, type DataFile } from '@site/src/lib/pyodide';
+import { SAMPLES } from '@site/src/lib/samples';
+import { clearHandoff, takeHandoff, type Handoff } from '@site/src/lib/handoff';
 import styles from './styles.module.css';
 
 /* ------------------------------------------------------------------ */
@@ -63,8 +67,54 @@ export default function CodeLab({
   const [cells, setCells] = useState<Cell[]>([makeCell(defaultLang)]);
   const [stdin, setStdin] = useState('');
   const [showStdin, setShowStdin] = useState(false);
+  const [dataFiles, setDataFiles] = useState<DataFile[]>([]);
+  const [dataBusy, setDataBusy] = useState('');
+  const [showData, setShowData] = useState(false);
+  const [back, setBack] = useState<Handoff | null>(null);
+  const fileInput = useRef<HTMLInputElement>(null);
   const cellsRef = useRef(cells);
   cellsRef.current = cells;
+
+  // A reader arrived from a topic page — load their snippet and offer a way back.
+  useEffect(() => {
+    const handoff = takeHandoff();
+    if (!handoff) return;
+    clearHandoff();
+    setBack(handoff);
+    setCells([makeCell(handoff.lang, handoff.code || undefined)]);
+  }, []);
+
+  const addDataFiles = useCallback(async (files: FileList | null) => {
+    if (!files || files.length === 0) return;
+    setDataBusy('Loading into Python…');
+    try {
+      const written = await writeDataFiles(Array.from(files));
+      setDataFiles((prev) => [...prev.filter((f) => !written.some((w) => w.name === f.name)), ...written]);
+    } catch (err) {
+      setDataBusy(String(err));
+      return;
+    }
+    setDataBusy('');
+  }, []);
+
+  const addSample = useCallback(async (index: number) => {
+    const sample = SAMPLES[index];
+    setDataBusy('Preparing dataset…');
+    try {
+      const written = await writeTextFile(sample.file, sample.csv);
+      setDataFiles((prev) => [...prev.filter((f) => f.name !== written.name), written]);
+      setCells((cs) => [...cs, makeCell('python', sample.snippet)]);
+    } catch (err) {
+      setDataBusy(String(err));
+      return;
+    }
+    setDataBusy('');
+  }, []);
+
+  const dropData = useCallback(async (name: string) => {
+    await removeDataFile(name);
+    setDataFiles((prev) => prev.filter((f) => f.name !== name));
+  }, []);
 
   const patch = useCallback((id: string, next: Partial<Cell>) => {
     setCells((cs) => cs.map((c) => (c.id === id ? { ...c, ...next } : c)));
@@ -220,7 +270,13 @@ export default function CodeLab({
       <section className={styles.pane}>
         <header className={styles.paneHead}>
           <span className={styles.paneTitle}>Your notebook</span>
-          <span className={styles.paneHint}>Ctrl + Enter to run a cell</span>
+          {back ? (
+            <Link className={styles.backLink} to={back.returnUrl}>
+              ← Back to {back.returnTitle}
+            </Link>
+          ) : (
+            <span className={styles.paneHint}>Ctrl + Enter to run a cell</span>
+          )}
         </header>
 
         <div className={styles.toolbar}>
@@ -229,6 +285,12 @@ export default function CodeLab({
           </button>
           <button type="button" className={styles.tool} onClick={() => addCell()}>
             + Cell
+          </button>
+          <button
+            type="button"
+            className={showData ? styles.toolOn : styles.tool}
+            onClick={() => setShowData((v) => !v)}>
+            ⛁ Data{dataFiles.length > 0 ? ` (${dataFiles.length})` : ''}
           </button>
           <button
             type="button"
@@ -249,6 +311,71 @@ export default function CodeLab({
             Clear output
           </button>
         </div>
+
+        {showData && (
+          <div className={styles.dataPanel}>
+            <p className={styles.dataLead}>
+              Files land next to your code, exactly like a Kaggle or Colab notebook —
+              read them with <code>pd.read_csv("name.csv")</code>. Everything stays in
+              your browser; nothing is uploaded anywhere.
+            </p>
+
+            <div className={styles.dataActions}>
+              <button
+                type="button"
+                className={styles.toolPrimary}
+                onClick={() => fileInput.current?.click()}>
+                ＋ Upload files
+              </button>
+              <input
+                ref={fileInput}
+                type="file"
+                multiple
+                hidden
+                onChange={(e) => {
+                  void addDataFiles(e.target.files);
+                  e.target.value = '';
+                }}
+              />
+              {dataBusy && <span className={styles.status}>{dataBusy}</span>}
+            </div>
+
+            {dataFiles.length > 0 && (
+              <ul className={styles.fileList}>
+                {dataFiles.map((f) => (
+                  <li key={f.name} className={styles.file}>
+                    <span className={styles.fileName}>{f.name}</span>
+                    <span className={styles.fileSize}>{(f.size / 1024).toFixed(1)} KB</span>
+                    <button
+                      type="button"
+                      className={styles.icon}
+                      title="Remove"
+                      onClick={() => void dropData(f.name)}>
+                      ✕
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <p className={styles.dataSub}>Or start from a built-in dataset</p>
+            <div className={styles.sampleGrid}>
+              {SAMPLES.map((sample, i) => (
+                <button
+                  key={sample.file}
+                  type="button"
+                  className={styles.sample}
+                  onClick={() => void addSample(i)}>
+                  <span className={styles.sampleName}>{sample.name}</span>
+                  <span className={styles.sampleMeta}>
+                    {sample.file} · {sample.rows} rows
+                  </span>
+                  <span className={styles.sampleBlurb}>{sample.blurb}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         {showStdin && (
           <textarea

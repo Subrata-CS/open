@@ -60,8 +60,6 @@ function Hero(): ReactNode {
     <header className={styles.hero}>
       <div className={styles.heroGrid}>
         <div className={styles.heroText}>
-          <span className={styles.eyebrow}>// Open source · MIT licensed · Free forever</span>
-
           <h1 className={styles.title}>
             A to Z <span className={styles.gradient}>Computer Science</span>
           </h1>
