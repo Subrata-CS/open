@@ -2,14 +2,14 @@
   "name": "open-cs-hub",
   "version": "1.0.0",
   "private": true,
-  "description": "A to Z Computer Science learning hub — prepared by Subrata Pramanik",
+  "description": "A to Z Computer Science learning hub \u2014 prepared by Subrata Pramanik",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
-    "typecheck": "tsc",
+    "typecheck": "tsc --noEmit",
     "gen": "python tools/generate.py"
   },
   "dependencies": {

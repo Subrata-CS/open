@@ -30,6 +30,9 @@ type Cell = {
   status: string;
 };
 
+/** Programs that read from standard input need the Input box (or a prompt). */
+const NEEDS_STDIN = /\b(input\s*\(|sys\.stdin|scanf\s*\(|cin\s*>>|Scanner\s*\(|readLine|gets\s*\()/;
+
 let counter = 0;
 const nextId = () => `cell-${++counter}-${Date.now().toString(36)}`;
 
@@ -124,6 +127,7 @@ export default function CodeLab({
     async (id: string) => {
       const cell = cellsRef.current.find((c) => c.id === id);
       if (!cell || cell.busy) return;
+      if (NEEDS_STDIN.test(cell.code) && !stdin.trim()) setShowStdin(true);
       patch(id, { busy: true, output: '', status: 'Preparing…' });
       const res = await runCode(cell.lang, cell.code, stdin, (m) => patch(id, { status: m }));
       patch(id, { busy: false, status: '', output: res.output, ok: res.ok });
@@ -382,7 +386,7 @@ export default function CodeLab({
             className={styles.stdin}
             value={stdin}
             rows={3}
-            placeholder="Standard input passed to every run (one value per line)"
+            placeholder="Standard input — one value per line, in the order the program asks for them"
             onChange={(e) => setStdin(e.target.value)}
           />
         )}
@@ -461,7 +465,12 @@ export default function CodeLab({
                   + Cell below
                 </button>
                 {c.status && <span className={styles.status}>{c.status}</span>}
-                {!c.status && langById(c.lang).local && (
+                {!c.status && NEEDS_STDIN.test(c.code) && (
+                  <span className={styles.hint}>
+                    reads input — fill the Input box, or answer the prompts
+                  </span>
+                )}
+                {!c.status && !NEEDS_STDIN.test(c.code) && langById(c.lang).local && (
                   <span className={styles.status}>runs in your browser</span>
                 )}
               </div>

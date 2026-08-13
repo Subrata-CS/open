@@ -12,6 +12,7 @@ export type PyodideLike = {
   loadPackage: (names: string | string[]) => Promise<void>;
   setStdout: (opts: { batched: (s: string) => void }) => void;
   setStderr: (opts: { batched: (s: string) => void }) => void;
+  setStdin: (opts: { stdin: () => string | null; isatty?: boolean }) => void;
   FS: {
     writeFile: (path: string, data: Uint8Array | string, opts?: { encoding?: string }) => void;
     readdir: (path: string) => string[];
@@ -52,9 +53,41 @@ export function getPyodide(): Promise<PyodideLike> {
 
 export type RunResult = { output: string; ok: boolean };
 
+/**
+ * Python tracebacks from Pyodide are padded with frames from its own loader.
+ * Those lines mean nothing to the reader, so they are stripped out and only
+ * the parts pointing at the reader's own code are kept.
+ */
+function tidyTraceback(raw: string): string {
+  const lines = raw.split('\n');
+  const keep = lines.filter((line) => {
+    if (/_pyodide|pyodide\/_base\.py|python\d+\.zip/.test(line)) return false;
+    if (/^\s*(coroutine = eval|await CodeRunner|\^+\s*$)/.test(line)) return false;
+    return true;
+  });
+  const text = keep.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+  return text || raw.trim();
+}
+
+/** Turn the Input box into real standard input, then fall back to prompting. */
+function makeStdin(stdin: string): () => string | null {
+  const queued = stdin.length > 0 ? stdin.split('\n') : [];
+  let at = 0;
+  let prompts = 0;
+
+  return () => {
+    if (at < queued.length) return queued[at++];
+    // Interactive fallback — like typing into a terminal.
+    if (prompts++ > 200) return null;
+    const value = window.prompt('Program input  (Cancel to stop)');
+    return value === null ? null : value;
+  };
+}
+
 export async function runPython(
   code: string,
   onProgress?: (msg: string) => void,
+  stdin = '',
 ): Promise<RunResult> {
   try {
     onProgress?.('Starting Python…');
@@ -67,13 +100,20 @@ export async function runPython(
     let buffer = '';
     py.setStdout({ batched: (s) => (buffer += s + '\n') });
     py.setStderr({ batched: (s) => (buffer += s + '\n') });
+    py.setStdin({ stdin: makeStdin(stdin), isatty: false });
 
     const result = await py.runPythonAsync(code);
     if (result !== undefined && result !== null) buffer += String(result) + '\n';
 
     return { output: buffer || '(no output)', ok: true };
   } catch (err) {
-    return { output: String(err), ok: false };
+    const message = tidyTraceback(String(err));
+    const friendly = /EOFError|Errno 29/.test(message)
+      ? message +
+        '\n\n--- \nThis program asked for input that was not there. Type the values into the ' +
+        'Input box (one per line) and run again, or answer the prompts as they appear.'
+      : message;
+    return { output: friendly, ok: false };
   }
 }
 

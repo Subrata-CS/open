@@ -279,7 +279,7 @@ export async function runCode(
   onProgress?: (m: string) => void,
 ): Promise<RunResult> {
   const spec = langById(langId);
-  if (spec.id === 'python') return runPython(code, onProgress);
+  if (spec.id === 'python') return runPython(code, onProgress, stdin);
   if (spec.id === 'javascript') {
     onProgress?.('Running…');
     return runJavaScript(code);

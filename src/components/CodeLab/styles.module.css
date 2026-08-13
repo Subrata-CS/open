@@ -424,3 +424,9 @@
   line-height: 1.5;
   color: var(--open-code-dim);
 }
+
+.hint {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.7rem;
+  color: #fbbf24;
+}
