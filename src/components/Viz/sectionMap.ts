@@ -63,11 +63,42 @@ export const HOME_CYCLE: SectionViz[] = [
   { kind: 'packets', caption: 'networks · routing' },
 ];
 
+/**
+ * Sections added to syllabus.txt later are not in the table above, so their
+ * slug is matched against these keywords instead. A brand new section always
+ * gets a sensible animation without anyone editing this file.
+ */
+const KEYWORDS: [RegExp, SectionViz][] = [
+  [/network|protocol|internet|iot|distributed|telemetr/, { kind: 'packets', caption: 'packets in flight' }],
+  [/database|sql|storage|warehouse|index/, { kind: 'database', caption: 'index scan' }],
+  [/deep|neural|transformer|vision|generative/, { kind: 'network', caption: 'forward · backward pass' }],
+  [/attention|llm|language-model|prompt|agent/, { kind: 'attention', caption: 'attention · causal mask' }],
+  [/nlp|retrieval|search-engine|token|embedding/, { kind: 'tokens', caption: 'tokenise · index' }],
+  [/machine-learning|statistic|probabilit|data-science|mining|regression|calculus/, { kind: 'scatter', caption: 'fitting the model' }],
+  [/matrix|algebra|graphics|render|geometry/, { kind: 'matrix', caption: 'transform stack' }],
+  [/graph|algorithm|discrete|automata|computation|artificial/, { kind: 'graph', caption: 'graph traversal' }],
+  [/crypto|security|blockchain|hash|privacy/, { kind: 'crypto', caption: 'hash rounds' }],
+  [/quantum/, { kind: 'quantum', caption: 'qubit rotation' }],
+  [/research|paper|review|federated|explainab/, { kind: 'research', caption: 'hypothesis to paper' }],
+  [/web|mobile|interface|hci|browser|front-end|design/, { kind: 'browser', caption: 'render pass' }],
+  [/pipeline|devops|mlops|cloud|deploy|scheduling|real-time|software/, { kind: 'pipeline', caption: 'build · test · ship' }],
+  [/compiler|programming|language|code|script/, { kind: 'code', caption: 'lex · parse · emit' }],
+  [/cpu|architecture|hardware|embedded|parallel|robot|operating/, { kind: 'cpu', caption: 'instruction pipeline' }],
+];
+
+export function inferViz(slug: string): SectionViz {
+  for (const [pattern, viz] of KEYWORDS) {
+    if (pattern.test(slug)) return viz;
+  }
+  return { kind: 'graph', caption: slug.replace(/-/g, ' ') };
+}
+
 /** Resolve a pathname such as /open/docs/machine-learning/linear-regression */
 export function vizForPath(pathname: string): SectionViz | null {
   const marker = '/docs/';
   const at = pathname.indexOf(marker);
   if (at === -1) return null;
   const slug = pathname.slice(at + marker.length).split('/')[0];
-  return SECTION_VIZ[slug] ?? null;
+  if (!slug) return null;
+  return SECTION_VIZ[slug] ?? inferViz(slug);
 }

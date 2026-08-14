@@ -1,23 +1,75 @@
 # tools/
 
-`generate.py` builds the `docs/` tree from `syllabus.txt`.
+`generate.py` builds the whole site's structure from **one file**, `syllabus.txt`.
 
 ```bash
 cd tools && python generate.py
 ```
 
-**Safe by design:** existing `.md` files are **never overwritten**. Only missing
-files are created. `_category_.json`, `docs/intro.md` and `src/data/stats.json`
-are regenerated so the sidebar and counters stay in sync.
+**Safe by design:** existing topic pages are **never overwritten**. Only missing
+files are created.
 
-## Adding new topics
+### What is regenerated every run
 
-1. Add lines to `syllabus.txt` (section header format: `41. New Section`)
+| File | Feeds |
+|---|---|
+| `docs/*/_category_.json` | sidebar label + order |
+| `docs/intro.md` | the syllabus map table |
+| `src/data/stats.json` | the "40 sections · 578 topics" figures |
+| `src/data/tracks.json` | the homepage "Choose a track" cards |
+| `src/data/sections.json` | the nodes on the homepage globe |
+
+Because of the last three, **no number is typed by hand anywhere in the React
+code**. Section ranges (`01 – 06`), per-track topic counts, the number of
+tracks and the globe nodes are all computed from the syllabus.
+
+## syllabus.txt format
+
+```
+# a hash starts a comment
+
+>> Foundations | indigo | Short blurb shown on the homepage card
+01. Computer Fundamentals
+Computer Basics
+History of Computers
+02. Programming Fundamentals
+Programming Concepts
+```
+
+- `>> name | tone | blurb` starts a **track**. Every section until the next
+  `>>` belongs to it. `tone` and `blurb` are optional — leave them off and a
+  colour is taken from the palette and the blurb is written from the section
+  names. Available tones: `indigo`, `cyan`, `violet`, `green`, `amber`, `pink`,
+  `teal`, `rose`.
+- `NN. Title` starts a **section**. Every plain line after it is one topic.
+
+## Adding new topics or sections
+
+1. Add lines to `syllabus.txt`
 2. Run `python generate.py`
 3. `git add . && git commit && git push` — the site rebuilds automatically
 
+Renumbering is free: change `35.` to `36.` and everything — folder order,
+sidebar position, the track badge on the homepage, the globe — follows.
+
 For a single topic you don't need the script at all: create
-`docs/<section>/NN-topic-name.md` by hand and it appears in the sidebar on its own.
+`docs/<section>/NN-topic-name.mdx` by hand and it appears in the sidebar on its
+own. Adding it to `syllabus.txt` too keeps the counters honest.
+
+## refresh_stubs.py
+
+`generate.py` never rewrites an existing page, which means an old placeholder
+keeps its old shape forever. `refresh_stubs.py` closes that gap:
+
+```bash
+cd tools && python refresh_stubs.py          # report only
+cd tools && python refresh_stubs.py --write  # apply
+```
+
+A page is rewritten **only** when it is still an untouched placeholder — no key
+concepts written, no example, no practice questions. The moment you type one
+real line into a page it is left alone permanently. Run it after you change the
+topic template inside `generate.py`.
 
 
 ---

@@ -80,3 +80,47 @@
   color: var(--open-muted);
   align-self: center;
 }
+
+/* ---- added: language chip, secondary button, wider layout ---- */
+
+.head {
+  position: relative;
+}
+
+.lang {
+  margin-left: auto;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.68rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  color: var(--open-muted);
+  border: 1px solid var(--open-border);
+}
+
+.actions {
+  align-items: center;
+}
+
+.secondary {
+  appearance: none;
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 0.55rem 1.05rem;
+  border-radius: 10px;
+  color: var(--ifm-font-color-base);
+  background: transparent;
+  border: 1px solid var(--open-border);
+  transition: border-color 0.15s ease, transform 0.14s ease;
+}
+
+.secondary:hover {
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+}
+
+.primary:focus-visible,
+.secondary:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}

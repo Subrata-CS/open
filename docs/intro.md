@@ -2,10 +2,10 @@
 title: "Introduction"
 sidebar_position: 0
 slug: /
-description: "A to Z Computer Science learning hub — 40 sections, 578 topics."
+description: "A to Z Computer Science learning hub - 40 sections, 578 topics."
 ---
 
-# Open — A to Z Computer Science
+# Open - A to Z Computer Science
 
 An **open learning hub** covering everything from programming fundamentals to
 Data Structures, Algorithms, Machine Learning, Deep Learning, Generative AI
@@ -14,56 +14,56 @@ and Computer Vision.
 :::tip[Always up to date]
 This site is built **automatically** from the
 [github.com/Subrata-CS/open](https://github.com/Subrata-CS/open) repository.
-Edit any file, commit it, and the change is live within about two minutes —
+Edit any file, commit it, and the change is live within about two minutes -
 no manual deployment step.
 :::
 
 ## Syllabus map
 
-**40 sections · 578 topics**
+**40 sections · 578 topics · 6 tracks**
 
-| # | Section | Topics |
-|---|---------|--------|
-| `01` | [Computer Fundamentals](/docs/computer-fundamentals) | 31 |
-| `02` | [Programming Fundamentals](/docs/programming-fundamentals) | 37 |
-| `03` | [Discrete Mathematics](/docs/discrete-mathematics) | 22 |
-| `04` | [Linear Algebra](/docs/linear-algebra) | 12 |
-| `05` | [Probability & Statistics](/docs/probability-and-statistics) | 16 |
-| `06` | [Calculus](/docs/calculus) | 10 |
-| `07` | [Data Structures & Algorithms](/docs/data-structures-and-algorithms) | 36 |
-| `08` | [Computer Organization & Architecture](/docs/computer-organization-and-architecture) | 14 |
-| `09` | [Operating Systems](/docs/operating-systems) | 26 |
-| `10` | [Computer Networks](/docs/computer-networks) | 23 |
-| `11` | [Database Systems](/docs/database-systems) | 16 |
-| `12` | [Software Engineering](/docs/software-engineering) | 13 |
-| `13` | [Git & GitHub](/docs/git-and-github) | 9 |
-| `14` | [Web Development](/docs/web-development) | 18 |
-| `15` | [Mobile Development](/docs/mobile-development) | 8 |
-| `16` | [Cloud Computing](/docs/cloud-computing) | 13 |
-| `17` | [Cybersecurity](/docs/cybersecurity) | 15 |
-| `18` | [Compiler Design](/docs/compiler-design) | 8 |
-| `19` | [Theory of Computation](/docs/theory-of-computation) | 7 |
-| `20` | [Distributed Systems](/docs/distributed-systems) | 11 |
-| `21` | [Parallel Computing](/docs/parallel-computing) | 5 |
-| `22` | [Computer Graphics](/docs/computer-graphics) | 6 |
-| `23` | [Human-Computer Interaction](/docs/human-computer-interaction) | 6 |
-| `24` | [Embedded Systems](/docs/embedded-systems) | 5 |
-| `25` | [Real-Time Systems](/docs/real-time-systems) | 4 |
-| `26` | [Data Science](/docs/data-science) | 6 |
-| `27` | [Data Mining](/docs/data-mining) | 4 |
-| `28` | [Information Retrieval](/docs/information-retrieval) | 6 |
-| `29` | [Artificial Intelligence](/docs/artificial-intelligence) | 7 |
-| `30` | [Machine Learning](/docs/machine-learning) | 21 |
-| `31` | [Deep Learning](/docs/deep-learning) | 14 |
-| `32` | [Specialized AI Fields](/docs/specialized-ai-fields) | 91 |
-| `33` | [MLOps](/docs/mlops) | 6 |
-| `34` | [DevOps](/docs/devops) | 6 |
-| `35` | [Blockchain](/docs/blockchain) | 6 |
-| `36` | [Internet of Things](/docs/internet-of-things) | 5 |
-| `37` | [Robotics](/docs/robotics) | 6 |
-| `38` | [Quantum Computing](/docs/quantum-computing) | 6 |
-| `39` | [Research Methodology](/docs/research-methodology) | 13 |
-| `40` | [Advanced Research Areas](/docs/advanced-research-areas) | 10 |
+| # | Section | Topics | Track |
+|---|---------|--------|-------|
+| `01` | [Computer Fundamentals](/docs/computer-fundamentals) | 31 | Foundations |
+| `02` | [Programming Fundamentals](/docs/programming-fundamentals) | 37 | Foundations |
+| `03` | [Discrete Mathematics](/docs/discrete-mathematics) | 22 | Foundations |
+| `04` | [Linear Algebra](/docs/linear-algebra) | 12 | Foundations |
+| `05` | [Probability & Statistics](/docs/probability-and-statistics) | 16 | Foundations |
+| `06` | [Calculus](/docs/calculus) | 10 | Foundations |
+| `07` | [Data Structures & Algorithms](/docs/data-structures-and-algorithms) | 36 | Core CS |
+| `08` | [Computer Organization & Architecture](/docs/computer-organization-and-architecture) | 14 | Core CS |
+| `09` | [Operating Systems](/docs/operating-systems) | 26 | Core CS |
+| `10` | [Computer Networks](/docs/computer-networks) | 23 | Core CS |
+| `11` | [Database Systems](/docs/database-systems) | 16 | Core CS |
+| `12` | [Software Engineering](/docs/software-engineering) | 13 | Core CS |
+| `13` | [Git & GitHub](/docs/git-and-github) | 9 | Engineering |
+| `14` | [Web Development](/docs/web-development) | 18 | Engineering |
+| `15` | [Mobile Development](/docs/mobile-development) | 8 | Engineering |
+| `16` | [Cloud Computing](/docs/cloud-computing) | 13 | Engineering |
+| `17` | [Cybersecurity](/docs/cybersecurity) | 15 | Engineering |
+| `18` | [Compiler Design](/docs/compiler-design) | 8 | Engineering |
+| `19` | [Theory of Computation](/docs/theory-of-computation) | 7 | Engineering |
+| `20` | [Distributed Systems](/docs/distributed-systems) | 11 | Engineering |
+| `21` | [Parallel Computing](/docs/parallel-computing) | 5 | Engineering |
+| `22` | [Computer Graphics](/docs/computer-graphics) | 6 | Engineering |
+| `23` | [Human-Computer Interaction](/docs/human-computer-interaction) | 6 | Engineering |
+| `24` | [Embedded Systems](/docs/embedded-systems) | 5 | Engineering |
+| `25` | [Real-Time Systems](/docs/real-time-systems) | 4 | Engineering |
+| `26` | [Data Science](/docs/data-science) | 6 | AI & Data |
+| `27` | [Data Mining](/docs/data-mining) | 4 | AI & Data |
+| `28` | [Information Retrieval](/docs/information-retrieval) | 6 | AI & Data |
+| `29` | [Artificial Intelligence](/docs/artificial-intelligence) | 7 | AI & Data |
+| `30` | [Machine Learning](/docs/machine-learning) | 21 | AI & Data |
+| `31` | [Deep Learning](/docs/deep-learning) | 14 | AI & Data |
+| `32` | [Specialized AI Fields](/docs/specialized-ai-fields) | 91 | AI & Data |
+| `33` | [MLOps](/docs/mlops) | 6 | AI & Data |
+| `34` | [DevOps](/docs/devops) | 6 | AI & Data |
+| `35` | [Blockchain](/docs/blockchain) | 6 | Frontier |
+| `36` | [Internet of Things](/docs/internet-of-things) | 5 | Frontier |
+| `37` | [Robotics](/docs/robotics) | 6 | Frontier |
+| `38` | [Quantum Computing](/docs/quantum-computing) | 6 | Frontier |
+| `39` | [Research Methodology](/docs/research-methodology) | 13 | Research |
+| `40` | [Advanced Research Areas](/docs/advanced-research-areas) | 10 | Research |
 
 ---
 
@@ -73,8 +73,9 @@ no manual deployment step.
 2. Write Markdown and hit **Commit changes**
 3. A GitHub Action rebuilds and redeploys the site automatically
 
-To add a new topic, simply create a new `.md` file inside `docs/` — it appears
-in the sidebar on its own. No configuration file needs to be touched.
+To add a new topic, add a line to `tools/syllabus.txt` and run
+`python tools/generate.py` - the page, the sidebar entry, the counters, the
+homepage cards and the globe all update themselves.
 
 ---
 

@@ -1,3 +1,4 @@
+>> Foundations | indigo | How a computer actually works, your first programs, and the mathematics every later section leans on.
 01. Computer Fundamentals
 Computer Basics
 History of Computers
@@ -132,6 +133,7 @@ Indefinite Integral
 Optimization
 Gradient
 Gradient Descent
+>> Core CS | cyan | The classical core — data structures, architecture, operating systems, networks, databases and software engineering.
 07. Data Structures & Algorithms
 Complexity
 Big O
@@ -266,6 +268,7 @@ Design Patterns
 Singleton
 Factory
 Observer
+>> Engineering | violet | Building and shipping real systems: version control, web, mobile, cloud, security, compilers, distributed computing.
 13. Git & GitHub
 Git Basics
 Init
@@ -394,6 +397,7 @@ Hard Real-Time
 Soft Real-Time
 RT Scheduling
 Timing Constraints
+>> AI & Data | green | From data analysis to machine learning, deep learning, NLP, computer vision, LLMs, RAG, agents and MLOps.
 26. Data Science
 Data Collection
 Data Cleaning
@@ -564,6 +568,7 @@ Jenkins
 GitHub Actions CI
 Terraform
 DevOps Monitoring
+>> Frontier | amber | The systems being built right now — blockchain, IoT, robotics and quantum computing.
 35. Blockchain
 Blockchain Basics
 Consensus Mechanisms
@@ -591,6 +596,7 @@ Circuits
 Entanglement
 Quantum Algorithms
 Qiskit
+>> Research | pink | Reading papers, framing a problem, designing experiments and writing the paper that follows.
 39. Research Methodology
 Literature Review
 Research Gap

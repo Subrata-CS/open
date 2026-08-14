@@ -1,0 +1,362 @@
+[
+  {
+    "num": 1,
+    "title": "Computer Fundamentals",
+    "slug": "computer-fundamentals",
+    "href": "/docs/computer-fundamentals",
+    "topics": 31,
+    "track": "Foundations",
+    "tone": "indigo"
+  },
+  {
+    "num": 2,
+    "title": "Programming Fundamentals",
+    "slug": "programming-fundamentals",
+    "href": "/docs/programming-fundamentals",
+    "topics": 37,
+    "track": "Foundations",
+    "tone": "indigo"
+  },
+  {
+    "num": 3,
+    "title": "Discrete Mathematics",
+    "slug": "discrete-mathematics",
+    "href": "/docs/discrete-mathematics",
+    "topics": 22,
+    "track": "Foundations",
+    "tone": "indigo"
+  },
+  {
+    "num": 4,
+    "title": "Linear Algebra",
+    "slug": "linear-algebra",
+    "href": "/docs/linear-algebra",
+    "topics": 12,
+    "track": "Foundations",
+    "tone": "indigo"
+  },
+  {
+    "num": 5,
+    "title": "Probability & Statistics",
+    "slug": "probability-and-statistics",
+    "href": "/docs/probability-and-statistics",
+    "topics": 16,
+    "track": "Foundations",
+    "tone": "indigo"
+  },
+  {
+    "num": 6,
+    "title": "Calculus",
+    "slug": "calculus",
+    "href": "/docs/calculus",
+    "topics": 10,
+    "track": "Foundations",
+    "tone": "indigo"
+  },
+  {
+    "num": 7,
+    "title": "Data Structures & Algorithms",
+    "slug": "data-structures-and-algorithms",
+    "href": "/docs/data-structures-and-algorithms",
+    "topics": 36,
+    "track": "Core CS",
+    "tone": "cyan"
+  },
+  {
+    "num": 8,
+    "title": "Computer Organization & Architecture",
+    "slug": "computer-organization-and-architecture",
+    "href": "/docs/computer-organization-and-architecture",
+    "topics": 14,
+    "track": "Core CS",
+    "tone": "cyan"
+  },
+  {
+    "num": 9,
+    "title": "Operating Systems",
+    "slug": "operating-systems",
+    "href": "/docs/operating-systems",
+    "topics": 26,
+    "track": "Core CS",
+    "tone": "cyan"
+  },
+  {
+    "num": 10,
+    "title": "Computer Networks",
+    "slug": "computer-networks",
+    "href": "/docs/computer-networks",
+    "topics": 23,
+    "track": "Core CS",
+    "tone": "cyan"
+  },
+  {
+    "num": 11,
+    "title": "Database Systems",
+    "slug": "database-systems",
+    "href": "/docs/database-systems",
+    "topics": 16,
+    "track": "Core CS",
+    "tone": "cyan"
+  },
+  {
+    "num": 12,
+    "title": "Software Engineering",
+    "slug": "software-engineering",
+    "href": "/docs/software-engineering",
+    "topics": 13,
+    "track": "Core CS",
+    "tone": "cyan"
+  },
+  {
+    "num": 13,
+    "title": "Git & GitHub",
+    "slug": "git-and-github",
+    "href": "/docs/git-and-github",
+    "topics": 9,
+    "track": "Engineering",
+    "tone": "violet"
+  },
+  {
+    "num": 14,
+    "title": "Web Development",
+    "slug": "web-development",
+    "href": "/docs/web-development",
+    "topics": 18,
+    "track": "Engineering",
+    "tone": "violet"
+  },
+  {
+    "num": 15,
+    "title": "Mobile Development",
+    "slug": "mobile-development",
+    "href": "/docs/mobile-development",
+    "topics": 8,
+    "track": "Engineering",
+    "tone": "violet"
+  },
+  {
+    "num": 16,
+    "title": "Cloud Computing",
+    "slug": "cloud-computing",
+    "href": "/docs/cloud-computing",
+    "topics": 13,
+    "track": "Engineering",
+    "tone": "violet"
+  },
+  {
+    "num": 17,
+    "title": "Cybersecurity",
+    "slug": "cybersecurity",
+    "href": "/docs/cybersecurity",
+    "topics": 15,
+    "track": "Engineering",
+    "tone": "violet"
+  },
+  {
+    "num": 18,
+    "title": "Compiler Design",
+    "slug": "compiler-design",
+    "href": "/docs/compiler-design",
+    "topics": 8,
+    "track": "Engineering",
+    "tone": "violet"
+  },
+  {
+    "num": 19,
+    "title": "Theory of Computation",
+    "slug": "theory-of-computation",
+    "href": "/docs/theory-of-computation",
+    "topics": 7,
+    "track": "Engineering",
+    "tone": "violet"
+  },
+  {
+    "num": 20,
+    "title": "Distributed Systems",
+    "slug": "distributed-systems",
+    "href": "/docs/distributed-systems",
+    "topics": 11,
+    "track": "Engineering",
+    "tone": "violet"
+  },
+  {
+    "num": 21,
+    "title": "Parallel Computing",
+    "slug": "parallel-computing",
+    "href": "/docs/parallel-computing",
+    "topics": 5,
+    "track": "Engineering",
+    "tone": "violet"
+  },
+  {
+    "num": 22,
+    "title": "Computer Graphics",
+    "slug": "computer-graphics",
+    "href": "/docs/computer-graphics",
+    "topics": 6,
+    "track": "Engineering",
+    "tone": "violet"
+  },
+  {
+    "num": 23,
+    "title": "Human-Computer Interaction",
+    "slug": "human-computer-interaction",
+    "href": "/docs/human-computer-interaction",
+    "topics": 6,
+    "track": "Engineering",
+    "tone": "violet"
+  },
+  {
+    "num": 24,
+    "title": "Embedded Systems",
+    "slug": "embedded-systems",
+    "href": "/docs/embedded-systems",
+    "topics": 5,
+    "track": "Engineering",
+    "tone": "violet"
+  },
+  {
+    "num": 25,
+    "title": "Real-Time Systems",
+    "slug": "real-time-systems",
+    "href": "/docs/real-time-systems",
+    "topics": 4,
+    "track": "Engineering",
+    "tone": "violet"
+  },
+  {
+    "num": 26,
+    "title": "Data Science",
+    "slug": "data-science",
+    "href": "/docs/data-science",
+    "topics": 6,
+    "track": "AI & Data",
+    "tone": "green"
+  },
+  {
+    "num": 27,
+    "title": "Data Mining",
+    "slug": "data-mining",
+    "href": "/docs/data-mining",
+    "topics": 4,
+    "track": "AI & Data",
+    "tone": "green"
+  },
+  {
+    "num": 28,
+    "title": "Information Retrieval",
+    "slug": "information-retrieval",
+    "href": "/docs/information-retrieval",
+    "topics": 6,
+    "track": "AI & Data",
+    "tone": "green"
+  },
+  {
+    "num": 29,
+    "title": "Artificial Intelligence",
+    "slug": "artificial-intelligence",
+    "href": "/docs/artificial-intelligence",
+    "topics": 7,
+    "track": "AI & Data",
+    "tone": "green"
+  },
+  {
+    "num": 30,
+    "title": "Machine Learning",
+    "slug": "machine-learning",
+    "href": "/docs/machine-learning",
+    "topics": 21,
+    "track": "AI & Data",
+    "tone": "green"
+  },
+  {
+    "num": 31,
+    "title": "Deep Learning",
+    "slug": "deep-learning",
+    "href": "/docs/deep-learning",
+    "topics": 14,
+    "track": "AI & Data",
+    "tone": "green"
+  },
+  {
+    "num": 32,
+    "title": "Specialized AI Fields",
+    "slug": "specialized-ai-fields",
+    "href": "/docs/specialized-ai-fields",
+    "topics": 91,
+    "track": "AI & Data",
+    "tone": "green"
+  },
+  {
+    "num": 33,
+    "title": "MLOps",
+    "slug": "mlops",
+    "href": "/docs/mlops",
+    "topics": 6,
+    "track": "AI & Data",
+    "tone": "green"
+  },
+  {
+    "num": 34,
+    "title": "DevOps",
+    "slug": "devops",
+    "href": "/docs/devops",
+    "topics": 6,
+    "track": "AI & Data",
+    "tone": "green"
+  },
+  {
+    "num": 35,
+    "title": "Blockchain",
+    "slug": "blockchain",
+    "href": "/docs/blockchain",
+    "topics": 6,
+    "track": "Frontier",
+    "tone": "amber"
+  },
+  {
+    "num": 36,
+    "title": "Internet of Things",
+    "slug": "internet-of-things",
+    "href": "/docs/internet-of-things",
+    "topics": 5,
+    "track": "Frontier",
+    "tone": "amber"
+  },
+  {
+    "num": 37,
+    "title": "Robotics",
+    "slug": "robotics",
+    "href": "/docs/robotics",
+    "topics": 6,
+    "track": "Frontier",
+    "tone": "amber"
+  },
+  {
+    "num": 38,
+    "title": "Quantum Computing",
+    "slug": "quantum-computing",
+    "href": "/docs/quantum-computing",
+    "topics": 6,
+    "track": "Frontier",
+    "tone": "amber"
+  },
+  {
+    "num": 39,
+    "title": "Research Methodology",
+    "slug": "research-methodology",
+    "href": "/docs/research-methodology",
+    "topics": 13,
+    "track": "Research",
+    "tone": "pink"
+  },
+  {
+    "num": 40,
+    "title": "Advanced Research Areas",
+    "slug": "advanced-research-areas",
+    "href": "/docs/advanced-research-areas",
+    "topics": 10,
+    "track": "Research",
+    "tone": "pink"
+  }
+]
