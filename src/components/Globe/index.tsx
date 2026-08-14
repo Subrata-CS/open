@@ -7,6 +7,7 @@ import {
   type CSSProperties,
   type ReactNode,
 } from 'react';
+import Link from '@docusaurus/Link';
 import { useHistory } from '@docusaurus/router';
 import { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
 import sectionsData from '@site/src/data/sections.json';
@@ -95,10 +96,10 @@ function slerp(a: Vec, b: Vec, t: number): Vec {
 export default function Globe(): ReactNode {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLElement>(null);
   const history = useHistory();
   const { withBaseUrl } = useBaseUrlUtils();
 
-  const [focus, setFocus] = useState(0);
   const [hover, setHover] = useState(-1);
 
   // Everything the animation loop mutates lives in refs so React never
@@ -112,6 +113,8 @@ export default function Globe(): ReactNode {
     moved: 0,
   });
   const pausedRef = useRef(false);
+  /** When set, the globe eases round until this node faces the viewer. */
+  const targetRef = useRef<{ spin: number; tilt: number } | null>(null);
   const hoverRef = useRef(-1);
   const screenRef = useRef<{ x: number; y: number; z: number; r: number }[]>([]);
 
@@ -177,6 +180,7 @@ export default function Globe(): ReactNode {
   );
 
   const onDown = useCallback((e: React.PointerEvent<HTMLCanvasElement>) => {
+    targetRef.current = null;
     dragRef.current = { on: true, x: e.clientX, y: e.clientY, moved: 0 };
     e.currentTarget.setPointerCapture(e.pointerId);
   }, []);
@@ -196,6 +200,56 @@ export default function Globe(): ReactNode {
       }
     },
     [history, nodes, pointAt, withBaseUrl],
+  );
+
+  /**
+   * Point the globe at a section when its entry in the list is hovered:
+   * work out the rotation that brings that node to the front, and let the
+   * draw loop ease towards it.
+   */
+  const focusNode = useCallback(
+    (index: number) => {
+      hoverRef.current = index;
+      setHover(index);
+      pausedRef.current = true;
+
+      const { x, y, z } = nodes[index].home;
+      const flat = Math.hypot(x, z);
+      targetRef.current = {
+        spin: Math.atan2(-x, z),
+        tilt: Math.max(-MAX_TILT, Math.min(MAX_TILT, Math.atan2(y, flat))),
+      };
+    },
+    [nodes],
+  );
+
+  /**
+   * One handler for the whole list rather than one per row: mousemove and
+   * mouseout are dispatched reliably in every browser, unlike mouseenter.
+   */
+  const overList = useCallback(
+    (e: React.MouseEvent<HTMLElement>) => {
+      const row = (e.target as HTMLElement).closest<HTMLElement>('[data-index]');
+      if (!row) return;
+      const index = Number(row.dataset.index);
+      if (index !== hoverRef.current) focusNode(index);
+    },
+    [focusNode],
+  );
+
+  const blur = useCallback(() => {
+    hoverRef.current = -1;
+    setHover(-1);
+    pausedRef.current = false;
+    targetRef.current = null;
+  }, []);
+
+  const outOfList = useCallback(
+    (e: React.MouseEvent<HTMLElement>) => {
+      const to = e.relatedTarget as Node | null;
+      if (!to || !listRef.current?.contains(to)) blur();
+    },
+    [blur],
   );
 
   const leave = useCallback(() => {
@@ -219,7 +273,7 @@ export default function Globe(): ReactNode {
 
     let size = 0;
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 3);
       size = Math.max(240, Math.min(wrap.clientWidth, 600));
       canvas.width = size * dpr;
       canvas.height = size * dpr;
@@ -234,14 +288,22 @@ export default function Globe(): ReactNode {
 
     let raf = 0;
     let last = performance.now();
-    let sinceFocus = 0;
     let frame = 0;
 
     const draw = (now: number) => {
       const dt = Math.min(48, now - last);
       last = now;
 
-      if (!pausedRef.current && !dragRef.current.on && !still) {
+      const target = targetRef.current;
+      if (target && !dragRef.current.on) {
+        // shortest way round the sphere
+        let delta = (target.spin - spinRef.current) % (Math.PI * 2);
+        if (delta > Math.PI) delta -= Math.PI * 2;
+        if (delta < -Math.PI) delta += Math.PI * 2;
+        const ease = still ? 1 : Math.min(1, dt / 140);
+        spinRef.current += delta * ease;
+        tiltRef.current += (target.tilt - tiltRef.current) * ease;
+      } else if (!pausedRef.current && !dragRef.current.on && !still) {
         spinRef.current += dt * SPIN;
       }
       frame += dt;
@@ -406,9 +468,7 @@ export default function Globe(): ReactNode {
 
       projected.sort((a, b) => a.z - b.z);
 
-      let leading = { z: -2, i: 0 };
       projected.forEach(({ sx, sy, z, i, n }) => {
-        if (z > leading.z) leading = { z, i };
         if (z <= -0.05) return;
 
         const depth = Math.max(0, Math.min(1, (z + 0.05) / 1.05));
@@ -437,43 +497,34 @@ export default function Globe(): ReactNode {
         ctx.fill();
         ctx.globalAlpha = 1;
 
-        if (active || depth > 0.93) {
-          ctx.font = '600 11px "JetBrains Mono", ui-monospace, monospace';
+        if (active) {
+          ctx.font =
+            '700 12px "JetBrains Mono", ui-monospace, SFMono-Regular, monospace';
           ctx.textBaseline = 'middle';
-          const label = `${String(n.num).padStart(2, '0')} ${n.title}`;
+          const label = `${String(n.num).padStart(2, '0')}  ${n.title}`;
           const flip = sx > cx;
           ctx.textAlign = flip ? 'right' : 'left';
-          const lx = sx + (flip ? -(r + 8) : r + 8);
+          const lx = Math.round(sx + (flip ? -(r + 10) : r + 10));
+          const ly = Math.round(sy);
+          const w = ctx.measureText(label).width;
+          const bx = Math.round(flip ? lx - w - 10 : lx - 8);
 
-          if (active) {
-            const w = ctx.measureText(label).width;
-            const bx = flip ? lx - w - 8 : lx - 6;
-            ctx.beginPath();
-            if (typeof ctx.roundRect === 'function') {
-              ctx.roundRect(bx, sy - 10, w + 14, 20, 6);
-            } else {
-              ctx.rect(bx, sy - 10, w + 14, 20);
-            }
-            ctx.fillStyle = 'rgba(10, 14, 32, 0.86)';
-            ctx.fill();
-            ctx.strokeStyle = `rgba(${n.colour.rgb}, 0.5)`;
-            ctx.stroke();
+          ctx.beginPath();
+          if (typeof ctx.roundRect === 'function') {
+            ctx.roundRect(bx, ly - 12, w + 18, 24, 7);
+          } else {
+            ctx.rect(bx, ly - 12, w + 18, 24);
           }
+          ctx.fillStyle = 'rgba(8, 11, 26, 0.94)';
+          ctx.fill();
+          ctx.strokeStyle = `rgba(${n.colour.rgb}, 0.75)`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
 
-          ctx.fillStyle = active
-            ? n.colour.line
-            : `rgba(203, 213, 245, ${0.2 + 0.65 * (depth - 0.93) * 14})`;
-          ctx.fillText(label, lx, sy);
+          ctx.fillStyle = '#eef1ff';
+          ctx.fillText(label, lx, ly);
         }
       });
-
-      // The readout under the globe follows whichever node is facing us.
-      sinceFocus += dt;
-      if (sinceFocus > 260) {
-        sinceFocus = 0;
-        const next = hoverRef.current === -1 ? leading.i : hoverRef.current;
-        setFocus((prev) => (prev === next ? prev : next));
-      }
 
       raf = requestAnimationFrame(draw);
     };
@@ -485,13 +536,11 @@ export default function Globe(): ReactNode {
     };
   }, [maxTopics, nodes]);
 
-  const shown = nodes[hover === -1 ? focus : hover] ?? nodes[0];
-
   return (
     <div className={styles.wrap} ref={wrapRef}>
       <div
         className={styles.stage}
-        style={{ '--node': shown?.colour.base } as CSSProperties}>
+        style={{ '--node': nodes[hover]?.colour.base ?? '#6366f1' } as CSSProperties}>
         <canvas
           ref={canvasRef}
           className={styles.canvas}
@@ -504,15 +553,29 @@ export default function Globe(): ReactNode {
         />
       </div>
 
-      <div className={styles.readout} aria-live="polite">
-        <span className={styles.num}>{String(shown?.num ?? 1).padStart(2, '0')}</span>
-        <span className={styles.meta}>
-          <b>{shown?.title}</b>
-          <small>
-            {shown?.track} · {shown?.topics} topics
-          </small>
-        </span>
-      </div>
+      <nav
+        className={styles.index}
+        aria-label="All sections"
+        onMouseMove={overList}
+        onMouseOut={outOfList}
+        ref={listRef}>
+        {nodes.map((n, i) => (
+          <Link
+            key={n.num}
+            to={n.href}
+            className={styles.chip}
+            data-index={i}
+            data-active={hover === i ? 'yes' : 'no'}
+            style={{ '--chip': n.colour.base } as CSSProperties}
+            onFocus={() => focusNode(i)}
+            onBlur={blur}>
+            <span className={styles.chipNum}>{String(n.num).padStart(2, '0')}</span>
+            <span className={styles.chipName}>{n.title}</span>
+            <span className={styles.chipCount}>{n.topics}</span>
+          </Link>
+        ))}
+      </nav>
+
     </div>
   );
 }

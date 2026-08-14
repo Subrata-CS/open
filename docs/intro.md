@@ -11,13 +11,6 @@ An **open learning hub** covering everything from programming fundamentals to
 Data Structures, Algorithms, Machine Learning, Deep Learning, Generative AI
 and Computer Vision.
 
-:::tip[Always up to date]
-This site is built **automatically** from the
-[github.com/Subrata-CS/open](https://github.com/Subrata-CS/open) repository.
-Edit any file, commit it, and the change is live within about two minutes -
-no manual deployment step.
-:::
-
 ## Syllabus map
 
 **40 sections · 578 topics · 6 tracks**
@@ -64,18 +57,6 @@ no manual deployment step.
 | `38` | [Quantum Computing](/docs/quantum-computing) | 6 | Frontier |
 | `39` | [Research Methodology](/docs/research-methodology) | 13 | Research |
 | `40` | [Advanced Research Areas](/docs/advanced-research-areas) | 10 | Research |
-
----
-
-## How to contribute
-
-1. Open any page and click **Edit this page** at the bottom
-2. Write Markdown and hit **Commit changes**
-3. A GitHub Action rebuilds and redeploys the site automatically
-
-To add a new topic, add a line to `tools/syllabus.txt` and run
-`python tools/generate.py` - the page, the sidebar entry, the counters, the
-homepage cards and the globe all update themselves.
 
 ---
 
