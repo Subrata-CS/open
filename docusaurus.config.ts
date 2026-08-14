@@ -117,10 +117,10 @@ const config: Config = {
           'aria-label': 'LinkedIn profile',
         },
         {
-          href: 'https://github.com/Subrata-CS/open',
+          href: 'https://github.com/Subrata-CS',
           position: 'right',
           className: 'header-github-link',
-          'aria-label': 'GitHub repository',
+          'aria-label': 'GitHub profile',
         },
       ],
     },

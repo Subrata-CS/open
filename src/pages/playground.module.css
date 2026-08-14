@@ -1,0 +1,69 @@
+.page {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.head {
+  margin-bottom: 1.5rem;
+}
+
+.kicker {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.3rem;
+}
+
+.title {
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.lead {
+  color: var(--open-muted);
+  line-height: 1.7;
+  max-width: 60rem;
+  margin-bottom: 1rem;
+}
+
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+}
+
+.topic,
+.topicActive {
+  appearance: none;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--open-border);
+  background: var(--open-surface);
+  color: var(--open-muted);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.topic:hover {
+  color: var(--ifm-font-color-base);
+  border-color: var(--ifm-color-primary);
+}
+
+.topicActive {
+  color: #0b1020;
+  border-color: transparent;
+  background: linear-gradient(100deg, var(--ifm-color-primary), #a855f7);
+}
+
+.footnote {
+  margin-top: 1.25rem;
+  font-size: 0.84rem;
+  color: var(--open-muted);
+}
