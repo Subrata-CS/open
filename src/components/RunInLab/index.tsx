@@ -1,5 +1,6 @@
 import { useCallback, useState, type ReactNode } from 'react';
-import { useHistory, useLocation } from '@docusaurus/router';
+import { useLocation } from '@docusaurus/router';
+import Link from '@docusaurus/Link';
 import CodeBlock from '@theme/CodeBlock';
 import InlineLab from '@site/src/components/InlineLab';
 import { langById, type LangId } from '@site/src/lib/runners';
@@ -24,11 +25,11 @@ export type RunInLabProps = {
  * snippet across with a link back to this exact page.
  */
 export default function RunInLab({ topic, lang = 'python', code }: RunInLabProps): ReactNode {
-  const history = useHistory();
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
 
-  const toLab = useCallback(
+  /** Park the snippet where the Code Lab will find it, then follow the link. */
+  const handOff = useCallback(
     (labLang: LangId, labCode?: string) => {
       sendToLab({
         code: labCode,
@@ -37,9 +38,8 @@ export default function RunInLab({ topic, lang = 'python', code }: RunInLabProps
         returnUrl: pathname,
         returnTitle: topic,
       });
-      history.push('/playground');
     },
-    [history, pathname, topic],
+    [pathname, topic],
   );
 
   return (
@@ -69,16 +69,13 @@ export default function RunInLab({ topic, lang = 'python', code }: RunInLabProps
         </button>
 
         {!open && (
-          <button type="button" className={styles.secondary} onClick={() => toLab(lang, code)}>
+          <Link
+            className={styles.secondary}
+            to="/playground"
+            onClick={() => handOff(lang, code)}>
             Open the Code Lab <span aria-hidden="true">↗</span>
-          </button>
+          </Link>
         )}
-
-        <span className={styles.where}>
-          {open
-            ? 'runs on this page — close it and carry on reading'
-            : 'the Lab keeps a link back here'}
-        </span>
       </div>
 
       {open && (
@@ -87,7 +84,7 @@ export default function RunInLab({ topic, lang = 'python', code }: RunInLabProps
           lang={lang}
           code={code}
           onClose={() => setOpen(false)}
-          onExpand={toLab}
+          onExpand={handOff}
         />
       )}
     </div>

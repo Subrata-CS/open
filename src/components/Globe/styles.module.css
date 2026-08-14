@@ -78,18 +78,3 @@
   color: var(--open-muted);
 }
 
-.hint {
-  margin-left: auto;
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 0.64rem;
-  letter-spacing: 0.04em;
-  color: var(--open-muted);
-  text-align: right;
-  white-space: nowrap;
-}
-
-@media (max-width: 480px) {
-  .hint {
-    display: none;
-  }
-}

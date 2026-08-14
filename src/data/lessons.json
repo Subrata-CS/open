@@ -8,15 +8,29 @@
     "title": "Collections, comprehensions and f-strings",
     "note": "Lists, dicts and comprehensions cover most day-to-day Python; f-strings handle the formatting.",
     "lang": "python",
-    "code": "# Everything is an object, and names are just labels\nnums = [4, 8, 15, 16, 23, 42]\n\nsquares = [n * n for n in nums if n % 2 == 0]\ntotal   = sum(nums)\n\nprint(\"numbers :\", nums)\nprint(\"squares :\", squares)\nprint(\"total   :\", total, \" mean:\", round(total / len(nums), 2))\n\nlookup = {name: len(name) for name in [\"algorithm\", \"cache\", \"pointer\"]}\nfor word, length in sorted(lookup.items(), key=lambda kv: kv[1]):\n    print(f\"{word:<10} {length} letters\")",
+    "code": "nums = [4, 8, 15, 16, 23, 42]\n\nsquares = [n * n for n in nums if n % 2 == 0]\ntotal = sum(nums)\n\nprint(\"numbers :\", nums)\nprint(\"squares :\", squares)\nprint(\"total   :\", total, \" mean:\", round(total / len(nums), 2))\n\nlookup = {name: len(name) for name in [\"algorithm\", \"cache\", \"pointer\"]}\nfor word, length in sorted(lookup.items(), key=lambda kv: kv[1]):\n    print(f\"{word:<10} {length} letters\")",
     "output": "numbers : [4, 8, 15, 16, 23, 42]\nsquares : [16, 64, 256, 1764]\ntotal   : 108  mean: 18.0\ncache      5 letters\npointer    7 letters\nalgorithm  9 letters"
    },
    {
-    "title": "Reading and writing files",
-    "note": "Open, write, read back, then count words — the shape of almost every text-processing script.",
+    "title": "Functions, default arguments and unpacking",
+    "note": "Keyword arguments, *args and **kwargs are what make Python APIs readable.",
     "lang": "python",
-    "code": "# Write a file, read it back, count the words\ntext = \"\"\"the quick brown fox\njumps over the lazy dog\nthe dog barks\"\"\"\n\nwith open(\"notes.txt\", \"w\") as f:\n    f.write(text)\n\nwith open(\"notes.txt\") as f:\n    lines = f.read().splitlines()\n\ncounts = {}\nfor line in lines:\n    for word in line.split():\n        counts[word] = counts.get(word, 0) + 1\n\nprint(f\"{len(lines)} lines, {sum(counts.values())} words, {len(counts)} unique\")\nfor word, n in sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))[:5]:\n    print(f\"  {word:<6} {n}\")",
-    "output": "3 lines, 12 words, 9 unique\n  the    3\n  dog    2\n  barks  1\n  brown  1\n  fox    1"
+    "code": "def summarise(name, *scores, weight=1.0, **meta):\n    total = sum(scores) * weight\n    tags = \", \".join(f\"{k}={v}\" for k, v in sorted(meta.items()))\n    return f\"{name}: {total:.1f} ({len(scores)} scores) [{tags}]\"\n\nprint(summarise(\"Asha\", 90, 84, 78))\nprint(summarise(\"Rahul\", 70, 65, weight=1.2, term=\"mid\", year=2))\n\nfirst, *middle, last = [10, 20, 30, 40, 50]\nprint(\"first:\", first, \"middle:\", middle, \"last:\", last)",
+    "output": "Asha: 252.0 (3 scores) []\nRahul: 162.0 (2 scores) [term=mid, year=2]\nfirst: 10 middle: [20, 30, 40] last: 50"
+   },
+   {
+    "title": "Classes, dunder methods and dataclasses",
+    "note": "Special methods let your own types behave like built-in ones.",
+    "lang": "python",
+    "code": "from dataclasses import dataclass, field\n\n@dataclass(order=True)\nclass Student:\n    marks: int\n    name: str = field(compare=False)\n\n    def __str__(self):\n        return f\"{self.name}({self.marks})\"\n\nclass Marks:\n    def __init__(self, values):\n        self.values = list(values)\n    def __len__(self):\n        return len(self.values)\n    def __getitem__(self, i):\n        return self.values[i]\n    def __repr__(self):\n        return f\"Marks({self.values})\"\n\npeople = [Student(78, \"Rahul\"), Student(91, \"Asha\"), Student(84, \"Meera\")]\nprint(\"sorted:\", \" \".join(str(p) for p in sorted(people, reverse=True)))\nprint(\"top   :\", max(people))\n\nm = Marks([5, 3, 9])\nprint(m, \"len:\", len(m), \"first:\", m[0])",
+    "output": "sorted: Asha(91) Meera(84) Rahul(78)\ntop   : Asha(91)\nMarks([5, 3, 9]) len: 3 first: 5"
+   },
+   {
+    "title": "Errors, context managers and generators",
+    "note": "The three tools that separate a script from a program you can maintain.",
+    "lang": "python",
+    "code": "from contextlib import contextmanager\n\n@contextmanager\ndef stage(name):\n    print(f\"-> {name}\")\n    try:\n        yield\n    except ValueError as exc:\n        print(f\"   handled: {exc}\")\n    finally:\n        print(f\"<- {name}\")\n\ndef fibonacci(limit):\n    a, b = 0, 1\n    while a < limit:\n        yield a\n        a, b = b, a + b\n\nwith stage(\"parse\"):\n    raise ValueError(\"bad row 7\")\n\nwith stage(\"compute\"):\n    print(\"   fib:\", list(fibonacci(50)))\n\nprint(\"squares:\", sum(x * x for x in range(1, 6)))",
+    "output": "-> parse\n   handled: bad row 7\n<- parse\n-> compute\n   fib: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]\n<- compute\nsquares: 55"
    }
   ]
  },
@@ -26,17 +40,32 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Linear vs binary search",
-    "note": "Both find the same element. Watch how the gap widens as n grows — that is O(n) against O(log n).",
+    "title": "Binary search and two pointers",
+    "note": "Both run in O(n) or better and turn up in almost every interview.",
     "lang": "python",
-    "code": "import time, random\n\ndef linear_search(a, target):\n    for i, v in enumerate(a):\n        if v == target:\n            return i\n    return -1\n\ndef binary_search(a, target):\n    lo, hi, steps = 0, len(a) - 1, 0\n    while lo <= hi:\n        mid = (lo + hi) // 2\n        steps += 1\n        if a[mid] == target:\n            return mid, steps\n        if a[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1, steps\n\nfor n in (1_000, 100_000, 1_000_000):\n    data = list(range(n))\n    target = n - 1\n    t0 = time.perf_counter(); linear_search(data, target); t1 = time.perf_counter()\n    _, steps = binary_search(data, target)\n    print(f\"n={n:>9}   linear {(t1-t0)*1000:8.2f} ms   binary {steps:>2} steps\")"
+    "code": "def binary_search(xs, target):\n    lo, hi = 0, len(xs) - 1\n    while lo <= hi:\n        mid = (lo + hi) // 2\n        if xs[mid] == target:\n            return mid\n        if xs[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1\n\ndef two_sum_sorted(xs, target):\n    i, j = 0, len(xs) - 1\n    while i < j:\n        s = xs[i] + xs[j]\n        if s == target:\n            return (xs[i], xs[j])\n        if s < target:\n            i += 1\n        else:\n            j -= 1\n    return None\n\ndata = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]\nprint(\"index of 23 :\", binary_search(data, 23))\nprint(\"index of 24 :\", binary_search(data, 24))\nprint(\"pair for 100:\", two_sum_sorted(data, 100))",
+    "output": "index of 23 : 5\nindex of 24 : -1\npair for 100: None"
    },
    {
-    "title": "Breadth-first traversal",
-    "note": "BFS visits every node at distance k before any node at distance k+1, which is why it finds shortest paths.",
+    "title": "Sorting: merge sort from scratch",
+    "note": "Divide, conquer, merge — the classic O(n log n) argument, written out.",
     "lang": "python",
-    "code": "from collections import deque\n\ngraph = {\n    \"A\": [\"B\", \"C\"],\n    \"B\": [\"D\", \"E\"],\n    \"C\": [\"F\"],\n    \"D\": [], \"E\": [\"F\"], \"F\": [],\n}\n\ndef bfs(start):\n    seen, order, q = {start}, [], deque([(start, 0)])\n    while q:\n        node, depth = q.popleft()\n        order.append((node, depth))\n        for nxt in graph[node]:\n            if nxt not in seen:\n                seen.add(nxt)\n                q.append((nxt, depth + 1))\n    return order\n\nprint(\"BFS from A:\")\nfor node, depth in bfs(\"A\"):\n    print(\"  \" * depth + f\"{node}  (level {depth})\")",
-    "output": "BFS from A:\nA  (level 0)\n  B  (level 1)\n  C  (level 1)\n    D  (level 2)\n    E  (level 2)\n    F  (level 2)"
+    "code": "def merge_sort(xs):\n    if len(xs) <= 1:\n        return xs\n    mid = len(xs) // 2\n    left = merge_sort(xs[:mid])\n    right = merge_sort(xs[mid:])\n    out, i, j = [], 0, 0\n    while i < len(left) and j < len(right):\n        if left[i] <= right[j]:\n            out.append(left[i]); i += 1\n        else:\n            out.append(right[j]); j += 1\n    out.extend(left[i:]); out.extend(right[j:])\n    return out\n\nimport random\nrandom.seed(7)\ndata = [random.randint(1, 99) for _ in range(12)]\nprint(\"before:\", data)\nprint(\"after :\", merge_sort(data))\nprint(\"stable:\", merge_sort(data) == sorted(data))",
+    "output": "before: [42, 20, 51, 84, 7, 10, 69, 13, 47, 75, 8, 65]\nafter : [7, 8, 10, 13, 20, 42, 47, 51, 65, 69, 75, 84]\nstable: True"
+   },
+   {
+    "title": "Graphs: BFS, DFS and shortest path",
+    "note": "An adjacency list plus a queue is most of graph theory in practice.",
+    "lang": "python",
+    "code": "from collections import deque, defaultdict\n\ngraph = defaultdict(list)\nfor a, b in [(\"A\",\"B\"),(\"A\",\"C\"),(\"B\",\"D\"),(\"C\",\"D\"),(\"D\",\"E\"),(\"E\",\"F\")]:\n    graph[a].append(b)\n    graph[b].append(a)\n\ndef bfs(start):\n    seen, order, q = {start}, [], deque([start])\n    while q:\n        node = q.popleft()\n        order.append(node)\n        for nxt in graph[node]:\n            if nxt not in seen:\n                seen.add(nxt)\n                q.append(nxt)\n    return order\n\ndef shortest(start, goal):\n    prev, q = {start: None}, deque([start])\n    while q:\n        node = q.popleft()\n        if node == goal:\n            break\n        for nxt in graph[node]:\n            if nxt not in prev:\n                prev[nxt] = node\n                q.append(nxt)\n    path, cur = [], goal\n    while cur is not None:\n        path.append(cur)\n        cur = prev[cur]\n    return path[::-1]\n\nprint(\"bfs order   :\", \" \".join(bfs(\"A\")))\nprint(\"A -> F path :\", \" -> \".join(shortest(\"A\", \"F\")))",
+    "output": "bfs order   : A B C D E F\nA -> F path : A -> B -> D -> E -> F"
+   },
+   {
+    "title": "Dynamic programming: knapsack and edit distance",
+    "note": "Two tables that between them cover most DP questions you will meet.",
+    "lang": "python",
+    "code": "def knapsack(items, cap):\n    dp = [0] * (cap + 1)\n    for weight, value in items:\n        for c in range(cap, weight - 1, -1):\n            dp[c] = max(dp[c], dp[c - weight] + value)\n    return dp[cap]\n\ndef edit_distance(a, b):\n    dp = [[0] * (len(b) + 1) for _ in range(len(a) + 1)]\n    for i in range(len(a) + 1):\n        dp[i][0] = i\n    for j in range(len(b) + 1):\n        dp[0][j] = j\n    for i in range(1, len(a) + 1):\n        for j in range(1, len(b) + 1):\n            cost = 0 if a[i-1] == b[j-1] else 1\n            dp[i][j] = min(dp[i-1][j] + 1, dp[i][j-1] + 1, dp[i-1][j-1] + cost)\n    return dp[-1][-1]\n\nitems = [(3, 4), (4, 5), (2, 3), (5, 8)]\nprint(\"best value in a bag of 9:\", knapsack(items, 9))\nprint(\"kitten -> sitting       :\", edit_distance(\"kitten\", \"sitting\"))\nprint(\"flaw   -> lawn          :\", edit_distance(\"flaw\", \"lawn\"))",
+    "output": "best value in a bag of 9: 13\nkitten -> sitting       : 3\nflaw   -> lawn          : 2"
    }
   ]
  },
@@ -46,18 +75,25 @@
   "lang": "c",
   "lesson": [
    {
-    "title": "Pointers and arrays",
-    "note": "An array name decays to a pointer to its first element — which is why pointer arithmetic indexes the array.",
+    "title": "Pointers, arrays and pointer arithmetic",
+    "note": "An array name decays to a pointer — that one rule explains most of C.",
     "lang": "c",
-    "code": "#include <stdio.h>\n\nint main(void) {\n    int a[5] = {10, 20, 30, 40, 50};\n    int *p = a;\n\n    for (int i = 0; i < 5; i++)\n        printf(\"a[%d] = %2d   *(p+%d) = %2d\\n\", i, a[i], i, *(p + i));\n\n    printf(\"\\nsizeof(a) = %zu bytes, sizeof(p) = %zu bytes\\n\", sizeof(a), sizeof(p));\n    return 0;\n}",
-    "output": "a[0] = 10   *(p+0) = 10\na[1] = 20   *(p+1) = 20\na[2] = 30   *(p+2) = 30\na[3] = 40   *(p+3) = 40\na[4] = 50   *(p+4) = 50\n\nsizeof(a) = 20 bytes, sizeof(p) = 8 bytes"
+    "code": "#include <stdio.h>\n\nvoid scale(int *xs, int n, int factor) {\n    for (int *p = xs; p < xs + n; ++p)\n        *p *= factor;\n}\n\nint main(void) {\n    int data[] = {3, 1, 4, 1, 5, 9};\n    int n = sizeof data / sizeof data[0];\n\n    printf(\"size of int : %zu bytes\\n\", sizeof(int));\n    printf(\"elements    : %d\\n\", n);\n\n    scale(data, n, 10);\n    for (int i = 0; i < n; ++i) printf(\"%d \", data[i]);\n    printf(\"\\n\");\n\n    int *mid = data + 3;\n    printf(\"mid value   : %d, offset %ld\\n\", *mid, (long)(mid - data));\n    return 0;\n}",
+    "output": "size of int : 4 bytes\nelements    : 6\n30 10 40 10 50 90 \nmid value   : 10, offset 3"
    },
    {
-    "title": "Recursion and the call stack",
-    "note": "Factorial and Euclid's algorithm, both expressed as one-line recurrences.",
+    "title": "Structs, malloc and a linked list",
+    "note": "Manual memory is the part of C you must actually practise.",
     "lang": "c",
-    "code": "#include <stdio.h>\n\nlong long fact(int n) { return n <= 1 ? 1 : n * fact(n - 1); }\n\nint gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b); }\n\nint main(void) {\n    for (int n = 1; n <= 10; n++)\n        printf(\"%2d! = %lld\\n\", n, fact(n));\n\n    printf(\"\\ngcd(1071, 462) = %d\\n\", gcd(1071, 462));\n    return 0;\n}",
-    "output": "1! = 1\n 2! = 2\n 3! = 6\n 4! = 24\n 5! = 120\n 6! = 720\n 7! = 5040\n 8! = 40320\n 9! = 362880\n10! = 3628800\n\ngcd(1071, 462) = 21"
+    "code": "#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct Node { int value; struct Node *next; } Node;\n\nNode *push(Node *head, int value) {\n    Node *n = malloc(sizeof *n);\n    n->value = value;\n    n->next = head;\n    return n;\n}\n\nint main(void) {\n    Node *head = NULL;\n    for (int i = 1; i <= 5; ++i) head = push(head, i * i);\n\n    int sum = 0;\n    for (Node *p = head; p; p = p->next) { printf(\"%d \", p->value); sum += p->value; }\n    printf(\"\\nsum = %d\\n\", sum);\n\n    while (head) { Node *next = head->next; free(head); head = next; }\n    printf(\"list freed\\n\");\n    return 0;\n}",
+    "output": "25 16 9 4 1 \nsum = 55\nlist freed"
+   },
+   {
+    "title": "Strings, files and command-line style parsing",
+    "note": "C strings are just char arrays ending in a zero byte.",
+    "lang": "c",
+    "code": "#include <stdio.h>\n#include <string.h>\n#include <ctype.h>\n\nint main(void) {\n    char line[] = \"id=42;name=Asha;marks=91\";\n    char copy[64];\n    strcpy(copy, line);\n\n    printf(\"length: %zu\\n\", strlen(line));\n\n    char *token = strtok(copy, \";\");\n    while (token) {\n        char *eq = strchr(token, '=');\n        if (eq) { *eq = '\\0'; printf(\"%-6s -> %s\\n\", token, eq + 1); }\n        token = strtok(NULL, \";\");\n    }\n\n    int letters = 0;\n    for (const char *p = line; *p; ++p) if (isalpha((unsigned char)*p)) letters++;\n    printf(\"letters: %d\\n\", letters);\n    return 0;\n}",
+    "output": "length: 24\nid     -> 42\nname   -> Asha\nmarks  -> 91\nletters: 15"
    }
   ]
  },
@@ -67,10 +103,25 @@
   "lang": "cpp",
   "lesson": [
    {
-    "title": "Merge sort on 200,000 elements",
-    "note": "A hand-written merge sort, then a check that the result really is ordered.",
+    "title": "Vectors, algorithms and lambdas",
+    "note": "The standard library does the work; you supply the intent.",
     "lang": "cpp",
-    "code": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <chrono>\n\nstd::vector<int> merge_sort(std::vector<int> a) {\n    if (a.size() <= 1) return a;\n    auto mid = a.begin() + a.size() / 2;\n    auto L = merge_sort({a.begin(), mid});\n    auto R = merge_sort({mid, a.end()});\n    std::vector<int> out;\n    out.reserve(a.size());\n    std::merge(L.begin(), L.end(), R.begin(), R.end(), std::back_inserter(out));\n    return out;\n}\n\nint main() {\n    std::vector<int> data;\n    for (int i = 0; i < 200000; i++) data.push_back((i * 7919) % 100003);\n\n    auto t0 = std::chrono::steady_clock::now();\n    auto sorted = merge_sort(data);\n    auto t1 = std::chrono::steady_clock::now();\n\n    std::cout << \"sorted \" << sorted.size() << \" items in \"\n              << std::chrono::duration_cast<std::chrono::milliseconds>(t1 - t0).count()\n              << \" ms\\n\";\n    std::cout << \"is_sorted: \" << std::boolalpha\n              << std::is_sorted(sorted.begin(), sorted.end()) << \"\\n\";\n    std::cout << \"first 8:\";\n    for (int i = 0; i < 8; i++) std::cout << ' ' << sorted[i];\n    std::cout << \"\\n\";\n}"
+    "code": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <numeric>\n\nint main() {\n    std::vector<int> marks{78, 91, 84, 65, 99, 72};\n\n    std::sort(marks.begin(), marks.end(), [](int a, int b){ return a > b; });\n    int total = std::accumulate(marks.begin(), marks.end(), 0);\n    auto passed = std::count_if(marks.begin(), marks.end(), [](int m){ return m >= 80; });\n\n    for (int m : marks) std::cout << m << ' ';\n    std::cout << \"\\ntotal   : \" << total\n              << \"\\naverage : \" << total / (double)marks.size()\n              << \"\\n>= 80   : \" << passed << '\\n';\n    return 0;\n}",
+    "output": "99 91 84 78 72 65 \ntotal   : 489\naverage : 81.5\n>= 80   : 3"
+   },
+   {
+    "title": "Classes, RAII and operator overloading",
+    "note": "Constructors acquire, destructors release — the whole of RAII.",
+    "lang": "cpp",
+    "code": "#include <iostream>\n#include <string>\n\nclass Matrix2 {\n    double a, b, c, d;\npublic:\n    Matrix2(double a, double b, double c, double d) : a(a), b(b), c(c), d(d) {}\n    Matrix2 operator*(const Matrix2 &o) const {\n        return Matrix2(a*o.a + b*o.c, a*o.b + b*o.d,\n                       c*o.a + d*o.c, c*o.b + d*o.d);\n    }\n    double det() const { return a*d - b*c; }\n    friend std::ostream &operator<<(std::ostream &os, const Matrix2 &m) {\n        return os << \"[\" << m.a << \" \" << m.b << \"; \" << m.c << \" \" << m.d << \"]\";\n    }\n};\n\nstruct Guard {\n    std::string name;\n    explicit Guard(std::string n) : name(std::move(n)) { std::cout << \"open \" << name << '\\n'; }\n    ~Guard() { std::cout << \"close \" << name << '\\n'; }\n};\n\nint main() {\n    Guard g(\"resource\");\n    Matrix2 rot(0, -1, 1, 0), scale(2, 0, 0, 2);\n    std::cout << \"product : \" << rot * scale << '\\n';\n    std::cout << \"det     : \" << (rot * scale).det() << '\\n';\n    return 0;\n}",
+    "output": "open resource\nproduct : [0 -2; 2 0]\ndet     : 4\nclose resource"
+   },
+   {
+    "title": "Templates, smart pointers and the STL map",
+    "note": "Generic code plus ownership that cleans up after itself.",
+    "lang": "cpp",
+    "code": "#include <iostream>\n#include <map>\n#include <memory>\n#include <string>\n\ntemplate <typename T>\nT clamp_to(T value, T lo, T hi) { return value < lo ? lo : (value > hi ? hi : value); }\n\nstruct Session {\n    std::string user;\n    explicit Session(std::string u) : user(std::move(u)) {}\n    ~Session() { std::cout << \"session closed for \" << user << '\\n'; }\n};\n\nint main() {\n    std::cout << \"clamp 12 -> \" << clamp_to(12, 0, 10) << '\\n';\n    std::cout << \"clamp 2.5 -> \" << clamp_to(2.5, 0.0, 10.0) << '\\n';\n\n    std::map<std::string,int> counts;\n    for (const std::string &w : {\"cache\",\"pointer\",\"cache\",\"stack\",\"cache\"}) counts[w]++;\n    for (const auto &[word, n] : counts) std::cout << word << \" : \" << n << '\\n';\n\n    auto s = std::make_unique<Session>(\"asha\");\n    std::cout << \"active user: \" << s->user << '\\n';\n    return 0;\n}",
+    "output": "clamp 12 -> 10\nclamp 2.5 -> 2.5\ncache : 3\npointer : 1\nstack : 1\nactive user: asha\nsession closed for asha"
    }
   ]
  },
@@ -80,11 +131,18 @@
   "lang": "rust",
   "lesson": [
    {
-    "title": "Ownership, borrowing and Result",
-    "note": "The compiler tracks who owns each value, so whole categories of bug never reach runtime.",
+    "title": "Ownership, borrowing and slices",
+    "note": "The borrow checker is the language — everything else follows from it.",
     "lang": "rust",
-    "code": "fn main() {\n    // Ownership: `s1` is moved, not copied\n    let s1 = String::from(\"ownership\");\n    let s2 = s1.clone();\n    println!(\"s1 = {s1}, clone s2 = {s2}\");\n\n    // Borrowing: read-only references, as many as you like\n    let len = calculate_length(&s2);\n    println!(\"length of '{s2}' is {len}\");\n\n    // A mutable borrow — exactly one at a time\n    let mut owned = String::from(\"hello\");\n    append_world(&mut owned);\n    println!(\"after mutable borrow: {owned}\");\n\n    // Iterators are lazy and compose without allocating each step\n    let squares: Vec<u32> = (1..=8).map(|n| n * n).filter(|n| n % 2 == 0).collect();\n    println!(\"even squares: {squares:?}\");\n\n    // Result forces you to handle failure\n    for text in [\"42\", \"oops\"] {\n        match text.parse::<i32>() {\n            Ok(n)  => println!(\"parsed {text} -> {n}\"),\n            Err(e) => println!(\"failed  {text} -> {e}\"),\n        }\n    }\n}\n\nfn calculate_length(s: &String) -> usize { s.len() }\n\nfn append_world(s: &mut String) { s.push_str(\", world\"); }",
-    "output": "s1 = ownership, clone s2 = ownership\nlength of 'ownership' is 9\nafter mutable borrow: hello, world\neven squares: [4, 16, 36, 64]\nparsed 42 -> 42\nfailed  oops -> invalid digit found in string"
+    "code": "fn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() >= b.len() { a } else { b }\n}\n\nfn sum_slice(xs: &[i32]) -> i32 { xs.iter().sum() }\n\nfn main() {\n    let owned = String::from(\"ownership\");\n    let borrowed = &owned;\n    println!(\"both point at: {} / {}\", owned, borrowed);\n\n    println!(\"longest: {}\", longest(\"cache\", \"pointer\"));\n\n    let data = vec![3, 1, 4, 1, 5, 9, 2, 6];\n    println!(\"all      : {}\", sum_slice(&data));\n    println!(\"first 4  : {}\", sum_slice(&data[..4]));\n\n    let doubled: Vec<i32> = data.iter().map(|n| n * 2).filter(|n| n % 3 == 0).collect();\n    println!(\"doubled and divisible by 3: {:?}\", doubled);\n}",
+    "output": "both point at: ownership / ownership\nlongest: pointer\nall      : 31\nfirst 4  : 9\ndoubled and divisible by 3: [6, 18, 12]"
+   },
+   {
+    "title": "Enums, pattern matching and Result",
+    "note": "Rust has no null and no exceptions — it has Option and Result instead.",
+    "lang": "rust",
+    "code": "#[derive(Debug)]\nenum Shape { Circle(f64), Rect(f64, f64) }\n\nfn area(s: &Shape) -> f64 {\n    match s {\n        Shape::Circle(r) => std::f64::consts::PI * r * r,\n        Shape::Rect(w, h) => w * h,\n    }\n}\n\nfn parse_marks(raw: &str) -> Result<i32, String> {\n    raw.trim().parse::<i32>().map_err(|e| format!(\"{} is not a number ({})\", raw, e))\n}\n\nfn main() {\n    for s in [Shape::Circle(1.5), Shape::Rect(3.0, 4.0)] {\n        println!(\"{:?} area {:.3}\", s, area(&s));\n    }\n\n    for raw in [\"91\", \"8x\"] {\n        match parse_marks(raw) {\n            Ok(v) => println!(\"parsed  : {}\", v),\n            Err(e) => println!(\"rejected: {}\", e),\n        }\n    }\n\n    let maybe: Option<i32> = [1, 2, 3].iter().copied().find(|n| *n > 2);\n    println!(\"first > 2: {:?}\", maybe);\n}",
+    "output": "Circle(1.5) area 7.069\nRect(3.0, 4.0) area 12.000\nparsed  : 91\nrejected: 8x is not a number (invalid digit found in string)\nfirst > 2: Some(3)"
    }
   ]
  },
@@ -94,11 +152,25 @@
   "lang": "java",
   "lesson": [
    {
-    "title": "Interfaces, records and polymorphism",
-    "note": "The same call site dispatches to different implementations at runtime — the core idea behind interfaces.",
+    "title": "Classes, interfaces and polymorphism",
+    "note": "One interface, several implementations — the shape of most Java code.",
     "lang": "java",
-    "code": "interface Shape {\n    double area();\n}\n\nrecord Circle(double r) implements Shape {\n    public double area() { return Math.PI * r * r; }\n}\n\nrecord Rect(double w, double h) implements Shape {\n    public double area() { return w * h; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Shape[] shapes = { new Circle(2), new Rect(3, 4), new Circle(0.5) };\n        double total = 0;\n        for (Shape s : shapes) {\n            System.out.printf(\"%-22s area = %8.4f%n\", s, s.area());\n            total += s.area();\n        }\n        System.out.printf(\"%ntotal area = %.4f%n\", total);\n    }\n}",
-    "output": "Circle[r=2.0]          area =  12.5664\nRect[w=3.0, h=4.0]     area =  12.0000\nCircle[r=0.5]          area =   0.7854\n\ntotal area = 25.3518"
+    "code": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        List<Shape> shapes = List.of(new Circle(1.5), new Rect(3, 4), new Circle(0.5));\n        shapes.stream()\n              .sorted(Comparator.comparingDouble(Shape::area))\n              .forEach(s -> System.out.println(s.describe()));\n\n        double total = shapes.stream().mapToDouble(Shape::area).sum();\n        System.out.printf(\"total area %.2f%n\", total);\n    }\n}\n\ninterface Shape {\n    double area();\n    default String describe() { return getClass().getSimpleName() + \" area \" + String.format(\"%.2f\", area()); }\n}\n\nrecord Circle(double r) implements Shape {\n    public double area() { return Math.PI * r * r; }\n}\n\nrecord Rect(double w, double h) implements Shape {\n    public double area() { return w * h; }\n}\n",
+    "output": "Circle area 0.79\nCircle area 7.07\nRect area 12.00\ntotal area 19.85"
+   },
+   {
+    "title": "Collections, streams and grouping",
+    "note": "The Streams API turns loops into declarative pipelines.",
+    "lang": "java",
+    "code": "import java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        List<String> words = List.of(\"cache\", \"pointer\", \"stack\", \"heap\", \"queue\", \"cache\", \"stack\");\n\n        Map<Integer, List<String>> byLength = words.stream()\n            .distinct()\n            .collect(Collectors.groupingBy(String::length, TreeMap::new, Collectors.toList()));\n        byLength.forEach((len, ws) -> System.out.println(len + \" letters -> \" + ws));\n\n        Map<String, Long> counts = words.stream()\n            .collect(Collectors.groupingBy(w -> w, TreeMap::new, Collectors.counting()));\n        System.out.println(\"counts  : \" + counts);\n\n        String joined = words.stream().distinct().sorted().collect(Collectors.joining(\", \"));\n        System.out.println(\"distinct: \" + joined);\n    }\n}",
+    "output": "4 letters -> [heap]\n5 letters -> [cache, stack, queue]\n7 letters -> [pointer]\ncounts  : {cache=2, heap=1, pointer=1, queue=1, stack=2}\ndistinct: cache, heap, pointer, queue, stack"
+   },
+   {
+    "title": "Exceptions, generics and try-with-resources",
+    "note": "Checked exceptions and generics are what Java interviews are made of.",
+    "lang": "java",
+    "code": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        try (Stack<Integer> s = new Stack<>()) {\n            for (int i = 1; i <= 4; i++) s.push(i * i);\n            System.out.println(\"pop \" + s.pop() + \", pop \" + s.pop());\n            s.push(100);\n        }\n\n        try (Stack<String> s = new Stack<>()) {\n            s.pop();\n        } catch (NoSuchElementException e) {\n            System.out.println(\"caught: \" + e.getMessage());\n        }\n    }\n}\n\nclass Stack<T> implements AutoCloseable {\n    private final Deque<T> items = new ArrayDeque<>();\n    void push(T item) { items.push(item); }\n    T pop() {\n        if (items.isEmpty()) throw new NoSuchElementException(\"stack is empty\");\n        return items.pop();\n    }\n    public void close() { System.out.println(\"stack closed, \" + items.size() + \" left\"); }\n}\n",
+    "output": "pop 16, pop 9\nstack closed, 3 left\nstack closed, 0 left\ncaught: stack is empty"
    }
   ]
  },
@@ -108,11 +180,39 @@
   "lang": "javascript",
   "lesson": [
    {
-    "title": "Closures and the event loop",
-    "note": "Note the ordering at the end: synchronous code, then microtasks, then timers.",
+    "title": "Array methods, destructuring and template literals",
+    "note": "map, filter and reduce replace almost every for-loop you would write.",
     "lang": "javascript",
-    "code": "// Closures, higher-order functions and the event loop\nconst counter = (() => {\n  let n = 0;\n  return () => ++n;\n})();\n\nconsole.log('counter:', counter(), counter(), counter());\n\nconst users = [\n  { name: 'Asha', score: 91 },\n  { name: 'Rahul', score: 78 },\n  { name: 'Meera', score: 95 },\n];\n\nconst top = users\n  .filter(u => u.score > 80)\n  .sort((a, b) => b.score - a.score)\n  .map(u => `${u.name} (${u.score})`);\n\nconsole.log('top scorers:', top.join(', '));\n\nconsole.log('sync 1');\nPromise.resolve().then(() => console.log('microtask'));\nsetTimeout(() => console.log('macrotask'), 0);\nconsole.log('sync 2');",
-    "output": "counter: 1 2 3\ntop scorers: Meera (95), Asha (91)\nsync 1\nsync 2\nmicrotask\nmacrotask"
+    "code": "const students = [\n  { name: \"Asha\", marks: 91 },\n  { name: \"Rahul\", marks: 78 },\n  { name: \"Meera\", marks: 84 },\n];\n\nconst names = students.map(({ name }) => name);\nconst passed = students.filter((s) => s.marks >= 80);\nconst total = students.reduce((sum, s) => sum + s.marks, 0);\n\nconsole.log(\"names   :\", names.join(\", \"));\nconsole.log(\"passed  :\", passed.map((s) => `${s.name} (${s.marks})`).join(\", \"));\nconsole.log(\"average :\", (total / students.length).toFixed(2));\n\nconst [top, ...rest] = [...students].sort((a, b) => b.marks - a.marks);\nconsole.log(`top is ${top.name}, ${rest.length} others behind`);",
+    "output": "names   : Asha, Rahul, Meera\npassed  : Asha (91), Meera (84)\naverage : 84.33\ntop is Asha, 2 others behind"
+   },
+   {
+    "title": "Closures, promises and async/await",
+    "note": "Asynchronous JavaScript is just functions that finish later.",
+    "lang": "javascript",
+    "code": "function counter() {\n  let n = 0;\n  return () => ++n;\n}\n\nconst tick = counter();\nconsole.log(\"closure:\", tick(), tick(), tick());\n\nconst wait = (ms, value) => new Promise((res) => setTimeout(() => res(value), ms));\n\nasync function main() {\n  const one = await wait(10, \"first\");\n  console.log(\"awaited:\", one);\n\n  const many = await Promise.all([wait(5, \"a\"), wait(1, \"b\"), wait(8, \"c\")]);\n  console.log(\"parallel:\", many.join(\" \"));\n\n  try {\n    await Promise.reject(new Error(\"network down\"));\n  } catch (e) {\n    console.log(\"caught:\", e.message);\n  }\n}\n\nmain();",
+    "output": "closure: 1 2 3\nawaited: first\nparallel: a b c\ncaught: network down"
+   },
+   {
+    "title": "Classes, Map/Set and JSON",
+    "note": "Modern JavaScript has real classes and real collections.",
+    "lang": "javascript",
+    "code": "class Cache {\n  #store = new Map();\n  set(key, value) { this.#store.set(key, value); return this; }\n  get(key) { return this.#store.get(key) ?? null; }\n  get size() { return this.#store.size; }\n}\n\nconst c = new Cache().set(\"a\", 1).set(\"b\", 2).set(\"a\", 3);\nconsole.log(\"get a:\", c.get(\"a\"), \"get z:\", c.get(\"z\"), \"size:\", c.size);\n\nconst tags = new Set([\"dsa\", \"os\", \"dsa\", \"ml\"]);\nconsole.log(\"unique tags:\", [...tags].sort().join(\", \"));\n\nconst payload = JSON.stringify({ name: \"Asha\", marks: [91, 84] });\nconsole.log(\"json  :\", payload);\nconsole.log(\"parsed:\", JSON.parse(payload).marks.reduce((a, b) => a + b, 0));",
+    "output": "get a: 3 get z: null size: 2\nunique tags: dsa, ml, os\njson  : {\"name\":\"Asha\",\"marks\":[91,84]}\nparsed: 175"
+   }
+  ]
+ },
+ {
+  "id": "ts",
+  "label": "TypeScript",
+  "lang": "typescript",
+  "lesson": [
+   {
+    "title": "Types, interfaces and generics",
+    "note": "Types are erased at run time — they exist to stop you before it runs.",
+    "lang": "typescript",
+    "code": "interface Student {\n  name: string;\n  marks: number;\n  tags?: string[];\n}\n\nfunction best<T, K extends keyof T>(items: T[], key: K): T {\n  return items.reduce((a, b) => (a[key] > b[key] ? a : b));\n}\n\nconst students: Student[] = [\n  { name: \"Asha\", marks: 91, tags: [\"dsa\"] },\n  { name: \"Rahul\", marks: 78 },\n  { name: \"Meera\", marks: 84 },\n];\n\nconst top = best(students, \"marks\");\nconsole.log(`top: ${top.name} with ${top.marks}`);\n\ntype Result = { ok: true; value: number } | { ok: false; error: string };\n\nfunction parse(raw: string): Result {\n  const n = Number(raw);\n  return Number.isNaN(n) ? { ok: false, error: `${raw} is not a number` } : { ok: true, value: n };\n}\n\nfor (const raw of [\"42\", \"9x\"]) {\n  const r = parse(raw);\n  console.log(r.ok ? `parsed ${r.value}` : `rejected: ${r.error}`);\n}",
+    "output": "top: Asha with 91\nparsed 42\nrejected: 9x is not a number"
    }
   ]
  },
@@ -122,11 +222,18 @@
   "lang": "go",
   "lesson": [
    {
-    "title": "Goroutines, channels and a WaitGroup",
-    "note": "Three workers pull from one job channel — Go's answer to a thread pool, in a dozen lines.",
+    "title": "Structs, methods and slices",
+    "note": "Go keeps one way to do most things, and that is the point.",
     "lang": "go",
-    "code": "package main\n\nimport (\n\t\"fmt\"\n\t\"sync\"\n)\n\nfunc main() {\n\tjobs := make(chan int, 10)\n\tresults := make(chan string, 10)\n\tvar wg sync.WaitGroup\n\n\tfor w := 1; w <= 3; w++ {\n\t\twg.Add(1)\n\t\tgo func(id int) {\n\t\t\tdefer wg.Done()\n\t\t\tfor n := range jobs {\n\t\t\t\tresults <- fmt.Sprintf(\"worker %d squared %d = %d\", id, n, n*n)\n\t\t\t}\n\t\t}(w)\n\t}\n\n\tfor n := 1; n <= 6; n++ {\n\t\tjobs <- n\n\t}\n\tclose(jobs)\n\twg.Wait()\n\tclose(results)\n\n\tcount := 0\n\tfor range results {\n\t\tcount++\n\t}\n\tfmt.Printf(\"%d jobs completed by 3 workers\\n\", count)\n}",
-    "output": "6 jobs completed by 3 workers"
+    "code": "package main\n\nimport (\n\t\"fmt\"\n\t\"sort\"\n\t\"strings\"\n)\n\ntype Student struct {\n\tName  string\n\tMarks int\n}\n\nfunc (s Student) String() string { return fmt.Sprintf(\"%s(%d)\", s.Name, s.Marks) }\n\nfunc main() {\n\tstudents := []Student{{\"Asha\", 91}, {\"Rahul\", 78}, {\"Meera\", 84}}\n\n\tsort.Slice(students, func(i, j int) bool { return students[i].Marks > students[j].Marks })\n\n\tnames := make([]string, 0, len(students))\n\ttotal := 0\n\tfor _, s := range students {\n\t\tnames = append(names, s.String())\n\t\ttotal += s.Marks\n\t}\n\n\tfmt.Println(\"ranked :\", strings.Join(names, \" \"))\n\tfmt.Printf(\"average: %.2f\\n\", float64(total)/float64(len(students)))\n}",
+    "output": "ranked : Asha(91) Meera(84) Rahul(78)\naverage: 84.33"
+   },
+   {
+    "title": "Goroutines, channels and WaitGroup",
+    "note": "Do not communicate by sharing memory; share memory by communicating.",
+    "lang": "go",
+    "code": "package main\n\nimport (\n\t\"fmt\"\n\t\"sort\"\n\t\"sync\"\n)\n\nfunc worker(id int, jobs <-chan int, results chan<- string, wg *sync.WaitGroup) {\n\tdefer wg.Done()\n\tfor n := range jobs {\n\t\tresults <- fmt.Sprintf(\"job %d squared = %d\", n, n*n)\n\t}\n\t_ = id\n}\n\nfunc main() {\n\tjobs := make(chan int, 8)\n\tresults := make(chan string, 8)\n\tvar wg sync.WaitGroup\n\n\tfor w := 1; w <= 3; w++ {\n\t\twg.Add(1)\n\t\tgo worker(w, jobs, results, &wg)\n\t}\n\tfor n := 1; n <= 6; n++ {\n\t\tjobs <- n\n\t}\n\tclose(jobs)\n\twg.Wait()\n\tclose(results)\n\n\tvar lines []string\n\tfor line := range results {\n\t\tlines = append(lines, line)\n\t}\n\tsort.Strings(lines)\n\tfor _, l := range lines {\n\t\tfmt.Println(l)\n\t}\n}",
+    "output": "job 1 squared = 1\njob 2 squared = 4\njob 3 squared = 9\njob 4 squared = 16\njob 5 squared = 25\njob 6 squared = 36"
    }
   ]
  },
@@ -136,11 +243,18 @@
   "lang": "bash",
   "lesson": [
    {
-    "title": "Log processing in a deploy script",
-    "note": "wc, awk, sort, uniq and grep compose into a pipeline — the everyday shell toolkit.",
+    "title": "Variables, loops and text pipelines",
+    "note": "grep, sort and awk still do most of the work on a real server.",
     "lang": "bash",
-    "code": "#!/usr/bin/env bash\nset -euo pipefail\n\n# Build a small log file, then process it the way a deploy script would\ncat > deploy.log <<'EOF'\n2026-03-11 10:02 INFO  build started\n2026-03-11 10:04 INFO  tests passed\n2026-03-11 10:05 WARN  cache miss\n2026-03-11 10:06 ERROR push rejected\n2026-03-11 10:07 INFO  retrying\n2026-03-11 10:08 INFO  deploy complete\nEOF\n\necho \"== line count ==\"\nwc -l < deploy.log\n\necho\necho \"== counts by level ==\"\nawk '{print $3}' deploy.log | sort | uniq -c | sort -rn\n\necho\necho \"== anything that went wrong ==\"\ngrep -E 'WARN|ERROR' deploy.log || echo 'clean run'\n\necho\necho \"== exit status check ==\"\nif grep -q ERROR deploy.log; then\n  echo 'pipeline would fail here'\nelse\n  echo 'pipeline green'\nfi\n",
-    "output": "== line count ==\n6\n\n== counts by level ==\n      4 INFO\n      1 WARN\n      1 ERROR\n\n== anything that went wrong ==\n2026-03-11 10:05 WARN  cache miss\n2026-03-11 10:06 ERROR push rejected\n\n== exit status check ==\npipeline would fail here"
+    "code": "#!/usr/bin/env bash\nset -euo pipefail\n\ncat > /tmp/access.log <<'LOG'\n200 /index.html\n404 /missing\n200 /docs/intro\n500 /api/run\n200 /index.html\n404 /missing\nLOG\n\necho \"== status counts ==\"\nawk '{print $1}' /tmp/access.log | sort | uniq -c | sort -rn\n\necho \"== errors ==\"\ngrep -E '^(4|5)' /tmp/access.log | while read -r code path; do\n  printf \"  %s -> %s\\n\" \"$code\" \"$path\"\ndone\n\ntotal=$(wc -l < /tmp/access.log)\necho \"total requests: $total\"",
+    "output": "== status counts ==\n      3 200\n      2 404\n      1 500\n== errors ==\n  404 -> /missing\n  500 -> /api/run\n  404 -> /missing\ntotal requests: 6"
+   },
+   {
+    "title": "Functions, exit codes and argument handling",
+    "note": "A script that checks its own inputs is a script you can trust in CI.",
+    "lang": "bash",
+    "code": "#!/usr/bin/env bash\n\ncheck_port() {\n  local port=\"$1\"\n  if [[ ! \"$port\" =~ ^[0-9]+$ ]]; then\n    echo \"not a number: $port\"\n    return 2\n  fi\n  if (( port < 1024 )); then\n    echo \"port $port needs root\"\n    return 1\n  fi\n  echo \"port $port is fine\"\n  return 0\n}\n\nfor candidate in 8080 80 abc; do\n  check_port \"$candidate\" || echo \"  -> exit code $?\"\ndone\n\ndeploy() { echo \"deploying build $1 to $2\"; }\ndeploy \"v11\" \"production\"",
+    "output": "port 8080 is fine\nport 80 needs root\n  -> exit code 1\nnot a number: abc\n  -> exit code 2\ndeploying build v11 to production"
    }
   ]
  },
@@ -150,11 +264,137 @@
   "lang": "sql",
   "lesson": [
    {
-    "title": "Grouping and aggregation",
-    "note": "GROUP BY collapses rows into buckets; HAVING filters those buckets after aggregation, unlike WHERE.",
+    "title": "SELECT, WHERE and ORDER BY",
+    "note": "Reading rows back out is the half of SQL you use every day.",
     "lang": "sql",
-    "code": "CREATE TABLE marks(student TEXT, subject TEXT, score INTEGER);\n\nINSERT INTO marks VALUES\n  ('Asha','Maths',91), ('Asha','Physics',84),\n  ('Rahul','Maths',78), ('Rahul','Physics',88),\n  ('Meera','Maths',95), ('Meera','Physics',72);\n\n.mode column\n.headers on\n\nSELECT student,\n       COUNT(*)            AS papers,\n       ROUND(AVG(score),2) AS average,\n       MAX(score)          AS best\nFROM marks\nGROUP BY student\nHAVING AVG(score) > 80\nORDER BY average DESC;",
-    "output": "student  papers  average  best\n-------  ------  -------  ----\nAsha     2       87.5     91  \nMeera    2       83.5     95  \nRahul    2       83.0     88"
+    "code": "CREATE TABLE student (\n  id     INTEGER PRIMARY KEY,\n  name   TEXT,\n  branch TEXT,\n  marks  INTEGER\n);\n\nINSERT INTO student VALUES\n  (1, 'Asha',  'CSE', 91),\n  (2, 'Rahul', 'ECE', 78),\n  (3, 'Meera', 'CSE', 84),\n  (4, 'Vikram','ECE', 65),\n  (5, 'Nadia', 'CSE', 88);\n\nSELECT name, branch, marks\nFROM student\nWHERE marks >= 80\nORDER BY marks DESC;",
+    "output": "name   branch  marks\n-----  ------  -----\nAsha   CSE     91   \nNadia  CSE     88   \nMeera  CSE     84   \n(3 rows)"
+   },
+   {
+    "title": "GROUP BY, HAVING and aggregates",
+    "note": "Aggregates collapse many rows into one — HAVING filters what is left.",
+    "lang": "sql",
+    "code": "CREATE TABLE student (id INTEGER, name TEXT, branch TEXT, marks INTEGER);\nINSERT INTO student VALUES\n  (1,'Asha','CSE',91),(2,'Rahul','ECE',78),(3,'Meera','CSE',84),\n  (4,'Vikram','ECE',65),(5,'Nadia','CSE',88),(6,'Imran','ME',72);\n\nSELECT branch,\n       COUNT(*)          AS students,\n       ROUND(AVG(marks),1) AS avg_marks,\n       MAX(marks)        AS best\nFROM student\nGROUP BY branch\nHAVING COUNT(*) > 1\nORDER BY avg_marks DESC;",
+    "output": "branch  students  avg_marks  best\n------  --------  ---------  ----\nCSE     3         87.7       91  \nECE     2         71.5       78  \n(2 rows)"
+   },
+   {
+    "title": "JOIN, subquery and window functions",
+    "note": "Joins connect tables; window functions rank without collapsing rows.",
+    "lang": "sql",
+    "code": "CREATE TABLE student (id INTEGER, name TEXT, branch TEXT);\nCREATE TABLE score (student_id INTEGER, subject TEXT, marks INTEGER);\n\nINSERT INTO student VALUES (1,'Asha','CSE'),(2,'Rahul','ECE'),(3,'Meera','CSE');\nINSERT INTO score VALUES\n  (1,'DSA',91),(1,'OS',86),(2,'DSA',74),(2,'OS',80),(3,'DSA',88),(3,'OS',79);\n\nSELECT s.name,\n       sc.subject,\n       sc.marks,\n       RANK() OVER (PARTITION BY sc.subject ORDER BY sc.marks DESC) AS rank_in_subject\nFROM student s\nJOIN score sc ON sc.student_id = s.id\nWHERE sc.marks > (SELECT AVG(marks) FROM score)\nORDER BY sc.subject, rank_in_subject;",
+    "output": "name   subject  marks  rank_in_subject\n-----  -------  -----  ---------------\nAsha   DSA      91     1              \nMeera  DSA      88     2              \nAsha   OS       86     1              \n(3 rows)"
+   }
+  ]
+ },
+ {
+  "id": "csharp",
+  "label": "C# / .NET",
+  "lang": "csharp",
+  "lesson": [
+   {
+    "title": "Classes, LINQ and string formatting",
+    "note": "LINQ gives C# the same declarative feel as Python comprehensions.",
+    "lang": "csharp",
+    "code": "using System;\nusing System.Linq;\nusing System.Collections.Generic;\n\nclass Student {\n    public string Name { get; set; }\n    public int Marks { get; set; }\n    public override string ToString() => $\"{Name}({Marks})\";\n}\n\nclass Program {\n    static void Main() {\n        var students = new List<Student> {\n            new Student { Name = \"Asha\",  Marks = 91 },\n            new Student { Name = \"Rahul\", Marks = 78 },\n            new Student { Name = \"Meera\", Marks = 84 },\n        };\n\n        var ranked = students.OrderByDescending(s => s.Marks).ToList();\n        Console.WriteLine(\"ranked  : \" + string.Join(\" \", ranked));\n        Console.WriteLine(\"average : \" + students.Average(s => s.Marks).ToString(\"F2\"));\n        Console.WriteLine(\"passed  : \" + students.Count(s => s.Marks >= 80));\n\n        var byInitial = students.GroupBy(s => s.Name[0]).OrderBy(g => g.Key);\n        foreach (var g in byInitial)\n            Console.WriteLine($\"{g.Key} -> {string.Join(\", \", g.Select(s => s.Name))}\");\n    }\n}",
+    "output": "ranked  : Asha(91) Meera(84) Rahul(78)\naverage : 84.33\npassed  : 2\nA -> Asha\nM -> Meera\nR -> Rahul"
+   }
+  ]
+ },
+ {
+  "id": "ruby",
+  "label": "Ruby",
+  "lang": "ruby",
+  "lesson": [
+   {
+    "title": "Blocks, hashes and everything-is-an-object",
+    "note": "Blocks are Ruby's signature idea — a function you hand to a method.",
+    "lang": "ruby",
+    "code": "students = { \"Asha\" => 91, \"Rahul\" => 78, \"Meera\" => 84 }\n\nstudents.sort_by { |_, marks| -marks }.each do |name, marks|\n  puts format(\"%-8s %3d %s\", name, marks, marks >= 80 ? \"pass\" : \"retry\")\nend\n\ntotal = students.values.sum\nputs \"average: #{(total.to_f / students.size).round(2)}\"\n\nwords = %w[cache pointer cache stack heap cache]\nputs \"counts : #{words.tally.sort.to_h}\"\nputs \"longest: #{words.max_by(&:length)}\"\n\nclass Integer\n  def squared = self * self\nend\nputs \"7 squared = #{7.squared}\"",
+    "output": "Asha      91 pass\nMeera     84 pass\nRahul     78 retry\naverage: 84.33\ncounts : {\"cache\" => 3, \"heap\" => 1, \"pointer\" => 1, \"stack\" => 1}\nlongest: pointer\n7 squared = 49"
+   }
+  ]
+ },
+ {
+  "id": "php",
+  "label": "PHP",
+  "lang": "php",
+  "lesson": [
+   {
+    "title": "Arrays, functions and string handling",
+    "note": "PHP arrays are ordered maps — one type covering lists and dictionaries.",
+    "lang": "php",
+    "code": "<?php\n$students = [\"Asha\" => 91, \"Rahul\" => 78, \"Meera\" => 84];\n\narsort($students);\nforeach ($students as $name => $marks) {\n    printf(\"%-8s %3d %s\\n\", $name, $marks, $marks >= 80 ? \"pass\" : \"retry\");\n}\n\n$average = array_sum($students) / count($students);\necho \"average: \" . round($average, 2) . \"\\n\";\n\n$words = [\"cache\", \"pointer\", \"cache\", \"stack\"];\n$counts = array_count_values($words);\nksort($counts);\nforeach ($counts as $word => $n) {\n    echo str_pad($word, 9) . $n . \"\\n\";\n}\n\nfunction slugify(string $text): string {\n    return strtolower(preg_replace('/[^a-z0-9]+/i', '-', trim($text)));\n}\necho slugify(\"  Hello World, PHP! \") . \"\\n\";",
+    "output": "Asha      91 pass\nMeera     84 pass\nRahul     78 retry\naverage: 84.33\ncache    2\npointer  1\nstack    1\nhello-world-php-"
+   }
+  ]
+ },
+ {
+  "id": "r",
+  "label": "R / Statistics",
+  "lang": "r",
+  "lesson": [
+   {
+    "title": "Vectors, data frames and summary statistics",
+    "note": "R thinks in vectors, so most loops disappear.",
+    "lang": "r",
+    "code": "marks <- c(91, 78, 84, 65, 88, 72)\nnames(marks) <- c(\"Asha\", \"Rahul\", \"Meera\", \"Vikram\", \"Nadia\", \"Imran\")\n\ncat(\"mean  :\", round(mean(marks), 2), \"\\n\")\ncat(\"median:\", median(marks), \"\\n\")\ncat(\"sd    :\", round(sd(marks), 3), \"\\n\")\n\ndf <- data.frame(\n  name   = names(marks),\n  marks  = as.numeric(marks),\n  branch = c(\"CSE\", \"ECE\", \"CSE\", \"ECE\", \"CSE\", \"ME\")\n)\n\nprint(df[order(-df$marks), ], row.names = FALSE)\n\ncat(\"\\nby branch:\\n\")\nprint(tapply(df$marks, df$branch, mean))",
+    "output": "mean  : 79.67 \nmedian: 81 \nsd    : 9.933 \n   name marks branch\n   Asha    91    CSE\n  Nadia    88    CSE\n  Meera    84    CSE\n  Rahul    78    ECE\n  Imran    72     ME\n Vikram    65    ECE\n\nby branch:\n     CSE      ECE       ME \n87.66667 71.50000 72.00000"
+   }
+  ]
+ },
+ {
+  "id": "scala",
+  "label": "Scala",
+  "lang": "scala",
+  "lesson": [
+   {
+    "title": "Case classes, pattern matching and collections",
+    "note": "Functional collections plus pattern matching, on the JVM.",
+    "lang": "scala",
+    "code": "object Main extends App {\n  case class Student(name: String, marks: Int, branch: String)\n\n  val students = List(\n    Student(\"Asha\", 91, \"CSE\"),\n    Student(\"Rahul\", 78, \"ECE\"),\n    Student(\"Meera\", 84, \"CSE\")\n  )\n\n  students.sortBy(-_.marks).foreach { s =>\n    val grade = s.marks match {\n      case m if m >= 90 => \"A\"\n      case m if m >= 80 => \"B\"\n      case _            => \"C\"\n    }\n    println(f\"${s.name}%-7s ${s.marks}%3d  $grade\")\n  }\n\n  val byBranch = students.groupBy(_.branch).map { case (b, xs) =>\n    b -> xs.map(_.marks).sum.toDouble / xs.size\n  }\n  byBranch.toList.sortBy(_._1).foreach { case (b, avg) => println(f\"$b average $avg%.1f\") }\n}",
+    "output": "Asha     91  A\nMeera    84  B\nRahul    78  C\nCSE average 87.5\nECE average 78.0"
+   }
+  ]
+ },
+ {
+  "id": "haskell",
+  "label": "Haskell",
+  "lang": "haskell",
+  "lesson": [
+   {
+    "title": "Pure functions, recursion and higher-order functions",
+    "note": "No statements, no mutation — only expressions that describe a value.",
+    "lang": "haskell",
+    "code": "import Data.List (sortBy, group, sort)\nimport Data.Ord (comparing, Down(..))\n\ndata Student = Student { name :: String, marks :: Int }\n\ngrade :: Int -> Char\ngrade m\n  | m >= 90 = 'A'\n  | m >= 80 = 'B'\n  | otherwise = 'C'\n\nprimes :: Int -> [Int]\nprimes n = sieve [2 .. n]\n  where sieve [] = []\n        sieve (p:xs) = p : sieve [x | x <- xs, x `mod` p /= 0]\n\nmain :: IO ()\nmain = do\n  let students = [Student \"Asha\" 91, Student \"Rahul\" 78, Student \"Meera\" 84]\n      ranked = sortBy (comparing (Down . marks)) students\n  mapM_ (\\s -> putStrLn (name s ++ \" \" ++ show (marks s) ++ \" \" ++ [grade (marks s)])) ranked\n  putStrLn (\"primes under 30: \" ++ show (primes 30))\n  putStrLn (\"word groups: \" ++ show (map (\\g -> (head g, length g)) . group . sort $ words \"a b a c b a\"))",
+    "output": "Asha 91 A\nMeera 84 B\nRahul 78 C\nprimes under 30: [2,3,5,7,11,13,17,19,23,29]\nword groups: [(\"a\",3),(\"b\",2),(\"c\",1)]"
+   }
+  ]
+ },
+ {
+  "id": "lua",
+  "label": "Lua",
+  "lang": "lua",
+  "lesson": [
+   {
+    "title": "Tables, closures and metatables",
+    "note": "Lua has exactly one data structure, and it is enough.",
+    "lang": "lua",
+    "code": "local students = {\n  { name = \"Asha\", marks = 91 },\n  { name = \"Rahul\", marks = 78 },\n  { name = \"Meera\", marks = 84 },\n}\n\ntable.sort(students, function(a, b) return a.marks > b.marks end)\nfor i, s in ipairs(students) do\n  print(string.format(\"%d. %-7s %3d\", i, s.name, s.marks))\nend\n\nlocal function counter()\n  local n = 0\n  return function() n = n + 1; return n end\nend\nlocal tick = counter()\nprint(\"closure:\", tick(), tick(), tick())\n\nlocal Vector = {}\nVector.__index = Vector\nVector.__add = function(a, b) return setmetatable({x = a.x + b.x, y = a.y + b.y}, Vector) end\nVector.__tostring = function(v) return \"(\" .. v.x .. \", \" .. v.y .. \")\" end\n\nlocal a = setmetatable({x = 1, y = 2}, Vector)\nlocal b = setmetatable({x = 3, y = 4}, Vector)\nprint(\"sum:\", tostring(a + b))",
+    "output": "1. Asha     91\n2. Meera    84\n3. Rahul    78\nclosure:\t1\t2\t3\nsum:\t(4, 6)"
+   }
+  ]
+ },
+ {
+  "id": "perl",
+  "label": "Perl",
+  "lang": "perl",
+  "lesson": [
+   {
+    "title": "Regular expressions, hashes and text processing",
+    "note": "Perl was built for text, and its regex engine still sets the standard.",
+    "lang": "perl",
+    "code": "use strict;\nuse warnings;\n\nmy $log = <<'END';\n2026-08-14 200 /index.html\n2026-08-14 404 /missing\n2026-08-14 200 /docs/intro\n2026-08-14 500 /api/run\n2026-08-14 404 /missing\nEND\n\nmy %codes;\nmy %paths;\nfor my $line (split /\\n/, $log) {\n    if ($line =~ /^(\\S+)\\s+(\\d{3})\\s+(\\S+)$/) {\n        $codes{$2}++;\n        $paths{$3}++;\n    }\n}\n\nprint \"status counts:\\n\";\nprintf(\"  %s -> %d\\n\", $_, $codes{$_}) for sort keys %codes;\n\nmy ($busiest) = sort { $paths{$b} <=> $paths{$a} || $a cmp $b } keys %paths;\nprint \"busiest path: $busiest ($paths{$busiest} hits)\\n\";\n\nmy $text = \"cache pointer cache stack\";\nmy $n = () = $text =~ /cache/g;\nprint \"cache appears $n times\\n\";",
+    "output": "status counts:\n  200 -> 2\n  404 -> 2\n  500 -> 1\nbusiest path: /missing (2 hits)\ncache appears 2 times"
    }
   ]
  },
@@ -164,11 +404,18 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Grouping and deriving columns with pandas",
-    "note": "Load, derive, group, summarise — the four moves behind almost every analysis.",
+    "title": "Loading a CSV and describing it, without pandas",
+    "note": "csv plus statistics covers a surprising amount of real analysis work.",
     "lang": "python",
-    "code": "import pandas as pd\n\ndf = pd.DataFrame({\n    \"city\":  [\"Delhi\", \"Delhi\", \"Mumbai\", \"Mumbai\", \"Chennai\", \"Chennai\", \"Delhi\"],\n    \"month\": [\"Jan\", \"Feb\", \"Jan\", \"Feb\", \"Jan\", \"Feb\", \"Mar\"],\n    \"sales\": [240, 310, 180, 205, 150, 165, 290],\n    \"returns\": [12, 18, 9, 11, 6, 8, 15],\n})\n\ndf[\"net\"] = df[\"sales\"] - df[\"returns\"]\n\nprint(\"rows:\", len(df), \" columns:\", list(df.columns))\nprint()\nsummary = df.groupby(\"city\")[[\"sales\", \"returns\", \"net\"]].sum()\nfor city, row in summary.iterrows():\n    rate = row[\"returns\"] / row[\"sales\"] * 100\n    print(f\"{city:<9} sales {int(row['sales']):>4}  returns {int(row['returns']):>3}  net {int(row['net']):>4}  return rate {rate:.1f}%\")\n\nprint()\nprint(f\"best month overall: {df.groupby('month')['net'].sum().idxmax()}\")\nprint(f\"mean net per row  : {df['net'].mean():.2f}\")",
-    "output": "rows: 7  columns: ['city', 'month', 'sales', 'returns', 'net']\n\nChennai   sales  315  returns  14  net  301  return rate 4.4%\nDelhi     sales  840  returns  45  net  795  return rate 5.4%\nMumbai    sales  385  returns  20  net  365  return rate 5.2%\n\nbest month overall: Feb\nmean net per row  : 208.71"
+    "code": "import csv, io, statistics\n\nraw = \"\"\"name,branch,marks,attendance\nAsha,CSE,91,0.94\nRahul,ECE,78,0.81\nMeera,CSE,84,0.88\nVikram,ECE,65,0.62\nNadia,CSE,88,0.91\"\"\"\n\nrows = list(csv.DictReader(io.StringIO(raw)))\nmarks = [int(r[\"marks\"]) for r in rows]\n\nprint(f\"rows       : {len(rows)}\")\nprint(f\"mean marks : {statistics.mean(marks):.2f}\")\nprint(f\"median     : {statistics.median(marks)}\")\nprint(f\"stdev      : {statistics.stdev(marks):.3f}\")\n\nby_branch = {}\nfor r in rows:\n    by_branch.setdefault(r[\"branch\"], []).append(int(r[\"marks\"]))\nfor branch, ms in sorted(by_branch.items()):\n    print(f\"{branch:4} n={len(ms)} mean={statistics.mean(ms):.1f}\")",
+    "output": "rows       : 5\nmean marks : 81.20\nmedian     : 84\nstdev      : 10.281\nCSE  n=3 mean=87.7\nECE  n=2 mean=71.5"
+   },
+   {
+    "title": "Correlation and a least-squares fit by hand",
+    "note": "Both formulas are three lines each once you write them out.",
+    "lang": "python",
+    "code": "import statistics as st\n\nattendance = [0.94, 0.81, 0.88, 0.62, 0.91, 0.70, 0.99]\nmarks      = [91,   78,   84,   65,   88,   72,   95]\n\ndef pearson(xs, ys):\n    mx, my = st.mean(xs), st.mean(ys)\n    cov = sum((x - mx) * (y - my) for x, y in zip(xs, ys))\n    return cov / (st.stdev(xs) * st.stdev(ys) * (len(xs) - 1))\n\ndef fit(xs, ys):\n    mx, my = st.mean(xs), st.mean(ys)\n    slope = sum((x - mx) * (y - my) for x, y in zip(xs, ys)) / sum((x - mx) ** 2 for x in xs)\n    return slope, my - slope * mx\n\nr = pearson(attendance, marks)\nm, c = fit(attendance, marks)\n\nprint(f\"correlation : {r:.4f}\")\nprint(f\"fit         : marks = {m:.2f} * attendance + {c:.2f}\")\nfor a in (0.6, 0.8, 1.0):\n    print(f\"  attendance {a:.1f} -> predicted {m * a + c:.1f}\")",
+    "output": "correlation : 0.9945\nfit         : marks = 79.85 * attendance + 15.12\n  attendance 0.6 -> predicted 63.0\n  attendance 0.8 -> predicted 79.0\n  attendance 1.0 -> predicted 95.0"
    }
   ]
  },
@@ -178,11 +425,18 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Round-robin scheduling",
-    "note": "Each process gets a fixed quantum before being sent to the back of the queue — the basis of time-sharing.",
+    "title": "CPU scheduling: FCFS vs shortest-job-first",
+    "note": "Same processes, two policies, very different average waiting times.",
     "lang": "python",
-    "code": "# Round-robin scheduling with a quantum of 3\njobs = [(\"P1\", 7), (\"P2\", 4), (\"P3\", 9), (\"P4\", 2)]\nquantum, clock = 3, 0\nremaining = dict(jobs)\nqueue = [name for name, _ in jobs]\nfinish = {}\n\nwhile queue:\n    name = queue.pop(0)\n    slice_ = min(quantum, remaining[name])\n    print(f\"t={clock:>2}  run {name} for {slice_}\")\n    clock += slice_\n    remaining[name] -= slice_\n    if remaining[name]:\n        queue.append(name)\n    else:\n        finish[name] = clock\n\nprint()\ntotal = 0\nfor name, burst in jobs:\n    turnaround = finish[name]\n    total += turnaround\n    print(f\"{name}  burst {burst}  finished at {finish[name]:>2}  turnaround {turnaround}\")\nprint(f\"\\naverage turnaround: {total/len(jobs):.2f}\")",
-    "output": "t= 0  run P1 for 3\nt= 3  run P2 for 3\nt= 6  run P3 for 3\nt= 9  run P4 for 2\nt=11  run P1 for 3\nt=14  run P2 for 1\nt=15  run P3 for 3\nt=18  run P1 for 1\nt=19  run P3 for 3\n\nP1  burst 7  finished at 19  turnaround 19\nP2  burst 4  finished at 15  turnaround 15\nP3  burst 9  finished at 22  turnaround 22\nP4  burst 2  finished at 11  turnaround 11\n\naverage turnaround: 16.75"
+    "code": "jobs = [(\"P1\", 0, 7), (\"P2\", 2, 4), (\"P3\", 4, 1), (\"P4\", 5, 4)]\n\ndef simulate(order_key, label):\n    time, done, pending = 0, [], sorted(jobs, key=lambda j: j[1])\n    ready, queue = [], list(pending)\n    while queue or ready:\n        while queue and queue[0][1] <= time:\n            ready.append(queue.pop(0))\n        if not ready:\n            time = queue[0][1]\n            continue\n        ready.sort(key=order_key)\n        name, arrival, burst = ready.pop(0)\n        start = max(time, arrival)\n        done.append((name, start - arrival, start + burst - arrival))\n        time = start + burst\n    wait = sum(w for _, w, _ in done) / len(done)\n    turn = sum(t for _, _, t in done) / len(done)\n    print(f\"{label}: avg wait {wait:.2f}, avg turnaround {turn:.2f}\")\n    print(\"   \" + \"  \".join(f\"{n} w={w}\" for n, w, _ in done))\n\nsimulate(lambda j: j[1], \"FCFS\")\nsimulate(lambda j: j[2], \"SJF \")",
+    "output": "FCFS: avg wait 4.75, avg turnaround 8.75\n   P1 w=0  P2 w=5  P3 w=7  P4 w=7\nSJF : avg wait 4.00, avg turnaround 8.00\n   P1 w=0  P3 w=3  P2 w=6  P4 w=7"
+   },
+   {
+    "title": "Producer / consumer with a bounded buffer",
+    "note": "The classic synchronisation problem, stepped through one operation at a time.",
+    "lang": "python",
+    "code": "from collections import deque\n\nCAPACITY = 3\nbuffer = deque()\nproduced, consumed, log = [], [], []\n\nitems = [i * i for i in range(1, 8)]\nnext_item = 0\n\n# One scheduler step: the producer runs when there is room,\n# the consumer runs when there is something to take.\nfor step in range(1, 16):\n    if next_item < len(items) and len(buffer) < CAPACITY:\n        value = items[next_item]\n        buffer.append(value)\n        produced.append(value)\n        next_item += 1\n        log.append(f\"{step:2}. produce {value:3}  buffer={list(buffer)}\")\n    elif buffer:\n        value = buffer.popleft()\n        consumed.append(value)\n        log.append(f\"{step:2}. consume {value:3}  buffer={list(buffer)}\")\n    else:\n        log.append(f\"{step:2}. both blocked\")\n\nprint(\"\\n\".join(log))\nprint(\"\\nproduced:\", produced)\nprint(\"consumed:\", consumed)\nprint(\"still buffered:\", list(buffer))\nprint(\"nothing lost:\", sorted(consumed + list(buffer)) == sorted(produced))",
+    "output": "1. produce   1  buffer=[1]\n 2. produce   4  buffer=[1, 4]\n 3. produce   9  buffer=[1, 4, 9]\n 4. consume   1  buffer=[4, 9]\n 5. produce  16  buffer=[4, 9, 16]\n 6. consume   4  buffer=[9, 16]\n 7. produce  25  buffer=[9, 16, 25]\n 8. consume   9  buffer=[16, 25]\n 9. produce  36  buffer=[16, 25, 36]\n10. consume  16  buffer=[25, 36]\n11. produce  49  buffer=[25, 36, 49]\n12. consume  25  buffer=[36, 49]\n13. consume  36  buffer=[49]\n14. consume  49  buffer=[]\n15. both blocked\n\nproduced: [1, 4, 9, 16, 25, 36, 49]\nconsumed: [1, 4, 9, 16, 25, 36, 49]\nstill buffered: []\nnothing lost: True"
    }
   ]
  },
@@ -192,11 +446,18 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Subnetting a /24",
-    "note": "Splitting an address block into smaller subnets, with the usable host range for each.",
+    "title": "Subnetting and CIDR arithmetic",
+    "note": "Every address question is a bitmask question underneath.",
     "lang": "python",
-    "code": "import ipaddress\n\nnet = ipaddress.ip_network(\"192.168.10.0/24\")\nprint(f\"network   {net}\")\nprint(f\"netmask   {net.netmask}\")\nprint(f\"hosts     {net.num_addresses - 2}\")\nprint()\n\nprint(\"split into /26 subnets:\")\nfor sub in net.subnets(new_prefix=26):\n    hosts = list(sub.hosts())\n    print(f\"  {str(sub):<18} {hosts[0]} .. {hosts[-1]}\")",
-    "output": "network   192.168.10.0/24\nnetmask   255.255.255.0\nhosts     254\n\nsplit into /26 subnets:\n  192.168.10.0/26    192.168.10.1 .. 192.168.10.62\n  192.168.10.64/26   192.168.10.65 .. 192.168.10.126\n  192.168.10.128/26  192.168.10.129 .. 192.168.10.190\n  192.168.10.192/26  192.168.10.193 .. 192.168.10.254"
+    "code": "import ipaddress\n\nnet = ipaddress.ip_network(\"192.168.10.0/26\")\nprint(\"network   :\", net.network_address)\nprint(\"broadcast :\", net.broadcast_address)\nprint(\"netmask   :\", net.netmask)\nprint(\"usable    :\", net.num_addresses - 2)\n\nhosts = list(net.hosts())\nprint(\"first     :\", hosts[0], \" last:\", hosts[-1])\n\nfor candidate in [\"192.168.10.40\", \"192.168.10.90\"]:\n    ip = ipaddress.ip_address(candidate)\n    print(f\"{candidate:16} in {net}? {ip in net}\")\n\nprint(\"\\nsplitting into /28 blocks:\")\nfor sub in net.subnets(new_prefix=28):\n    print(\"  \", sub)",
+    "output": "network   : 192.168.10.0\nbroadcast : 192.168.10.63\nnetmask   : 255.255.255.192\nusable    : 62\nfirst     : 192.168.10.1  last: 192.168.10.62\n192.168.10.40    in 192.168.10.0/26? True\n192.168.10.90    in 192.168.10.0/26? False\n\nsplitting into /28 blocks:\n   192.168.10.0/28\n   192.168.10.16/28\n   192.168.10.32/28\n   192.168.10.48/28"
+   },
+   {
+    "title": "Checksums and a tiny reliable-transfer simulation",
+    "note": "Detect corruption, then retransmit — the essence of TCP in miniature.",
+    "lang": "python",
+    "code": "import random\n\ndef checksum(payload):\n    total = 0\n    for byte in payload.encode():\n        total = (total + byte) & 0xFFFF\n    return (~total) & 0xFFFF\n\ndef send(payload, corrupt):\n    wire = payload.replace(\"o\", \"0\") if corrupt else payload\n    return wire, checksum(payload)\n\nrandom.seed(3)\nmessages = [\"hello\", \"router\", \"packet\", \"window\"]\nattempts = 0\n\nfor msg in messages:\n    while True:\n        attempts += 1\n        corrupt = random.random() < 0.4\n        wire, sent_sum = send(msg, corrupt)\n        if checksum(wire) == sent_sum:\n            print(f\"{msg:8} delivered on attempt {attempts}\")\n            attempts = 0\n            break\n        print(f\"{msg:8} corrupted -> retransmit\")",
+    "output": "hello    corrupted -> retransmit\nhello    delivered on attempt 2\nrouter   corrupted -> retransmit\nrouter   delivered on attempt 2\npacket   delivered on attempt 1\nwindow   corrupted -> retransmit\nwindow   corrupted -> retransmit\nwindow   delivered on attempt 3"
    }
   ]
  },
@@ -206,11 +467,18 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Hashing and the avalanche effect",
-    "note": "One changed character rewrites roughly half the digest bits — and chaining hashes gives you a blockchain.",
+    "title": "Caesar, XOR and why they are not enough",
+    "note": "Classical ciphers make the idea of a key concrete before you meet AES.",
     "lang": "python",
-    "code": "import hashlib\n\ndef sha(text):\n    return hashlib.sha256(text.encode()).hexdigest()\n\n# One changed character avalanches through the whole digest\na, b = \"open computer science\", \"open computer scienca\"\nha, hb = sha(a), sha(b)\n\nprint(f\"{a!r}\\n  {ha}\")\nprint(f\"{b!r}\\n  {hb}\")\n\ndiff = sum(x != y for x, y in zip(bin(int(ha,16))[2:].zfill(256), bin(int(hb,16))[2:].zfill(256)))\nprint(f\"\\n{diff} of 256 bits differ ({diff/256:.1%})\")\n\n# A three-block chain, each block committing to the one before\nprev = \"0\" * 64\nfor i, payload in enumerate([\"alice->bob 5\", \"bob->carol 2\", \"carol->dan 1\"], 1):\n    prev = sha(prev + payload)\n    print(f\"block {i}  {payload:<14} {prev[:32]}...\")",
-    "output": "'open computer science'\n  05c9bc8e5e00a123b1356eea8ea75c803849c0b8102b47b950c4a62a5a30e521\n'open computer scienca'\n  bde6c35cbd57ce8dca68ce5c25c7f1921fc67979290bcbf65d84ce6fd4b3055b\n\n128 of 256 bits differ (50.0%)\nblock 1  alice->bob 5   cb5de720d08242ea3d1891652d47e9aa...\nblock 2  bob->carol 2   188f36380addcdda5a904d2bab32d7a3...\nblock 3  carol->dan 1   fc236795ebdfa4cfdd4c1cf6b4156b63..."
+    "code": "def caesar(text, shift):\n    out = []\n    for ch in text:\n        if ch.isalpha():\n            base = ord('A') if ch.isupper() else ord('a')\n            out.append(chr((ord(ch) - base + shift) % 26 + base))\n        else:\n            out.append(ch)\n    return \"\".join(out)\n\nmsg = \"Attack at dawn\"\nenc = caesar(msg, 5)\nprint(\"plain  :\", msg)\nprint(\"caesar :\", enc)\nprint(\"back   :\", caesar(enc, -5))\n\nkey = b\"key\"\ndata = msg.encode()\nxored = bytes(b ^ key[i % len(key)] for i, b in enumerate(data))\nprint(\"xor hex:\", xored.hex())\nprint(\"xor back:\", bytes(b ^ key[i % len(key)] for i, b in enumerate(xored)).decode())\n\nfreq = {}\nfor ch in enc.lower():\n    if ch.isalpha():\n        freq[ch] = freq.get(ch, 0) + 1\nprint(\"top letters:\", sorted(freq.items(), key=lambda kv: -kv[1])[:3])",
+    "output": "plain  : Attack at dawn\ncaesar : Fyyfhp fy ifbs\nback   : Attack at dawn\nxor hex: 2a110d0a06124b040d4b01181c0b\nxor back: Attack at dawn\ntop letters: [('f', 4), ('y', 3), ('h', 1)]"
+   },
+   {
+    "title": "Hashing, salting and password storage",
+    "note": "Never store a password; store a slow, salted hash of it.",
+    "lang": "python",
+    "code": "import hashlib, hmac, os\n\ndef hash_password(password, salt=None, rounds=20_000):\n    salt = salt or b\"fixed-demo-salt\"\n    digest = hashlib.pbkdf2_hmac(\"sha256\", password.encode(), salt, rounds)\n    return salt.hex(), digest.hex()\n\nsalt, stored = hash_password(\"correct horse battery staple\")\nprint(\"salt   :\", salt)\nprint(\"stored :\", stored[:32], \"...\")\n\nfor attempt in [\"wrong guess\", \"correct horse battery staple\"]:\n    _, candidate = hash_password(attempt, bytes.fromhex(salt))\n    ok = hmac.compare_digest(candidate, stored)\n    print(f\"{attempt[:20]:22} -> {'accepted' if ok else 'rejected'}\")\n\nprint(\"sha256 of 'open':\", hashlib.sha256(b\"open\").hexdigest()[:24], \"...\")",
+    "output": "salt   : 66697865642d64656d6f2d73616c74\nstored : b38f5e51f679405bcd01d0c17b8c3c5a ...\nwrong guess            -> rejected\ncorrect horse batter   -> accepted\nsha256 of 'open': 2348f998744212575d859596 ..."
    }
   ]
  },
@@ -220,10 +488,11 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Proof of work, and why tampering fails",
-    "note": "Each block commits to the hash before it, so changing old data invalidates everything after it.",
+    "title": "A blockchain in forty lines",
+    "note": "Hash of the previous block is the whole idea; the rest is bookkeeping.",
     "lang": "python",
-    "code": "import hashlib, time\n\ndef sha(text):\n    return hashlib.sha256(text.encode()).hexdigest()\n\ndef mine(index, prev, data, difficulty=4):\n    target = \"0\" * difficulty\n    nonce = 0\n    while True:\n        h = sha(f\"{index}{prev}{data}{nonce}\")\n        if h.startswith(target):\n            return nonce, h\n        nonce += 1\n\nchain = [{\"index\": 0, \"prev\": \"0\" * 64, \"data\": \"genesis\", \"nonce\": 0,\n          \"hash\": sha(\"genesis\")}]\n\nfor i, data in enumerate([\"alice->bob 5\", \"bob->carol 2\", \"carol->dan 1\"], start=1):\n    prev = chain[-1][\"hash\"]\n    t0 = time.perf_counter()\n    nonce, h = mine(i, prev, data)\n    ms = (time.perf_counter() - t0) * 1000\n    chain.append({\"index\": i, \"prev\": prev, \"data\": data, \"nonce\": nonce, \"hash\": h})\n    print(f\"block {i}  {data:<14} nonce {nonce:>7}  {h[:20]}...\")\n\nvalid = all(chain[i][\"prev\"] == chain[i-1][\"hash\"] for i in range(1, len(chain)))\nprint(f\"\\nchain length {len(chain)}, links valid: {valid}\")\n\nchain[1][\"data\"] = \"alice->bob 500\"       # tamper with one block\nrecomputed = sha(f\"{1}{chain[1]['prev']}{chain[1]['data']}{chain[1]['nonce']}\")\nprint(f\"after tampering, block 1 hash matches: {recomputed == chain[1]['hash']}\")"
+    "code": "import hashlib, json, time\n\nclass Block:\n    def __init__(self, index, data, previous):\n        self.index, self.data, self.previous, self.nonce = index, data, previous, 0\n        self.timestamp = 1_700_000_000 + index\n    def hash(self):\n        blob = json.dumps({\n            \"i\": self.index, \"d\": self.data, \"p\": self.previous,\n            \"n\": self.nonce, \"t\": self.timestamp}, sort_keys=True)\n        return hashlib.sha256(blob.encode()).hexdigest()\n    def mine(self, difficulty):\n        while not self.hash().startswith(\"0\" * difficulty):\n            self.nonce += 1\n        return self.hash()\n\nchain = [Block(0, \"genesis\", \"0\" * 64)]\nchain[0].mine(3)\n\nfor i, payload in enumerate([\"Asha -> Rahul : 5\", \"Rahul -> Meera : 2\"], start=1):\n    block = Block(i, payload, chain[-1].hash())\n    digest = block.mine(3)\n    chain.append(block)\n    print(f\"block {i} mined, nonce {block.nonce}, hash {digest[:16]}...\")\n\nvalid = all(chain[i].previous == chain[i-1].hash() for i in range(1, len(chain)))\nprint(\"chain valid:\", valid)\nchain[1].data = \"Asha -> Asha : 500\"\nprint(\"after tampering:\", all(chain[i].previous == chain[i-1].hash() for i in range(1, len(chain))))",
+    "output": "block 1 mined, nonce 11013, hash 0003c817e9e2b9df...\nblock 2 mined, nonce 7341, hash 0002c989d755bf16...\nchain valid: True\nafter tampering: False"
    }
   ]
  },
@@ -233,11 +502,18 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Truth tables and counting",
-    "note": "Every propositional connective in one table, then permutations and combinations from factorials.",
+    "title": "Number theory: gcd, modular inverse and CRT",
+    "note": "Euclid's algorithm underpins most of public-key cryptography.",
     "lang": "python",
-    "code": "from itertools import product\n\nprint(\" p  q | p^q  pvq  p->q  p<->q\")\nprint(\"-\" * 33)\nfor p, q in product([True, False], repeat=2):\n    implies = (not p) or q\n    iff     = p == q\n    print(f\" {int(p)}  {int(q)} |  {int(p and q)}    {int(p or q)}     {int(implies)}      {int(iff)}\")\n\nprint()\nn = 5\nfact = lambda k: 1 if k <= 1 else k * fact(k - 1)\nprint(f\"permutations P(5,3) = {fact(5)//fact(2)}\")\nprint(f\"combinations C(5,3) = {fact(5)//(fact(3)*fact(2))}\")",
-    "output": "p  q | p^q  pvq  p->q  p<->q\n---------------------------------\n 1  1 |  1    1     1      1\n 1  0 |  0    1     0      0\n 0  1 |  0    1     1      0\n 0  0 |  0    0     1      1\n\npermutations P(5,3) = 60\ncombinations C(5,3) = 10"
+    "code": "def egcd(a, b):\n    if b == 0:\n        return a, 1, 0\n    g, x, y = egcd(b, a % b)\n    return g, y, x - (a // b) * y\n\ndef inverse(a, m):\n    g, x, _ = egcd(a, m)\n    if g != 1:\n        return None\n    return x % m\n\nprint(\"gcd(252, 198)      :\", egcd(252, 198)[0])\nprint(\"inverse of 7 mod 26:\", inverse(7, 26))\nprint(\"check 7 * 15 mod 26:\", (7 * inverse(7, 26)) % 26)\n\ndef crt(pairs):\n    total, product = 0, 1\n    for _, m in pairs: product *= m\n    for r, m in pairs:\n        p = product // m\n        total += r * inverse(p, m) * p\n    return total % product\n\nprint(\"x = 2 mod 3, 3 mod 5, 2 mod 7 ->\", crt([(2,3),(3,5),(2,7)]))\nprint(\"counting: C(10,3) =\", __import__(\"math\").comb(10, 3))",
+    "output": "gcd(252, 198)      : 18\ninverse of 7 mod 26: 15\ncheck 7 * 15 mod 26: 1\nx = 2 mod 3, 3 mod 5, 2 mod 7 -> 23\ncounting: C(10,3) = 120"
+   },
+   {
+    "title": "Logic, truth tables and set operations",
+    "note": "A truth table is just a loop over every assignment.",
+    "lang": "python",
+    "code": "from itertools import product\n\ndef table(expr, names):\n    print(\" \".join(f\"{n:>5}\" for n in names), \"  result\")\n    for values in product([False, True], repeat=len(names)):\n        env = dict(zip(names, values))\n        row = \" \".join(f\"{str(v):>5}\" for v in values)\n        print(row, \"  \", expr(**env))\n\nprint(\"p -> q  is  (not p) or q\")\ntable(lambda p, q: (not p) or q, [\"p\", \"q\"])\n\nA = {1, 2, 3, 4, 6}\nB = {2, 4, 5, 6, 8}\nprint(\"\\nA | B :\", sorted(A | B))\nprint(\"A & B :\", sorted(A & B))\nprint(\"A - B :\", sorted(A - B))\nprint(\"A ^ B :\", sorted(A ^ B))\nprint(\"power set of {1,2,3} has\", 2 ** 3, \"members\")",
+    "output": "p -> q  is  (not p) or q\n    p     q   result\nFalse False    True\nFalse  True    True\n True False    False\n True  True    True\n\nA | B : [1, 2, 3, 4, 5, 6, 8]\nA & B : [2, 4, 6]\nA - B : [1, 3]\nA ^ B : [1, 3, 5, 8]\npower set of {1,2,3} has 8 members"
    }
   ]
  },
@@ -247,11 +523,11 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Solving systems and finding eigenvalues",
-    "note": "NumPy's linear algebra module answers most matrix questions in one line each.",
+    "title": "Matrix multiplication and determinants by hand",
+    "note": "Write it once yourself and NumPy stops being magic.",
     "lang": "python",
-    "code": "import numpy as np\n\nA = np.array([[2., 1.], [1., 3.]])\nb = np.array([8., 13.])\n\nx = np.linalg.solve(A, b)\nvals, vecs = np.linalg.eig(A)\n\nprint(\"solving Ax = b\")\nprint(\"  x        =\", np.round(x, 4))\nprint(\"  check Ax =\", np.round(A @ x, 4))\nprint()\nprint(\"eigenvalues  :\", np.round(np.sort(vals), 4))\nprint(\"determinant  :\", round(float(np.linalg.det(A)), 4))\nprint(\"condition no :\", round(float(np.linalg.cond(A)), 4))",
-    "output": "solving Ax = b\n  x        = [2.2 3.6]\n  check Ax = [ 8. 13.]\n\neigenvalues  : [1.382 3.618]\ndeterminant  : 5.0\ncondition no : 2.618"
+    "code": "def matmul(A, B):\n    return [[sum(A[i][k] * B[k][j] for k in range(len(B)))\n             for j in range(len(B[0]))] for i in range(len(A))]\n\ndef transpose(M):\n    return [list(row) for row in zip(*M)]\n\ndef det3(M):\n    a, b, c = M[0]\n    return (a * (M[1][1]*M[2][2] - M[1][2]*M[2][1])\n          - b * (M[1][0]*M[2][2] - M[1][2]*M[2][0])\n          + c * (M[1][0]*M[2][1] - M[1][1]*M[2][0]))\n\nA = [[1, 2], [3, 4]]\nB = [[0, 1], [1, 0]]\nprint(\"A x B    :\", matmul(A, B))\nprint(\"A^T      :\", transpose(A))\n\nM = [[2, -1, 0], [1, 3, 2], [0, 1, 1]]\nprint(\"det(M)   :\", det3(M))\n\ndef power_iteration(M, steps=40):\n    v = [1.0] * len(M)\n    for _ in range(steps):\n        w = [sum(M[i][j] * v[j] for j in range(len(v))) for i in range(len(M))]\n        norm = max(abs(x) for x in w)\n        v = [x / norm for x in w]\n    return norm, [round(x, 4) for x in v]\n\nval, vec = power_iteration([[2, 1], [1, 2]])\nprint(\"dominant eigenvalue:\", round(val, 4), \"eigenvector:\", vec)",
+    "output": "A x B    : [[2, 1], [4, 3]]\nA^T      : [[1, 3], [2, 4]]\ndet(M)   : 3\ndominant eigenvalue: 3.0 eigenvector: [1.0, 1.0]"
    }
   ]
  },
@@ -261,11 +537,18 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Sampling and the shape of a distribution",
-    "note": "Ten thousand dice rolls converge on the theoretical mean and produce the familiar triangular shape.",
+    "title": "Simulation, expectation and the central limit theorem",
+    "note": "When the algebra is hard, simulate it — the answer converges anyway.",
     "lang": "python",
-    "code": "import random, statistics\n\nrandom.seed(7)\nrolls = [random.randint(1, 6) + random.randint(1, 6) for _ in range(10_000)]\n\nprint(f\"mean   {statistics.mean(rolls):.3f}   (theory 7.000)\")\nprint(f\"stdev  {statistics.pstdev(rolls):.3f}   (theory 2.415)\")\nprint()\nfor total in range(2, 13):\n    n = rolls.count(total)\n    bar = \"#\" * round(n / 40)\n    print(f\"{total:>2} {n:>5}  {bar}\")",
-    "output": "mean   6.975   (theory 7.000)\nstdev  2.419   (theory 2.415)\n\n 2   278  #######\n 3   565  ##############\n 4   855  #####################\n 5  1119  ############################\n 6  1382  ###################################\n 7  1700  ##########################################\n 8  1391  ###################################\n 9  1061  ###########################\n10   826  #####################\n11   517  #############\n12   306  ########"
+    "code": "import random, statistics as st\n\nrandom.seed(11)\n\nrolls = [random.randint(1, 6) + random.randint(1, 6) for _ in range(60_000)]\ncounts = {}\nfor r in rolls:\n    counts[r] = counts.get(r, 0) + 1\n\nprint(\"two dice, empirical vs exact:\")\nfor total in range(2, 13):\n    exact = (6 - abs(total - 7)) / 36\n    print(f\"  {total:2}  {counts[total]/len(rolls):.4f}  vs  {exact:.4f}\")\n\nprint(f\"\\nmean of sum : {st.mean(rolls):.3f} (exact 7)\")\n\nmeans = [st.mean(random.random() for _ in range(30)) for _ in range(4000)]\nprint(f\"CLT: mean of means {st.mean(means):.4f} (exact 0.5)\")\nprint(f\"     stdev {st.stdev(means):.4f} (predicted {(1/12)**0.5/30**0.5:.4f})\")",
+    "output": "two dice, empirical vs exact:\n   2  0.0275  vs  0.0278\n   3  0.0563  vs  0.0556\n   4  0.0829  vs  0.0833\n   5  0.1115  vs  0.1111\n   6  0.1391  vs  0.1389\n   7  0.1659  vs  0.1667\n   8  0.1369  vs  0.1389\n   9  0.1105  vs  0.1111\n  10  0.0845  vs  0.0833\n  11  0.0566  vs  0.0556\n  12  0.0283  vs  0.0278\n\nmean of sum : 7.006 (exact 7)\nCLT: mean of means 0.5006 (exact 0.5)\n     stdev 0.0533 (predicted 0.0527)"
+   },
+   {
+    "title": "Bayes' theorem on a medical test",
+    "note": "The base rate is the part everyone's intuition gets wrong.",
+    "lang": "python",
+    "code": "def posterior(prevalence, sensitivity, specificity):\n    true_pos = prevalence * sensitivity\n    false_pos = (1 - prevalence) * (1 - specificity)\n    return true_pos / (true_pos + false_pos)\n\nprint(\"test: 99% sensitive, 99% specific\\n\")\nfor prevalence in [0.0001, 0.001, 0.01, 0.1]:\n    p = posterior(prevalence, 0.99, 0.99)\n    print(f\"  prevalence {prevalence:7.4%} -> P(disease | positive) = {p:6.2%}\")\n\nprint(\"\\nrepeat the test independently, prevalence 0.1%:\")\np = 0.001\nfor round_no in range(1, 4):\n    p = posterior(p, 0.99, 0.99)\n    print(f\"  after {round_no} positive test(s): {p:.2%}\")",
+    "output": "test: 99% sensitive, 99% specific\n\n  prevalence 0.0100% -> P(disease | positive) =  0.98%\n  prevalence 0.1000% -> P(disease | positive) =  9.02%\n  prevalence 1.0000% -> P(disease | positive) = 50.00%\n  prevalence 10.0000% -> P(disease | positive) = 91.67%\n\nrepeat the test independently, prevalence 0.1%:\n  after 1 positive test(s): 9.02%\n  after 2 positive test(s): 90.75%\n  after 3 positive test(s): 99.90%"
    }
   ]
  },
@@ -275,11 +558,18 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Simulating a DFA",
-    "note": "Five lines of transition table decide a language. Watch the state trace for each word.",
+    "title": "A DFA that you can actually run",
+    "note": "A state machine is a dictionary of transitions plus a loop.",
     "lang": "python",
-    "code": "# A DFA that accepts binary strings with an even number of 1s\ndelta = {\n    (\"even\", \"0\"): \"even\", (\"even\", \"1\"): \"odd\",\n    (\"odd\",  \"0\"): \"odd\",  (\"odd\",  \"1\"): \"even\",\n}\nstart, accepting = \"even\", {\"even\"}\n\ndef run(word):\n    state = start\n    trace = [state]\n    for ch in word:\n        state = delta[(state, ch)]\n        trace.append(state)\n    return state in accepting, trace\n\nfor word in [\"\", \"0\", \"11\", \"101\", \"1010\", \"111\", \"110011\"]:\n    ok, trace = run(word)\n    path = \" -> \".join(trace)\n    print(f\"{word or '(empty)':<9} {'ACCEPT' if ok else 'reject':<7} {path}\")\n\nprint()\naccepted = [w for w in [\"\", \"0\", \"11\", \"101\", \"1010\", \"111\", \"110011\"] if run(w)[0]]\nprint(\"accepted:\", accepted)",
-    "output": "(empty)   ACCEPT  even\n0         ACCEPT  even -> even\n11        ACCEPT  even -> odd -> even\n101       ACCEPT  even -> odd -> odd -> even\n1010      ACCEPT  even -> odd -> odd -> even -> even\n111       reject  even -> odd -> even -> odd\n110011    ACCEPT  even -> odd -> even -> even -> even -> odd -> even\n\naccepted: ['', '0', '11', '101', '1010', '110011']"
+    "code": "def dfa(transitions, start, accepting):\n    def accepts(word):\n        state = start\n        for ch in word:\n            state = transitions.get((state, ch))\n            if state is None:\n                return False\n        return state in accepting\n    return accepts\n\n# accepts binary strings whose value is divisible by 3\nmod3 = dfa(\n    transitions={\n        (0,'0'):0, (0,'1'):1,\n        (1,'0'):2, (1,'1'):0,\n        (2,'0'):1, (2,'1'):2,\n    },\n    start=0, accepting={0})\n\nfor word in [\"0\", \"11\", \"110\", \"1001\", \"1010\", \"1111\"]:\n    print(f\"{word:5} value {int(word,2):3}  divisible by 3? {mod3(word)}\")\n\n# accepts strings over {a,b} ending in \"ab\"\nendsab = dfa({(0,'a'):1,(0,'b'):0,(1,'a'):1,(1,'b'):2,(2,'a'):1,(2,'b'):0}, 0, {2})\nprint(\"\\nends with ab:\", {w: endsab(w) for w in [\"ab\", \"aab\", \"aba\", \"bbab\"]})",
+    "output": "0     value   0  divisible by 3? True\n11    value   3  divisible by 3? True\n110   value   6  divisible by 3? True\n1001  value   9  divisible by 3? True\n1010  value  10  divisible by 3? False\n1111  value  15  divisible by 3? True\n\nends with ab: {'ab': True, 'aab': True, 'aba': False, 'bbab': True}"
+   },
+   {
+    "title": "The halting problem, and a Turing machine that adds",
+    "note": "Undecidability is a two-line diagonal argument once the setup is clear.",
+    "lang": "python",
+    "code": "tape = list(\"111+11\") + [\"_\"] * 6\nrules = {\n    (\"q0\",\"1\"): (\"q0\",\"1\",\"R\"),\n    (\"q0\",\"+\"): (\"q1\",\"1\",\"R\"),\n    (\"q1\",\"1\"): (\"q1\",\"1\",\"R\"),\n    (\"q1\",\"_\"): (\"q2\",\"_\",\"L\"),\n    (\"q2\",\"1\"): (\"q3\",\"_\",\"S\"),\n}\n\nstate, head, steps = \"q0\", 0, 0\nwhile state != \"q3\" and steps < 50:\n    symbol = tape[head]\n    if (state, symbol) not in rules:\n        break\n    state, write, move = rules[(state, symbol)]\n    tape[head] = write\n    head += 1 if move == \"R\" else (-1 if move == \"L\" else 0)\n    steps += 1\n\nprint(\"tape after :\", \"\".join(tape).rstrip(\"_\"))\nprint(\"unary sum  :\", \"\".join(tape).count(\"1\"), \"(3 + 2)\")\nprint(\"halted in  :\", steps, \"steps\")\n\nprint(\"\\nWhy no program can decide halting:\")\nprint(\"  suppose halts(p, x) exists.\")\nprint(\"  define trouble(p): if halts(p, p): loop forever, else: stop.\")\nprint(\"  now ask: does trouble(trouble) halt?  Either answer contradicts itself.\")",
+    "output": "tape after : 11111\nunary sum  : 5 (3 + 2)\nhalted in  : 8 steps\n\nWhy no program can decide halting:\n  suppose halts(p, x) exists.\n  define trouble(p): if halts(p, p): loop forever, else: stop.\n  now ask: does trouble(trouble) halt?  Either answer contradicts itself."
    }
   ]
  },
@@ -289,11 +579,11 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "A tokeniser, parser and evaluator",
-    "note": "Precedence is not a special rule; it falls out of how the grammar nests term inside expr.",
+    "title": "A tokeniser and a recursive-descent parser",
+    "note": "Lex, parse, evaluate — a real compiler front end in miniature.",
     "lang": "python",
-    "code": "import re\n\n# A complete little language: tokenise, parse into a tree, then evaluate.\ndef tokenise(src):\n    return re.findall(r\"\\d+\\.?\\d*|[()+\\-*/]\", src)\n\nclass Parser:\n    def __init__(self, tokens):\n        self.t, self.i = tokens, 0\n    def peek(self):\n        return self.t[self.i] if self.i < len(self.t) else None\n    def take(self):\n        tok = self.peek(); self.i += 1; return tok\n\n    def expr(self):                      # expr := term (('+'|'-') term)*\n        node = self.term()\n        while self.peek() in (\"+\", \"-\"):\n            node = (self.take(), node, self.term())\n        return node\n    def term(self):                      # term := atom (('*'|'/') atom)*\n        node = self.atom()\n        while self.peek() in (\"*\", \"/\"):\n            node = (self.take(), node, self.atom())\n        return node\n    def atom(self):                      # atom := number | '(' expr ')'\n        tok = self.take()\n        if tok == \"(\":\n            node = self.expr(); self.take(); return node\n        return float(tok)\n\ndef evaluate(node):\n    if isinstance(node, float):\n        return node\n    op, a, b = node\n    a, b = evaluate(a), evaluate(b)\n    return {\"+\": a+b, \"-\": a-b, \"*\": a*b, \"/\": a/b}[op]\n\nfor src in [\"2 + 3 * 4\", \"(2 + 3) * 4\", \"10 / 4 - 1\", \"2 * (3 + 4) * 5\"]:\n    toks = tokenise(src)\n    tree = Parser(toks).expr()\n    print(f\"{src:<18} tokens={len(toks):<3} = {evaluate(tree):g}\")",
-    "output": "2 + 3 * 4          tokens=5   = 14\n(2 + 3) * 4        tokens=7   = 20\n10 / 4 - 1         tokens=5   = 1.5\n2 * (3 + 4) * 5    tokens=9   = 70"
+    "code": "import re\n\nTOKEN = re.compile(r\"\\s*(?:(\\d+\\.?\\d*)|(.))\")\n\ndef tokenize(text):\n    out = []\n    for number, symbol in TOKEN.findall(text):\n        out.append((\"num\", float(number)) if number else (\"op\", symbol))\n    return out + [(\"end\", None)]\n\nclass Parser:\n    def __init__(self, tokens): self.t, self.i = tokens, 0\n    def peek(self): return self.t[self.i]\n    def eat(self): self.i += 1; return self.t[self.i - 1]\n\n    def expr(self):\n        value = self.term()\n        while self.peek()[1] in (\"+\", \"-\"):\n            op = self.eat()[1]\n            value = value + self.term() if op == \"+\" else value - self.term()\n        return value\n\n    def term(self):\n        value = self.factor()\n        while self.peek()[1] in (\"*\", \"/\"):\n            op = self.eat()[1]\n            value = value * self.factor() if op == \"*\" else value / self.factor()\n        return value\n\n    def factor(self):\n        kind, value = self.eat()\n        if kind == \"num\": return value\n        if value == \"(\":\n            inner = self.expr()\n            self.eat()\n            return inner\n        if value == \"-\": return -self.factor()\n        raise SyntaxError(f\"unexpected {value}\")\n\nfor src in [\"2 + 3 * 4\", \"(2 + 3) * 4\", \"10 / 4 - 1\", \"-3 + 2 * (1 + 1)\"]:\n    print(f\"{src:20} = {Parser(tokenize(src)).expr()}\")\n\nprint(\"\\ntokens for '2+3*4':\", tokenize(\"2+3*4\")[:-1])",
+    "output": "2 + 3 * 4            = 14.0\n(2 + 3) * 4          = 20.0\n10 / 4 - 1           = 1.5\n-3 + 2 * (1 + 1)     = 1.0\n\ntokens for '2+3*4': [('num', 2.0), ('op', '+'), ('num', 3.0), ('op', '*'), ('num', 4.0)]"
    }
   ]
  },
@@ -303,11 +593,11 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Transform matrices in homogeneous coordinates",
-    "note": "Translation only becomes a matrix once you add the third coordinate — that is why graphics uses them.",
+    "title": "Transforms, projection and an ASCII renderer",
+    "note": "Rotate, project, rasterise — the pipeline, without a GPU.",
     "lang": "python",
-    "code": "import numpy as np\n\n# A unit square in homogeneous coordinates (x, y, 1)\nsquare = np.array([[0, 0, 1], [1, 0, 1], [1, 1, 1], [0, 1, 1]], dtype=float).T\n\ndef translate(tx, ty):\n    return np.array([[1, 0, tx], [0, 1, ty], [0, 0, 1]], dtype=float)\n\ndef scale(sx, sy):\n    return np.array([[sx, 0, 0], [0, sy, 0], [0, 0, 1]], dtype=float)\n\ndef rotate(deg):\n    r = np.radians(deg)\n    return np.array([[np.cos(r), -np.sin(r), 0],\n                     [np.sin(r),  np.cos(r), 0],\n                     [0, 0, 1]], dtype=float)\n\n# Order matters: this reads right to left — scale, then rotate, then translate\nM = translate(3, 2) @ rotate(45) @ scale(2, 2)\nout = M @ square\n\nprint(\"corner        original        transformed\")\nfor i in range(4):\n    ox, oy = square[0, i], square[1, i]\n    nx, ny = out[0, i], out[1, i]\n    print(f\"  {i}      ({ox:.1f}, {oy:.1f})      ({nx:7.3f}, {ny:7.3f})\")\n\nprint(f\"\\ndeterminant = {np.linalg.det(M[:2, :2]):.3f}  (area scale factor)\")",
-    "output": "corner        original        transformed\n  0      (0.0, 0.0)      (  3.000,   2.000)\n  1      (1.0, 0.0)      (  4.414,   3.414)\n  2      (1.0, 1.0)      (  3.000,   4.828)\n  3      (0.0, 1.0)      (  1.586,   3.414)\n\ndeterminant = 4.000  (area scale factor)"
+    "code": "import math\n\ncube = [(x, y, z) for x in (-1, 1) for y in (-1, 1) for z in (-1, 1)]\n\ndef rotate_y(p, angle):\n    x, y, z = p\n    c, s = math.cos(angle), math.sin(angle)\n    return (x * c + z * s, y, -x * s + z * c)\n\ndef project(p, distance=4.0):\n    x, y, z = p\n    factor = distance / (distance - z)\n    return (x * factor, y * factor)\n\nW, H = 44, 20\nfor angle in (0.0, math.pi / 4):\n    grid = [[\" \"] * W for _ in range(H)]\n    for corner in cube:\n        px, py = project(rotate_y(corner, angle))\n        cx = int((px + 2) / 4 * (W - 1))\n        cy = int((2 - py) / 4 * (H - 1))\n        if 0 <= cx < W and 0 <= cy < H:\n            grid[cy][cx] = \"#\"\n    print(f\"cube rotated {math.degrees(angle):.0f} degrees\")\n    for row in grid:\n        line = \"\".join(row).rstrip()\n        if line:\n            print(\"  \" + line)\n    print()",
+    "output": "cube rotated 0 degrees\n         #                           #\n              #                 #\n              #                 #\n         #                           #\n\ncube rotated 45 degrees\n                       #\n        #                             #\n                       #\n                       #\n        #                             #\n                       #"
    }
   ]
  },
@@ -317,18 +607,25 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Fitting a line by least squares",
-    "note": "The closed-form solution recovers the slope and intercept that generated the data, even through the noise.",
+    "title": "Linear regression trained with gradient descent",
+    "note": "One loop, one gradient — the algorithm behind almost everything else.",
     "lang": "python",
-    "code": "import numpy as np\n\nrng = np.random.default_rng(0)\nx = np.linspace(0, 10, 60)\ny = 2.4 * x + 1.7 + rng.normal(0, 1.5, x.size)\n\nX = np.column_stack([np.ones_like(x), x])\nw = np.linalg.lstsq(X, y, rcond=None)[0]\n\npred = X @ w\nr2 = 1 - ((y - pred) ** 2).sum() / ((y - y.mean()) ** 2).sum()\n\nprint(f\"intercept : {w[0]:.3f}   (true 1.700)\")\nprint(f\"slope     : {w[1]:.3f}   (true 2.400)\")\nprint(f\"R^2       : {r2:.4f}\")",
-    "output": "intercept : 1.406   (true 1.700)\nslope     : 2.482   (true 2.400)\nR^2       : 0.9680"
+    "code": "hours = [1, 2, 3, 4, 5, 6, 7, 8]\nmarks = [35, 42, 51, 58, 67, 72, 81, 88]\n\nw, b, lr = 0.0, 0.0, 0.01\nn = len(hours)\n\nfor epoch in range(1, 3001):\n    preds = [w * x + b for x in hours]\n    errors = [p - y for p, y in zip(preds, marks)]\n    dw = 2 / n * sum(e * x for e, x in zip(errors, hours))\n    db = 2 / n * sum(errors)\n    w -= lr * dw\n    b -= lr * db\n    if epoch % 750 == 0:\n        loss = sum(e * e for e in errors) / n\n        print(f\"epoch {epoch:4}  loss {loss:8.4f}  w {w:.4f}  b {b:.4f}\")\n\nprint(f\"\\nfitted: marks = {w:.2f} * hours + {b:.2f}\")\nfor h in (2.5, 9):\n    print(f\"  {h:4} hours -> predicted {w * h + b:.1f}\")",
+    "output": "epoch  750  loss   0.9096  w 7.8203  b 26.3063\nepoch 1500  loss   0.5782  w 7.6064  b 27.5085\nepoch 2250  loss   0.5774  w 7.5958  b 27.5683\nepoch 3000  loss   0.5774  w 7.5953  b 27.5713\n\nfitted: marks = 7.60 * hours + 27.57\n   2.5 hours -> predicted 46.6\n     9 hours -> predicted 95.9"
    },
    {
-    "title": "Gradient descent, step by step",
-    "note": "Minimising a quadratic by hand shows exactly what an optimiser does inside every training loop.",
+    "title": "k-means clustering from scratch",
+    "note": "Assign, recompute, repeat — unsupervised learning in fifteen lines.",
     "lang": "python",
-    "code": "def f(w):    return (w - 3) ** 2 + 2\ndef grad(w): return 2 * (w - 3)\n\nw, lr = -4.0, 0.15\nfor step in range(31):\n    if step % 5 == 0:\n        print(f\"step {step:>2}   w = {w:8.4f}   loss = {f(w):8.4f}\")\n    w -= lr * grad(w)\n\nprint(f\"\\nconverged to w = {w:.6f}  (true minimum 3.0)\")",
-    "output": "step  0   w =  -4.0000   loss =  51.0000\nstep  5   w =   1.8235   loss =   3.3841\nstep 10   w =   2.8023   loss =   2.0391\nstep 15   w =   2.9668   loss =   2.0011\nstep 20   w =   2.9944   loss =   2.0000\nstep 25   w =   2.9991   loss =   2.0000\nstep 30   w =   2.9998   loss =   2.0000\n\nconverged to w = 2.999890  (true minimum 3.0)"
+    "code": "import random, math\n\nrandom.seed(4)\npoints = ([(random.gauss(2, 0.4), random.gauss(2, 0.4)) for _ in range(30)] +\n          [(random.gauss(6, 0.5), random.gauss(5, 0.5)) for _ in range(30)] +\n          [(random.gauss(2.5, 0.4), random.gauss(6, 0.4)) for _ in range(30)])\n\ndef dist(a, b): return math.hypot(a[0] - b[0], a[1] - b[1])\n\ncentres = random.sample(points, 3)\nfor step in range(12):\n    groups = [[] for _ in centres]\n    for p in points:\n        groups[min(range(len(centres)), key=lambda i: dist(p, centres[i]))].append(p)\n    new = [(sum(x for x, _ in g) / len(g), sum(y for _, y in g) / len(g)) if g else centres[i]\n           for i, g in enumerate(groups)]\n    shift = sum(dist(a, b) for a, b in zip(centres, new))\n    centres = new\n    if shift < 1e-6:\n        print(f\"converged after {step + 1} steps\")\n        break\n\nfor i, (c, g) in enumerate(sorted(zip(centres, groups)), start=1):\n    print(f\"cluster {i}: centre ({c[0]:.2f}, {c[1]:.2f})  size {len(g)}\")\n\ninertia = sum(dist(p, min(centres, key=lambda c: dist(p, c))) ** 2 for p in points)\nprint(f\"inertia: {inertia:.2f}\")",
+    "output": "converged after 4 steps\ncluster 1: centre (2.03, 1.95)  size 30\ncluster 2: centre (2.66, 5.98)  size 30\ncluster 3: centre (6.09, 5.08)  size 30\ninertia: 31.36"
+   },
+   {
+    "title": "Decision tree splits and information gain",
+    "note": "Entropy tells the tree which question to ask first.",
+    "lang": "python",
+    "code": "import math\nfrom collections import Counter\n\ndata = [\n    (\"sunny\",  \"hot\",  \"high\",   False),\n    (\"sunny\",  \"hot\",  \"high\",   False),\n    (\"cloudy\", \"hot\",  \"high\",   True),\n    (\"rainy\",  \"mild\", \"high\",   True),\n    (\"rainy\",  \"cool\", \"normal\", True),\n    (\"rainy\",  \"cool\", \"normal\", False),\n    (\"cloudy\", \"cool\", \"normal\", True),\n    (\"sunny\",  \"mild\", \"high\",   False),\n    (\"sunny\",  \"cool\", \"normal\", True),\n    (\"rainy\",  \"mild\", \"normal\", True),\n]\nFEATURES = [\"outlook\", \"temp\", \"humidity\"]\n\ndef entropy(rows):\n    counts = Counter(r[-1] for r in rows)\n    total = len(rows)\n    return -sum((c / total) * math.log2(c / total) for c in counts.values())\n\ndef gain(rows, index):\n    base = entropy(rows)\n    groups = {}\n    for r in rows:\n        groups.setdefault(r[index], []).append(r)\n    weighted = sum(len(g) / len(rows) * entropy(g) for g in groups.values())\n    return base - weighted\n\nprint(f\"base entropy: {entropy(data):.4f}\\n\")\nfor i, name in enumerate(FEATURES):\n    print(f\"  split on {name:9} -> gain {gain(data, i):.4f}\")\n\nbest = max(range(len(FEATURES)), key=lambda i: gain(data, i))\nprint(f\"\\nroot of the tree: {FEATURES[best]}\")",
+    "output": "base entropy: 0.9710\n\n  split on outlook   -> gain 0.3219\n  split on temp      -> gain 0.0955\n  split on humidity  -> gain 0.1245\n\nroot of the tree: outlook"
    }
   ]
  },
@@ -338,11 +635,18 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Backpropagation from scratch",
-    "note": "A 2-4-1 network learns XOR with no framework at all — just matrix multiplies and the chain rule.",
+    "title": "A neural network with backpropagation, no framework",
+    "note": "Forward pass, loss, chain rule, update — that is all a framework does.",
     "lang": "python",
-    "code": "import numpy as np\n\n# A 2-2-1 network learning XOR, written out by hand\nrng = np.random.default_rng(1)\nX = np.array([[0,0],[0,1],[1,0],[1,1]], dtype=float)\ny = np.array([[0],[1],[1],[0]], dtype=float)\n\nsig  = lambda z: 1 / (1 + np.exp(-z))\ndsig = lambda a: a * (1 - a)\n\nW1, b1 = rng.normal(0, 1, (2, 4)), np.zeros((1, 4))\nW2, b2 = rng.normal(0, 1, (4, 1)), np.zeros((1, 1))\n\nfor epoch in range(1, 4001):\n    h  = sig(X @ W1 + b1)\n    out = sig(h @ W2 + b2)\n    loss = ((out - y) ** 2).mean()\n\n    d2 = (out - y) * dsig(out)\n    d1 = (d2 @ W2.T) * dsig(h)\n    W2 -= 0.5 * h.T @ d2;  b2 -= 0.5 * d2.sum(0, keepdims=True)\n    W1 -= 0.5 * X.T @ d1;  b1 -= 0.5 * d1.sum(0, keepdims=True)\n\n    if epoch % 1000 == 0:\n        print(f\"epoch {epoch:>4}   loss {loss:.6f}\")\n\nprint()\nfor xi, p in zip(X, sig(sig(X @ W1 + b1) @ W2 + b2)):\n    print(f\"  {int(xi[0])} XOR {int(xi[1])} -> {p[0]:.4f}\")",
-    "output": "epoch 1000   loss 0.013528\nepoch 2000   loss 0.002318\nepoch 3000   loss 0.001190\nepoch 4000   loss 0.000787\n\n  0 XOR 0 -> 0.0223\n  0 XOR 1 -> 0.9719\n  1 XOR 0 -> 0.9738\n  1 XOR 1 -> 0.0342"
+    "code": "import math, random\n\nrandom.seed(1)\n\nX = [(0,0), (0,1), (1,0), (1,1)]\nY = [0, 1, 1, 0]                      # XOR: not linearly separable\n\ndef sigmoid(x): return 1 / (1 + math.exp(-x))\n\nW1 = [[random.uniform(-1,1) for _ in range(2)] for _ in range(3)]\nb1 = [0.0] * 3\nW2 = [random.uniform(-1,1) for _ in range(3)]\nb2 = 0.0\nlr = 0.6\n\nfor epoch in range(1, 6001):\n    loss = 0.0\n    for (x1, x2), target in zip(X, Y):\n        h = [sigmoid(W1[i][0]*x1 + W1[i][1]*x2 + b1[i]) for i in range(3)]\n        out = sigmoid(sum(W2[i]*h[i] for i in range(3)) + b2)\n        loss += (out - target) ** 2\n\n        d_out = 2 * (out - target) * out * (1 - out)\n        for i in range(3):\n            d_h = d_out * W2[i] * h[i] * (1 - h[i])\n            W2[i] -= lr * d_out * h[i]\n            W1[i][0] -= lr * d_h * x1\n            W1[i][1] -= lr * d_h * x2\n            b1[i] -= lr * d_h\n        b2 -= lr * d_out\n\n    if epoch % 1500 == 0:\n        print(f\"epoch {epoch:4}  loss {loss/4:.6f}\")\n\nprint(\"\\nlearned XOR:\")\nfor (x1, x2), target in zip(X, Y):\n    h = [sigmoid(W1[i][0]*x1 + W1[i][1]*x2 + b1[i]) for i in range(3)]\n    out = sigmoid(sum(W2[i]*h[i] for i in range(3)) + b2)\n    print(f\"  {x1} XOR {x2} = {round(out)}  (raw {out:.4f}, target {target})\")",
+    "output": "epoch 1500  loss 0.000925\nepoch 3000  loss 0.000398\nepoch 4500  loss 0.000251\nepoch 6000  loss 0.000183\n\nlearned XOR:\n  0 XOR 0 = 0  (raw 0.0087, target 0)\n  0 XOR 1 = 1  (raw 0.9872, target 1)\n  1 XOR 0 = 1  (raw 0.9872, target 1)\n  1 XOR 1 = 0  (raw 0.0181, target 0)"
+   },
+   {
+    "title": "Softmax, cross-entropy and one gradient step",
+    "note": "The loss every classifier is trained with, written out in full.",
+    "lang": "python",
+    "code": "import math\n\ndef softmax(zs):\n    m = max(zs)\n    exps = [math.exp(z - m) for z in zs]\n    total = sum(exps)\n    return [e / total for e in exps]\n\nlogits = [2.0, 1.0, 0.1]\nprobs = softmax(logits)\nlabels = [\"cat\", \"dog\", \"bird\"]\n\nprint(\"logits :\", logits)\nfor name, p in zip(labels, probs):\n    print(f\"  P({name:4}) = {p:.4f}\")\n\ntarget = 0                                   # true class is \"cat\"\nloss = -math.log(probs[target])\nprint(f\"\\ncross-entropy loss: {loss:.4f}\")\n\ngrads = [p - (1 if i == target else 0) for i, p in enumerate(probs)]\nprint(\"gradient wrt logits:\", [round(g, 4) for g in grads])\n\nlr = 0.5\nupdated = [z - lr * g for z, g in zip(logits, grads)]\nprint(\"after one step     :\", [round(z, 4) for z in updated])\nprint(\"new P(cat)         :\", round(softmax(updated)[0], 4))",
+    "output": "logits : [2.0, 1.0, 0.1]\n  P(cat ) = 0.6590\n  P(dog ) = 0.2424\n  P(bird) = 0.0986\n\ncross-entropy loss: 0.4170\ngradient wrt logits: [-0.341, 0.2424, 0.0986]\nafter one step     : [2.1705, 0.8788, 0.0507]\nnew P(cat)         : 0.7169"
    }
   ]
  },
@@ -352,11 +656,11 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Sobel edge detection from scratch",
-    "note": "Convolving an image with two small kernels is all edge detection is — no library required.",
+    "title": "Convolution, edge detection and pooling by hand",
+    "note": "A kernel sliding over a grid — that is every conv layer, forever.",
     "lang": "python",
-    "code": "import numpy as np\n\n# A synthetic 12x12 image: dark background, bright square in the middle\nimg = np.zeros((12, 12))\nimg[3:9, 3:9] = 1.0\n\n# Sobel kernels detect intensity change in x and y\nKx = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]], dtype=float)\nKy = Kx.T\n\ndef convolve(a, k):\n    h, w = a.shape\n    out = np.zeros((h - 2, w - 2))\n    for i in range(h - 2):\n        for j in range(w - 2):\n            out[i, j] = (a[i:i+3, j:j+3] * k).sum()\n    return out\n\ngx, gy = convolve(img, Kx), convolve(img, Ky)\nmag = np.sqrt(gx**2 + gy**2)\n\nprint(\"edge magnitude map (blank = flat, # = edge):\")\nfor row in mag:\n    print(\"  \" + \"\".join(\"#\" if v > 1 else \".\" for v in row))\n\nprint(f\"\\nedge pixels : {(mag > 1).sum()} of {mag.size}\")\nprint(f\"max response: {mag.max():.2f}\")",
-    "output": "edge magnitude map (blank = flat, # = edge):\n  ..........\n  .########.\n  .########.\n  .##....##.\n  .##....##.\n  .##....##.\n  .##....##.\n  .########.\n  .########.\n  ..........\n\nedge pixels : 48 of 100\nmax response: 4.24"
+    "code": "image = [\n    [10, 10, 10, 80, 80, 80],\n    [10, 10, 10, 80, 80, 80],\n    [10, 10, 10, 80, 80, 80],\n    [10, 10, 10, 80, 80, 80],\n    [10, 10, 10, 80, 80, 80],\n    [10, 10, 10, 80, 80, 80],\n]\nsobel_x = [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]\n\ndef convolve(img, kernel):\n    k, n = len(kernel), len(img)\n    out = []\n    for i in range(n - k + 1):\n        row = []\n        for j in range(n - k + 1):\n            row.append(sum(img[i+a][j+b] * kernel[a][b] for a in range(k) for b in range(k)))\n        out.append(row)\n    return out\n\ndef maxpool(img, size=2):\n    return [[max(img[i+a][j+b] for a in range(size) for b in range(size))\n             for j in range(0, len(img[0]) - size + 1, size)]\n            for i in range(0, len(img) - size + 1, size)]\n\nedges = convolve(image, sobel_x)\nprint(\"vertical edge response:\")\nfor row in edges:\n    print(\"  \" + \" \".join(f\"{v:5}\" for v in row))\n\nprint(\"\\nafter 2x2 max pooling:\")\nfor row in maxpool(edges):\n    print(\"  \" + \" \".join(f\"{v:5}\" for v in row))\n\nprint(\"\\nstrongest response:\", max(max(r) for r in edges), \"at the 10 -> 80 boundary\")",
+    "output": "vertical edge response:\n      0   280   280     0\n      0   280   280     0\n      0   280   280     0\n      0   280   280     0\n\nafter 2x2 max pooling:\n    280   280\n    280   280\n\nstrongest response: 280 at the 10 -> 80 boundary"
    }
   ]
  },
@@ -366,11 +670,18 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Tokenising and TF-IDF by hand",
-    "note": "A term matters when it is frequent in one document and rare across the rest. That is the whole formula.",
+    "title": "Tokenising, TF-IDF and cosine similarity",
+    "note": "Before embeddings there was TF-IDF, and it still works well.",
     "lang": "python",
-    "code": "import math, re\nfrom collections import Counter\n\ndocs = [\n    \"the cat sat on the mat\",\n    \"the dog sat on the log\",\n    \"cats and dogs are pets\",\n]\n\ntokenise = lambda t: re.findall(r\"[a-z]+\", t.lower())\ntokens = [tokenise(d) for d in docs]\n\nprint(\"tokens per document:\")\nfor i, t in enumerate(tokens):\n    print(f\"  doc{i}: {t}\")\n\n# inverse document frequency, then tf-idf by hand\nN = len(docs)\ndf = Counter(w for t in tokens for w in set(t))\n\nprint(\"\\ntop tf-idf terms per document:\")\nfor i, t in enumerate(tokens):\n    tf = Counter(t)\n    scores = {w: (c / len(t)) * math.log(N / df[w]) for w, c in tf.items()}\n    top = sorted(scores.items(), key=lambda kv: -kv[1])[:3]\n    pretty = \", \".join(f\"{w} {s:.3f}\" for w, s in top if s > 0)\n    print(f\"  doc{i}: {pretty}\")",
-    "output": "tokens per document:\n  doc0: ['the', 'cat', 'sat', 'on', 'the', 'mat']\n  doc1: ['the', 'dog', 'sat', 'on', 'the', 'log']\n  doc2: ['cats', 'and', 'dogs', 'are', 'pets']\n\ntop tf-idf terms per document:\n  doc0: cat 0.183, mat 0.183, the 0.135\n  doc1: dog 0.183, log 0.183, the 0.135\n  doc2: cats 0.220, and 0.220, dogs 0.220"
+    "code": "import math, re\nfrom collections import Counter\n\ndocs = {\n    \"d1\": \"the cache stores recent pages for fast access\",\n    \"d2\": \"a pointer stores the address of another value\",\n    \"d3\": \"cache memory is faster than main memory access\",\n}\n\ndef tokens(text): return re.findall(r\"[a-z]+\", text.lower())\n\ntf = {d: Counter(tokens(t)) for d, t in docs.items()}\ndf = Counter(w for counts in tf.values() for w in counts)\nN = len(docs)\n\ndef tfidf(doc):\n    counts = tf[doc]\n    total = sum(counts.values())\n    return {w: (c / total) * math.log(N / df[w] + 1) for w, c in counts.items()}\n\nvectors = {d: tfidf(d) for d in docs}\n\nprint(\"top terms per document:\")\nfor d, vec in vectors.items():\n    top = sorted(vec.items(), key=lambda kv: -kv[1])[:3]\n    print(f\"  {d}: \" + \", \".join(f\"{w} {s:.3f}\" for w, s in top))\n\ndef cosine(a, b):\n    shared = set(a) & set(b)\n    num = sum(a[w] * b[w] for w in shared)\n    na = math.sqrt(sum(v * v for v in a.values()))\n    nb = math.sqrt(sum(v * v for v in b.values()))\n    return num / (na * nb) if na and nb else 0.0\n\nprint(\"\\nsimilarity:\")\nfor a, b in [(\"d1\",\"d2\"), (\"d1\",\"d3\"), (\"d2\",\"d3\")]:\n    print(f\"  {a} vs {b}: {cosine(vectors[a], vectors[b]):.4f}\")",
+    "output": "top terms per document:\n  d1: recent 0.173, pages 0.173, for 0.173\n  d2: a 0.173, pointer 0.173, address 0.173\n  d3: memory 0.347, is 0.173, faster 0.173\n\nsimilarity:\n  d1 vs d2: 0.1390\n  d1 vs d3: 0.1223\n  d2 vs d3: 0.0000"
+   },
+   {
+    "title": "N-gram language model with add-one smoothing",
+    "note": "Count pairs, normalise, generate — the ancestor of every LLM.",
+    "lang": "python",
+    "code": "import random\nfrom collections import defaultdict, Counter\n\ncorpus = (\"the cache stores pages . the cache is fast . \"\n          \"the pointer stores an address . the pointer is small . \"\n          \"the cache is small .\").split()\n\nbigrams = defaultdict(Counter)\nfor a, b in zip(corpus, corpus[1:]):\n    bigrams[a][b] += 1\n\nvocab = sorted(set(corpus))\n\ndef probability(prev, word):\n    counts = bigrams[prev]\n    return (counts[word] + 1) / (sum(counts.values()) + len(vocab))\n\nprint(\"P(word | 'the'):\")\nfor word in [\"cache\", \"pointer\", \"fast\"]:\n    print(f\"  {word:9} {probability('the', word):.4f}\")\n\nrandom.seed(6)\nword, out = \"the\", [\"the\"]\nfor _ in range(7):\n    choices = list(bigrams[word].elements()) or vocab\n    word = random.choice(choices)\n    out.append(word)\nprint(\"\\ngenerated:\", \" \".join(out))\n\nsentence = [\"the\", \"cache\", \"is\", \"fast\"]\nlogp = sum(__import__(\"math\").log(probability(a, b)) for a, b in zip(sentence, sentence[1:]))\nprint(f\"log P(sentence) = {logp:.4f}\")",
+    "output": "P(word | 'the'):\n  cache     0.2500\n  pointer   0.1875\n  fast      0.0625\n\ngenerated: the pointer stores an address . the cache\nlog P(sentence) = -4.8726"
    }
   ]
  },
@@ -380,11 +691,11 @@
   "lang": "python",
   "lesson": [
    {
-    "title": "Retrieval by cosine similarity",
-    "note": "RAG is this: embed the question, rank passages by angle, hand the top few to the model as context.",
+    "title": "Chunking, embedding and retrieval — a RAG pipeline",
+    "note": "Split, embed, rank, answer. Every RAG system is these four steps.",
     "lang": "python",
-    "code": "import numpy as np\n\n# Toy 4-dimensional 'embeddings' — real ones come from a model,\n# but the retrieval maths is exactly this.\npassages = {\n    \"Photosynthesis converts light into sugar.\":  [0.9, 0.1, 0.0, 0.2],\n    \"Transformers use self-attention layers.\":     [0.1, 0.95, 0.2, 0.1],\n    \"Mitochondria produce ATP in the cell.\":       [0.85, 0.05, 0.1, 0.3],\n    \"Attention scales with sequence length.\":      [0.05, 0.9, 0.35, 0.05],\n}\nquery = np.array([0.08, 0.93, 0.25, 0.07])   # 'how does attention work?'\n\ndef cosine(a, b):\n    return float(a @ b / (np.linalg.norm(a) * np.linalg.norm(b)))\n\nranked = sorted(\n    ((cosine(query, np.array(v)), k) for k, v in passages.items()),\n    reverse=True,\n)\n\nprint(\"query: how does attention work?\\n\")\nfor rank, (score, text) in enumerate(ranked, 1):\n    mark = \"<- retrieved\" if rank <= 2 else \"\"\n    print(f\"{rank}. {score:.4f}  {text} {mark}\")\n\nprint(\"\\ncontext handed to the model:\")\nfor _, text in ranked[:2]:\n    print(\"  -\", text)",
-    "output": "query: how does attention work?\n\n1. 0.9979  Transformers use self-attention layers. <- retrieved\n2. 0.9935  Attention scales with sequence length. <- retrieved\n3. 0.1992  Photosynthesis converts light into sugar. \n4. 0.1824  Mitochondria produce ATP in the cell. \n\ncontext handed to the model:\n  - Transformers use self-attention layers.\n  - Attention scales with sequence length."
+    "code": "import math, re\nfrom collections import Counter\n\ndocument = \"\"\"\nA cache stores recently used data so it can be read again quickly.\nCache memory sits between the CPU and main memory.\nA pointer holds the address of a value in memory.\nPointer arithmetic moves through an array element by element.\nVirtual memory lets a process use more address space than exists physically.\nPaging moves fixed-size blocks between disk and main memory.\n\"\"\".strip()\n\ndef chunk(text, size=2):\n    lines = [l.strip() for l in text.split(\"\\n\") if l.strip()]\n    return [\" \".join(lines[i:i+size]) for i in range(0, len(lines), size)]\n\ndef embed(text):\n    return Counter(re.findall(r\"[a-z]+\", text.lower()))\n\ndef cosine(a, b):\n    shared = set(a) & set(b)\n    num = sum(a[w] * b[w] for w in shared)\n    na = math.sqrt(sum(v*v for v in a.values()))\n    nb = math.sqrt(sum(v*v for v in b.values()))\n    return num / (na * nb) if na and nb else 0.0\n\nchunks = chunk(document)\nindex = [(c, embed(c)) for c in chunks]\nprint(f\"indexed {len(chunks)} chunks\\n\")\n\nfor question in [\"how does paging work?\", \"what is a pointer?\"]:\n    q = embed(question)\n    ranked = sorted(index, key=lambda pair: -cosine(q, pair[1]))\n    print(f\"Q: {question}\")\n    for c, vec in ranked[:2]:\n        print(f\"   {cosine(q, vec):.3f}  {c[:66]}...\")\n    print(f\"   -> context sent to the model: chunk with score {cosine(q, ranked[0][1]):.3f}\\n\")",
+    "output": "indexed 3 chunks\n\nQ: how does paging work?\n   0.102  Virtual memory lets a process use more address space than exists p...\n   0.000  A cache stores recently used data so it can be read again quickly....\n   -> context sent to the model: chunk with score 0.102\n\nQ: what is a pointer?\n   0.400  A pointer holds the address of a value in memory. Pointer arithmet...\n   0.102  Virtual memory lets a process use more address space than exists p...\n   -> context sent to the model: chunk with score 0.400"
    }
   ]
  }

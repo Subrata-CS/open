@@ -137,11 +137,6 @@ import RunInLab from '@site/src/components/RunInLab';
 
 _{plain} - part of {section}. A short introduction goes here._
 
-:::note[Notes in progress]
-The full write-up for this topic is still being prepared. The practice cell
-below already works, so you can experiment with the idea straight away.
-:::
-
 ## Key Concepts
 
 _The main ideas, one line each._

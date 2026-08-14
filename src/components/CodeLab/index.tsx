@@ -273,7 +273,7 @@ export default function CodeLab({
       {/* ------------------- right: notebook ------------------- */}
       <section className={styles.pane}>
         <header className={styles.paneHead}>
-          <span className={styles.paneTitle}>Your notebook</span>
+          <span className={styles.paneTitle}>My notebook</span>
           {back ? (
             <Link className={styles.backLink} to={back.returnUrl}>
               ← Back to {back.returnTitle}
@@ -454,15 +454,32 @@ export default function CodeLab({
                 </button>
               </div>
 
-              <textarea
-                className={styles.editor}
-                data-cellid={c.id}
-                value={c.code}
-                spellCheck={false}
-                rows={Math.max(5, Math.min(24, c.code.split('\n').length + 1))}
-                onChange={(e) => patch(c.id, { code: e.target.value })}
-                aria-label={`Cell ${i + 1} source`}
-              />
+              {/* input on the left, its output on the right */}
+              <div className={styles.cellIO}>
+                <div className={styles.ioSide}>
+                  <span className={styles.ioTag}>input</span>
+                  <textarea
+                    className={styles.editor}
+                    data-cellid={c.id}
+                    value={c.code}
+                    spellCheck={false}
+                    rows={Math.max(8, Math.min(26, c.code.split('\n').length + 1))}
+                    onChange={(e) => patch(c.id, { code: e.target.value })}
+                    aria-label={`Cell ${i + 1} source`}
+                  />
+                </div>
+
+                <div className={styles.ioSide}>
+                  <span className={styles.ioTag}>output</span>
+                  {c.output ? (
+                    <pre className={c.ok ? styles.out : styles.outErr}>{c.output}</pre>
+                  ) : (
+                    <pre className={styles.outIdle}>
+                      {c.busy ? c.status || 'Running…' : 'Run the cell to see its output here.'}
+                    </pre>
+                  )}
+                </div>
+              </div>
 
               <div className={styles.cellBar}>
                 <button
@@ -489,12 +506,6 @@ export default function CodeLab({
                 )}
               </div>
 
-              {c.output && (
-                <pre className={c.ok ? styles.out : styles.outErr}>
-                  <span className={styles.outLabel}>output</span>
-                  {c.output}
-                </pre>
-              )}
             </div>
           ))}
 

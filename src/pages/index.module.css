@@ -35,10 +35,39 @@
   overflow: hidden;
   padding: 5rem 1rem 4.5rem;
   background:
-    radial-gradient(1100px 520px at 12% -20%, rgba(99, 102, 241, 0.26), transparent 60%),
-    radial-gradient(900px 460px at 92% 8%, rgba(168, 85, 247, 0.18), transparent 62%),
-    radial-gradient(700px 400px at 60% 110%, rgba(236, 72, 153, 0.10), transparent 60%);
+    radial-gradient(1100px 520px at 12% -20%, rgba(99, 102, 241, 0.28), transparent 60%),
+    radial-gradient(900px 460px at 92% 8%, rgba(168, 85, 247, 0.20), transparent 62%),
+    radial-gradient(760px 420px at 60% 118%, rgba(236, 72, 153, 0.12), transparent 60%),
+    radial-gradient(620px 380px at 78% 82%, rgba(34, 211, 238, 0.10), transparent 64%);
   border-bottom: 1px solid var(--open-border);
+}
+
+/* a faint engineering grid, so the space behind the globe has structure */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(148, 163, 220, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 220, 0.055) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at 50% 40%, #000 10%, transparent 78%);
+  -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 10%, transparent 78%);
+}
+
+/* vignette, to settle the edges */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 45%, transparent 55%, rgba(3, 5, 18, 0.55));
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 1;
 }
 
 .heroGrid {
@@ -52,15 +81,6 @@
 
 .heroText {
   min-width: 0;
-}
-
-.eyebrow {
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ifm-color-primary);
-  margin-bottom: 1rem;
 }
 
 .title {

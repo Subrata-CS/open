@@ -8,7 +8,9 @@ import {
   type ReactNode,
 } from 'react';
 import { useHistory } from '@docusaurus/router';
+import { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
 import sectionsData from '@site/src/data/sections.json';
+import landData from '@site/src/data/land.json';
 import { toneOf } from '@site/src/lib/tones';
 import styles from './styles.module.css';
 
@@ -34,11 +36,31 @@ type SectionNode = {
 
 const SECTIONS = sectionsData as SectionNode[];
 
-const GOLDEN = Math.PI * (3 - Math.sqrt(5));
-const TILT = 0.42; // radians — a gentle axial tilt, like a real globe
-const SPIN = 0.00022; // radians per millisecond
-
 type Vec = { x: number; y: number; z: number };
+
+const GOLDEN = Math.PI * (3 - Math.sqrt(5));
+const SPIN = 0.00019; // radians per millisecond
+const MAX_TILT = 1.15; // how far up or down the globe can be tipped
+
+type LandMask = { top: number; step: number; rows: string[] };
+const LAND = landData as LandMask;
+
+/** Every land cell of the mask, pre-converted to a point on the unit sphere. */
+const LAND_POINTS: Vec[] = (() => {
+  const pts: Vec[] = [];
+  LAND.rows.forEach((row, r) => {
+    const latDeg = LAND.top - r * LAND.step;
+    const lat = (latDeg * Math.PI) / 180;
+    const cosLat = Math.cos(lat);
+    const sinLat = Math.sin(lat);
+    for (let c = 0; c < row.length; c++) {
+      if (row[c] !== '#') continue;
+      const lon = ((-180 + c * LAND.step) * Math.PI) / 180;
+      pts.push({ x: cosLat * Math.cos(lon), y: sinLat, z: cosLat * Math.sin(lon) });
+    }
+  });
+  return pts;
+})();
 
 /** Evenly spread points over a sphere — no clustering at the poles. */
 function fibonacci(index: number, count: number): Vec {
@@ -74,6 +96,7 @@ export default function Globe(): ReactNode {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const history = useHistory();
+  const { withBaseUrl } = useBaseUrlUtils();
 
   const [focus, setFocus] = useState(0);
   const [hover, setHover] = useState(-1);
@@ -81,9 +104,11 @@ export default function Globe(): ReactNode {
   // Everything the animation loop mutates lives in refs so React never
   // re-renders sixty times a second.
   const spinRef = useRef(0);
-  const dragRef = useRef<{ on: boolean; last: number; moved: number }>({
+  const tiltRef = useRef(0.42);
+  const dragRef = useRef<{ on: boolean; x: number; y: number; moved: number }>({
     on: false,
-    last: 0,
+    x: 0,
+    y: 0,
     moved: 0,
   });
   const pausedRef = useRef(false);
@@ -129,10 +154,16 @@ export default function Globe(): ReactNode {
   const onMove = useCallback(
     (e: React.PointerEvent<HTMLCanvasElement>) => {
       if (dragRef.current.on) {
-        const dx = e.clientX - dragRef.current.last;
-        dragRef.current.last = e.clientX;
-        dragRef.current.moved += Math.abs(dx);
+        const dx = e.clientX - dragRef.current.x;
+        const dy = e.clientY - dragRef.current.y;
+        dragRef.current.x = e.clientX;
+        dragRef.current.y = e.clientY;
+        dragRef.current.moved += Math.abs(dx) + Math.abs(dy);
         spinRef.current += dx * 0.0075;
+        tiltRef.current = Math.max(
+          -MAX_TILT,
+          Math.min(MAX_TILT, tiltRef.current + dy * 0.0065),
+        );
         return;
       }
       const hit = pointAt(e.clientX, e.clientY);
@@ -146,7 +177,7 @@ export default function Globe(): ReactNode {
   );
 
   const onDown = useCallback((e: React.PointerEvent<HTMLCanvasElement>) => {
-    dragRef.current = { on: true, last: e.clientX, moved: 0 };
+    dragRef.current = { on: true, x: e.clientX, y: e.clientY, moved: 0 };
     e.currentTarget.setPointerCapture(e.pointerId);
   }, []);
 
@@ -161,10 +192,10 @@ export default function Globe(): ReactNode {
       }
       if (moved < 6) {
         const hit = pointAt(e.clientX, e.clientY);
-        if (hit !== -1) history.push(nodes[hit].href);
+        if (hit !== -1) history.push(withBaseUrl(nodes[hit].href));
       }
     },
-    [history, nodes, pointAt],
+    [history, nodes, pointAt, withBaseUrl],
   );
 
   const leave = useCallback(() => {
@@ -219,6 +250,7 @@ export default function Globe(): ReactNode {
       const cy = size / 2;
       const R = size * 0.395;
       const spin = spinRef.current;
+      const tilt = tiltRef.current;
 
       ctx.clearRect(0, 0, size, size);
 
@@ -256,9 +288,20 @@ export default function Globe(): ReactNode {
       ctx.stroke();
 
       const project = (v: Vec, lift = 1) => {
-        const p = rotate(v, spin, TILT);
+        const p = rotate(v, spin, tilt);
         return { sx: cx + p.x * R * lift, sy: cy - p.y * R * lift, z: p.z };
       };
+
+      // --- continents --------------------------------------------------
+      for (const point of LAND_POINTS) {
+        const p = project(point);
+        if (p.z <= 0.02) continue;
+        const depth = Math.min(1, p.z);
+        ctx.beginPath();
+        ctx.arc(p.sx, p.sy, 0.7 + depth * 1.15, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(125, 190, 255, ${0.08 + depth * 0.34})`;
+        ctx.fill();
+      }
 
       // --- graticule --------------------------------------------------
       ctx.lineWidth = 1;
@@ -286,7 +329,7 @@ export default function Globe(): ReactNode {
             open = false;
           }
         }
-        ctx.strokeStyle = 'rgba(148, 163, 220, 0.16)';
+        ctx.strokeStyle = 'rgba(148, 163, 220, 0.10)';
         ctx.stroke();
       }
 
@@ -313,7 +356,7 @@ export default function Globe(): ReactNode {
           }
         }
         ctx.strokeStyle =
-          k === 4 ? 'rgba(165, 180, 252, 0.26)' : 'rgba(148, 163, 220, 0.13)';
+          k === 4 ? 'rgba(165, 180, 252, 0.22)' : 'rgba(148, 163, 220, 0.09)';
         ctx.stroke();
       }
 
@@ -342,9 +385,9 @@ export default function Globe(): ReactNode {
         }
         if (visible > 1) {
           ctx.strokeStyle = sameTrack
-            ? `rgba(${a.colour.rgb}, 0.34)`
-            : 'rgba(148, 163, 220, 0.16)';
-          ctx.lineWidth = sameTrack ? 1.2 : 1;
+            ? `rgba(${a.colour.rgb}, 0.26)`
+            : 'rgba(148, 163, 220, 0.10)';
+          ctx.lineWidth = sameTrack ? 1.1 : 0.9;
           ctx.stroke();
         }
       }
@@ -469,7 +512,6 @@ export default function Globe(): ReactNode {
             {shown?.track} · {shown?.topics} topics
           </small>
         </span>
-        <span className={styles.hint}>drag to spin · click a node</span>
       </div>
     </div>
   );

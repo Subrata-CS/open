@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import Link from '@docusaurus/Link';
 import { LANGS, langById, runCode, type LangId } from '@site/src/lib/runners';
 import styles from './styles.module.css';
 
@@ -19,7 +20,7 @@ export type InlineLabProps = {
   code?: string;
   /** Called when the reader closes the cell. */
   onClose?: () => void;
-  /** Opens the same snippet in the full Code Lab. */
+  /** Hands the current snippet to the full Code Lab before navigating there. */
   onExpand?: (lang: LangId, code: string) => void;
 };
 
@@ -116,13 +117,13 @@ export default function InlineLab({
         </button>
 
         {onExpand && (
-          <button
-            type="button"
+          <Link
             className={styles.ghost}
+            to="/playground"
             onClick={() => onExpand(lang, code)}
             title="Open this snippet in the full Code Lab">
             Full Code Lab ↗
-          </button>
+          </Link>
         )}
 
         {onClose && (

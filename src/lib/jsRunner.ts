@@ -1,12 +1,16 @@
 /**
  * JavaScript runs locally in a throwaway Web Worker.
  * No network, no server, and a hung loop can be terminated.
+ *
+ * The user's code is wrapped in an async function, so `await` works at the top
+ * level and anything printed from a promise or a setTimeout still arrives —
+ * the worker waits for outstanding timers before it reports back.
  */
 
 import type { RunResult } from './pyodide';
 
 const WORKER_SRC = `
-self.onmessage = (e) => {
+self.onmessage = async (e) => {
   const lines = [];
   const fmt = (v) => {
     if (typeof v === 'string') return v;
@@ -21,9 +25,27 @@ self.onmessage = (e) => {
     table: write,
   };
 
+  // Count outstanding timers so asynchronous output is not cut off.
+  let pending = 0;
+  const realTimeout = self.setTimeout.bind(self);
+  self.setTimeout = (fn, ms, ...rest) => {
+    pending++;
+    return realTimeout(() => {
+      try { fn(...rest); } finally { pending--; }
+    }, ms);
+  };
+  const idle = () => new Promise((r) => realTimeout(r, 10));
+
   try {
-    const result = new Function('console', '"use strict";' + e.data)(console);
+    const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
+    const result = await new AsyncFunction('console', '"use strict";' + e.data)(console);
     if (result !== undefined) lines.push(fmt(result));
+
+    // Let timers and promise chains finish before reporting.
+    const deadline = Date.now() + 6000;
+    while (pending > 0 && Date.now() < deadline) await idle();
+    await idle();
+
     self.postMessage({ ok: true, output: lines.join('\\n') });
   } catch (err) {
     lines.push(String(err && err.stack ? err.stack : err));

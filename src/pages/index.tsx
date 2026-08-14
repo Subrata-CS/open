@@ -38,8 +38,6 @@ function Hero(): ReactNode {
     <header className={styles.hero}>
       <div className={styles.heroGrid}>
         <div className={styles.heroText}>
-          <p className={styles.eyebrow}>Open · free forever · no sign-up</p>
-
           <h1 className={styles.title}>
             A to Z <span className={styles.gradient}>Computer Science</span>
           </h1>

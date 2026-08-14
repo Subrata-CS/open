@@ -1,12 +1,19 @@
 import { runPython, type RunResult } from './pyodide';
 import { runJavaScript } from './jsRunner';
+import { runSql } from './sqlRunner';
+import { runTypeScript } from './tsRunner';
 
 /**
  * Where code runs
  * ---------------
- *  Python      — Pyodide, entirely inside the browser (offline, no limits)
+ *  Python      — Pyodide, entirely inside the browser (no limits)
  *  JavaScript  — a sandboxed Web Worker, also entirely local
+ *  TypeScript  — transpiled in the browser, then run in that same worker
+ *  SQL         — a real SQLite engine (sql.js) running in the browser
  *  Everything else — compiled and executed by Wandbox, a free public service
+ *
+ * The four local languages never touch the network once loaded, so the most
+ * used cells on the site keep working even when the compile service is busy.
  *
  * Anything the reader writes runs, not just the samples on the page.
  */
@@ -28,7 +35,6 @@ export type LangId =
   | 'sql'
   | 'bash'
   | 'r'
-  | 'swift'
   | 'scala'
   | 'haskell'
   | 'lua'
@@ -97,8 +103,11 @@ export const LANGS: LangSpec[] = [
     label: 'TypeScript',
     prism: 'typescript',
     ext: 'ts',
-    compiler: 'typescript-5.6.2',
-    starter: 'const msg: string = "hello from TypeScript";\nconsole.log(msg);\n',
+    local: true,
+    starter:
+      'type Point = { x: number; y: number };\n\n' +
+      'const p: Point = { x: 3, y: 4 };\n' +
+      'console.log("distance:", Math.hypot(p.x, p.y));\n',
   },
   {
     id: 'go',
@@ -130,9 +139,13 @@ export const LANGS: LangSpec[] = [
     label: 'SQL',
     prism: 'sql',
     ext: 'sql',
-    compiler: 'sqlite-3.46.1',
+    local: true,
     starter:
-      "CREATE TABLE student(id INTEGER, name TEXT, marks INTEGER);\nINSERT INTO student VALUES (1, 'Asha', 91), (2, 'Rahul', 78);\nSELECT name, marks FROM student ORDER BY marks DESC;\n",
+      'CREATE TABLE student(id INTEGER, name TEXT, marks INTEGER);\n' +
+      "INSERT INTO student VALUES (1, 'Asha', 91), (2, 'Rahul', 78), (3, 'Meera', 84);\n\n" +
+      'SELECT name, marks\n' +
+      'FROM student\n' +
+      'ORDER BY marks DESC;\n',
   },
   {
     id: 'ruby',
@@ -167,20 +180,12 @@ export const LANGS: LangSpec[] = [
     starter: 'x <- c(4, 8, 15, 16, 23, 42)\ncat("mean:", mean(x), "\\n")\ncat("sd  :", sd(x), "\\n")\n',
   },
   {
-    id: 'swift',
-    label: 'Swift',
-    prism: 'swift',
-    ext: 'swift',
-    compiler: 'swift-6.0.1',
-    starter: 'print("hello from Swift")\n',
-  },
-  {
     id: 'scala',
     label: 'Scala',
     prism: 'scala',
     ext: 'scala',
-    compiler: 'scala-3.5.1',
-    starter: '@main def run(): Unit =\n  println("hello from Scala")\n',
+    compiler: 'scala-2.13.15',
+    starter: 'object Main extends App {\n  println("hello from Scala")\n}\n',
   },
   {
     id: 'haskell',
@@ -222,6 +227,34 @@ function prepare(langId: LangId, code: string): string {
   return code.replace(/^[ \t]*public[ \t]+(class|interface|enum|record)\b/gm, '$1');
 }
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * The public compile service occasionally answers 403/429 when several people
+ * run something at the same second. That is a queue, not a failure, so the
+ * request is simply tried again after a short pause.
+ */
+async function post(spec: LangSpec, code: string, stdin: string): Promise<Response> {
+  const body = JSON.stringify({
+    compiler: spec.compiler,
+    code: prepare(spec.id, code),
+    stdin,
+    save: false,
+  });
+
+  let last: Response | null = null;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    if (attempt > 0) await sleep(900 * attempt);
+    last = await fetch(WANDBOX, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body,
+    });
+    if (last.ok || (last.status !== 403 && last.status !== 429)) return last;
+  }
+  return last as Response;
+}
+
 async function runRemote(
   spec: LangSpec,
   code: string,
@@ -230,23 +263,14 @@ async function runRemote(
 ): Promise<RunResult> {
   onProgress?.(`Compiling ${spec.label}…`);
   try {
-    const res = await fetch(WANDBOX, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        compiler: spec.compiler,
-        code: prepare(spec.id, code),
-        stdin,
-        save: false,
-      }),
-    });
+    const res = await post(spec, code, stdin);
 
     if (!res.ok) {
       return {
         ok: false,
         output:
-          res.status === 429
-            ? 'Too many runs in a short time — wait a few seconds and try again.'
+          res.status === 429 || res.status === 403
+            ? 'The compile service is busy right now. Wait a few seconds and run again — Python, JavaScript, TypeScript and SQL still run instantly in your browser.'
             : `The compile service returned ${res.status}. Try again in a moment.`,
       };
     }
@@ -267,7 +291,7 @@ async function runRemote(
     return {
       ok: false,
       output:
-        'Could not reach the compile service. Check your connection and try again — Python and JavaScript still run offline.',
+        'Could not reach the compile service. Check your connection and try again — Python, JavaScript, TypeScript and SQL still run offline.',
     };
   }
 }
@@ -284,5 +308,7 @@ export async function runCode(
     onProgress?.('Running…');
     return runJavaScript(code);
   }
+  if (spec.id === 'typescript') return runTypeScript(code, onProgress);
+  if (spec.id === 'sql') return runSql(code, onProgress);
   return runRemote(spec, code, stdin, onProgress);
 }

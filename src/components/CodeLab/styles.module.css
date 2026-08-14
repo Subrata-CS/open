@@ -1,6 +1,6 @@
 .lab {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
   gap: 1.1rem;
   align-items: start;
 }
@@ -12,7 +12,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  max-height: calc(100vh - 9rem);
+  max-height: calc(100vh - 7rem);
 }
 
 .paneHead {
@@ -473,4 +473,81 @@
   background: rgba(129, 140, 248, 0.16);
   color: #c7d2fe;
   padding: 0.05rem 0.3rem;
+}
+
+
+/* ---------------- notebook cell: input | output ---------------- */
+
+.cellIO {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.55rem;
+  padding: 0.55rem;
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.ioSide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--open-border);
+  border-radius: 9px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.ioTag {
+  padding: 0.32rem 0.6rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--open-code-dim);
+  border-bottom: 1px solid var(--open-border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cellIO .editor {
+  flex: 1;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  min-height: 11rem;
+}
+
+.cellIO .out,
+.cellIO .outErr,
+.outIdle {
+  flex: 1;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0.7rem 0.85rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: auto;
+  min-height: 11rem;
+  max-height: 26rem;
+  background: rgba(0, 0, 0, 0.24);
+}
+
+.outIdle {
+  color: var(--open-code-dim);
+  font-style: italic;
+}
+
+@media (max-width: 1200px) {
+  .cellIO {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cellIO .editor,
+  .cellIO .out,
+  .cellIO .outErr,
+  .outIdle {
+    min-height: 8rem;
+  }
 }
