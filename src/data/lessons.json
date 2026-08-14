@@ -75,6 +75,20 @@
   ]
  },
  {
+  "id": "rust",
+  "label": "Rust",
+  "lang": "rust",
+  "lesson": [
+   {
+    "title": "Ownership, borrowing and Result",
+    "note": "The compiler tracks who owns each value, so whole categories of bug never reach runtime.",
+    "lang": "rust",
+    "code": "fn main() {\n    // Ownership: `s1` is moved, not copied\n    let s1 = String::from(\"ownership\");\n    let s2 = s1.clone();\n    println!(\"s1 = {s1}, clone s2 = {s2}\");\n\n    // Borrowing: read-only references, as many as you like\n    let len = calculate_length(&s2);\n    println!(\"length of '{s2}' is {len}\");\n\n    // A mutable borrow — exactly one at a time\n    let mut owned = String::from(\"hello\");\n    append_world(&mut owned);\n    println!(\"after mutable borrow: {owned}\");\n\n    // Iterators are lazy and compose without allocating each step\n    let squares: Vec<u32> = (1..=8).map(|n| n * n).filter(|n| n % 2 == 0).collect();\n    println!(\"even squares: {squares:?}\");\n\n    // Result forces you to handle failure\n    for text in [\"42\", \"oops\"] {\n        match text.parse::<i32>() {\n            Ok(n)  => println!(\"parsed {text} -> {n}\"),\n            Err(e) => println!(\"failed  {text} -> {e}\"),\n        }\n    }\n}\n\nfn calculate_length(s: &String) -> usize { s.len() }\n\nfn append_world(s: &mut String) { s.push_str(\", world\"); }",
+    "output": "s1 = ownership, clone s2 = ownership\nlength of 'ownership' is 9\nafter mutable borrow: hello, world\neven squares: [4, 16, 36, 64]\nparsed 42 -> 42\nfailed  oops -> invalid digit found in string"
+   }
+  ]
+ },
+ {
   "id": "java",
   "label": "Java / OOP",
   "lang": "java",
@@ -117,6 +131,20 @@
   ]
  },
  {
+  "id": "bash",
+  "label": "Bash / DevOps",
+  "lang": "bash",
+  "lesson": [
+   {
+    "title": "Log processing in a deploy script",
+    "note": "wc, awk, sort, uniq and grep compose into a pipeline — the everyday shell toolkit.",
+    "lang": "bash",
+    "code": "#!/usr/bin/env bash\nset -euo pipefail\n\n# Build a small log file, then process it the way a deploy script would\ncat > deploy.log <<'EOF'\n2026-03-11 10:02 INFO  build started\n2026-03-11 10:04 INFO  tests passed\n2026-03-11 10:05 WARN  cache miss\n2026-03-11 10:06 ERROR push rejected\n2026-03-11 10:07 INFO  retrying\n2026-03-11 10:08 INFO  deploy complete\nEOF\n\necho \"== line count ==\"\nwc -l < deploy.log\n\necho\necho \"== counts by level ==\"\nawk '{print $3}' deploy.log | sort | uniq -c | sort -rn\n\necho\necho \"== anything that went wrong ==\"\ngrep -E 'WARN|ERROR' deploy.log || echo 'clean run'\n\necho\necho \"== exit status check ==\"\nif grep -q ERROR deploy.log; then\n  echo 'pipeline would fail here'\nelse\n  echo 'pipeline green'\nfi\n",
+    "output": "== line count ==\n6\n\n== counts by level ==\n      4 INFO\n      1 WARN\n      1 ERROR\n\n== anything that went wrong ==\n2026-03-11 10:05 WARN  cache miss\n2026-03-11 10:06 ERROR push rejected\n\n== exit status check ==\npipeline would fail here"
+   }
+  ]
+ },
+ {
   "id": "sql",
   "label": "SQL & Databases",
   "lang": "sql",
@@ -127,6 +155,20 @@
     "lang": "sql",
     "code": "CREATE TABLE marks(student TEXT, subject TEXT, score INTEGER);\n\nINSERT INTO marks VALUES\n  ('Asha','Maths',91), ('Asha','Physics',84),\n  ('Rahul','Maths',78), ('Rahul','Physics',88),\n  ('Meera','Maths',95), ('Meera','Physics',72);\n\n.mode column\n.headers on\n\nSELECT student,\n       COUNT(*)            AS papers,\n       ROUND(AVG(score),2) AS average,\n       MAX(score)          AS best\nFROM marks\nGROUP BY student\nHAVING AVG(score) > 80\nORDER BY average DESC;",
     "output": "student  papers  average  best\n-------  ------  -------  ----\nAsha     2       87.5     91  \nMeera    2       83.5     95  \nRahul    2       83.0     88"
+   }
+  ]
+ },
+ {
+  "id": "ds",
+  "label": "Data Science",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Grouping and deriving columns with pandas",
+    "note": "Load, derive, group, summarise — the four moves behind almost every analysis.",
+    "lang": "python",
+    "code": "import pandas as pd\n\ndf = pd.DataFrame({\n    \"city\":  [\"Delhi\", \"Delhi\", \"Mumbai\", \"Mumbai\", \"Chennai\", \"Chennai\", \"Delhi\"],\n    \"month\": [\"Jan\", \"Feb\", \"Jan\", \"Feb\", \"Jan\", \"Feb\", \"Mar\"],\n    \"sales\": [240, 310, 180, 205, 150, 165, 290],\n    \"returns\": [12, 18, 9, 11, 6, 8, 15],\n})\n\ndf[\"net\"] = df[\"sales\"] - df[\"returns\"]\n\nprint(\"rows:\", len(df), \" columns:\", list(df.columns))\nprint()\nsummary = df.groupby(\"city\")[[\"sales\", \"returns\", \"net\"]].sum()\nfor city, row in summary.iterrows():\n    rate = row[\"returns\"] / row[\"sales\"] * 100\n    print(f\"{city:<9} sales {int(row['sales']):>4}  returns {int(row['returns']):>3}  net {int(row['net']):>4}  return rate {rate:.1f}%\")\n\nprint()\nprint(f\"best month overall: {df.groupby('month')['net'].sum().idxmax()}\")\nprint(f\"mean net per row  : {df['net'].mean():.2f}\")",
+    "output": "rows: 7  columns: ['city', 'month', 'sales', 'returns', 'net']\n\nChennai   sales  315  returns  14  net  301  return rate 4.4%\nDelhi     sales  840  returns  45  net  795  return rate 5.4%\nMumbai    sales  385  returns  20  net  365  return rate 5.2%\n\nbest month overall: Feb\nmean net per row  : 208.71"
    }
   ]
  },
@@ -173,6 +215,19 @@
   ]
  },
  {
+  "id": "chain",
+  "label": "Blockchain",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Proof of work, and why tampering fails",
+    "note": "Each block commits to the hash before it, so changing old data invalidates everything after it.",
+    "lang": "python",
+    "code": "import hashlib, time\n\ndef sha(text):\n    return hashlib.sha256(text.encode()).hexdigest()\n\ndef mine(index, prev, data, difficulty=4):\n    target = \"0\" * difficulty\n    nonce = 0\n    while True:\n        h = sha(f\"{index}{prev}{data}{nonce}\")\n        if h.startswith(target):\n            return nonce, h\n        nonce += 1\n\nchain = [{\"index\": 0, \"prev\": \"0\" * 64, \"data\": \"genesis\", \"nonce\": 0,\n          \"hash\": sha(\"genesis\")}]\n\nfor i, data in enumerate([\"alice->bob 5\", \"bob->carol 2\", \"carol->dan 1\"], start=1):\n    prev = chain[-1][\"hash\"]\n    t0 = time.perf_counter()\n    nonce, h = mine(i, prev, data)\n    ms = (time.perf_counter() - t0) * 1000\n    chain.append({\"index\": i, \"prev\": prev, \"data\": data, \"nonce\": nonce, \"hash\": h})\n    print(f\"block {i}  {data:<14} nonce {nonce:>7}  {h[:20]}...\")\n\nvalid = all(chain[i][\"prev\"] == chain[i-1][\"hash\"] for i in range(1, len(chain)))\nprint(f\"\\nchain length {len(chain)}, links valid: {valid}\")\n\nchain[1][\"data\"] = \"alice->bob 500\"       # tamper with one block\nrecomputed = sha(f\"{1}{chain[1]['prev']}{chain[1]['data']}{chain[1]['nonce']}\")\nprint(f\"after tampering, block 1 hash matches: {recomputed == chain[1]['hash']}\")"
+   }
+  ]
+ },
+ {
   "id": "discrete",
   "label": "Discrete Maths",
   "lang": "python",
@@ -215,6 +270,48 @@
   ]
  },
  {
+  "id": "toc",
+  "label": "Theory of Computation",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Simulating a DFA",
+    "note": "Five lines of transition table decide a language. Watch the state trace for each word.",
+    "lang": "python",
+    "code": "# A DFA that accepts binary strings with an even number of 1s\ndelta = {\n    (\"even\", \"0\"): \"even\", (\"even\", \"1\"): \"odd\",\n    (\"odd\",  \"0\"): \"odd\",  (\"odd\",  \"1\"): \"even\",\n}\nstart, accepting = \"even\", {\"even\"}\n\ndef run(word):\n    state = start\n    trace = [state]\n    for ch in word:\n        state = delta[(state, ch)]\n        trace.append(state)\n    return state in accepting, trace\n\nfor word in [\"\", \"0\", \"11\", \"101\", \"1010\", \"111\", \"110011\"]:\n    ok, trace = run(word)\n    path = \" -> \".join(trace)\n    print(f\"{word or '(empty)':<9} {'ACCEPT' if ok else 'reject':<7} {path}\")\n\nprint()\naccepted = [w for w in [\"\", \"0\", \"11\", \"101\", \"1010\", \"111\", \"110011\"] if run(w)[0]]\nprint(\"accepted:\", accepted)",
+    "output": "(empty)   ACCEPT  even\n0         ACCEPT  even -> even\n11        ACCEPT  even -> odd -> even\n101       ACCEPT  even -> odd -> odd -> even\n1010      ACCEPT  even -> odd -> odd -> even -> even\n111       reject  even -> odd -> even -> odd\n110011    ACCEPT  even -> odd -> even -> even -> even -> odd -> even\n\naccepted: ['', '0', '11', '101', '1010', '110011']"
+   }
+  ]
+ },
+ {
+  "id": "compiler",
+  "label": "Compiler Design",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "A tokeniser, parser and evaluator",
+    "note": "Precedence is not a special rule; it falls out of how the grammar nests term inside expr.",
+    "lang": "python",
+    "code": "import re\n\n# A complete little language: tokenise, parse into a tree, then evaluate.\ndef tokenise(src):\n    return re.findall(r\"\\d+\\.?\\d*|[()+\\-*/]\", src)\n\nclass Parser:\n    def __init__(self, tokens):\n        self.t, self.i = tokens, 0\n    def peek(self):\n        return self.t[self.i] if self.i < len(self.t) else None\n    def take(self):\n        tok = self.peek(); self.i += 1; return tok\n\n    def expr(self):                      # expr := term (('+'|'-') term)*\n        node = self.term()\n        while self.peek() in (\"+\", \"-\"):\n            node = (self.take(), node, self.term())\n        return node\n    def term(self):                      # term := atom (('*'|'/') atom)*\n        node = self.atom()\n        while self.peek() in (\"*\", \"/\"):\n            node = (self.take(), node, self.atom())\n        return node\n    def atom(self):                      # atom := number | '(' expr ')'\n        tok = self.take()\n        if tok == \"(\":\n            node = self.expr(); self.take(); return node\n        return float(tok)\n\ndef evaluate(node):\n    if isinstance(node, float):\n        return node\n    op, a, b = node\n    a, b = evaluate(a), evaluate(b)\n    return {\"+\": a+b, \"-\": a-b, \"*\": a*b, \"/\": a/b}[op]\n\nfor src in [\"2 + 3 * 4\", \"(2 + 3) * 4\", \"10 / 4 - 1\", \"2 * (3 + 4) * 5\"]:\n    toks = tokenise(src)\n    tree = Parser(toks).expr()\n    print(f\"{src:<18} tokens={len(toks):<3} = {evaluate(tree):g}\")",
+    "output": "2 + 3 * 4          tokens=5   = 14\n(2 + 3) * 4        tokens=7   = 20\n10 / 4 - 1         tokens=5   = 1.5\n2 * (3 + 4) * 5    tokens=9   = 70"
+   }
+  ]
+ },
+ {
+  "id": "gfx",
+  "label": "Computer Graphics",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Transform matrices in homogeneous coordinates",
+    "note": "Translation only becomes a matrix once you add the third coordinate — that is why graphics uses them.",
+    "lang": "python",
+    "code": "import numpy as np\n\n# A unit square in homogeneous coordinates (x, y, 1)\nsquare = np.array([[0, 0, 1], [1, 0, 1], [1, 1, 1], [0, 1, 1]], dtype=float).T\n\ndef translate(tx, ty):\n    return np.array([[1, 0, tx], [0, 1, ty], [0, 0, 1]], dtype=float)\n\ndef scale(sx, sy):\n    return np.array([[sx, 0, 0], [0, sy, 0], [0, 0, 1]], dtype=float)\n\ndef rotate(deg):\n    r = np.radians(deg)\n    return np.array([[np.cos(r), -np.sin(r), 0],\n                     [np.sin(r),  np.cos(r), 0],\n                     [0, 0, 1]], dtype=float)\n\n# Order matters: this reads right to left — scale, then rotate, then translate\nM = translate(3, 2) @ rotate(45) @ scale(2, 2)\nout = M @ square\n\nprint(\"corner        original        transformed\")\nfor i in range(4):\n    ox, oy = square[0, i], square[1, i]\n    nx, ny = out[0, i], out[1, i]\n    print(f\"  {i}      ({ox:.1f}, {oy:.1f})      ({nx:7.3f}, {ny:7.3f})\")\n\nprint(f\"\\ndeterminant = {np.linalg.det(M[:2, :2]):.3f}  (area scale factor)\")",
+    "output": "corner        original        transformed\n  0      (0.0, 0.0)      (  3.000,   2.000)\n  1      (1.0, 0.0)      (  4.414,   3.414)\n  2      (1.0, 1.0)      (  3.000,   4.828)\n  3      (0.0, 1.0)      (  1.586,   3.414)\n\ndeterminant = 4.000  (area scale factor)"
+   }
+  ]
+ },
+ {
   "id": "ml",
   "label": "Machine Learning",
   "lang": "python",
@@ -246,6 +343,48 @@
     "lang": "python",
     "code": "import numpy as np\n\n# A 2-2-1 network learning XOR, written out by hand\nrng = np.random.default_rng(1)\nX = np.array([[0,0],[0,1],[1,0],[1,1]], dtype=float)\ny = np.array([[0],[1],[1],[0]], dtype=float)\n\nsig  = lambda z: 1 / (1 + np.exp(-z))\ndsig = lambda a: a * (1 - a)\n\nW1, b1 = rng.normal(0, 1, (2, 4)), np.zeros((1, 4))\nW2, b2 = rng.normal(0, 1, (4, 1)), np.zeros((1, 1))\n\nfor epoch in range(1, 4001):\n    h  = sig(X @ W1 + b1)\n    out = sig(h @ W2 + b2)\n    loss = ((out - y) ** 2).mean()\n\n    d2 = (out - y) * dsig(out)\n    d1 = (d2 @ W2.T) * dsig(h)\n    W2 -= 0.5 * h.T @ d2;  b2 -= 0.5 * d2.sum(0, keepdims=True)\n    W1 -= 0.5 * X.T @ d1;  b1 -= 0.5 * d1.sum(0, keepdims=True)\n\n    if epoch % 1000 == 0:\n        print(f\"epoch {epoch:>4}   loss {loss:.6f}\")\n\nprint()\nfor xi, p in zip(X, sig(sig(X @ W1 + b1) @ W2 + b2)):\n    print(f\"  {int(xi[0])} XOR {int(xi[1])} -> {p[0]:.4f}\")",
     "output": "epoch 1000   loss 0.013528\nepoch 2000   loss 0.002318\nepoch 3000   loss 0.001190\nepoch 4000   loss 0.000787\n\n  0 XOR 0 -> 0.0223\n  0 XOR 1 -> 0.9719\n  1 XOR 0 -> 0.9738\n  1 XOR 1 -> 0.0342"
+   }
+  ]
+ },
+ {
+  "id": "cv",
+  "label": "Computer Vision",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Sobel edge detection from scratch",
+    "note": "Convolving an image with two small kernels is all edge detection is — no library required.",
+    "lang": "python",
+    "code": "import numpy as np\n\n# A synthetic 12x12 image: dark background, bright square in the middle\nimg = np.zeros((12, 12))\nimg[3:9, 3:9] = 1.0\n\n# Sobel kernels detect intensity change in x and y\nKx = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]], dtype=float)\nKy = Kx.T\n\ndef convolve(a, k):\n    h, w = a.shape\n    out = np.zeros((h - 2, w - 2))\n    for i in range(h - 2):\n        for j in range(w - 2):\n            out[i, j] = (a[i:i+3, j:j+3] * k).sum()\n    return out\n\ngx, gy = convolve(img, Kx), convolve(img, Ky)\nmag = np.sqrt(gx**2 + gy**2)\n\nprint(\"edge magnitude map (blank = flat, # = edge):\")\nfor row in mag:\n    print(\"  \" + \"\".join(\"#\" if v > 1 else \".\" for v in row))\n\nprint(f\"\\nedge pixels : {(mag > 1).sum()} of {mag.size}\")\nprint(f\"max response: {mag.max():.2f}\")",
+    "output": "edge magnitude map (blank = flat, # = edge):\n  ..........\n  .########.\n  .########.\n  .##....##.\n  .##....##.\n  .##....##.\n  .##....##.\n  .########.\n  .########.\n  ..........\n\nedge pixels : 48 of 100\nmax response: 4.24"
+   }
+  ]
+ },
+ {
+  "id": "nlp",
+  "label": "NLP",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Tokenising and TF-IDF by hand",
+    "note": "A term matters when it is frequent in one document and rare across the rest. That is the whole formula.",
+    "lang": "python",
+    "code": "import math, re\nfrom collections import Counter\n\ndocs = [\n    \"the cat sat on the mat\",\n    \"the dog sat on the log\",\n    \"cats and dogs are pets\",\n]\n\ntokenise = lambda t: re.findall(r\"[a-z]+\", t.lower())\ntokens = [tokenise(d) for d in docs]\n\nprint(\"tokens per document:\")\nfor i, t in enumerate(tokens):\n    print(f\"  doc{i}: {t}\")\n\n# inverse document frequency, then tf-idf by hand\nN = len(docs)\ndf = Counter(w for t in tokens for w in set(t))\n\nprint(\"\\ntop tf-idf terms per document:\")\nfor i, t in enumerate(tokens):\n    tf = Counter(t)\n    scores = {w: (c / len(t)) * math.log(N / df[w]) for w, c in tf.items()}\n    top = sorted(scores.items(), key=lambda kv: -kv[1])[:3]\n    pretty = \", \".join(f\"{w} {s:.3f}\" for w, s in top if s > 0)\n    print(f\"  doc{i}: {pretty}\")",
+    "output": "tokens per document:\n  doc0: ['the', 'cat', 'sat', 'on', 'the', 'mat']\n  doc1: ['the', 'dog', 'sat', 'on', 'the', 'log']\n  doc2: ['cats', 'and', 'dogs', 'are', 'pets']\n\ntop tf-idf terms per document:\n  doc0: cat 0.183, mat 0.183, the 0.135\n  doc1: dog 0.183, log 0.183, the 0.135\n  doc2: cats 0.220, and 0.220, dogs 0.220"
+   }
+  ]
+ },
+ {
+  "id": "rag",
+  "label": "LLM & RAG",
+  "lang": "python",
+  "lesson": [
+   {
+    "title": "Retrieval by cosine similarity",
+    "note": "RAG is this: embed the question, rank passages by angle, hand the top few to the model as context.",
+    "lang": "python",
+    "code": "import numpy as np\n\n# Toy 4-dimensional 'embeddings' — real ones come from a model,\n# but the retrieval maths is exactly this.\npassages = {\n    \"Photosynthesis converts light into sugar.\":  [0.9, 0.1, 0.0, 0.2],\n    \"Transformers use self-attention layers.\":     [0.1, 0.95, 0.2, 0.1],\n    \"Mitochondria produce ATP in the cell.\":       [0.85, 0.05, 0.1, 0.3],\n    \"Attention scales with sequence length.\":      [0.05, 0.9, 0.35, 0.05],\n}\nquery = np.array([0.08, 0.93, 0.25, 0.07])   # 'how does attention work?'\n\ndef cosine(a, b):\n    return float(a @ b / (np.linalg.norm(a) * np.linalg.norm(b)))\n\nranked = sorted(\n    ((cosine(query, np.array(v)), k) for k, v in passages.items()),\n    reverse=True,\n)\n\nprint(\"query: how does attention work?\\n\")\nfor rank, (score, text) in enumerate(ranked, 1):\n    mark = \"<- retrieved\" if rank <= 2 else \"\"\n    print(f\"{rank}. {score:.4f}  {text} {mark}\")\n\nprint(\"\\ncontext handed to the model:\")\nfor _, text in ranked[:2]:\n    print(\"  -\", text)",
+    "output": "query: how does attention work?\n\n1. 0.9979  Transformers use self-attention layers. <- retrieved\n2. 0.9935  Attention scales with sequence length. <- retrieved\n3. 0.1992  Photosynthesis converts light into sugar. \n4. 0.1824  Mitochondria produce ATP in the cell. \n\ncontext handed to the model:\n  - Transformers use self-attention layers.\n  - Attention scales with sequence length."
    }
   ]
  }
