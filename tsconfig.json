@@ -3,9 +3,16 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@site/*": ["./*"]
+      "@site/*": [
+        "./*"
+      ]
     },
     "resolveJsonModule": true
   },
-  "exclude": [".docusaurus", "build"]
+  "exclude": [
+    ".docusaurus",
+    "apps",
+    "build",
+    "node_modules"
+  ]
 }

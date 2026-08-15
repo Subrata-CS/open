@@ -269,3 +269,10 @@
     rgba(168, 85, 247, 0.08)
   );
 }
+
+.aside {
+  margin: 0.55rem 0.15rem 0.1rem;
+  font-size: 0.76rem;
+  line-height: 1.6;
+  color: var(--open-muted);
+}

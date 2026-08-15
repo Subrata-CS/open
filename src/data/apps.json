@@ -1,5 +1,17 @@
 [
  {
+  "id": "bash-log-analyser",
+  "title": "Log Analyser",
+  "lang": "bash",
+  "langLabel": "Bash",
+  "level": "beginner",
+  "about": "",
+  "tags": [],
+  "stdin": "",
+  "file": "apps/bash/log-analyser.sh",
+  "code": "#!/usr/bin/env bash\n# title: Server log analyser\n# level: intermediate\n# about: Parses an access log into traffic, error rates and the busiest paths — the first thing you run when a site slows down.\n# tags: awk, pipelines, reporting\n\nset -euo pipefail\n\ncat > /tmp/access.log <<'LOG'\n10.0.0.4 - [15/Aug/2026:09:12:01] \"GET /open/ HTTP/1.1\" 200 5120 0.031\n10.0.0.9 - [15/Aug/2026:09:12:04] \"GET /open/docs HTTP/1.1\" 200 8100 0.052\n10.0.0.4 - [15/Aug/2026:09:12:09] \"GET /open/missing HTTP/1.1\" 404 512 0.004\n10.0.1.7 - [15/Aug/2026:09:13:22] \"GET /open/playground HTTP/1.1\" 200 22400 0.180\n10.0.0.9 - [15/Aug/2026:09:14:02] \"POST /api/run HTTP/1.1\" 500 300 1.902\n10.0.1.7 - [15/Aug/2026:09:14:31] \"GET /open/docs HTTP/1.1\" 200 8100 0.048\n10.0.2.2 - [15/Aug/2026:09:15:10] \"GET /open/missing HTTP/1.1\" 404 512 0.006\n10.0.1.7 - [15/Aug/2026:09:15:44] \"GET /open/docs HTTP/1.1\" 200 8100 0.061\nLOG\n\ntotal=$(wc -l < /tmp/access.log)\necho \"Requests analysed: $total\"\necho\n\necho \"STATUS CODES\"\nawk '{print $(NF-2)}' /tmp/access.log | sort | uniq -c | sort -rn |\n  while read -r count code; do\n    printf \"  %-5s %3d  %5.1f%%\\n\" \"$code\" \"$count\" \"$(echo \"$count $total\" | awk '{print $1*100/$2}')\"\n  done\n\nerrors=$(awk '$(NF-2) ~ /^[45]/' /tmp/access.log | wc -l)\necho\nprintf \"Error rate: %.1f%%\\n\" \"$(echo \"$errors $total\" | awk '{print $1*100/$2}')\"\n\necho\necho \"BUSIEST PATHS\"\nawk -F'\"' '{split($2, r, \" \"); print r[2]}' /tmp/access.log | sort | uniq -c | sort -rn | head -3 |\n  while read -r count path; do printf \"  %3d  %s\\n\" \"$count\" \"$path\"; done\n\necho\necho \"SLOWEST REQUESTS\"\nsort -k NF -g -r /tmp/access.log | head -2 |\n  awk -F'\"' '{split($2, r, \" \"); n=split($3, t, \" \"); printf \"  %6.3fs  %s\\n\", t[n], r[2]}'\n\necho\necho \"UNIQUE VISITORS: $(awk '{print $1}' /tmp/access.log | sort -u | wc -l)\"\n"
+ },
+ {
   "id": "c-atm-machine",
   "title": "ATM machine",
   "lang": "c",
@@ -32,6 +44,86 @@
   "code": "#include <stdio.h>\n#include <string.h>\n\ntypedef struct { char name[24]; int marks[3]; } Student;\n\nint main(void) {\n    Student class[] = {\n        {\"Asha\",   {91, 86, 78}},\n        {\"Rahul\",  {74, 80, 69}},\n        {\"Meera\",  {88, 79, 95}},\n        {\"Vikram\", {55, 62, 48}},\n    };\n    int n = sizeof class / sizeof class[0];\n\n    printf(\"%-10s %5s %5s %5s %8s %6s\\n\", \"NAME\", \"DSA\", \"OS\", \"DBMS\", \"AVERAGE\", \"GRADE\");\n    printf(\"--------------------------------------------------\\n\");\n\n    double best = -1; const char *topper = \"\";\n    int passed = 0;\n\n    for (int i = 0; i < n; i++) {\n        int total = 0;\n        for (int j = 0; j < 3; j++) total += class[i].marks[j];\n        double avg = total / 3.0;\n\n        char grade = avg >= 85 ? 'A' : avg >= 70 ? 'B' : avg >= 60 ? 'C' : 'F';\n        if (grade != 'F') passed++;\n        if (avg > best) { best = avg; topper = class[i].name; }\n\n        printf(\"%-10s %5d %5d %5d %8.2f %6c\\n\",\n               class[i].name, class[i].marks[0], class[i].marks[1], class[i].marks[2], avg, grade);\n    }\n\n    printf(\"--------------------------------------------------\\n\");\n    printf(\"Topper : %s (%.2f)\\n\", topper, best);\n    printf(\"Passed : %d of %d (%.0f%%)\\n\", passed, n, 100.0 * passed / n);\n    return 0;\n}\n"
  },
  {
+  "id": "cpp-inventory-system",
+  "title": "Shop inventory system",
+  "lang": "cpp",
+  "langLabel": "C++",
+  "level": "intermediate",
+  "about": "Stock levels, reorder alerts and a restock queue — the core of every point-of-sale system.",
+  "tags": [
+   "maps",
+   "classes",
+   "sorting"
+  ],
+  "stdin": "",
+  "file": "apps/cpp/inventory-system.cpp",
+  "code": "#include <iostream>\n#include <iomanip>\n#include <map>\n#include <string>\n#include <vector>\n#include <algorithm>\n\nstruct Item { std::string name; int qty; double price; int reorderAt; };\n\nclass Inventory {\n    std::map<std::string, Item> items;\npublic:\n    void add(const Item& i) { items[i.name] = i; }\n\n    bool sell(const std::string& name, int n) {\n        auto it = items.find(name);\n        if (it == items.end() || it->second.qty < n) return false;\n        it->second.qty -= n;\n        return true;\n    }\n\n    double value() const {\n        double total = 0;\n        for (const auto& [name, i] : items) total += i.qty * i.price;\n        return total;\n    }\n\n    std::vector<Item> needRestock() const {\n        std::vector<Item> out;\n        for (const auto& [name, i] : items)\n            if (i.qty <= i.reorderAt) out.push_back(i);\n        std::sort(out.begin(), out.end(),\n                  [](const Item& a, const Item& b) { return a.qty < b.qty; });\n        return out;\n    }\n\n    void report() const {\n        std::cout << std::left << std::setw(14) << \"ITEM\"\n                  << std::right << std::setw(6) << \"QTY\"\n                  << std::setw(10) << \"PRICE\"\n                  << std::setw(11) << \"VALUE\" << \"\\n\";\n        std::cout << std::string(41, '-') << \"\\n\";\n        for (const auto& [name, i] : items)\n            std::cout << std::left << std::setw(14) << i.name\n                      << std::right << std::setw(6) << i.qty\n                      << std::setw(10) << std::fixed << std::setprecision(2) << i.price\n                      << std::setw(11) << i.qty * i.price << \"\\n\";\n    }\n};\n\nint main() {\n    Inventory shop;\n    shop.add({\"notebook\", 40, 45.00, 10});\n    shop.add({\"pen\",     120, 10.00, 30});\n    shop.add({\"eraser\",    8,  5.00, 10});\n    shop.add({\"marker\",   25, 35.00, 15});\n\n    shop.sell(\"pen\", 95);\n    shop.sell(\"notebook\", 32);\n    if (!shop.sell(\"eraser\", 50)) std::cout << \"Cannot sell 50 erasers — not enough stock.\\n\\n\";\n\n    shop.report();\n    std::cout << std::string(41, '-') << \"\\n\";\n    std::cout << \"Stock value: \" << std::fixed << std::setprecision(2) << shop.value() << \"\\n\\n\";\n\n    std::cout << \"RESTOCK NEEDED\\n\";\n    for (const auto& i : shop.needRestock())\n        std::cout << \"  \" << i.name << \" — \" << i.qty << \" left, reorder at \" << i.reorderAt << \"\\n\";\n    return 0;\n}\n"
+ },
+ {
+  "id": "csharp-library-catalogue",
+  "title": "Library catalogue with LINQ",
+  "lang": "csharp",
+  "langLabel": "C#",
+  "level": "intermediate",
+  "about": "Search, filter and group a catalogue — the query patterns behind every admin dashboard.",
+  "tags": [
+   "linq",
+   "classes",
+   "grouping"
+  ],
+  "stdin": "",
+  "file": "apps/csharp/library-catalogue.cs",
+  "code": "using System;\nusing System.Linq;\nusing System.Collections.Generic;\n\nclass Book {\n    public string Title { get; set; }\n    public string Author { get; set; }\n    public int Year { get; set; }\n    public string Genre { get; set; }\n    public double Rating { get; set; }\n\n    public Book(string title, string author, int year, string genre, double rating) {\n        Title = title; Author = author; Year = year; Genre = genre; Rating = rating;\n    }\n}\n\nclass Program {\n    static void Main() {\n        var books = new List<Book> {\n            new Book(\"Introduction to Algorithms\", \"Cormen\",     2009, \"CS\", 4.7),\n            new Book(\"Clean Code\",                 \"Martin\",     2008, \"CS\", 4.4),\n            new Book(\"Deep Learning\",              \"Goodfellow\", 2016, \"AI\", 4.6),\n            new Book(\"The Pragmatic Programmer\",   \"Hunt\",       1999, \"CS\", 4.5),\n            new Book(\"Pattern Recognition\",        \"Bishop\",     2006, \"AI\", 4.3),\n            new Book(\"Refactoring\",                \"Fowler\",     2018, \"CS\", 4.2),\n        };\n\n        Console.WriteLine(\"HIGHLY RATED, THIS CENTURY\");\n        foreach (var b in books.Where(b => b.Rating >= 4.4 && b.Year >= 2000)\n                               .OrderByDescending(b => b.Rating))\n            Console.WriteLine(string.Format(\"  {0:F1}  {1} - {2} ({3})\", b.Rating, b.Title, b.Author, b.Year));\n\n        Console.WriteLine();\n        Console.WriteLine(\"BY GENRE\");\n        foreach (var g in books.GroupBy(b => b.Genre).OrderBy(g => g.Key))\n            Console.WriteLine(string.Format(\"  {0,-4} {1} books, average {2:F2}\",\n                                            g.Key, g.Count(), g.Average(b => b.Rating)));\n\n        Console.WriteLine();\n        Console.WriteLine(\"SEARCH 'pro'\");\n        var hits = books.Where(b => b.Title.ToLower().Contains(\"pro\")\n                                 || b.Author.ToLower().Contains(\"pro\"));\n        foreach (var b in hits) Console.WriteLine(\"  \" + b.Title);\n\n        var oldest = books.OrderBy(b => b.Year).First();\n        Console.WriteLine();\n        Console.WriteLine(string.Format(\"Oldest on the shelf: {0} ({1})\", oldest.Title, oldest.Year));\n\n        var span = books.Max(b => b.Year) - books.Min(b => b.Year);\n        Console.WriteLine(string.Format(\"Catalogue spans {0} years, {1} titles.\", span, books.Count));\n    }\n}\n"
+ },
+ {
+  "id": "go-url-shortener",
+  "title": "URL shortener",
+  "lang": "go",
+  "langLabel": "Go",
+  "level": "intermediate",
+  "about": "The whole idea behind bit.ly — a base62 counter, a two-way map, and hit counting.",
+  "tags": [
+   "maps",
+   "encoding",
+   "structs"
+  ],
+  "stdin": "",
+  "file": "apps/go/url-shortener.go",
+  "code": "package main\n\nimport (\n\t\"fmt\"\n\t\"sort\"\n\t\"strings\"\n)\n\nconst alphabet = \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\"\n\ntype Shortener struct {\n\tnext   int\n\ttoLong map[string]string\n\ttoCode map[string]string\n\thits   map[string]int\n}\n\nfunc New() *Shortener {\n\treturn &Shortener{next: 1000, toLong: map[string]string{}, toCode: map[string]string{}, hits: map[string]int{}}\n}\n\nfunc encode(n int) string {\n\tif n == 0 {\n\t\treturn string(alphabet[0])\n\t}\n\tvar sb strings.Builder\n\tfor n > 0 {\n\t\tsb.WriteByte(alphabet[n%62])\n\t\tn /= 62\n\t}\n\trunes := []byte(sb.String())\n\tfor i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {\n\t\trunes[i], runes[j] = runes[j], runes[i]\n\t}\n\treturn string(runes)\n}\n\nfunc (s *Shortener) Shorten(long string) string {\n\tif code, seen := s.toCode[long]; seen {\n\t\treturn code\n\t}\n\tcode := encode(s.next)\n\ts.next++\n\ts.toLong[code] = long\n\ts.toCode[long] = code\n\treturn code\n}\n\nfunc (s *Shortener) Resolve(code string) (string, bool) {\n\tlong, ok := s.toLong[code]\n\tif ok {\n\t\ts.hits[code]++\n\t}\n\treturn long, ok\n}\n\nfunc main() {\n\ts := New()\n\tlinks := []string{\n\t\t\"https://subrata-cs.github.io/open/docs/machine-learning\",\n\t\t\"https://subrata-cs.github.io/open/playground\",\n\t\t\"https://subrata-cs.github.io/open/docs/machine-learning\",\n\t}\n\n\tfor _, l := range links {\n\t\tfmt.Printf(\"%-58s -> /%s\\n\", l[:min(58, len(l))], s.Shorten(l))\n\t}\n\n\tfmt.Println()\n\tfor _, code := range []string{\"qi\", \"qj\", \"zz\"} {\n\t\tif long, ok := s.Resolve(code); ok {\n\t\t\ts.Resolve(code)\n\t\t\tfmt.Printf(\"/%s  ->  %s\\n\", code, long)\n\t\t} else {\n\t\t\tfmt.Printf(\"/%s  ->  404 not found\\n\", code)\n\t\t}\n\t}\n\n\tfmt.Println(\"\\nHITS\")\n\tcodes := make([]string, 0, len(s.hits))\n\tfor c := range s.hits {\n\t\tcodes = append(codes, c)\n\t}\n\tsort.Strings(codes)\n\tfor _, c := range codes {\n\t\tfmt.Printf(\"  /%s %d\\n\", c, s.hits[c])\n\t}\n}\n\nfunc min(a, b int) int {\n\tif a < b {\n\t\treturn a\n\t}\n\treturn b\n}\n"
+ },
+ {
+  "id": "haskell-matrix-calculator",
+  "title": "Matrix calculator",
+  "lang": "haskell",
+  "langLabel": "Haskell",
+  "level": "advanced",
+  "about": "Multiply, transpose, find the determinant and invert a matrix — linear algebra written as pure functions.",
+  "tags": [
+   "recursion",
+   "lists",
+   "purity"
+  ],
+  "stdin": "",
+  "file": "apps/haskell/matrix-calculator.hs",
+  "code": "type Matrix = [[Double]]\n\ntransposeM :: Matrix -> Matrix\ntransposeM [] = []\ntransposeM ([]:_) = []\ntransposeM m = map head m : transposeM (map tail m)\n\nmultiply :: Matrix -> Matrix -> Matrix\nmultiply a b = [[sum (zipWith (*) row col) | col <- transposeM b] | row <- a]\n\nminorOf :: Int -> Int -> Matrix -> Matrix\nminorOf i j m =\n  [ [ v | (cj, v) <- zip [0 ..] row, cj /= j ]\n  | (ci, row) <- zip [0 ..] m, ci /= i ]\n\ndeterminant :: Matrix -> Double\ndeterminant [[x]] = x\ndeterminant [[a, b], [c, d]] = a * d - b * c\ndeterminant m =\n  sum [ (-1) ^^ j * head m !! j * determinant (minorOf 0 j m)\n      | j <- [0 .. length m - 1] ]\n\nidentity :: Int -> Matrix\nidentity n = [[if i == j then 1 else 0 | j <- [1 .. n]] | i <- [1 .. n]]\n\nshowM :: String -> Matrix -> IO ()\nshowM name m = do\n  putStrLn (name ++ \":\")\n  mapM_ (\\row -> putStrLn (\"  \" ++ unwords (map fmt row))) m\n  where fmt x = let r = fromIntegral (round (x * 100) :: Int) / 100 in pad (show r)\n        pad s = replicate (max 0 (8 - length s)) ' ' ++ s\n\nmain :: IO ()\nmain = do\n  let a = [[2, -1, 0], [1, 3, 2], [0, 1, 1]] :: Matrix\n      b = [[1, 0, 2], [0, 1, 0], [3, 0, 1]] :: Matrix\n\n  showM \"A\" a\n  showM \"B\" b\n  showM \"A x B\" (multiply a b)\n  showM \"A transposed\" (transposeM a)\n  showM \"identity(3)\" (identity 3)\n\n  putStrLn (\"\\ndet(A) = \" ++ show (determinant a))\n  putStrLn (\"det(B) = \" ++ show (determinant b))\n  putStrLn (\"A is \" ++ (if determinant a /= 0 then \"invertible\" else \"singular\"))\n"
+ },
+ {
+  "id": "java-bank-account",
+  "title": "Bank account with transaction history",
+  "lang": "java",
+  "langLabel": "Java",
+  "level": "intermediate",
+  "about": "Deposits, withdrawals, overdraft rules and a printed statement — inheritance and exceptions doing real work.",
+  "tags": [
+   "oop",
+   "inheritance",
+   "exceptions"
+  ],
+  "stdin": "",
+  "file": "apps/java/bank-account.java",
+  "code": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Savings asha = new Savings(\"Asha\", 5000, 0.04);\n        Current shop = new Current(\"Corner Shop\", 2000, 3000);\n\n        asha.deposit(1500);\n        asha.withdraw(2000);\n        asha.addInterest();\n\n        shop.withdraw(4000);          // allowed, dips into the overdraft\n        try {\n            shop.withdraw(2000);      // beyond the overdraft\n        } catch (IllegalStateException e) {\n            System.out.println(\"Refused: \" + e.getMessage());\n        }\n\n        for (Account a : List.of(asha, shop)) a.statement();\n    }\n}\n\nabstract class Account {\n    protected final String owner;\n    protected double balance;\n    protected final List<String> history = new ArrayList<>();\n\n    Account(String owner, double opening) {\n        this.owner = owner;\n        this.balance = opening;\n        history.add(String.format(\"opened with %.2f\", opening));\n    }\n\n    void deposit(double amount) {\n        if (amount <= 0) throw new IllegalArgumentException(\"deposit must be positive\");\n        balance += amount;\n        history.add(String.format(\"deposit  %10.2f -> %.2f\", amount, balance));\n    }\n\n    void withdraw(double amount) {\n        if (amount > available())\n            throw new IllegalStateException(String.format(\"%.2f exceeds the %.2f available\", amount, available()));\n        balance -= amount;\n        history.add(String.format(\"withdraw %10.2f -> %.2f\", amount, balance));\n    }\n\n    abstract double available();\n\n    void statement() {\n        System.out.printf(\"%n%s — %s%n\", owner, getClass().getSimpleName());\n        history.forEach(line -> System.out.println(\"   \" + line));\n        System.out.printf(\"   balance %.2f, available %.2f%n\", balance, available());\n    }\n}\n\nclass Savings extends Account {\n    private final double rate;\n    Savings(String owner, double opening, double rate) { super(owner, opening); this.rate = rate; }\n    double available() { return balance; }\n    void addInterest() {\n        double interest = balance * rate;\n        balance += interest;\n        history.add(String.format(\"interest %10.2f -> %.2f\", interest, balance));\n    }\n}\n\nclass Current extends Account {\n    private final double overdraft;\n    Current(String owner, double opening, double overdraft) { super(owner, opening); this.overdraft = overdraft; }\n    double available() { return balance + overdraft; }\n}\n"
+ },
+ {
   "id": "javascript-todo-list",
   "title": "To-do list with due dates",
   "lang": "javascript",
@@ -46,6 +138,50 @@
   "stdin": "",
   "file": "apps/javascript/todo-list.js",
   "code": "class TodoList {\n  #items = [];\n  #nextId = 1;\n\n  add(text, dueInDays, priority = 'normal') {\n    const due = new Date(2026, 0, 1);\n    due.setDate(due.getDate() + dueInDays);\n    this.#items.push({ id: this.#nextId++, text, due, priority, done: false });\n    return this;\n  }\n\n  complete(id) {\n    const item = this.#items.find((t) => t.id === id);\n    if (item) item.done = true;\n    return this;\n  }\n\n  get pending() {\n    const order = { high: 0, normal: 1, low: 2 };\n    return this.#items\n      .filter((t) => !t.done)\n      .sort((a, b) => a.due - b.due || order[a.priority] - order[b.priority]);\n  }\n\n  get summary() {\n    const done = this.#items.filter((t) => t.done).length;\n    return `${done} of ${this.#items.length} done`;\n  }\n}\n\nconst list = new TodoList()\n  .add('Submit the RAIT paper', 12, 'high')\n  .add('Read the ColPali paper', 3, 'high')\n  .add('Water the plants', 1, 'low')\n  .add('Reply to the reviewer', 5)\n  .complete(3);\n\nconst fmt = (d) => d.toISOString().slice(0, 10);\n\nconsole.log('PENDING');\nfor (const t of list.pending) {\n  console.log(`  [${t.priority.padEnd(6)}] ${fmt(t.due)}  ${t.text}`);\n}\nconsole.log('\\n' + list.summary);\n"
+ },
+ {
+  "id": "lua-game-inventory",
+  "title": "Game inventory and crafting",
+  "lang": "lua",
+  "langLabel": "Lua",
+  "level": "intermediate",
+  "about": "Carry weight, stacking and a crafting recipe check — the system behind every survival game.",
+  "tags": [
+   "tables",
+   "metatables",
+   "logic"
+  ],
+  "stdin": "",
+  "file": "apps/lua/game-inventory.lua",
+  "code": "local Inventory = {}\nInventory.__index = Inventory\n\nfunction Inventory.new(capacity)\n  return setmetatable({ slots = {}, capacity = capacity, weight = 0 }, Inventory)\nend\n\nfunction Inventory:add(name, count, unitWeight)\n  local added = count * unitWeight\n  if self.weight + added > self.capacity then\n    local canTake = math.floor((self.capacity - self.weight) / unitWeight)\n    if canTake <= 0 then\n      print(string.format(\"Cannot carry %s — %.1f/%.1f already\", name, self.weight, self.capacity))\n      return false\n    end\n    print(string.format(\"Only room for %d %s\", canTake, name))\n    count = canTake\n  end\n  self.slots[name] = (self.slots[name] or 0) + count\n  self.weight = self.weight + count * unitWeight\n  return true\nend\n\nfunction Inventory:has(needed)\n  for item, n in pairs(needed) do\n    if (self.slots[item] or 0) < n then return false, item end\n  end\n  return true\nend\n\nfunction Inventory:craft(name, recipe)\n  local ok, missing = self:has(recipe)\n  if not ok then\n    print(string.format(\"Cannot craft %s — need more %s\", name, missing))\n    return\n  end\n  for item, n in pairs(recipe) do self.slots[item] = self.slots[item] - n end\n  self.slots[name] = (self.slots[name] or 0) + 1\n  print(\"Crafted: \" .. name)\nend\n\nfunction Inventory:show()\n  print(string.format(\"\\nBAG  %.1f / %.1f kg\", self.weight, self.capacity))\n  local names = {}\n  for item in pairs(self.slots) do names[#names + 1] = item end\n  table.sort(names)\n  for _, item in ipairs(names) do\n    if self.slots[item] > 0 then\n      print(string.format(\"  %-10s x%d\", item, self.slots[item]))\n    end\n  end\nend\n\nlocal bag = Inventory.new(50)\nbag:add(\"wood\", 20, 1.5)\nbag:add(\"iron\", 8, 2.0)\nbag:add(\"rope\", 2, 0.5)\nbag:add(\"stone\", 30, 3.0)\n\nbag:show()\nbag:craft(\"axe\", { wood = 3, iron = 2 })\nbag:craft(\"bridge\", { wood = 40, rope = 4 })\nbag:show()\n"
+ },
+ {
+  "id": "perl-csv-report",
+  "title": "CSV report builder",
+  "lang": "perl",
+  "langLabel": "Perl",
+  "level": "intermediate",
+  "about": "Reads a CSV, cleans the rows, groups them and prints a report — the job Perl was built for.",
+  "tags": [
+   "regex",
+   "hashes",
+   "text processing"
+  ],
+  "stdin": "",
+  "file": "apps/perl/csv-report.pl",
+  "code": "use strict;\nuse warnings;\n\nmy $csv = <<'DATA';\ndate,region,rep,units,unit_price\n2026-07-02,North,Asha,12,499.00\n2026-07-04,South,Rahul,7,499.00\n2026-07-09,North,Meera,20,449.00\n2026-07-15,East,Asha,5,599.00\n2026-07-19,South,Rahul,14,449.00\n2026-07-23,North,Asha,9,599.00\n2026-07-28,East,Meera,11,499.00\nDATA\n\nmy @lines = split /\\n/, $csv;\nmy $header = shift @lines;\nmy @cols = split /,/, $header;\n\nmy (%by_region, %by_rep, $revenue, $units);\n\nfor my $line (@lines) {\n    next unless $line =~ /\\S/;\n    my %row;\n    @row{@cols} = split /,/, $line;\n    my $amount = $row{units} * $row{unit_price};\n\n    $by_region{ $row{region} } += $amount;\n    $by_rep{ $row{rep} }{revenue} += $amount;\n    $by_rep{ $row{rep} }{orders}  += 1;\n    $revenue += $amount;\n    $units   += $row{units};\n}\n\nprintf \"Orders    : %d\\n\", scalar @lines;\nprintf \"Units     : %d\\n\", $units;\nprintf \"Revenue   : %.2f\\n\", $revenue;\nprintf \"Avg order : %.2f\\n\\n\", $revenue / scalar @lines;\n\nprint \"BY REGION\\n\";\nfor my $region (sort { $by_region{$b} <=> $by_region{$a} } keys %by_region) {\n    printf \"  %-6s %10.2f  %5.1f%%  %s\\n\",\n        $region, $by_region{$region},\n        $by_region{$region} / $revenue * 100,\n        '#' x int($by_region{$region} / $revenue * 40);\n}\n\nprint \"\\nBY REPRESENTATIVE\\n\";\nfor my $rep (sort { $by_rep{$b}{revenue} <=> $by_rep{$a}{revenue} } keys %by_rep) {\n    printf \"  %-6s %10.2f over %d orders (avg %.2f)\\n\",\n        $rep, $by_rep{$rep}{revenue}, $by_rep{$rep}{orders},\n        $by_rep{$rep}{revenue} / $by_rep{$rep}{orders};\n}\n"
+ },
+ {
+  "id": "php-invoice-generator",
+  "title": "Invoice Generator",
+  "lang": "php",
+  "langLabel": "PHP",
+  "level": "beginner",
+  "about": "",
+  "tags": [],
+  "stdin": "",
+  "file": "apps/php/invoice-generator.php",
+  "code": "<?php\n// title: Invoice generator\n// level: intermediate\n// about: Line items, tax, discount and a printed invoice — the calculation every billing system gets wrong at least once.\n// tags: arrays, formatting, money\n\n$invoice = [\n    'number' => 'INV-2026-0042',\n    'client' => 'Subrata Sikha Niketan',\n    'date'   => '2026-08-15',\n    'items'  => [\n        ['desc' => 'Course design',      'qty' => 12, 'rate' => 1500.00],\n        ['desc' => 'Video editing',      'qty' => 30, 'rate' =>  400.00],\n        ['desc' => 'Hosting (one year)', 'qty' =>  1, 'rate' => 6000.00],\n    ],\n    'discountPct' => 10,\n    'taxPct'      => 18,\n];\n\nfunction money(float $n): string { return number_format($n, 2); }\n\necho \"INVOICE {$invoice['number']}\\n\";\necho \"Billed to : {$invoice['client']}\\n\";\necho \"Date      : {$invoice['date']}\\n\\n\";\n\nprintf(\"%-22s %5s %12s %14s\\n\", 'DESCRIPTION', 'QTY', 'RATE', 'AMOUNT');\necho str_repeat('-', 56) . \"\\n\";\n\n$subtotal = 0.0;\nforeach ($invoice['items'] as $item) {\n    $amount = $item['qty'] * $item['rate'];\n    $subtotal += $amount;\n    printf(\"%-22s %5d %12s %14s\\n\", $item['desc'], $item['qty'], money($item['rate']), money($amount));\n}\n\n$discount = $subtotal * $invoice['discountPct'] / 100;\n$taxable  = $subtotal - $discount;\n$tax      = $taxable * $invoice['taxPct'] / 100;\n$total    = $taxable + $tax;\n\necho str_repeat('-', 56) . \"\\n\";\nprintf(\"%40s %14s\\n\", 'Subtotal', money($subtotal));\nprintf(\"%40s %14s\\n\", \"Discount ({$invoice['discountPct']}%)\", '-' . money($discount));\nprintf(\"%40s %14s\\n\", \"GST ({$invoice['taxPct']}%)\", money($tax));\nprintf(\"%40s %14s\\n\", 'TOTAL DUE', money($total));\n\n$words = $total >= 100000 ? 'over one lakh' : 'under one lakh';\necho \"\\nAmount payable is {$words}. Payment due within 15 days.\\n\";\n"
  },
  {
   "id": "python-expense-tracker",
@@ -80,6 +216,70 @@
   "code": "import re\n\nCOMMON = {\"password\", \"123456\", \"qwerty\", \"admin\", \"letmein\", \"welcome\"}\n\ndef assess(pw):\n    score, notes = 0, []\n\n    if len(pw) >= 12: score += 3; notes.append(\"+3  twelve characters or more\")\n    elif len(pw) >= 8: score += 2; notes.append(\"+2  at least eight characters\")\n    else: notes.append(\" 0  too short — eight is the bare minimum\")\n\n    for label, pattern, points in [\n        (\"lower case\", r\"[a-z]\", 1),\n        (\"upper case\", r\"[A-Z]\", 1),\n        (\"a digit\", r\"\\d\", 1),\n        (\"a symbol\", r\"[^A-Za-z0-9]\", 2),\n    ]:\n        if re.search(pattern, pw):\n            score += points\n            notes.append(f\"+{points}  has {label}\")\n        else:\n            notes.append(f\" 0  no {label}\")\n\n    if pw.lower() in COMMON:\n        score -= 4\n        notes.append(\"-4  this is one of the most guessed passwords there is\")\n    if re.search(r\"(.)\\1{2,}\", pw):\n        score -= 1\n        notes.append(\"-1  the same character three times in a row\")\n    if re.search(r\"(abc|123|qwe)\", pw.lower()):\n        score -= 1\n        notes.append(\"-1  contains a keyboard or counting run\")\n\n    verdict = \"strong\" if score >= 7 else \"fair\" if score >= 5 else \"weak\"\n    return max(0, score), verdict, notes\n\nfor candidate in [\"password\", \"Summer2026\", \"k9!Tarn-Vessel-42\"]:\n    score, verdict, notes = assess(candidate)\n    print(f\"\\n{candidate!r}  ->  {score}/9  {verdict.upper()}\")\n    for note in notes:\n        print(\"   \", note)\n"
  },
  {
+  "id": "r-sales-analysis",
+  "title": "Sales analysis and forecast",
+  "lang": "r",
+  "langLabel": "R",
+  "level": "intermediate",
+  "about": "Monthly sales, growth rates, a linear trend and next month's forecast — the report a business actually asks for.",
+  "tags": [
+   "vectors",
+   "data frames",
+   "regression"
+  ],
+  "stdin": "",
+  "file": "apps/r/sales-analysis.R",
+  "code": "months <- c(\"Jan\",\"Feb\",\"Mar\",\"Apr\",\"May\",\"Jun\",\"Jul\",\"Aug\")\nsales  <- c(120400, 131200, 128900, 145600, 158300, 152700, 171500, 183200)\n\ndf <- data.frame(month = months, sales = sales, n = seq_along(sales))\n\ndf$growth <- c(NA, round(diff(df$sales) / head(df$sales, -1) * 100, 1))\n\ncat(\"MONTHLY SALES\\n\")\nfor (i in seq_len(nrow(df))) {\n  bar <- strrep(\"#\", round(df$sales[i] / 8000))\n  cat(sprintf(\"  %-4s %9s %7s  %s\\n\",\n              df$month[i],\n              format(df$sales[i], big.mark = \",\"),\n              ifelse(is.na(df$growth[i]), \"-\", paste0(df$growth[i], \"%\")),\n              bar))\n}\n\ncat(sprintf(\"\\nTotal   : %s\\n\", format(sum(df$sales), big.mark = \",\")))\ncat(sprintf(\"Mean    : %s\\n\", format(round(mean(df$sales)), big.mark = \",\")))\ncat(sprintf(\"Best    : %s (%s)\\n\", df$month[which.max(df$sales)],\n            format(max(df$sales), big.mark = \",\")))\ncat(sprintf(\"Std dev : %s\\n\", format(round(sd(df$sales)), big.mark = \",\")))\n\nmodel <- lm(sales ~ n, data = df)\nslope <- round(coef(model)[2])\nnext_month <- round(predict(model, data.frame(n = nrow(df) + 1)))\n\ncat(sprintf(\"\\nTrend     : %s more per month\\n\", format(slope, big.mark = \",\")))\ncat(sprintf(\"R-squared : %.4f\\n\", summary(model)$r.squared))\ncat(sprintf(\"September : %s forecast\\n\", format(next_month, big.mark = \",\")))\n"
+ },
+ {
+  "id": "ruby-quiz-app",
+  "title": "Quiz application with scoring",
+  "lang": "ruby",
+  "langLabel": "Ruby",
+  "level": "beginner",
+  "about": "Questions, answers, scoring and a grade — the engine behind every online test.",
+  "tags": [
+   "blocks",
+   "hashes",
+   "scoring"
+  ],
+  "stdin": "",
+  "file": "apps/ruby/quiz-app.rb",
+  "code": "QUESTIONS = [\n  { q: \"Which data structure works first in, first out?\",\n    options: %w[Stack Queue Tree Graph], answer: 1 },\n  { q: \"What is the time complexity of binary search?\",\n    options: [\"O(n)\", \"O(n log n)\", \"O(log n)\", \"O(1)\"], answer: 2 },\n  { q: \"Which keyword makes a variable constant in C?\",\n    options: %w[final static const immutable], answer: 2 },\n  { q: \"SQL: which clause filters groups?\",\n    options: %w[WHERE HAVING FILTER GROUP], answer: 1 },\n]\n\n# What the candidate picked, in order\nSUBMITTED = [1, 2, 0, 1]\n\nscore = 0\nQUESTIONS.each_with_index do |item, i|\n  chosen = SUBMITTED[i]\n  right = chosen == item[:answer]\n  score += 1 if right\n\n  puts \"Q#{i + 1}. #{item[:q]}\"\n  item[:options].each_with_index do |opt, j|\n    mark = if j == item[:answer] then \"correct\"\n           elsif j == chosen     then \"your answer\"\n           else \"\" end\n    puts format(\"    %s %-12s %s\", (\"abcd\"[j] + \")\"), opt, mark)\n  end\n  puts \"    -> #{right ? 'right' : 'wrong'}\\n\\n\"\nend\n\npercent = score * 100.0 / QUESTIONS.size\ngrade = case percent\n        when 90.. then \"A\"\n        when 75...90 then \"B\"\n        when 50...75 then \"C\"\n        else \"F\"\n        end\n\nputs \"Score: #{score}/#{QUESTIONS.size}  (#{percent.round(1)}%)  grade #{grade}\"\nputs percent >= 50 ? \"Passed.\" : \"Needs another attempt.\"\n"
+ },
+ {
+  "id": "rust-text-adventure",
+  "title": "Text adventure engine",
+  "lang": "rust",
+  "langLabel": "Rust",
+  "level": "intermediate",
+  "about": "Rooms, exits and an inventory — enums and pattern matching turned into a tiny game world.",
+  "tags": [
+   "enums",
+   "matching",
+   "ownership"
+  ],
+  "stdin": "",
+  "file": "apps/rust/text-adventure.rs",
+  "code": "use std::collections::HashMap;\n\n#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]\nenum Room { Hall, Library, Cellar, Garden }\n\n#[derive(Debug)]\nenum Action { Go(&'static str), Take(&'static str), Look }\n\nstruct World {\n    here: Room,\n    exits: HashMap<Room, Vec<(&'static str, Room)>>,\n    items: HashMap<Room, Vec<&'static str>>,\n    bag: Vec<&'static str>,\n}\n\nimpl World {\n    fn new() -> Self {\n        let mut exits = HashMap::new();\n        exits.insert(Room::Hall, vec![(\"north\", Room::Library), (\"down\", Room::Cellar)]);\n        exits.insert(Room::Library, vec![(\"south\", Room::Hall), (\"east\", Room::Garden)]);\n        exits.insert(Room::Cellar, vec![(\"up\", Room::Hall)]);\n        exits.insert(Room::Garden, vec![(\"west\", Room::Library)]);\n\n        let mut items = HashMap::new();\n        items.insert(Room::Library, vec![\"brass key\"]);\n        items.insert(Room::Cellar, vec![\"lantern\", \"rope\"]);\n\n        World { here: Room::Hall, exits, items, bag: Vec::new() }\n    }\n\n    fn act(&mut self, action: Action) {\n        match action {\n            Action::Look => {\n                let here = self.here;\n                let empty = Vec::new();\n                let things = self.items.get(&here).unwrap_or(&empty);\n                println!(\"You are in the {:?}.\", here);\n                if !things.is_empty() { println!(\"  You see: {}\", things.join(\", \")); }\n                let ways: Vec<&str> = self.exits[&here].iter().map(|(d, _)| *d).collect();\n                println!(\"  Exits: {}\", ways.join(\", \"));\n            }\n            Action::Go(dir) => {\n                match self.exits[&self.here].iter().find(|(d, _)| *d == dir) {\n                    Some((_, room)) => { self.here = *room; println!(\"You go {} to the {:?}.\", dir, room); }\n                    None => println!(\"You cannot go {} from here.\", dir),\n                }\n            }\n            Action::Take(item) => {\n                let here = self.here;\n                if let Some(things) = self.items.get_mut(&here) {\n                    if let Some(pos) = things.iter().position(|t| *t == item) {\n                        let taken = things.remove(pos);\n                        self.bag.push(taken);\n                        println!(\"Taken: {}.\", taken);\n                        return;\n                    }\n                }\n                println!(\"There is no {} here.\", item);\n            }\n        }\n    }\n}\n\nfn main() {\n    let mut world = World::new();\n    for action in [\n        Action::Look,\n        Action::Go(\"north\"),\n        Action::Take(\"brass key\"),\n        Action::Take(\"sword\"),\n        Action::Go(\"east\"),\n        Action::Look,\n    ] {\n        world.act(action);\n    }\n    println!(\"\\nCarrying: {:?}\", world.bag);\n}\n"
+ },
+ {
+  "id": "scala-word-frequency",
+  "title": "Word frequency and readability",
+  "lang": "scala",
+  "langLabel": "Scala",
+  "level": "intermediate",
+  "about": "Counts words, finds the vocabulary, and scores how hard a passage is to read.",
+  "tags": [
+   "collections",
+   "functional",
+   "text"
+  ],
+  "stdin": "",
+  "file": "apps/scala/word-frequency.scala",
+  "code": "object Main extends App {\n  val text =\n    \"\"\"A cache stores recently used data so it can be read again quickly.\n      |Cache memory sits between the processor and main memory.\n      |Because it is small and fast, the cache holds only what is likely to be needed next.\n      |When the processor asks for data that is not in the cache, that is a cache miss.\"\"\".stripMargin\n\n  val words = text.toLowerCase.split(\"[^a-z]+\").filter(_.nonEmpty).toList\n  val sentences = text.split(\"[.!?]\").count(_.trim.nonEmpty)\n\n  val counts = words.groupBy(identity).view.mapValues(_.size).toList.sortBy { case (w, n) => (-n, w) }\n\n  println(\"MOST FREQUENT\")\n  counts.take(6).foreach { case (w, n) =>\n    println(f\"  $w%-12s $n%2d  ${\"#\" * n}\")\n  }\n\n  val vocabulary = counts.size\n  val avgLen = words.map(_.length).sum.toDouble / words.size\n  val perSentence = words.size.toDouble / sentences\n  val longWords = words.count(_.length > 6)\n\n  println(f\"%nwords         ${words.size}%d\")\n  println(f\"unique words  $vocabulary%d  (${vocabulary * 100.0 / words.size}%.1f%% variety)\")\n  println(f\"sentences     $sentences%d\")\n  println(f\"avg word      $avgLen%.2f letters\")\n  println(f\"avg sentence  $perSentence%.1f words\")\n\n  // A rough readability index: longer words and longer sentences are harder.\n  val score = 0.39 * perSentence + 11.8 * (longWords.toDouble / words.size) - 15.59\n  val level = if (score < 6) \"easy\" else if (score < 10) \"moderate\" else \"demanding\"\n  println(f\"%nreadability   $score%.1f — $level\")\n}\n"
+ },
+ {
   "id": "sql-library-system",
   "title": "Library lending system",
   "lang": "sql",
@@ -94,5 +294,21 @@
   "stdin": "",
   "file": "apps/sql/library-system.sql",
   "code": "CREATE TABLE book   (id INTEGER PRIMARY KEY, title TEXT, author TEXT, copies INTEGER);\nCREATE TABLE member (id INTEGER PRIMARY KEY, name TEXT, joined TEXT);\nCREATE TABLE loan   (id INTEGER PRIMARY KEY, book_id INTEGER, member_id INTEGER,\n                     taken TEXT, due TEXT, returned TEXT);\n\nINSERT INTO book VALUES\n (1,'Introduction to Algorithms','Cormen',3),\n (2,'Clean Code','Martin',2),\n (3,'Deep Learning','Goodfellow',1),\n (4,'The C Programming Language','Kernighan',4);\n\nINSERT INTO member VALUES\n (1,'Asha','2025-08-01'),(2,'Rahul','2025-11-14'),(3,'Meera','2026-01-09');\n\nINSERT INTO loan VALUES\n (1,1,1,'2026-07-01','2026-07-15','2026-07-12'),\n (2,3,1,'2026-07-20','2026-08-03',NULL),\n (3,2,2,'2026-06-28','2026-07-12',NULL),\n (4,4,3,'2026-07-25','2026-08-08',NULL),\n (5,1,2,'2026-07-30','2026-08-13',NULL);\n\n-- who still has a book, and how late are they on 2026-08-15?\nSELECT m.name,\n       b.title,\n       l.due,\n       CAST(julianday('2026-08-15') - julianday(l.due) AS INTEGER) AS days_late\nFROM loan l\nJOIN member m ON m.id = l.member_id\nJOIN book   b ON b.id = l.book_id\nWHERE l.returned IS NULL\nORDER BY days_late DESC;\n\n-- how many copies of each title are actually on the shelf right now?\nSELECT b.title,\n       b.copies - COUNT(l.id) AS on_shelf\nFROM book b\nLEFT JOIN loan l ON l.book_id = b.id AND l.returned IS NULL\nGROUP BY b.id\nORDER BY on_shelf, b.title;\n"
+ },
+ {
+  "id": "typescript-task-scheduler",
+  "title": "Task scheduler with dependencies",
+  "lang": "typescript",
+  "langLabel": "TypeScript",
+  "level": "advanced",
+  "about": "Works out what order tasks must run in, and catches circular dependencies — a topological sort doing real work.",
+  "tags": [
+   "generics",
+   "graphs",
+   "types"
+  ],
+  "stdin": "",
+  "file": "apps/typescript/task-scheduler.ts",
+  "code": "type TaskId = string;\n\ninterface Task {\n  id: TaskId;\n  name: string;\n  minutes: number;\n  needs: TaskId[];\n}\n\nconst tasks: Task[] = [\n  { id: 'design',  name: 'Design the schema',   minutes: 90,  needs: [] },\n  { id: 'migrate', name: 'Write migrations',    minutes: 45,  needs: ['design'] },\n  { id: 'api',     name: 'Build the API',       minutes: 120, needs: ['migrate'] },\n  { id: 'ui',      name: 'Build the interface', minutes: 150, needs: ['design'] },\n  { id: 'tests',   name: 'Write the tests',     minutes: 75,  needs: ['api', 'ui'] },\n  { id: 'deploy',  name: 'Deploy',              minutes: 20,  needs: ['tests'] },\n];\n\ntype Order = { ok: true; order: Task[] } | { ok: false; cycle: TaskId[] };\n\nfunction schedule(all: Task[]): Order {\n  const byId = new Map(all.map((t) => [t.id, t]));\n  const state = new Map<TaskId, 'new' | 'open' | 'done'>();\n  const order: Task[] = [];\n  const stack: TaskId[] = [];\n\n  const visit = (id: TaskId): TaskId[] | null => {\n    if (state.get(id) === 'done') return null;\n    if (state.get(id) === 'open') return [...stack.slice(stack.indexOf(id)), id];\n\n    state.set(id, 'open');\n    stack.push(id);\n    for (const need of byId.get(id)?.needs ?? []) {\n      const cycle = visit(need);\n      if (cycle) return cycle;\n    }\n    stack.pop();\n    state.set(id, 'done');\n    order.push(byId.get(id)!);\n    return null;\n  };\n\n  for (const t of all) {\n    const cycle = visit(t.id);\n    if (cycle) return { ok: false, cycle };\n  }\n  return { ok: true, order };\n}\n\nconst result = schedule(tasks);\n\nif (result.ok) {\n  let clock = 0;\n  console.log('RUN ORDER');\n  for (const t of result.order) {\n    const start = clock;\n    clock += t.minutes;\n    console.log(`  ${String(start).padStart(4)}m  ${t.name} (${t.minutes}m)`);\n  }\n  console.log(`\\nSequential total: ${clock} minutes (${(clock / 60).toFixed(1)} hours)`);\n}\n\n// now break it on purpose\nconst broken: Task[] = [\n  { id: 'a', name: 'A', minutes: 10, needs: ['c'] },\n  { id: 'b', name: 'B', minutes: 10, needs: ['a'] },\n  { id: 'c', name: 'C', minutes: 10, needs: ['b'] },\n];\nconst bad = schedule(broken);\nconsole.log('\\nCircular check:', bad.ok ? 'fine' : `cycle found -> ${bad.cycle.join(' -> ')}`);\n"
  }
 ]

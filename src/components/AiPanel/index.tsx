@@ -232,14 +232,21 @@ export default function AiPanel(): ReactNode {
                   }>
                   <span className={styles.swatch} style={{ background: '#818cf8' }} />
                   <span className={styles.pickText}>
-                    <b>Run it here — free</b>
+                    <b>Answer on this page — free</b>
                     <small>
-                      A small model on your own machine. No account, no cost, works
-                      offline. Needs Chrome or Edge on a computer.
+                      The only one that can reply without leaving the site: a small
+                      model running on your own machine. No account, no cost, private,
+                      works offline. Needs Chrome or Edge on a computer.
                     </small>
                   </span>
                   <span aria-hidden="true">→</span>
                 </button>
+              </li>
+
+              <li className={styles.aside}>
+                The three below are hosted services. They forbid other sites from
+                embedding them, so they open in a new tab with your question already
+                filled in — this page stays open behind them.
               </li>
 
               {ASSISTANTS.map((assistant) => (

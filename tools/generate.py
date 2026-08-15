@@ -154,10 +154,6 @@ _A worked example with code._
 
 _Questions to try once you have read the notes above._
 
-## References
-
-- [Search for "{plain}"](https://www.google.com/search?q={query})
-
 <AskBox topic="{plain}" section="{section}" />
 """
 
@@ -245,7 +241,6 @@ def main():
                     section=sec["title"],
                     pos=i,
                     lang=lang,
-                    query=topic.replace(" ", "+").replace("&", "%26"),
                 )
                 if write_if_absent(fpath, body):
                     created += 1
@@ -327,6 +322,26 @@ def main():
                 ],
             }
         )
+
+    # every topic, flattened — the glossary and any future topic map read this
+    topic_data = []
+    for track in tracks:
+        for sec in track["sections"]:
+            sec_slug = slug(sec["title"])
+            for pos, topic in enumerate(sec["topics"], start=1):
+                topic_data.append(
+                    {
+                        "title": topic,
+                        "slug": slug(topic),
+                        "href": f"/docs/{sec_slug}/{slug(topic)}",
+                        "section": sec["title"],
+                        "sectionNum": int(sec["num"]),
+                        "track": track["label"],
+                        "tone": track["tone"],
+                        "position": pos,
+                    }
+                )
+    write_json(os.path.join(DATA, "topics.json"), topic_data)
 
     write_json(os.path.join(DATA, "tracks.json"), track_data)
     write_json(os.path.join(DATA, "sections.json"), section_data)

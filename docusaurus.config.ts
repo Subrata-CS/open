@@ -160,7 +160,10 @@ const config: Config = {
         },
         { to: '/docs', label: 'Start here', position: 'left' },
         { to: '/playground', label: 'Code Lab', position: 'left' },
-        { to: '/apps', label: 'Test Yourself', position: 'left' },
+        { to: '/apps', label: 'Test Myself', position: 'left' },
+        { to: '/glossary', label: 'Glossary', position: 'left' },
+        { to: '/roadmaps', label: 'Roadmaps', position: 'left' },
+        { to: '/tools', label: 'Tools', position: 'left' },
         {
           // Opens the Ask AI drawer on the current page — no navigation, and
           // no API key, so nothing is ever billed to us.

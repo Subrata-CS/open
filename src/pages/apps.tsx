@@ -129,9 +129,9 @@ export default function AppsPage(): ReactNode {
 
   if (!active) {
     return (
-      <Layout title="Test Yourself">
+      <Layout title="Test Myself">
         <main className={styles.empty}>
-          <h1>Test Yourself</h1>
+          <h1>Test Myself</h1>
           <p>
             No applications yet. Drop a program into <code>apps/&lt;language&gt;/</code> and
             run <code>python tools/build_apps.py</code>.
@@ -145,11 +145,11 @@ export default function AppsPage(): ReactNode {
 
   return (
     <Layout
-      title="Test Yourself"
+      title="Test Myself"
       description={`${APPS.length} complete applications you can read on the left and rebuild on the right, in ${languages.length} languages.`}>
       <main className={styles.page}>
         <header className={styles.head}>
-          <p className={styles.kicker}>Test yourself</p>
+          <p className={styles.kicker}>Test myself</p>
           <h1 className={styles.title}>Real applications, not exercises</h1>
           <p className={styles.lead}>
             Every program here is complete and runnable. Read it on the left, then change

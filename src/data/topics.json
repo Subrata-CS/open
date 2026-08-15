@@ -1,0 +1,5782 @@
+[
+  {
+    "title": "Computer Basics",
+    "slug": "computer-basics",
+    "href": "/docs/computer-fundamentals/computer-basics",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 1
+  },
+  {
+    "title": "History of Computers",
+    "slug": "history-of-computers",
+    "href": "/docs/computer-fundamentals/history-of-computers",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 2
+  },
+  {
+    "title": "Generations of Computers",
+    "slug": "generations-of-computers",
+    "href": "/docs/computer-fundamentals/generations-of-computers",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 3
+  },
+  {
+    "title": "Types of Computers",
+    "slug": "types-of-computers",
+    "href": "/docs/computer-fundamentals/types-of-computers",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 4
+  },
+  {
+    "title": "Hardware",
+    "slug": "hardware",
+    "href": "/docs/computer-fundamentals/hardware",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 5
+  },
+  {
+    "title": "CPU",
+    "slug": "cpu",
+    "href": "/docs/computer-fundamentals/cpu",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 6
+  },
+  {
+    "title": "Motherboard",
+    "slug": "motherboard",
+    "href": "/docs/computer-fundamentals/motherboard",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 7
+  },
+  {
+    "title": "RAM",
+    "slug": "ram",
+    "href": "/docs/computer-fundamentals/ram",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 8
+  },
+  {
+    "title": "ROM",
+    "slug": "rom",
+    "href": "/docs/computer-fundamentals/rom",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 9
+  },
+  {
+    "title": "Cache Memory",
+    "slug": "cache-memory",
+    "href": "/docs/computer-fundamentals/cache-memory",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 10
+  },
+  {
+    "title": "Storage Devices",
+    "slug": "storage-devices",
+    "href": "/docs/computer-fundamentals/storage-devices",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 11
+  },
+  {
+    "title": "Input & Output",
+    "slug": "input-and-output",
+    "href": "/docs/computer-fundamentals/input-and-output",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 12
+  },
+  {
+    "title": "Keyboard",
+    "slug": "keyboard",
+    "href": "/docs/computer-fundamentals/keyboard",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 13
+  },
+  {
+    "title": "Mouse",
+    "slug": "mouse",
+    "href": "/docs/computer-fundamentals/mouse",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 14
+  },
+  {
+    "title": "Monitor",
+    "slug": "monitor",
+    "href": "/docs/computer-fundamentals/monitor",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 15
+  },
+  {
+    "title": "Printer",
+    "slug": "printer",
+    "href": "/docs/computer-fundamentals/printer",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 16
+  },
+  {
+    "title": "Number System",
+    "slug": "number-system",
+    "href": "/docs/computer-fundamentals/number-system",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 17
+  },
+  {
+    "title": "Binary",
+    "slug": "binary",
+    "href": "/docs/computer-fundamentals/binary",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 18
+  },
+  {
+    "title": "Decimal",
+    "slug": "decimal",
+    "href": "/docs/computer-fundamentals/decimal",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 19
+  },
+  {
+    "title": "Octal",
+    "slug": "octal",
+    "href": "/docs/computer-fundamentals/octal",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 20
+  },
+  {
+    "title": "Hexadecimal",
+    "slug": "hexadecimal",
+    "href": "/docs/computer-fundamentals/hexadecimal",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 21
+  },
+  {
+    "title": "System Basics",
+    "slug": "system-basics",
+    "href": "/docs/computer-fundamentals/system-basics",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 22
+  },
+  {
+    "title": "BIOS",
+    "slug": "bios",
+    "href": "/docs/computer-fundamentals/bios",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 23
+  },
+  {
+    "title": "UEFI",
+    "slug": "uefi",
+    "href": "/docs/computer-fundamentals/uefi",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 24
+  },
+  {
+    "title": "Boot Process",
+    "slug": "boot-process",
+    "href": "/docs/computer-fundamentals/boot-process",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 25
+  },
+  {
+    "title": "File System",
+    "slug": "file-system",
+    "href": "/docs/computer-fundamentals/file-system",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 26
+  },
+  {
+    "title": "Internet Basics",
+    "slug": "internet-basics",
+    "href": "/docs/computer-fundamentals/internet-basics",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 27
+  },
+  {
+    "title": "Browser",
+    "slug": "browser",
+    "href": "/docs/computer-fundamentals/browser",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 28
+  },
+  {
+    "title": "Search Engine",
+    "slug": "search-engine",
+    "href": "/docs/computer-fundamentals/search-engine",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 29
+  },
+  {
+    "title": "Email",
+    "slug": "email",
+    "href": "/docs/computer-fundamentals/email",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 30
+  },
+  {
+    "title": "Cloud Storage",
+    "slug": "cloud-storage",
+    "href": "/docs/computer-fundamentals/cloud-storage",
+    "section": "Computer Fundamentals",
+    "sectionNum": 1,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 31
+  },
+  {
+    "title": "Programming Concepts",
+    "slug": "programming-concepts",
+    "href": "/docs/programming-fundamentals/programming-concepts",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 1
+  },
+  {
+    "title": "Algorithm",
+    "slug": "algorithm",
+    "href": "/docs/programming-fundamentals/algorithm",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 2
+  },
+  {
+    "title": "Flowchart",
+    "slug": "flowchart",
+    "href": "/docs/programming-fundamentals/flowchart",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 3
+  },
+  {
+    "title": "Pseudocode",
+    "slug": "pseudocode",
+    "href": "/docs/programming-fundamentals/pseudocode",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 4
+  },
+  {
+    "title": "Variables & Data Types",
+    "slug": "variables-and-data-types",
+    "href": "/docs/programming-fundamentals/variables-and-data-types",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 5
+  },
+  {
+    "title": "Integer",
+    "slug": "integer",
+    "href": "/docs/programming-fundamentals/integer",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 6
+  },
+  {
+    "title": "Float",
+    "slug": "float",
+    "href": "/docs/programming-fundamentals/float",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 7
+  },
+  {
+    "title": "String",
+    "slug": "string",
+    "href": "/docs/programming-fundamentals/string",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 8
+  },
+  {
+    "title": "Boolean",
+    "slug": "boolean",
+    "href": "/docs/programming-fundamentals/boolean",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 9
+  },
+  {
+    "title": "Control Flow",
+    "slug": "control-flow",
+    "href": "/docs/programming-fundamentals/control-flow",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 10
+  },
+  {
+    "title": "If-Else",
+    "slug": "if-else",
+    "href": "/docs/programming-fundamentals/if-else",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 11
+  },
+  {
+    "title": "Switch",
+    "slug": "switch",
+    "href": "/docs/programming-fundamentals/switch",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 12
+  },
+  {
+    "title": "Loops",
+    "slug": "loops",
+    "href": "/docs/programming-fundamentals/loops",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 13
+  },
+  {
+    "title": "Functions",
+    "slug": "functions",
+    "href": "/docs/programming-fundamentals/functions",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 14
+  },
+  {
+    "title": "Parameters",
+    "slug": "parameters",
+    "href": "/docs/programming-fundamentals/parameters",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 15
+  },
+  {
+    "title": "Return Values",
+    "slug": "return-values",
+    "href": "/docs/programming-fundamentals/return-values",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 16
+  },
+  {
+    "title": "Recursion",
+    "slug": "recursion",
+    "href": "/docs/programming-fundamentals/recursion",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 17
+  },
+  {
+    "title": "Data Structures Basics",
+    "slug": "data-structures-basics",
+    "href": "/docs/programming-fundamentals/data-structures-basics",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 18
+  },
+  {
+    "title": "Array",
+    "slug": "array",
+    "href": "/docs/programming-fundamentals/array",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 19
+  },
+  {
+    "title": "String Basics",
+    "slug": "string-basics",
+    "href": "/docs/programming-fundamentals/string-basics",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 20
+  },
+  {
+    "title": "Pointer",
+    "slug": "pointer",
+    "href": "/docs/programming-fundamentals/pointer",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 21
+  },
+  {
+    "title": "Structure",
+    "slug": "structure",
+    "href": "/docs/programming-fundamentals/structure",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 22
+  },
+  {
+    "title": "Object-Oriented Programming",
+    "slug": "object-oriented-programming",
+    "href": "/docs/programming-fundamentals/object-oriented-programming",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 23
+  },
+  {
+    "title": "Class",
+    "slug": "class",
+    "href": "/docs/programming-fundamentals/class",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 24
+  },
+  {
+    "title": "Object",
+    "slug": "object",
+    "href": "/docs/programming-fundamentals/object",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 25
+  },
+  {
+    "title": "Inheritance",
+    "slug": "inheritance",
+    "href": "/docs/programming-fundamentals/inheritance",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 26
+  },
+  {
+    "title": "Polymorphism",
+    "slug": "polymorphism",
+    "href": "/docs/programming-fundamentals/polymorphism",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 27
+  },
+  {
+    "title": "Encapsulation",
+    "slug": "encapsulation",
+    "href": "/docs/programming-fundamentals/encapsulation",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 28
+  },
+  {
+    "title": "Abstraction",
+    "slug": "abstraction",
+    "href": "/docs/programming-fundamentals/abstraction",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 29
+  },
+  {
+    "title": "Languages",
+    "slug": "languages",
+    "href": "/docs/programming-fundamentals/languages",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 30
+  },
+  {
+    "title": "C",
+    "slug": "c",
+    "href": "/docs/programming-fundamentals/c",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 31
+  },
+  {
+    "title": "C++",
+    "slug": "cpp",
+    "href": "/docs/programming-fundamentals/cpp",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 32
+  },
+  {
+    "title": "Python",
+    "slug": "python",
+    "href": "/docs/programming-fundamentals/python",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 33
+  },
+  {
+    "title": "Java",
+    "slug": "java",
+    "href": "/docs/programming-fundamentals/java",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 34
+  },
+  {
+    "title": "JavaScript",
+    "slug": "javascript",
+    "href": "/docs/programming-fundamentals/javascript",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 35
+  },
+  {
+    "title": "Go",
+    "slug": "go",
+    "href": "/docs/programming-fundamentals/go",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 36
+  },
+  {
+    "title": "Rust",
+    "slug": "rust",
+    "href": "/docs/programming-fundamentals/rust",
+    "section": "Programming Fundamentals",
+    "sectionNum": 2,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 37
+  },
+  {
+    "title": "Logic",
+    "slug": "logic",
+    "href": "/docs/discrete-mathematics/logic",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 1
+  },
+  {
+    "title": "Propositions",
+    "slug": "propositions",
+    "href": "/docs/discrete-mathematics/propositions",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 2
+  },
+  {
+    "title": "Truth Tables",
+    "slug": "truth-tables",
+    "href": "/docs/discrete-mathematics/truth-tables",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 3
+  },
+  {
+    "title": "Predicate Logic",
+    "slug": "predicate-logic",
+    "href": "/docs/discrete-mathematics/predicate-logic",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 4
+  },
+  {
+    "title": "Set Theory",
+    "slug": "set-theory",
+    "href": "/docs/discrete-mathematics/set-theory",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 5
+  },
+  {
+    "title": "Union",
+    "slug": "union",
+    "href": "/docs/discrete-mathematics/union",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 6
+  },
+  {
+    "title": "Intersection",
+    "slug": "intersection",
+    "href": "/docs/discrete-mathematics/intersection",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 7
+  },
+  {
+    "title": "Power Set",
+    "slug": "power-set",
+    "href": "/docs/discrete-mathematics/power-set",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 8
+  },
+  {
+    "title": "Relations",
+    "slug": "relations",
+    "href": "/docs/discrete-mathematics/relations",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 9
+  },
+  {
+    "title": "Equivalence",
+    "slug": "equivalence",
+    "href": "/docs/discrete-mathematics/equivalence",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 10
+  },
+  {
+    "title": "Partial Order",
+    "slug": "partial-order",
+    "href": "/docs/discrete-mathematics/partial-order",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 11
+  },
+  {
+    "title": "Functions in Discrete Math",
+    "slug": "functions-in-discrete-math",
+    "href": "/docs/discrete-mathematics/functions-in-discrete-math",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 12
+  },
+  {
+    "title": "Injective",
+    "slug": "injective",
+    "href": "/docs/discrete-mathematics/injective",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 13
+  },
+  {
+    "title": "Surjective",
+    "slug": "surjective",
+    "href": "/docs/discrete-mathematics/surjective",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 14
+  },
+  {
+    "title": "Bijective",
+    "slug": "bijective",
+    "href": "/docs/discrete-mathematics/bijective",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 15
+  },
+  {
+    "title": "Graph Theory",
+    "slug": "graph-theory",
+    "href": "/docs/discrete-mathematics/graph-theory",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 16
+  },
+  {
+    "title": "Graph Types",
+    "slug": "graph-types",
+    "href": "/docs/discrete-mathematics/graph-types",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 17
+  },
+  {
+    "title": "Trees",
+    "slug": "trees",
+    "href": "/docs/discrete-mathematics/trees",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 18
+  },
+  {
+    "title": "Traversal",
+    "slug": "traversal",
+    "href": "/docs/discrete-mathematics/traversal",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 19
+  },
+  {
+    "title": "Combinatorics",
+    "slug": "combinatorics",
+    "href": "/docs/discrete-mathematics/combinatorics",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 20
+  },
+  {
+    "title": "Permutation",
+    "slug": "permutation",
+    "href": "/docs/discrete-mathematics/permutation",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 21
+  },
+  {
+    "title": "Combination",
+    "slug": "combination",
+    "href": "/docs/discrete-mathematics/combination",
+    "section": "Discrete Mathematics",
+    "sectionNum": 3,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 22
+  },
+  {
+    "title": "Vectors",
+    "slug": "vectors",
+    "href": "/docs/linear-algebra/vectors",
+    "section": "Linear Algebra",
+    "sectionNum": 4,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 1
+  },
+  {
+    "title": "Vector Operations",
+    "slug": "vector-operations",
+    "href": "/docs/linear-algebra/vector-operations",
+    "section": "Linear Algebra",
+    "sectionNum": 4,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 2
+  },
+  {
+    "title": "Dot Product",
+    "slug": "dot-product",
+    "href": "/docs/linear-algebra/dot-product",
+    "section": "Linear Algebra",
+    "sectionNum": 4,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 3
+  },
+  {
+    "title": "Cross Product",
+    "slug": "cross-product",
+    "href": "/docs/linear-algebra/cross-product",
+    "section": "Linear Algebra",
+    "sectionNum": 4,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 4
+  },
+  {
+    "title": "Matrices",
+    "slug": "matrices",
+    "href": "/docs/linear-algebra/matrices",
+    "section": "Linear Algebra",
+    "sectionNum": 4,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 5
+  },
+  {
+    "title": "Matrix Operations",
+    "slug": "matrix-operations",
+    "href": "/docs/linear-algebra/matrix-operations",
+    "section": "Linear Algebra",
+    "sectionNum": 4,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 6
+  },
+  {
+    "title": "Matrix Multiplication",
+    "slug": "matrix-multiplication",
+    "href": "/docs/linear-algebra/matrix-multiplication",
+    "section": "Linear Algebra",
+    "sectionNum": 4,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 7
+  },
+  {
+    "title": "Inverse",
+    "slug": "inverse",
+    "href": "/docs/linear-algebra/inverse",
+    "section": "Linear Algebra",
+    "sectionNum": 4,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 8
+  },
+  {
+    "title": "Advanced Topics",
+    "slug": "advanced-topics",
+    "href": "/docs/linear-algebra/advanced-topics",
+    "section": "Linear Algebra",
+    "sectionNum": 4,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 9
+  },
+  {
+    "title": "Eigenvalues",
+    "slug": "eigenvalues",
+    "href": "/docs/linear-algebra/eigenvalues",
+    "section": "Linear Algebra",
+    "sectionNum": 4,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 10
+  },
+  {
+    "title": "Eigenvectors",
+    "slug": "eigenvectors",
+    "href": "/docs/linear-algebra/eigenvectors",
+    "section": "Linear Algebra",
+    "sectionNum": 4,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 11
+  },
+  {
+    "title": "SVD",
+    "slug": "svd",
+    "href": "/docs/linear-algebra/svd",
+    "section": "Linear Algebra",
+    "sectionNum": 4,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 12
+  },
+  {
+    "title": "Probability",
+    "slug": "probability",
+    "href": "/docs/probability-and-statistics/probability",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 1
+  },
+  {
+    "title": "Random Variables",
+    "slug": "random-variables",
+    "href": "/docs/probability-and-statistics/random-variables",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 2
+  },
+  {
+    "title": "Conditional Probability",
+    "slug": "conditional-probability",
+    "href": "/docs/probability-and-statistics/conditional-probability",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 3
+  },
+  {
+    "title": "Bayes Theorem",
+    "slug": "bayes-theorem",
+    "href": "/docs/probability-and-statistics/bayes-theorem",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 4
+  },
+  {
+    "title": "Distributions",
+    "slug": "distributions",
+    "href": "/docs/probability-and-statistics/distributions",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 5
+  },
+  {
+    "title": "Normal",
+    "slug": "normal",
+    "href": "/docs/probability-and-statistics/normal",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 6
+  },
+  {
+    "title": "Binomial",
+    "slug": "binomial",
+    "href": "/docs/probability-and-statistics/binomial",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 7
+  },
+  {
+    "title": "Poisson",
+    "slug": "poisson",
+    "href": "/docs/probability-and-statistics/poisson",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 8
+  },
+  {
+    "title": "Statistics",
+    "slug": "statistics",
+    "href": "/docs/probability-and-statistics/statistics",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 9
+  },
+  {
+    "title": "Mean",
+    "slug": "mean",
+    "href": "/docs/probability-and-statistics/mean",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 10
+  },
+  {
+    "title": "Median",
+    "slug": "median",
+    "href": "/docs/probability-and-statistics/median",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 11
+  },
+  {
+    "title": "Variance",
+    "slug": "variance",
+    "href": "/docs/probability-and-statistics/variance",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 12
+  },
+  {
+    "title": "Standard Deviation",
+    "slug": "standard-deviation",
+    "href": "/docs/probability-and-statistics/standard-deviation",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 13
+  },
+  {
+    "title": "Inference",
+    "slug": "inference",
+    "href": "/docs/probability-and-statistics/inference",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 14
+  },
+  {
+    "title": "Hypothesis Testing",
+    "slug": "hypothesis-testing",
+    "href": "/docs/probability-and-statistics/hypothesis-testing",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 15
+  },
+  {
+    "title": "Confidence Interval",
+    "slug": "confidence-interval",
+    "href": "/docs/probability-and-statistics/confidence-interval",
+    "section": "Probability & Statistics",
+    "sectionNum": 5,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 16
+  },
+  {
+    "title": "Limits",
+    "slug": "limits",
+    "href": "/docs/calculus/limits",
+    "section": "Calculus",
+    "sectionNum": 6,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 1
+  },
+  {
+    "title": "Differentiation",
+    "slug": "differentiation",
+    "href": "/docs/calculus/differentiation",
+    "section": "Calculus",
+    "sectionNum": 6,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 2
+  },
+  {
+    "title": "Chain Rule",
+    "slug": "chain-rule",
+    "href": "/docs/calculus/chain-rule",
+    "section": "Calculus",
+    "sectionNum": 6,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 3
+  },
+  {
+    "title": "Partial Derivatives",
+    "slug": "partial-derivatives",
+    "href": "/docs/calculus/partial-derivatives",
+    "section": "Calculus",
+    "sectionNum": 6,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 4
+  },
+  {
+    "title": "Integration",
+    "slug": "integration",
+    "href": "/docs/calculus/integration",
+    "section": "Calculus",
+    "sectionNum": 6,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 5
+  },
+  {
+    "title": "Definite Integral",
+    "slug": "definite-integral",
+    "href": "/docs/calculus/definite-integral",
+    "section": "Calculus",
+    "sectionNum": 6,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 6
+  },
+  {
+    "title": "Indefinite Integral",
+    "slug": "indefinite-integral",
+    "href": "/docs/calculus/indefinite-integral",
+    "section": "Calculus",
+    "sectionNum": 6,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 7
+  },
+  {
+    "title": "Optimization",
+    "slug": "optimization",
+    "href": "/docs/calculus/optimization",
+    "section": "Calculus",
+    "sectionNum": 6,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 8
+  },
+  {
+    "title": "Gradient",
+    "slug": "gradient",
+    "href": "/docs/calculus/gradient",
+    "section": "Calculus",
+    "sectionNum": 6,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 9
+  },
+  {
+    "title": "Gradient Descent",
+    "slug": "gradient-descent",
+    "href": "/docs/calculus/gradient-descent",
+    "section": "Calculus",
+    "sectionNum": 6,
+    "track": "Foundations",
+    "tone": "indigo",
+    "position": 10
+  },
+  {
+    "title": "Complexity",
+    "slug": "complexity",
+    "href": "/docs/data-structures-and-algorithms/complexity",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 1
+  },
+  {
+    "title": "Big O",
+    "slug": "big-o",
+    "href": "/docs/data-structures-and-algorithms/big-o",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 2
+  },
+  {
+    "title": "Big Theta",
+    "slug": "big-theta",
+    "href": "/docs/data-structures-and-algorithms/big-theta",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 3
+  },
+  {
+    "title": "Big Omega",
+    "slug": "big-omega",
+    "href": "/docs/data-structures-and-algorithms/big-omega",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 4
+  },
+  {
+    "title": "Linear Structures",
+    "slug": "linear-structures",
+    "href": "/docs/data-structures-and-algorithms/linear-structures",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 5
+  },
+  {
+    "title": "Array DS",
+    "slug": "array-ds",
+    "href": "/docs/data-structures-and-algorithms/array-ds",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 6
+  },
+  {
+    "title": "Linked List",
+    "slug": "linked-list",
+    "href": "/docs/data-structures-and-algorithms/linked-list",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 7
+  },
+  {
+    "title": "Stack",
+    "slug": "stack",
+    "href": "/docs/data-structures-and-algorithms/stack",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 8
+  },
+  {
+    "title": "Queue",
+    "slug": "queue",
+    "href": "/docs/data-structures-and-algorithms/queue",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 9
+  },
+  {
+    "title": "Non-Linear Structures",
+    "slug": "non-linear-structures",
+    "href": "/docs/data-structures-and-algorithms/non-linear-structures",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 10
+  },
+  {
+    "title": "Tree",
+    "slug": "tree",
+    "href": "/docs/data-structures-and-algorithms/tree",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 11
+  },
+  {
+    "title": "BST",
+    "slug": "bst",
+    "href": "/docs/data-structures-and-algorithms/bst",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 12
+  },
+  {
+    "title": "AVL",
+    "slug": "avl",
+    "href": "/docs/data-structures-and-algorithms/avl",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 13
+  },
+  {
+    "title": "Heap",
+    "slug": "heap",
+    "href": "/docs/data-structures-and-algorithms/heap",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 14
+  },
+  {
+    "title": "Trie",
+    "slug": "trie",
+    "href": "/docs/data-structures-and-algorithms/trie",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 15
+  },
+  {
+    "title": "Graph",
+    "slug": "graph",
+    "href": "/docs/data-structures-and-algorithms/graph",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 16
+  },
+  {
+    "title": "Sorting",
+    "slug": "sorting",
+    "href": "/docs/data-structures-and-algorithms/sorting",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 17
+  },
+  {
+    "title": "Bubble",
+    "slug": "bubble",
+    "href": "/docs/data-structures-and-algorithms/bubble",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 18
+  },
+  {
+    "title": "Merge",
+    "slug": "merge",
+    "href": "/docs/data-structures-and-algorithms/merge",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 19
+  },
+  {
+    "title": "Quick",
+    "slug": "quick",
+    "href": "/docs/data-structures-and-algorithms/quick",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 20
+  },
+  {
+    "title": "Heap Sort",
+    "slug": "heap-sort",
+    "href": "/docs/data-structures-and-algorithms/heap-sort",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 21
+  },
+  {
+    "title": "Searching",
+    "slug": "searching",
+    "href": "/docs/data-structures-and-algorithms/searching",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 22
+  },
+  {
+    "title": "Linear Search",
+    "slug": "linear-search",
+    "href": "/docs/data-structures-and-algorithms/linear-search",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 23
+  },
+  {
+    "title": "Binary Search",
+    "slug": "binary-search",
+    "href": "/docs/data-structures-and-algorithms/binary-search",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 24
+  },
+  {
+    "title": "Graph Algorithms",
+    "slug": "graph-algorithms",
+    "href": "/docs/data-structures-and-algorithms/graph-algorithms",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 25
+  },
+  {
+    "title": "BFS",
+    "slug": "bfs",
+    "href": "/docs/data-structures-and-algorithms/bfs",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 26
+  },
+  {
+    "title": "DFS",
+    "slug": "dfs",
+    "href": "/docs/data-structures-and-algorithms/dfs",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 27
+  },
+  {
+    "title": "Dijkstra",
+    "slug": "dijkstra",
+    "href": "/docs/data-structures-and-algorithms/dijkstra",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 28
+  },
+  {
+    "title": "Bellman-Ford",
+    "slug": "bellman-ford",
+    "href": "/docs/data-structures-and-algorithms/bellman-ford",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 29
+  },
+  {
+    "title": "Floyd-Warshall",
+    "slug": "floyd-warshall",
+    "href": "/docs/data-structures-and-algorithms/floyd-warshall",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 30
+  },
+  {
+    "title": "MST",
+    "slug": "mst",
+    "href": "/docs/data-structures-and-algorithms/mst",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 31
+  },
+  {
+    "title": "Advanced Algorithms",
+    "slug": "advanced-algorithms",
+    "href": "/docs/data-structures-and-algorithms/advanced-algorithms",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 32
+  },
+  {
+    "title": "Dynamic Programming",
+    "slug": "dynamic-programming",
+    "href": "/docs/data-structures-and-algorithms/dynamic-programming",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 33
+  },
+  {
+    "title": "Greedy",
+    "slug": "greedy",
+    "href": "/docs/data-structures-and-algorithms/greedy",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 34
+  },
+  {
+    "title": "Divide & Conquer",
+    "slug": "divide-and-conquer",
+    "href": "/docs/data-structures-and-algorithms/divide-and-conquer",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 35
+  },
+  {
+    "title": "Backtracking",
+    "slug": "backtracking",
+    "href": "/docs/data-structures-and-algorithms/backtracking",
+    "section": "Data Structures & Algorithms",
+    "sectionNum": 7,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 36
+  },
+  {
+    "title": "Digital Logic",
+    "slug": "digital-logic",
+    "href": "/docs/computer-organization-and-architecture/digital-logic",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 1
+  },
+  {
+    "title": "Gates",
+    "slug": "gates",
+    "href": "/docs/computer-organization-and-architecture/gates",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 2
+  },
+  {
+    "title": "Flip-Flops",
+    "slug": "flip-flops",
+    "href": "/docs/computer-organization-and-architecture/flip-flops",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 3
+  },
+  {
+    "title": "CPU Architecture",
+    "slug": "cpu-architecture",
+    "href": "/docs/computer-organization-and-architecture/cpu-architecture",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 4
+  },
+  {
+    "title": "ALU",
+    "slug": "alu",
+    "href": "/docs/computer-organization-and-architecture/alu",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 5
+  },
+  {
+    "title": "Registers",
+    "slug": "registers",
+    "href": "/docs/computer-organization-and-architecture/registers",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 6
+  },
+  {
+    "title": "Control Unit",
+    "slug": "control-unit",
+    "href": "/docs/computer-organization-and-architecture/control-unit",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 7
+  },
+  {
+    "title": "Memory",
+    "slug": "memory",
+    "href": "/docs/computer-organization-and-architecture/memory",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 8
+  },
+  {
+    "title": "Cache",
+    "slug": "cache",
+    "href": "/docs/computer-organization-and-architecture/cache",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 9
+  },
+  {
+    "title": "Main Memory",
+    "slug": "main-memory",
+    "href": "/docs/computer-organization-and-architecture/main-memory",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 10
+  },
+  {
+    "title": "Virtual Memory",
+    "slug": "virtual-memory",
+    "href": "/docs/computer-organization-and-architecture/virtual-memory",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 11
+  },
+  {
+    "title": "Performance",
+    "slug": "performance",
+    "href": "/docs/computer-organization-and-architecture/performance",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 12
+  },
+  {
+    "title": "Pipelining",
+    "slug": "pipelining",
+    "href": "/docs/computer-organization-and-architecture/pipelining",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 13
+  },
+  {
+    "title": "Parallel Processing",
+    "slug": "parallel-processing",
+    "href": "/docs/computer-organization-and-architecture/parallel-processing",
+    "section": "Computer Organization & Architecture",
+    "sectionNum": 8,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 14
+  },
+  {
+    "title": "Processes",
+    "slug": "processes",
+    "href": "/docs/operating-systems/processes",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 1
+  },
+  {
+    "title": "Process States",
+    "slug": "process-states",
+    "href": "/docs/operating-systems/process-states",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 2
+  },
+  {
+    "title": "PCB",
+    "slug": "pcb",
+    "href": "/docs/operating-systems/pcb",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 3
+  },
+  {
+    "title": "Threads",
+    "slug": "threads",
+    "href": "/docs/operating-systems/threads",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 4
+  },
+  {
+    "title": "Multithreading",
+    "slug": "multithreading",
+    "href": "/docs/operating-systems/multithreading",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 5
+  },
+  {
+    "title": "Scheduling",
+    "slug": "scheduling",
+    "href": "/docs/operating-systems/scheduling",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 6
+  },
+  {
+    "title": "FCFS",
+    "slug": "fcfs",
+    "href": "/docs/operating-systems/fcfs",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 7
+  },
+  {
+    "title": "SJF",
+    "slug": "sjf",
+    "href": "/docs/operating-systems/sjf",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 8
+  },
+  {
+    "title": "Round Robin",
+    "slug": "round-robin",
+    "href": "/docs/operating-systems/round-robin",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 9
+  },
+  {
+    "title": "Synchronization",
+    "slug": "synchronization",
+    "href": "/docs/operating-systems/synchronization",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 10
+  },
+  {
+    "title": "Mutex",
+    "slug": "mutex",
+    "href": "/docs/operating-systems/mutex",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 11
+  },
+  {
+    "title": "Semaphore",
+    "slug": "semaphore",
+    "href": "/docs/operating-systems/semaphore",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 12
+  },
+  {
+    "title": "Monitor",
+    "slug": "monitor",
+    "href": "/docs/operating-systems/monitor",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 13
+  },
+  {
+    "title": "Deadlocks",
+    "slug": "deadlocks",
+    "href": "/docs/operating-systems/deadlocks",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 14
+  },
+  {
+    "title": "Prevention",
+    "slug": "prevention",
+    "href": "/docs/operating-systems/prevention",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 15
+  },
+  {
+    "title": "Detection",
+    "slug": "detection",
+    "href": "/docs/operating-systems/detection",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 16
+  },
+  {
+    "title": "Memory Management",
+    "slug": "memory-management",
+    "href": "/docs/operating-systems/memory-management",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 17
+  },
+  {
+    "title": "Paging",
+    "slug": "paging",
+    "href": "/docs/operating-systems/paging",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 18
+  },
+  {
+    "title": "Segmentation",
+    "slug": "segmentation",
+    "href": "/docs/operating-systems/segmentation",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 19
+  },
+  {
+    "title": "Linux",
+    "slug": "linux",
+    "href": "/docs/operating-systems/linux",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 20
+  },
+  {
+    "title": "Shell",
+    "slug": "shell",
+    "href": "/docs/operating-systems/shell",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 21
+  },
+  {
+    "title": "Bash",
+    "slug": "bash",
+    "href": "/docs/operating-systems/bash",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 22
+  },
+  {
+    "title": "Permissions",
+    "slug": "permissions",
+    "href": "/docs/operating-systems/permissions",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 23
+  },
+  {
+    "title": "Containers",
+    "slug": "containers",
+    "href": "/docs/operating-systems/containers",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 24
+  },
+  {
+    "title": "cgroups",
+    "slug": "cgroups",
+    "href": "/docs/operating-systems/cgroups",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 25
+  },
+  {
+    "title": "Namespaces",
+    "slug": "namespaces",
+    "href": "/docs/operating-systems/namespaces",
+    "section": "Operating Systems",
+    "sectionNum": 9,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 26
+  },
+  {
+    "title": "Network Basics",
+    "slug": "network-basics",
+    "href": "/docs/computer-networks/network-basics",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 1
+  },
+  {
+    "title": "OSI Model",
+    "slug": "osi-model",
+    "href": "/docs/computer-networks/osi-model",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 2
+  },
+  {
+    "title": "7 Layers",
+    "slug": "7-layers",
+    "href": "/docs/computer-networks/7-layers",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 3
+  },
+  {
+    "title": "TCP/IP",
+    "slug": "tcp-ip",
+    "href": "/docs/computer-networks/tcp-ip",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 4
+  },
+  {
+    "title": "TCP",
+    "slug": "tcp",
+    "href": "/docs/computer-networks/tcp",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 5
+  },
+  {
+    "title": "UDP",
+    "slug": "udp",
+    "href": "/docs/computer-networks/udp",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 6
+  },
+  {
+    "title": "IP Addressing",
+    "slug": "ip-addressing",
+    "href": "/docs/computer-networks/ip-addressing",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 7
+  },
+  {
+    "title": "IPv4",
+    "slug": "ipv4",
+    "href": "/docs/computer-networks/ipv4",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 8
+  },
+  {
+    "title": "IPv6",
+    "slug": "ipv6",
+    "href": "/docs/computer-networks/ipv6",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 9
+  },
+  {
+    "title": "Subnetting",
+    "slug": "subnetting",
+    "href": "/docs/computer-networks/subnetting",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 10
+  },
+  {
+    "title": "Protocols",
+    "slug": "protocols",
+    "href": "/docs/computer-networks/protocols",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 11
+  },
+  {
+    "title": "HTTP",
+    "slug": "http",
+    "href": "/docs/computer-networks/http",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 12
+  },
+  {
+    "title": "HTTPS",
+    "slug": "https",
+    "href": "/docs/computer-networks/https",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 13
+  },
+  {
+    "title": "FTP",
+    "slug": "ftp",
+    "href": "/docs/computer-networks/ftp",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 14
+  },
+  {
+    "title": "SMTP",
+    "slug": "smtp",
+    "href": "/docs/computer-networks/smtp",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 15
+  },
+  {
+    "title": "DNS",
+    "slug": "dns",
+    "href": "/docs/computer-networks/dns",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 16
+  },
+  {
+    "title": "Routing",
+    "slug": "routing",
+    "href": "/docs/computer-networks/routing",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 17
+  },
+  {
+    "title": "RIP",
+    "slug": "rip",
+    "href": "/docs/computer-networks/rip",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 18
+  },
+  {
+    "title": "OSPF",
+    "slug": "ospf",
+    "href": "/docs/computer-networks/ospf",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 19
+  },
+  {
+    "title": "BGP",
+    "slug": "bgp",
+    "href": "/docs/computer-networks/bgp",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 20
+  },
+  {
+    "title": "Modern Networking",
+    "slug": "modern-networking",
+    "href": "/docs/computer-networks/modern-networking",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 21
+  },
+  {
+    "title": "QUIC",
+    "slug": "quic",
+    "href": "/docs/computer-networks/quic",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 22
+  },
+  {
+    "title": "VPN",
+    "slug": "vpn",
+    "href": "/docs/computer-networks/vpn",
+    "section": "Computer Networks",
+    "sectionNum": 10,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 23
+  },
+  {
+    "title": "DBMS Basics",
+    "slug": "dbms-basics",
+    "href": "/docs/database-systems/dbms-basics",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 1
+  },
+  {
+    "title": "ER Model",
+    "slug": "er-model",
+    "href": "/docs/database-systems/er-model",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 2
+  },
+  {
+    "title": "SQL",
+    "slug": "sql",
+    "href": "/docs/database-systems/sql",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 3
+  },
+  {
+    "title": "SELECT",
+    "slug": "select",
+    "href": "/docs/database-systems/select",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 4
+  },
+  {
+    "title": "JOIN",
+    "slug": "join",
+    "href": "/docs/database-systems/join",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 5
+  },
+  {
+    "title": "GROUP BY",
+    "slug": "group-by",
+    "href": "/docs/database-systems/group-by",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 6
+  },
+  {
+    "title": "Subquery",
+    "slug": "subquery",
+    "href": "/docs/database-systems/subquery",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 7
+  },
+  {
+    "title": "Transactions",
+    "slug": "transactions",
+    "href": "/docs/database-systems/transactions",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 8
+  },
+  {
+    "title": "ACID",
+    "slug": "acid",
+    "href": "/docs/database-systems/acid",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 9
+  },
+  {
+    "title": "Optimization Techniques",
+    "slug": "optimization-techniques",
+    "href": "/docs/database-systems/optimization-techniques",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 10
+  },
+  {
+    "title": "Indexing",
+    "slug": "indexing",
+    "href": "/docs/database-systems/indexing",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 11
+  },
+  {
+    "title": "Query Optimization",
+    "slug": "query-optimization",
+    "href": "/docs/database-systems/query-optimization",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 12
+  },
+  {
+    "title": "NoSQL",
+    "slug": "nosql",
+    "href": "/docs/database-systems/nosql",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 13
+  },
+  {
+    "title": "MongoDB",
+    "slug": "mongodb",
+    "href": "/docs/database-systems/mongodb",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 14
+  },
+  {
+    "title": "Redis",
+    "slug": "redis",
+    "href": "/docs/database-systems/redis",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 15
+  },
+  {
+    "title": "Cassandra",
+    "slug": "cassandra",
+    "href": "/docs/database-systems/cassandra",
+    "section": "Database Systems",
+    "sectionNum": 11,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 16
+  },
+  {
+    "title": "SDLC",
+    "slug": "sdlc",
+    "href": "/docs/software-engineering/sdlc",
+    "section": "Software Engineering",
+    "sectionNum": 12,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 1
+  },
+  {
+    "title": "Requirement Engineering",
+    "slug": "requirement-engineering",
+    "href": "/docs/software-engineering/requirement-engineering",
+    "section": "Software Engineering",
+    "sectionNum": 12,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 2
+  },
+  {
+    "title": "UML",
+    "slug": "uml",
+    "href": "/docs/software-engineering/uml",
+    "section": "Software Engineering",
+    "sectionNum": 12,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 3
+  },
+  {
+    "title": "Agile",
+    "slug": "agile",
+    "href": "/docs/software-engineering/agile",
+    "section": "Software Engineering",
+    "sectionNum": 12,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 4
+  },
+  {
+    "title": "Scrum",
+    "slug": "scrum",
+    "href": "/docs/software-engineering/scrum",
+    "section": "Software Engineering",
+    "sectionNum": 12,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 5
+  },
+  {
+    "title": "Kanban",
+    "slug": "kanban",
+    "href": "/docs/software-engineering/kanban",
+    "section": "Software Engineering",
+    "sectionNum": 12,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 6
+  },
+  {
+    "title": "Testing",
+    "slug": "testing",
+    "href": "/docs/software-engineering/testing",
+    "section": "Software Engineering",
+    "sectionNum": 12,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 7
+  },
+  {
+    "title": "Unit Testing",
+    "slug": "unit-testing",
+    "href": "/docs/software-engineering/unit-testing",
+    "section": "Software Engineering",
+    "sectionNum": 12,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 8
+  },
+  {
+    "title": "Integration Testing",
+    "slug": "integration-testing",
+    "href": "/docs/software-engineering/integration-testing",
+    "section": "Software Engineering",
+    "sectionNum": 12,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 9
+  },
+  {
+    "title": "Design Patterns",
+    "slug": "design-patterns",
+    "href": "/docs/software-engineering/design-patterns",
+    "section": "Software Engineering",
+    "sectionNum": 12,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 10
+  },
+  {
+    "title": "Singleton",
+    "slug": "singleton",
+    "href": "/docs/software-engineering/singleton",
+    "section": "Software Engineering",
+    "sectionNum": 12,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 11
+  },
+  {
+    "title": "Factory",
+    "slug": "factory",
+    "href": "/docs/software-engineering/factory",
+    "section": "Software Engineering",
+    "sectionNum": 12,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 12
+  },
+  {
+    "title": "Observer",
+    "slug": "observer",
+    "href": "/docs/software-engineering/observer",
+    "section": "Software Engineering",
+    "sectionNum": 12,
+    "track": "Core CS",
+    "tone": "cyan",
+    "position": 13
+  },
+  {
+    "title": "Git Basics",
+    "slug": "git-basics",
+    "href": "/docs/git-and-github/git-basics",
+    "section": "Git & GitHub",
+    "sectionNum": 13,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 1
+  },
+  {
+    "title": "Init",
+    "slug": "init",
+    "href": "/docs/git-and-github/init",
+    "section": "Git & GitHub",
+    "sectionNum": 13,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 2
+  },
+  {
+    "title": "Commit",
+    "slug": "commit",
+    "href": "/docs/git-and-github/commit",
+    "section": "Git & GitHub",
+    "sectionNum": 13,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 3
+  },
+  {
+    "title": "Push",
+    "slug": "push",
+    "href": "/docs/git-and-github/push",
+    "section": "Git & GitHub",
+    "sectionNum": 13,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 4
+  },
+  {
+    "title": "Branching",
+    "slug": "branching",
+    "href": "/docs/git-and-github/branching",
+    "section": "Git & GitHub",
+    "sectionNum": 13,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 5
+  },
+  {
+    "title": "Merge",
+    "slug": "merge",
+    "href": "/docs/git-and-github/merge",
+    "section": "Git & GitHub",
+    "sectionNum": 13,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 6
+  },
+  {
+    "title": "Rebase",
+    "slug": "rebase",
+    "href": "/docs/git-and-github/rebase",
+    "section": "Git & GitHub",
+    "sectionNum": 13,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 7
+  },
+  {
+    "title": "Pull Requests",
+    "slug": "pull-requests",
+    "href": "/docs/git-and-github/pull-requests",
+    "section": "Git & GitHub",
+    "sectionNum": 13,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 8
+  },
+  {
+    "title": "GitHub Actions",
+    "slug": "github-actions",
+    "href": "/docs/git-and-github/github-actions",
+    "section": "Git & GitHub",
+    "sectionNum": 13,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 9
+  },
+  {
+    "title": "Frontend",
+    "slug": "frontend",
+    "href": "/docs/web-development/frontend",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 1
+  },
+  {
+    "title": "HTML",
+    "slug": "html",
+    "href": "/docs/web-development/html",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 2
+  },
+  {
+    "title": "CSS",
+    "slug": "css",
+    "href": "/docs/web-development/css",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 3
+  },
+  {
+    "title": "JavaScript Web",
+    "slug": "javascript-web",
+    "href": "/docs/web-development/javascript-web",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 4
+  },
+  {
+    "title": "React",
+    "slug": "react",
+    "href": "/docs/web-development/react",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 5
+  },
+  {
+    "title": "Next.js",
+    "slug": "next-js",
+    "href": "/docs/web-development/next-js",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 6
+  },
+  {
+    "title": "Backend",
+    "slug": "backend",
+    "href": "/docs/web-development/backend",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 7
+  },
+  {
+    "title": "Node.js",
+    "slug": "node-js",
+    "href": "/docs/web-development/node-js",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 8
+  },
+  {
+    "title": "Express",
+    "slug": "express",
+    "href": "/docs/web-development/express",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 9
+  },
+  {
+    "title": "Django",
+    "slug": "django",
+    "href": "/docs/web-development/django",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 10
+  },
+  {
+    "title": "Flask",
+    "slug": "flask",
+    "href": "/docs/web-development/flask",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 11
+  },
+  {
+    "title": "FastAPI",
+    "slug": "fastapi",
+    "href": "/docs/web-development/fastapi",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 12
+  },
+  {
+    "title": "APIs",
+    "slug": "apis",
+    "href": "/docs/web-development/apis",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 13
+  },
+  {
+    "title": "REST",
+    "slug": "rest",
+    "href": "/docs/web-development/rest",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 14
+  },
+  {
+    "title": "GraphQL",
+    "slug": "graphql",
+    "href": "/docs/web-development/graphql",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 15
+  },
+  {
+    "title": "Authentication",
+    "slug": "authentication",
+    "href": "/docs/web-development/authentication",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 16
+  },
+  {
+    "title": "JWT",
+    "slug": "jwt",
+    "href": "/docs/web-development/jwt",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 17
+  },
+  {
+    "title": "OAuth",
+    "slug": "oauth",
+    "href": "/docs/web-development/oauth",
+    "section": "Web Development",
+    "sectionNum": 14,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 18
+  },
+  {
+    "title": "Android",
+    "slug": "android",
+    "href": "/docs/mobile-development/android",
+    "section": "Mobile Development",
+    "sectionNum": 15,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 1
+  },
+  {
+    "title": "Kotlin",
+    "slug": "kotlin",
+    "href": "/docs/mobile-development/kotlin",
+    "section": "Mobile Development",
+    "sectionNum": 15,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 2
+  },
+  {
+    "title": "Jetpack",
+    "slug": "jetpack",
+    "href": "/docs/mobile-development/jetpack",
+    "section": "Mobile Development",
+    "sectionNum": 15,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 3
+  },
+  {
+    "title": "Flutter",
+    "slug": "flutter",
+    "href": "/docs/mobile-development/flutter",
+    "section": "Mobile Development",
+    "sectionNum": 15,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 4
+  },
+  {
+    "title": "React Native",
+    "slug": "react-native",
+    "href": "/docs/mobile-development/react-native",
+    "section": "Mobile Development",
+    "sectionNum": 15,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 5
+  },
+  {
+    "title": "Deployment",
+    "slug": "deployment",
+    "href": "/docs/mobile-development/deployment",
+    "section": "Mobile Development",
+    "sectionNum": 15,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 6
+  },
+  {
+    "title": "Play Store",
+    "slug": "play-store",
+    "href": "/docs/mobile-development/play-store",
+    "section": "Mobile Development",
+    "sectionNum": 15,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 7
+  },
+  {
+    "title": "App Store",
+    "slug": "app-store",
+    "href": "/docs/mobile-development/app-store",
+    "section": "Mobile Development",
+    "sectionNum": 15,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 8
+  },
+  {
+    "title": "Cloud Basics",
+    "slug": "cloud-basics",
+    "href": "/docs/cloud-computing/cloud-basics",
+    "section": "Cloud Computing",
+    "sectionNum": 16,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 1
+  },
+  {
+    "title": "AWS",
+    "slug": "aws",
+    "href": "/docs/cloud-computing/aws",
+    "section": "Cloud Computing",
+    "sectionNum": 16,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 2
+  },
+  {
+    "title": "EC2",
+    "slug": "ec2",
+    "href": "/docs/cloud-computing/ec2",
+    "section": "Cloud Computing",
+    "sectionNum": 16,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 3
+  },
+  {
+    "title": "S3",
+    "slug": "s3",
+    "href": "/docs/cloud-computing/s3",
+    "section": "Cloud Computing",
+    "sectionNum": 16,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 4
+  },
+  {
+    "title": "Lambda",
+    "slug": "lambda",
+    "href": "/docs/cloud-computing/lambda",
+    "section": "Cloud Computing",
+    "sectionNum": 16,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 5
+  },
+  {
+    "title": "Azure",
+    "slug": "azure",
+    "href": "/docs/cloud-computing/azure",
+    "section": "Cloud Computing",
+    "sectionNum": 16,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 6
+  },
+  {
+    "title": "Google Cloud",
+    "slug": "google-cloud",
+    "href": "/docs/cloud-computing/google-cloud",
+    "section": "Cloud Computing",
+    "sectionNum": 16,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 7
+  },
+  {
+    "title": "Docker",
+    "slug": "docker",
+    "href": "/docs/cloud-computing/docker",
+    "section": "Cloud Computing",
+    "sectionNum": 16,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 8
+  },
+  {
+    "title": "Kubernetes",
+    "slug": "kubernetes",
+    "href": "/docs/cloud-computing/kubernetes",
+    "section": "Cloud Computing",
+    "sectionNum": 16,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 9
+  },
+  {
+    "title": "Cloud Networking",
+    "slug": "cloud-networking",
+    "href": "/docs/cloud-computing/cloud-networking",
+    "section": "Cloud Computing",
+    "sectionNum": 16,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 10
+  },
+  {
+    "title": "IAM",
+    "slug": "iam",
+    "href": "/docs/cloud-computing/iam",
+    "section": "Cloud Computing",
+    "sectionNum": 16,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 11
+  },
+  {
+    "title": "VPC",
+    "slug": "vpc",
+    "href": "/docs/cloud-computing/vpc",
+    "section": "Cloud Computing",
+    "sectionNum": 16,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 12
+  },
+  {
+    "title": "Load Balancer",
+    "slug": "load-balancer",
+    "href": "/docs/cloud-computing/load-balancer",
+    "section": "Cloud Computing",
+    "sectionNum": 16,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 13
+  },
+  {
+    "title": "Cryptography",
+    "slug": "cryptography",
+    "href": "/docs/cybersecurity/cryptography",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 1
+  },
+  {
+    "title": "AES",
+    "slug": "aes",
+    "href": "/docs/cybersecurity/aes",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 2
+  },
+  {
+    "title": "RSA",
+    "slug": "rsa",
+    "href": "/docs/cybersecurity/rsa",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 3
+  },
+  {
+    "title": "SHA",
+    "slug": "sha",
+    "href": "/docs/cybersecurity/sha",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 4
+  },
+  {
+    "title": "Web Security",
+    "slug": "web-security",
+    "href": "/docs/cybersecurity/web-security",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 5
+  },
+  {
+    "title": "XSS",
+    "slug": "xss",
+    "href": "/docs/cybersecurity/xss",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 6
+  },
+  {
+    "title": "SQL Injection",
+    "slug": "sql-injection",
+    "href": "/docs/cybersecurity/sql-injection",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 7
+  },
+  {
+    "title": "Ethical Hacking",
+    "slug": "ethical-hacking",
+    "href": "/docs/cybersecurity/ethical-hacking",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 8
+  },
+  {
+    "title": "Penetration Testing",
+    "slug": "penetration-testing",
+    "href": "/docs/cybersecurity/penetration-testing",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 9
+  },
+  {
+    "title": "Malware",
+    "slug": "malware",
+    "href": "/docs/cybersecurity/malware",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 10
+  },
+  {
+    "title": "Digital Forensics",
+    "slug": "digital-forensics",
+    "href": "/docs/cybersecurity/digital-forensics",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 11
+  },
+  {
+    "title": "Security Operations",
+    "slug": "security-operations",
+    "href": "/docs/cybersecurity/security-operations",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 12
+  },
+  {
+    "title": "SIEM",
+    "slug": "siem",
+    "href": "/docs/cybersecurity/siem",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 13
+  },
+  {
+    "title": "SOC",
+    "slug": "soc",
+    "href": "/docs/cybersecurity/soc",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 14
+  },
+  {
+    "title": "Zero Trust",
+    "slug": "zero-trust",
+    "href": "/docs/cybersecurity/zero-trust",
+    "section": "Cybersecurity",
+    "sectionNum": 17,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 15
+  },
+  {
+    "title": "Lexical Analysis",
+    "slug": "lexical-analysis",
+    "href": "/docs/compiler-design/lexical-analysis",
+    "section": "Compiler Design",
+    "sectionNum": 18,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 1
+  },
+  {
+    "title": "Syntax Analysis",
+    "slug": "syntax-analysis",
+    "href": "/docs/compiler-design/syntax-analysis",
+    "section": "Compiler Design",
+    "sectionNum": 18,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 2
+  },
+  {
+    "title": "Parsing",
+    "slug": "parsing",
+    "href": "/docs/compiler-design/parsing",
+    "section": "Compiler Design",
+    "sectionNum": 18,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 3
+  },
+  {
+    "title": "LL",
+    "slug": "ll",
+    "href": "/docs/compiler-design/ll",
+    "section": "Compiler Design",
+    "sectionNum": 18,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 4
+  },
+  {
+    "title": "LR",
+    "slug": "lr",
+    "href": "/docs/compiler-design/lr",
+    "section": "Compiler Design",
+    "sectionNum": 18,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 5
+  },
+  {
+    "title": "Semantic Analysis",
+    "slug": "semantic-analysis",
+    "href": "/docs/compiler-design/semantic-analysis",
+    "section": "Compiler Design",
+    "sectionNum": 18,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 6
+  },
+  {
+    "title": "Code Generation",
+    "slug": "code-generation",
+    "href": "/docs/compiler-design/code-generation",
+    "section": "Compiler Design",
+    "sectionNum": 18,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 7
+  },
+  {
+    "title": "Compiler Optimization",
+    "slug": "compiler-optimization",
+    "href": "/docs/compiler-design/compiler-optimization",
+    "section": "Compiler Design",
+    "sectionNum": 18,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 8
+  },
+  {
+    "title": "DFA",
+    "slug": "dfa",
+    "href": "/docs/theory-of-computation/dfa",
+    "section": "Theory of Computation",
+    "sectionNum": 19,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 1
+  },
+  {
+    "title": "NFA",
+    "slug": "nfa",
+    "href": "/docs/theory-of-computation/nfa",
+    "section": "Theory of Computation",
+    "sectionNum": 19,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 2
+  },
+  {
+    "title": "Regular Expressions",
+    "slug": "regular-expressions",
+    "href": "/docs/theory-of-computation/regular-expressions",
+    "section": "Theory of Computation",
+    "sectionNum": 19,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 3
+  },
+  {
+    "title": "Context-Free Grammar",
+    "slug": "context-free-grammar",
+    "href": "/docs/theory-of-computation/context-free-grammar",
+    "section": "Theory of Computation",
+    "sectionNum": 19,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 4
+  },
+  {
+    "title": "Pushdown Automata",
+    "slug": "pushdown-automata",
+    "href": "/docs/theory-of-computation/pushdown-automata",
+    "section": "Theory of Computation",
+    "sectionNum": 19,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 5
+  },
+  {
+    "title": "Turing Machine",
+    "slug": "turing-machine",
+    "href": "/docs/theory-of-computation/turing-machine",
+    "section": "Theory of Computation",
+    "sectionNum": 19,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 6
+  },
+  {
+    "title": "NP-Complete",
+    "slug": "np-complete",
+    "href": "/docs/theory-of-computation/np-complete",
+    "section": "Theory of Computation",
+    "sectionNum": 19,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 7
+  },
+  {
+    "title": "Architecture",
+    "slug": "architecture",
+    "href": "/docs/distributed-systems/architecture",
+    "section": "Distributed Systems",
+    "sectionNum": 20,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 1
+  },
+  {
+    "title": "RPC",
+    "slug": "rpc",
+    "href": "/docs/distributed-systems/rpc",
+    "section": "Distributed Systems",
+    "sectionNum": 20,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 2
+  },
+  {
+    "title": "gRPC",
+    "slug": "grpc",
+    "href": "/docs/distributed-systems/grpc",
+    "section": "Distributed Systems",
+    "sectionNum": 20,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 3
+  },
+  {
+    "title": "CAP Theorem",
+    "slug": "cap-theorem",
+    "href": "/docs/distributed-systems/cap-theorem",
+    "section": "Distributed Systems",
+    "sectionNum": 20,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 4
+  },
+  {
+    "title": "Consensus",
+    "slug": "consensus",
+    "href": "/docs/distributed-systems/consensus",
+    "section": "Distributed Systems",
+    "sectionNum": 20,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 5
+  },
+  {
+    "title": "Paxos",
+    "slug": "paxos",
+    "href": "/docs/distributed-systems/paxos",
+    "section": "Distributed Systems",
+    "sectionNum": 20,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 6
+  },
+  {
+    "title": "Raft",
+    "slug": "raft",
+    "href": "/docs/distributed-systems/raft",
+    "section": "Distributed Systems",
+    "sectionNum": 20,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 7
+  },
+  {
+    "title": "Replication",
+    "slug": "replication",
+    "href": "/docs/distributed-systems/replication",
+    "section": "Distributed Systems",
+    "sectionNum": 20,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 8
+  },
+  {
+    "title": "Fault Tolerance",
+    "slug": "fault-tolerance",
+    "href": "/docs/distributed-systems/fault-tolerance",
+    "section": "Distributed Systems",
+    "sectionNum": 20,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 9
+  },
+  {
+    "title": "Kafka",
+    "slug": "kafka",
+    "href": "/docs/distributed-systems/kafka",
+    "section": "Distributed Systems",
+    "sectionNum": 20,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 10
+  },
+  {
+    "title": "Microservices",
+    "slug": "microservices",
+    "href": "/docs/distributed-systems/microservices",
+    "section": "Distributed Systems",
+    "sectionNum": 20,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 11
+  },
+  {
+    "title": "Multicore",
+    "slug": "multicore",
+    "href": "/docs/parallel-computing/multicore",
+    "section": "Parallel Computing",
+    "sectionNum": 21,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 1
+  },
+  {
+    "title": "OpenMP",
+    "slug": "openmp",
+    "href": "/docs/parallel-computing/openmp",
+    "section": "Parallel Computing",
+    "sectionNum": 21,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 2
+  },
+  {
+    "title": "MPI",
+    "slug": "mpi",
+    "href": "/docs/parallel-computing/mpi",
+    "section": "Parallel Computing",
+    "sectionNum": 21,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 3
+  },
+  {
+    "title": "CUDA",
+    "slug": "cuda",
+    "href": "/docs/parallel-computing/cuda",
+    "section": "Parallel Computing",
+    "sectionNum": 21,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 4
+  },
+  {
+    "title": "GPU Computing",
+    "slug": "gpu-computing",
+    "href": "/docs/parallel-computing/gpu-computing",
+    "section": "Parallel Computing",
+    "sectionNum": 21,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 5
+  },
+  {
+    "title": "2D Graphics",
+    "slug": "2d-graphics",
+    "href": "/docs/computer-graphics/2d-graphics",
+    "section": "Computer Graphics",
+    "sectionNum": 22,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 1
+  },
+  {
+    "title": "3D Graphics",
+    "slug": "3d-graphics",
+    "href": "/docs/computer-graphics/3d-graphics",
+    "section": "Computer Graphics",
+    "sectionNum": 22,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 2
+  },
+  {
+    "title": "OpenGL",
+    "slug": "opengl",
+    "href": "/docs/computer-graphics/opengl",
+    "section": "Computer Graphics",
+    "sectionNum": 22,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 3
+  },
+  {
+    "title": "Transformations",
+    "slug": "transformations",
+    "href": "/docs/computer-graphics/transformations",
+    "section": "Computer Graphics",
+    "sectionNum": 22,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 4
+  },
+  {
+    "title": "Lighting",
+    "slug": "lighting",
+    "href": "/docs/computer-graphics/lighting",
+    "section": "Computer Graphics",
+    "sectionNum": 22,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 5
+  },
+  {
+    "title": "Ray Tracing",
+    "slug": "ray-tracing",
+    "href": "/docs/computer-graphics/ray-tracing",
+    "section": "Computer Graphics",
+    "sectionNum": 22,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 6
+  },
+  {
+    "title": "UX",
+    "slug": "ux",
+    "href": "/docs/human-computer-interaction/ux",
+    "section": "Human-Computer Interaction",
+    "sectionNum": 23,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 1
+  },
+  {
+    "title": "UI",
+    "slug": "ui",
+    "href": "/docs/human-computer-interaction/ui",
+    "section": "Human-Computer Interaction",
+    "sectionNum": 23,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 2
+  },
+  {
+    "title": "Accessibility",
+    "slug": "accessibility",
+    "href": "/docs/human-computer-interaction/accessibility",
+    "section": "Human-Computer Interaction",
+    "sectionNum": 23,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 3
+  },
+  {
+    "title": "Wireframing",
+    "slug": "wireframing",
+    "href": "/docs/human-computer-interaction/wireframing",
+    "section": "Human-Computer Interaction",
+    "sectionNum": 23,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 4
+  },
+  {
+    "title": "Prototyping",
+    "slug": "prototyping",
+    "href": "/docs/human-computer-interaction/prototyping",
+    "section": "Human-Computer Interaction",
+    "sectionNum": 23,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 5
+  },
+  {
+    "title": "User Testing",
+    "slug": "user-testing",
+    "href": "/docs/human-computer-interaction/user-testing",
+    "section": "Human-Computer Interaction",
+    "sectionNum": 23,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 6
+  },
+  {
+    "title": "Microcontrollers",
+    "slug": "microcontrollers",
+    "href": "/docs/embedded-systems/microcontrollers",
+    "section": "Embedded Systems",
+    "sectionNum": 24,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 1
+  },
+  {
+    "title": "ARM",
+    "slug": "arm",
+    "href": "/docs/embedded-systems/arm",
+    "section": "Embedded Systems",
+    "sectionNum": 24,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 2
+  },
+  {
+    "title": "GPIO",
+    "slug": "gpio",
+    "href": "/docs/embedded-systems/gpio",
+    "section": "Embedded Systems",
+    "sectionNum": 24,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 3
+  },
+  {
+    "title": "Interrupts",
+    "slug": "interrupts",
+    "href": "/docs/embedded-systems/interrupts",
+    "section": "Embedded Systems",
+    "sectionNum": 24,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 4
+  },
+  {
+    "title": "RTOS",
+    "slug": "rtos",
+    "href": "/docs/embedded-systems/rtos",
+    "section": "Embedded Systems",
+    "sectionNum": 24,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 5
+  },
+  {
+    "title": "Hard Real-Time",
+    "slug": "hard-real-time",
+    "href": "/docs/real-time-systems/hard-real-time",
+    "section": "Real-Time Systems",
+    "sectionNum": 25,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 1
+  },
+  {
+    "title": "Soft Real-Time",
+    "slug": "soft-real-time",
+    "href": "/docs/real-time-systems/soft-real-time",
+    "section": "Real-Time Systems",
+    "sectionNum": 25,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 2
+  },
+  {
+    "title": "RT Scheduling",
+    "slug": "rt-scheduling",
+    "href": "/docs/real-time-systems/rt-scheduling",
+    "section": "Real-Time Systems",
+    "sectionNum": 25,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 3
+  },
+  {
+    "title": "Timing Constraints",
+    "slug": "timing-constraints",
+    "href": "/docs/real-time-systems/timing-constraints",
+    "section": "Real-Time Systems",
+    "sectionNum": 25,
+    "track": "Engineering",
+    "tone": "violet",
+    "position": 4
+  },
+  {
+    "title": "Data Collection",
+    "slug": "data-collection",
+    "href": "/docs/data-science/data-collection",
+    "section": "Data Science",
+    "sectionNum": 26,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 1
+  },
+  {
+    "title": "Data Cleaning",
+    "slug": "data-cleaning",
+    "href": "/docs/data-science/data-cleaning",
+    "section": "Data Science",
+    "sectionNum": 26,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 2
+  },
+  {
+    "title": "NumPy",
+    "slug": "numpy",
+    "href": "/docs/data-science/numpy",
+    "section": "Data Science",
+    "sectionNum": 26,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 3
+  },
+  {
+    "title": "Pandas",
+    "slug": "pandas",
+    "href": "/docs/data-science/pandas",
+    "section": "Data Science",
+    "sectionNum": 26,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 4
+  },
+  {
+    "title": "Visualization",
+    "slug": "visualization",
+    "href": "/docs/data-science/visualization",
+    "section": "Data Science",
+    "sectionNum": 26,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 5
+  },
+  {
+    "title": "EDA",
+    "slug": "eda",
+    "href": "/docs/data-science/eda",
+    "section": "Data Science",
+    "sectionNum": 26,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 6
+  },
+  {
+    "title": "Association Rules",
+    "slug": "association-rules",
+    "href": "/docs/data-mining/association-rules",
+    "section": "Data Mining",
+    "sectionNum": 27,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 1
+  },
+  {
+    "title": "Classification",
+    "slug": "classification",
+    "href": "/docs/data-mining/classification",
+    "section": "Data Mining",
+    "sectionNum": 27,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 2
+  },
+  {
+    "title": "Clustering",
+    "slug": "clustering",
+    "href": "/docs/data-mining/clustering",
+    "section": "Data Mining",
+    "sectionNum": 27,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 3
+  },
+  {
+    "title": "Outlier Detection",
+    "slug": "outlier-detection",
+    "href": "/docs/data-mining/outlier-detection",
+    "section": "Data Mining",
+    "sectionNum": 27,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 4
+  },
+  {
+    "title": "Search Engines",
+    "slug": "search-engines",
+    "href": "/docs/information-retrieval/search-engines",
+    "section": "Information Retrieval",
+    "sectionNum": 28,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 1
+  },
+  {
+    "title": "Inverted Index",
+    "slug": "inverted-index",
+    "href": "/docs/information-retrieval/inverted-index",
+    "section": "Information Retrieval",
+    "sectionNum": 28,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 2
+  },
+  {
+    "title": "TF-IDF",
+    "slug": "tf-idf",
+    "href": "/docs/information-retrieval/tf-idf",
+    "section": "Information Retrieval",
+    "sectionNum": 28,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 3
+  },
+  {
+    "title": "BM25",
+    "slug": "bm25",
+    "href": "/docs/information-retrieval/bm25",
+    "section": "Information Retrieval",
+    "sectionNum": 28,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 4
+  },
+  {
+    "title": "Dense Retrieval",
+    "slug": "dense-retrieval",
+    "href": "/docs/information-retrieval/dense-retrieval",
+    "section": "Information Retrieval",
+    "sectionNum": 28,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 5
+  },
+  {
+    "title": "Sparse Retrieval",
+    "slug": "sparse-retrieval",
+    "href": "/docs/information-retrieval/sparse-retrieval",
+    "section": "Information Retrieval",
+    "sectionNum": 28,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 6
+  },
+  {
+    "title": "AI Basics",
+    "slug": "ai-basics",
+    "href": "/docs/artificial-intelligence/ai-basics",
+    "section": "Artificial Intelligence",
+    "sectionNum": 29,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 1
+  },
+  {
+    "title": "Intelligent Agents",
+    "slug": "intelligent-agents",
+    "href": "/docs/artificial-intelligence/intelligent-agents",
+    "section": "Artificial Intelligence",
+    "sectionNum": 29,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 2
+  },
+  {
+    "title": "Search Algorithms",
+    "slug": "search-algorithms",
+    "href": "/docs/artificial-intelligence/search-algorithms",
+    "section": "Artificial Intelligence",
+    "sectionNum": 29,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 3
+  },
+  {
+    "title": "Knowledge Representation",
+    "slug": "knowledge-representation",
+    "href": "/docs/artificial-intelligence/knowledge-representation",
+    "section": "Artificial Intelligence",
+    "sectionNum": 29,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 4
+  },
+  {
+    "title": "Planning",
+    "slug": "planning",
+    "href": "/docs/artificial-intelligence/planning",
+    "section": "Artificial Intelligence",
+    "sectionNum": 29,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 5
+  },
+  {
+    "title": "Reasoning",
+    "slug": "reasoning",
+    "href": "/docs/artificial-intelligence/reasoning",
+    "section": "Artificial Intelligence",
+    "sectionNum": 29,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 6
+  },
+  {
+    "title": "Expert Systems",
+    "slug": "expert-systems",
+    "href": "/docs/artificial-intelligence/expert-systems",
+    "section": "Artificial Intelligence",
+    "sectionNum": 29,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 7
+  },
+  {
+    "title": "ML Workflow",
+    "slug": "ml-workflow",
+    "href": "/docs/machine-learning/ml-workflow",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 1
+  },
+  {
+    "title": "Data Preprocessing",
+    "slug": "data-preprocessing",
+    "href": "/docs/machine-learning/data-preprocessing",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 2
+  },
+  {
+    "title": "Feature Engineering",
+    "slug": "feature-engineering",
+    "href": "/docs/machine-learning/feature-engineering",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 3
+  },
+  {
+    "title": "Supervised Learning",
+    "slug": "supervised-learning",
+    "href": "/docs/machine-learning/supervised-learning",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 4
+  },
+  {
+    "title": "Linear Regression",
+    "slug": "linear-regression",
+    "href": "/docs/machine-learning/linear-regression",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 5
+  },
+  {
+    "title": "Logistic Regression",
+    "slug": "logistic-regression",
+    "href": "/docs/machine-learning/logistic-regression",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 6
+  },
+  {
+    "title": "Decision Trees",
+    "slug": "decision-trees",
+    "href": "/docs/machine-learning/decision-trees",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 7
+  },
+  {
+    "title": "Unsupervised Learning",
+    "slug": "unsupervised-learning",
+    "href": "/docs/machine-learning/unsupervised-learning",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 8
+  },
+  {
+    "title": "K-Means",
+    "slug": "k-means",
+    "href": "/docs/machine-learning/k-means",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 9
+  },
+  {
+    "title": "PCA",
+    "slug": "pca",
+    "href": "/docs/machine-learning/pca",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 10
+  },
+  {
+    "title": "Reinforcement Learning",
+    "slug": "reinforcement-learning",
+    "href": "/docs/machine-learning/reinforcement-learning",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 11
+  },
+  {
+    "title": "Ensemble Learning",
+    "slug": "ensemble-learning",
+    "href": "/docs/machine-learning/ensemble-learning",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 12
+  },
+  {
+    "title": "Random Forest",
+    "slug": "random-forest",
+    "href": "/docs/machine-learning/random-forest",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 13
+  },
+  {
+    "title": "XGBoost",
+    "slug": "xgboost",
+    "href": "/docs/machine-learning/xgboost",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 14
+  },
+  {
+    "title": "LightGBM",
+    "slug": "lightgbm",
+    "href": "/docs/machine-learning/lightgbm",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 15
+  },
+  {
+    "title": "CatBoost",
+    "slug": "catboost",
+    "href": "/docs/machine-learning/catboost",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 16
+  },
+  {
+    "title": "Model Evaluation",
+    "slug": "model-evaluation",
+    "href": "/docs/machine-learning/model-evaluation",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 17
+  },
+  {
+    "title": "Cross Validation",
+    "slug": "cross-validation",
+    "href": "/docs/machine-learning/cross-validation",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 18
+  },
+  {
+    "title": "Precision",
+    "slug": "precision",
+    "href": "/docs/machine-learning/precision",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 19
+  },
+  {
+    "title": "Recall",
+    "slug": "recall",
+    "href": "/docs/machine-learning/recall",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 20
+  },
+  {
+    "title": "F1 Score",
+    "slug": "f1-score",
+    "href": "/docs/machine-learning/f1-score",
+    "section": "Machine Learning",
+    "sectionNum": 30,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 21
+  },
+  {
+    "title": "Neural Networks",
+    "slug": "neural-networks",
+    "href": "/docs/deep-learning/neural-networks",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 1
+  },
+  {
+    "title": "Backpropagation",
+    "slug": "backpropagation",
+    "href": "/docs/deep-learning/backpropagation",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 2
+  },
+  {
+    "title": "CNN",
+    "slug": "cnn",
+    "href": "/docs/deep-learning/cnn",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 3
+  },
+  {
+    "title": "RNN",
+    "slug": "rnn",
+    "href": "/docs/deep-learning/rnn",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 4
+  },
+  {
+    "title": "LSTM",
+    "slug": "lstm",
+    "href": "/docs/deep-learning/lstm",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 5
+  },
+  {
+    "title": "GRU",
+    "slug": "gru",
+    "href": "/docs/deep-learning/gru",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 6
+  },
+  {
+    "title": "Autoencoders",
+    "slug": "autoencoders",
+    "href": "/docs/deep-learning/autoencoders",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 7
+  },
+  {
+    "title": "GAN",
+    "slug": "gan",
+    "href": "/docs/deep-learning/gan",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 8
+  },
+  {
+    "title": "Diffusion Models",
+    "slug": "diffusion-models",
+    "href": "/docs/deep-learning/diffusion-models",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 9
+  },
+  {
+    "title": "Transformers",
+    "slug": "transformers",
+    "href": "/docs/deep-learning/transformers",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 10
+  },
+  {
+    "title": "Mixture of Experts",
+    "slug": "mixture-of-experts",
+    "href": "/docs/deep-learning/mixture-of-experts",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 11
+  },
+  {
+    "title": "Frameworks",
+    "slug": "frameworks",
+    "href": "/docs/deep-learning/frameworks",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 12
+  },
+  {
+    "title": "TensorFlow",
+    "slug": "tensorflow",
+    "href": "/docs/deep-learning/tensorflow",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 13
+  },
+  {
+    "title": "PyTorch",
+    "slug": "pytorch",
+    "href": "/docs/deep-learning/pytorch",
+    "section": "Deep Learning",
+    "sectionNum": 31,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 14
+  },
+  {
+    "title": "NLP Natural Language Processing",
+    "slug": "nlp-natural-language-processing",
+    "href": "/docs/specialized-ai-fields/nlp-natural-language-processing",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 1
+  },
+  {
+    "title": "Text Processing",
+    "slug": "text-processing",
+    "href": "/docs/specialized-ai-fields/text-processing",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 2
+  },
+  {
+    "title": "Tokenization",
+    "slug": "tokenization",
+    "href": "/docs/specialized-ai-fields/tokenization",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 3
+  },
+  {
+    "title": "Stemming",
+    "slug": "stemming",
+    "href": "/docs/specialized-ai-fields/stemming",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 4
+  },
+  {
+    "title": "Lemmatization",
+    "slug": "lemmatization",
+    "href": "/docs/specialized-ai-fields/lemmatization",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 5
+  },
+  {
+    "title": "Linguistics",
+    "slug": "linguistics",
+    "href": "/docs/specialized-ai-fields/linguistics",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 6
+  },
+  {
+    "title": "POS Tagging",
+    "slug": "pos-tagging",
+    "href": "/docs/specialized-ai-fields/pos-tagging",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 7
+  },
+  {
+    "title": "NER",
+    "slug": "ner",
+    "href": "/docs/specialized-ai-fields/ner",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 8
+  },
+  {
+    "title": "Dependency Parsing",
+    "slug": "dependency-parsing",
+    "href": "/docs/specialized-ai-fields/dependency-parsing",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 9
+  },
+  {
+    "title": "Embeddings",
+    "slug": "embeddings",
+    "href": "/docs/specialized-ai-fields/embeddings",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 10
+  },
+  {
+    "title": "Word2Vec",
+    "slug": "word2vec",
+    "href": "/docs/specialized-ai-fields/word2vec",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 11
+  },
+  {
+    "title": "GloVe",
+    "slug": "glove",
+    "href": "/docs/specialized-ai-fields/glove",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 12
+  },
+  {
+    "title": "FastText",
+    "slug": "fasttext",
+    "href": "/docs/specialized-ai-fields/fasttext",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 13
+  },
+  {
+    "title": "Transformer Models",
+    "slug": "transformer-models",
+    "href": "/docs/specialized-ai-fields/transformer-models",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 14
+  },
+  {
+    "title": "BERT",
+    "slug": "bert",
+    "href": "/docs/specialized-ai-fields/bert",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 15
+  },
+  {
+    "title": "GPT",
+    "slug": "gpt",
+    "href": "/docs/specialized-ai-fields/gpt",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 16
+  },
+  {
+    "title": "T5",
+    "slug": "t5",
+    "href": "/docs/specialized-ai-fields/t5",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 17
+  },
+  {
+    "title": "NLP Applications",
+    "slug": "nlp-applications",
+    "href": "/docs/specialized-ai-fields/nlp-applications",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 18
+  },
+  {
+    "title": "Machine Translation",
+    "slug": "machine-translation",
+    "href": "/docs/specialized-ai-fields/machine-translation",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 19
+  },
+  {
+    "title": "Text Summarization",
+    "slug": "text-summarization",
+    "href": "/docs/specialized-ai-fields/text-summarization",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 20
+  },
+  {
+    "title": "Sentiment Analysis",
+    "slug": "sentiment-analysis",
+    "href": "/docs/specialized-ai-fields/sentiment-analysis",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 21
+  },
+  {
+    "title": "Question Answering",
+    "slug": "question-answering",
+    "href": "/docs/specialized-ai-fields/question-answering",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 22
+  },
+  {
+    "title": "Computer Vision",
+    "slug": "computer-vision",
+    "href": "/docs/specialized-ai-fields/computer-vision",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 23
+  },
+  {
+    "title": "Image Processing",
+    "slug": "image-processing",
+    "href": "/docs/specialized-ai-fields/image-processing",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 24
+  },
+  {
+    "title": "OpenCV",
+    "slug": "opencv",
+    "href": "/docs/specialized-ai-fields/opencv",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 25
+  },
+  {
+    "title": "CNN for Vision",
+    "slug": "cnn-for-vision",
+    "href": "/docs/specialized-ai-fields/cnn-for-vision",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 26
+  },
+  {
+    "title": "Object Detection",
+    "slug": "object-detection",
+    "href": "/docs/specialized-ai-fields/object-detection",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 27
+  },
+  {
+    "title": "YOLO",
+    "slug": "yolo",
+    "href": "/docs/specialized-ai-fields/yolo",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 28
+  },
+  {
+    "title": "Faster R-CNN",
+    "slug": "faster-r-cnn",
+    "href": "/docs/specialized-ai-fields/faster-r-cnn",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 29
+  },
+  {
+    "title": "Segmentation",
+    "slug": "segmentation",
+    "href": "/docs/specialized-ai-fields/segmentation",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 30
+  },
+  {
+    "title": "U-Net",
+    "slug": "u-net",
+    "href": "/docs/specialized-ai-fields/u-net",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 31
+  },
+  {
+    "title": "OCR",
+    "slug": "ocr",
+    "href": "/docs/specialized-ai-fields/ocr",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 32
+  },
+  {
+    "title": "Vision Transformers",
+    "slug": "vision-transformers",
+    "href": "/docs/specialized-ai-fields/vision-transformers",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 33
+  },
+  {
+    "title": "Speech Recognition",
+    "slug": "speech-recognition",
+    "href": "/docs/specialized-ai-fields/speech-recognition",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 34
+  },
+  {
+    "title": "Audio Processing",
+    "slug": "audio-processing",
+    "href": "/docs/specialized-ai-fields/audio-processing",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 35
+  },
+  {
+    "title": "MFCC",
+    "slug": "mfcc",
+    "href": "/docs/specialized-ai-fields/mfcc",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 36
+  },
+  {
+    "title": "Whisper",
+    "slug": "whisper",
+    "href": "/docs/specialized-ai-fields/whisper",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 37
+  },
+  {
+    "title": "Speech-to-Text",
+    "slug": "speech-to-text",
+    "href": "/docs/specialized-ai-fields/speech-to-text",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 38
+  },
+  {
+    "title": "Text-to-Speech",
+    "slug": "text-to-speech",
+    "href": "/docs/specialized-ai-fields/text-to-speech",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 39
+  },
+  {
+    "title": "Speaker Recognition",
+    "slug": "speaker-recognition",
+    "href": "/docs/specialized-ai-fields/speaker-recognition",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 40
+  },
+  {
+    "title": "Recommendation Systems",
+    "slug": "recommendation-systems",
+    "href": "/docs/specialized-ai-fields/recommendation-systems",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 41
+  },
+  {
+    "title": "Content-Based",
+    "slug": "content-based",
+    "href": "/docs/specialized-ai-fields/content-based",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 42
+  },
+  {
+    "title": "Collaborative Filtering",
+    "slug": "collaborative-filtering",
+    "href": "/docs/specialized-ai-fields/collaborative-filtering",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 43
+  },
+  {
+    "title": "Matrix Factorization",
+    "slug": "matrix-factorization",
+    "href": "/docs/specialized-ai-fields/matrix-factorization",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 44
+  },
+  {
+    "title": "Hybrid Systems",
+    "slug": "hybrid-systems",
+    "href": "/docs/specialized-ai-fields/hybrid-systems",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 45
+  },
+  {
+    "title": "Cold Start",
+    "slug": "cold-start",
+    "href": "/docs/specialized-ai-fields/cold-start",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 46
+  },
+  {
+    "title": "Generative AI",
+    "slug": "generative-ai",
+    "href": "/docs/specialized-ai-fields/generative-ai",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 47
+  },
+  {
+    "title": "Foundation Models",
+    "slug": "foundation-models",
+    "href": "/docs/specialized-ai-fields/foundation-models",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 48
+  },
+  {
+    "title": "Prompt Engineering",
+    "slug": "prompt-engineering",
+    "href": "/docs/specialized-ai-fields/prompt-engineering",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 49
+  },
+  {
+    "title": "VAE",
+    "slug": "vae",
+    "href": "/docs/specialized-ai-fields/vae",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 50
+  },
+  {
+    "title": "Multimodal AI",
+    "slug": "multimodal-ai",
+    "href": "/docs/specialized-ai-fields/multimodal-ai",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 51
+  },
+  {
+    "title": "LLM Large Language Models",
+    "slug": "llm-large-language-models",
+    "href": "/docs/specialized-ai-fields/llm-large-language-models",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 52
+  },
+  {
+    "title": "Transformer Architecture",
+    "slug": "transformer-architecture",
+    "href": "/docs/specialized-ai-fields/transformer-architecture",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 53
+  },
+  {
+    "title": "Self-Attention",
+    "slug": "self-attention",
+    "href": "/docs/specialized-ai-fields/self-attention",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 54
+  },
+  {
+    "title": "Positional Encoding",
+    "slug": "positional-encoding",
+    "href": "/docs/specialized-ai-fields/positional-encoding",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 55
+  },
+  {
+    "title": "Pretraining",
+    "slug": "pretraining",
+    "href": "/docs/specialized-ai-fields/pretraining",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 56
+  },
+  {
+    "title": "Fine-Tuning",
+    "slug": "fine-tuning",
+    "href": "/docs/specialized-ai-fields/fine-tuning",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 57
+  },
+  {
+    "title": "Instruction Tuning",
+    "slug": "instruction-tuning",
+    "href": "/docs/specialized-ai-fields/instruction-tuning",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 58
+  },
+  {
+    "title": "RLHF",
+    "slug": "rlhf",
+    "href": "/docs/specialized-ai-fields/rlhf",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 59
+  },
+  {
+    "title": "LoRA",
+    "slug": "lora",
+    "href": "/docs/specialized-ai-fields/lora",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 60
+  },
+  {
+    "title": "PEFT",
+    "slug": "peft",
+    "href": "/docs/specialized-ai-fields/peft",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 61
+  },
+  {
+    "title": "Quantization",
+    "slug": "quantization",
+    "href": "/docs/specialized-ai-fields/quantization",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 62
+  },
+  {
+    "title": "Tool Calling",
+    "slug": "tool-calling",
+    "href": "/docs/specialized-ai-fields/tool-calling",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 63
+  },
+  {
+    "title": "KV Cache",
+    "slug": "kv-cache",
+    "href": "/docs/specialized-ai-fields/kv-cache",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 64
+  },
+  {
+    "title": "vLLM",
+    "slug": "vllm",
+    "href": "/docs/specialized-ai-fields/vllm",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 65
+  },
+  {
+    "title": "RAG Retrieval-Augmented Generation",
+    "slug": "rag-retrieval-augmented-generation",
+    "href": "/docs/specialized-ai-fields/rag-retrieval-augmented-generation",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 66
+  },
+  {
+    "title": "Chunking",
+    "slug": "chunking",
+    "href": "/docs/specialized-ai-fields/chunking",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 67
+  },
+  {
+    "title": "Vector Databases",
+    "slug": "vector-databases",
+    "href": "/docs/specialized-ai-fields/vector-databases",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 68
+  },
+  {
+    "title": "FAISS",
+    "slug": "faiss",
+    "href": "/docs/specialized-ai-fields/faiss",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 69
+  },
+  {
+    "title": "ChromaDB",
+    "slug": "chromadb",
+    "href": "/docs/specialized-ai-fields/chromadb",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 70
+  },
+  {
+    "title": "Pinecone",
+    "slug": "pinecone",
+    "href": "/docs/specialized-ai-fields/pinecone",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 71
+  },
+  {
+    "title": "Retrieval",
+    "slug": "retrieval",
+    "href": "/docs/specialized-ai-fields/retrieval",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 72
+  },
+  {
+    "title": "Hybrid Search",
+    "slug": "hybrid-search",
+    "href": "/docs/specialized-ai-fields/hybrid-search",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 73
+  },
+  {
+    "title": "Reranking",
+    "slug": "reranking",
+    "href": "/docs/specialized-ai-fields/reranking",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 74
+  },
+  {
+    "title": "LangChain",
+    "slug": "langchain",
+    "href": "/docs/specialized-ai-fields/langchain",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 75
+  },
+  {
+    "title": "LlamaIndex",
+    "slug": "llamaindex",
+    "href": "/docs/specialized-ai-fields/llamaindex",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 76
+  },
+  {
+    "title": "GraphRAG",
+    "slug": "graphrag",
+    "href": "/docs/specialized-ai-fields/graphrag",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 77
+  },
+  {
+    "title": "Agentic RAG",
+    "slug": "agentic-rag",
+    "href": "/docs/specialized-ai-fields/agentic-rag",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 78
+  },
+  {
+    "title": "AI Agents",
+    "slug": "ai-agents",
+    "href": "/docs/specialized-ai-fields/ai-agents",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 79
+  },
+  {
+    "title": "Agent Architecture",
+    "slug": "agent-architecture",
+    "href": "/docs/specialized-ai-fields/agent-architecture",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 80
+  },
+  {
+    "title": "Agent Planning",
+    "slug": "agent-planning",
+    "href": "/docs/specialized-ai-fields/agent-planning",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 81
+  },
+  {
+    "title": "Agent Reasoning",
+    "slug": "agent-reasoning",
+    "href": "/docs/specialized-ai-fields/agent-reasoning",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 82
+  },
+  {
+    "title": "Agent Memory",
+    "slug": "agent-memory",
+    "href": "/docs/specialized-ai-fields/agent-memory",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 83
+  },
+  {
+    "title": "Tool Use",
+    "slug": "tool-use",
+    "href": "/docs/specialized-ai-fields/tool-use",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 84
+  },
+  {
+    "title": "Browser Agents",
+    "slug": "browser-agents",
+    "href": "/docs/specialized-ai-fields/browser-agents",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 85
+  },
+  {
+    "title": "Coding Agents",
+    "slug": "coding-agents",
+    "href": "/docs/specialized-ai-fields/coding-agents",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 86
+  },
+  {
+    "title": "Multi-Agent Systems",
+    "slug": "multi-agent-systems",
+    "href": "/docs/specialized-ai-fields/multi-agent-systems",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 87
+  },
+  {
+    "title": "LangGraph",
+    "slug": "langgraph",
+    "href": "/docs/specialized-ai-fields/langgraph",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 88
+  },
+  {
+    "title": "CrewAI",
+    "slug": "crewai",
+    "href": "/docs/specialized-ai-fields/crewai",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 89
+  },
+  {
+    "title": "AutoGen",
+    "slug": "autogen",
+    "href": "/docs/specialized-ai-fields/autogen",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 90
+  },
+  {
+    "title": "MCP",
+    "slug": "mcp",
+    "href": "/docs/specialized-ai-fields/mcp",
+    "section": "Specialized AI Fields",
+    "sectionNum": 32,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 91
+  },
+  {
+    "title": "ML Pipeline",
+    "slug": "ml-pipeline",
+    "href": "/docs/mlops/ml-pipeline",
+    "section": "MLOps",
+    "sectionNum": 33,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 1
+  },
+  {
+    "title": "MLflow",
+    "slug": "mlflow",
+    "href": "/docs/mlops/mlflow",
+    "section": "MLOps",
+    "sectionNum": 33,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 2
+  },
+  {
+    "title": "Kubeflow",
+    "slug": "kubeflow",
+    "href": "/docs/mlops/kubeflow",
+    "section": "MLOps",
+    "sectionNum": 33,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 3
+  },
+  {
+    "title": "Model Registry",
+    "slug": "model-registry",
+    "href": "/docs/mlops/model-registry",
+    "section": "MLOps",
+    "sectionNum": 33,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 4
+  },
+  {
+    "title": "Monitoring",
+    "slug": "monitoring",
+    "href": "/docs/mlops/monitoring",
+    "section": "MLOps",
+    "sectionNum": 33,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 5
+  },
+  {
+    "title": "Deployment",
+    "slug": "deployment",
+    "href": "/docs/mlops/deployment",
+    "section": "MLOps",
+    "sectionNum": 33,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 6
+  },
+  {
+    "title": "Docker DevOps",
+    "slug": "docker-devops",
+    "href": "/docs/devops/docker-devops",
+    "section": "DevOps",
+    "sectionNum": 34,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 1
+  },
+  {
+    "title": "Kubernetes DevOps",
+    "slug": "kubernetes-devops",
+    "href": "/docs/devops/kubernetes-devops",
+    "section": "DevOps",
+    "sectionNum": 34,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 2
+  },
+  {
+    "title": "Jenkins",
+    "slug": "jenkins",
+    "href": "/docs/devops/jenkins",
+    "section": "DevOps",
+    "sectionNum": 34,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 3
+  },
+  {
+    "title": "GitHub Actions CI",
+    "slug": "github-actions-ci",
+    "href": "/docs/devops/github-actions-ci",
+    "section": "DevOps",
+    "sectionNum": 34,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 4
+  },
+  {
+    "title": "Terraform",
+    "slug": "terraform",
+    "href": "/docs/devops/terraform",
+    "section": "DevOps",
+    "sectionNum": 34,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 5
+  },
+  {
+    "title": "DevOps Monitoring",
+    "slug": "devops-monitoring",
+    "href": "/docs/devops/devops-monitoring",
+    "section": "DevOps",
+    "sectionNum": 34,
+    "track": "AI & Data",
+    "tone": "green",
+    "position": 6
+  },
+  {
+    "title": "Blockchain Basics",
+    "slug": "blockchain-basics",
+    "href": "/docs/blockchain/blockchain-basics",
+    "section": "Blockchain",
+    "sectionNum": 35,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 1
+  },
+  {
+    "title": "Consensus Mechanisms",
+    "slug": "consensus-mechanisms",
+    "href": "/docs/blockchain/consensus-mechanisms",
+    "section": "Blockchain",
+    "sectionNum": 35,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 2
+  },
+  {
+    "title": "Smart Contracts",
+    "slug": "smart-contracts",
+    "href": "/docs/blockchain/smart-contracts",
+    "section": "Blockchain",
+    "sectionNum": 35,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 3
+  },
+  {
+    "title": "Ethereum",
+    "slug": "ethereum",
+    "href": "/docs/blockchain/ethereum",
+    "section": "Blockchain",
+    "sectionNum": 35,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 4
+  },
+  {
+    "title": "Solidity",
+    "slug": "solidity",
+    "href": "/docs/blockchain/solidity",
+    "section": "Blockchain",
+    "sectionNum": 35,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 5
+  },
+  {
+    "title": "Web3",
+    "slug": "web3",
+    "href": "/docs/blockchain/web3",
+    "section": "Blockchain",
+    "sectionNum": 35,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 6
+  },
+  {
+    "title": "Arduino",
+    "slug": "arduino",
+    "href": "/docs/internet-of-things/arduino",
+    "section": "Internet of Things",
+    "sectionNum": 36,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 1
+  },
+  {
+    "title": "Raspberry Pi",
+    "slug": "raspberry-pi",
+    "href": "/docs/internet-of-things/raspberry-pi",
+    "section": "Internet of Things",
+    "sectionNum": 36,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 2
+  },
+  {
+    "title": "Sensors",
+    "slug": "sensors",
+    "href": "/docs/internet-of-things/sensors",
+    "section": "Internet of Things",
+    "sectionNum": 36,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 3
+  },
+  {
+    "title": "MQTT",
+    "slug": "mqtt",
+    "href": "/docs/internet-of-things/mqtt",
+    "section": "Internet of Things",
+    "sectionNum": 36,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 4
+  },
+  {
+    "title": "IoT Security",
+    "slug": "iot-security",
+    "href": "/docs/internet-of-things/iot-security",
+    "section": "Internet of Things",
+    "sectionNum": 36,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 5
+  },
+  {
+    "title": "Robot Kinematics",
+    "slug": "robot-kinematics",
+    "href": "/docs/robotics/robot-kinematics",
+    "section": "Robotics",
+    "sectionNum": 37,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 1
+  },
+  {
+    "title": "Robot Sensors",
+    "slug": "robot-sensors",
+    "href": "/docs/robotics/robot-sensors",
+    "section": "Robotics",
+    "sectionNum": 37,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 2
+  },
+  {
+    "title": "Actuators",
+    "slug": "actuators",
+    "href": "/docs/robotics/actuators",
+    "section": "Robotics",
+    "sectionNum": 37,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 3
+  },
+  {
+    "title": "SLAM",
+    "slug": "slam",
+    "href": "/docs/robotics/slam",
+    "section": "Robotics",
+    "sectionNum": 37,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 4
+  },
+  {
+    "title": "ROS",
+    "slug": "ros",
+    "href": "/docs/robotics/ros",
+    "section": "Robotics",
+    "sectionNum": 37,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 5
+  },
+  {
+    "title": "Path Planning",
+    "slug": "path-planning",
+    "href": "/docs/robotics/path-planning",
+    "section": "Robotics",
+    "sectionNum": 37,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 6
+  },
+  {
+    "title": "Qubits",
+    "slug": "qubits",
+    "href": "/docs/quantum-computing/qubits",
+    "section": "Quantum Computing",
+    "sectionNum": 38,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 1
+  },
+  {
+    "title": "Quantum Gates",
+    "slug": "quantum-gates",
+    "href": "/docs/quantum-computing/quantum-gates",
+    "section": "Quantum Computing",
+    "sectionNum": 38,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 2
+  },
+  {
+    "title": "Circuits",
+    "slug": "circuits",
+    "href": "/docs/quantum-computing/circuits",
+    "section": "Quantum Computing",
+    "sectionNum": 38,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 3
+  },
+  {
+    "title": "Entanglement",
+    "slug": "entanglement",
+    "href": "/docs/quantum-computing/entanglement",
+    "section": "Quantum Computing",
+    "sectionNum": 38,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 4
+  },
+  {
+    "title": "Quantum Algorithms",
+    "slug": "quantum-algorithms",
+    "href": "/docs/quantum-computing/quantum-algorithms",
+    "section": "Quantum Computing",
+    "sectionNum": 38,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 5
+  },
+  {
+    "title": "Qiskit",
+    "slug": "qiskit",
+    "href": "/docs/quantum-computing/qiskit",
+    "section": "Quantum Computing",
+    "sectionNum": 38,
+    "track": "Frontier",
+    "tone": "amber",
+    "position": 6
+  },
+  {
+    "title": "Literature Review",
+    "slug": "literature-review",
+    "href": "/docs/research-methodology/literature-review",
+    "section": "Research Methodology",
+    "sectionNum": 39,
+    "track": "Research",
+    "tone": "pink",
+    "position": 1
+  },
+  {
+    "title": "Research Gap",
+    "slug": "research-gap",
+    "href": "/docs/research-methodology/research-gap",
+    "section": "Research Methodology",
+    "sectionNum": 39,
+    "track": "Research",
+    "tone": "pink",
+    "position": 2
+  },
+  {
+    "title": "Problem Statement",
+    "slug": "problem-statement",
+    "href": "/docs/research-methodology/problem-statement",
+    "section": "Research Methodology",
+    "sectionNum": 39,
+    "track": "Research",
+    "tone": "pink",
+    "position": 3
+  },
+  {
+    "title": "Research Questions",
+    "slug": "research-questions",
+    "href": "/docs/research-methodology/research-questions",
+    "section": "Research Methodology",
+    "sectionNum": 39,
+    "track": "Research",
+    "tone": "pink",
+    "position": 4
+  },
+  {
+    "title": "Hypothesis",
+    "slug": "hypothesis",
+    "href": "/docs/research-methodology/hypothesis",
+    "section": "Research Methodology",
+    "sectionNum": 39,
+    "track": "Research",
+    "tone": "pink",
+    "position": 5
+  },
+  {
+    "title": "Experimental Design",
+    "slug": "experimental-design",
+    "href": "/docs/research-methodology/experimental-design",
+    "section": "Research Methodology",
+    "sectionNum": 39,
+    "track": "Research",
+    "tone": "pink",
+    "position": 6
+  },
+  {
+    "title": "Data Analysis",
+    "slug": "data-analysis",
+    "href": "/docs/research-methodology/data-analysis",
+    "section": "Research Methodology",
+    "sectionNum": 39,
+    "track": "Research",
+    "tone": "pink",
+    "position": 7
+  },
+  {
+    "title": "Research Paper Writing",
+    "slug": "research-paper-writing",
+    "href": "/docs/research-methodology/research-paper-writing",
+    "section": "Research Methodology",
+    "sectionNum": 39,
+    "track": "Research",
+    "tone": "pink",
+    "position": 8
+  },
+  {
+    "title": "LaTeX",
+    "slug": "latex",
+    "href": "/docs/research-methodology/latex",
+    "section": "Research Methodology",
+    "sectionNum": 39,
+    "track": "Research",
+    "tone": "pink",
+    "position": 9
+  },
+  {
+    "title": "Citation",
+    "slug": "citation",
+    "href": "/docs/research-methodology/citation",
+    "section": "Research Methodology",
+    "sectionNum": 39,
+    "track": "Research",
+    "tone": "pink",
+    "position": 10
+  },
+  {
+    "title": "Peer Review",
+    "slug": "peer-review",
+    "href": "/docs/research-methodology/peer-review",
+    "section": "Research Methodology",
+    "sectionNum": 39,
+    "track": "Research",
+    "tone": "pink",
+    "position": 11
+  },
+  {
+    "title": "Journal Selection",
+    "slug": "journal-selection",
+    "href": "/docs/research-methodology/journal-selection",
+    "section": "Research Methodology",
+    "sectionNum": 39,
+    "track": "Research",
+    "tone": "pink",
+    "position": 12
+  },
+  {
+    "title": "Conference Selection",
+    "slug": "conference-selection",
+    "href": "/docs/research-methodology/conference-selection",
+    "section": "Research Methodology",
+    "sectionNum": 39,
+    "track": "Research",
+    "tone": "pink",
+    "position": 13
+  },
+  {
+    "title": "Explainable AI",
+    "slug": "explainable-ai",
+    "href": "/docs/advanced-research-areas/explainable-ai",
+    "section": "Advanced Research Areas",
+    "sectionNum": 40,
+    "track": "Research",
+    "tone": "pink",
+    "position": 1
+  },
+  {
+    "title": "Federated Learning",
+    "slug": "federated-learning",
+    "href": "/docs/advanced-research-areas/federated-learning",
+    "section": "Advanced Research Areas",
+    "sectionNum": 40,
+    "track": "Research",
+    "tone": "pink",
+    "position": 2
+  },
+  {
+    "title": "Graph Neural Networks",
+    "slug": "graph-neural-networks",
+    "href": "/docs/advanced-research-areas/graph-neural-networks",
+    "section": "Advanced Research Areas",
+    "sectionNum": 40,
+    "track": "Research",
+    "tone": "pink",
+    "position": 3
+  },
+  {
+    "title": "Edge AI",
+    "slug": "edge-ai",
+    "href": "/docs/advanced-research-areas/edge-ai",
+    "section": "Advanced Research Areas",
+    "sectionNum": 40,
+    "track": "Research",
+    "tone": "pink",
+    "position": 4
+  },
+  {
+    "title": "Digital Twins",
+    "slug": "digital-twins",
+    "href": "/docs/advanced-research-areas/digital-twins",
+    "section": "Advanced Research Areas",
+    "sectionNum": 40,
+    "track": "Research",
+    "tone": "pink",
+    "position": 5
+  },
+  {
+    "title": "Privacy-Preserving AI",
+    "slug": "privacy-preserving-ai",
+    "href": "/docs/advanced-research-areas/privacy-preserving-ai",
+    "section": "Advanced Research Areas",
+    "sectionNum": 40,
+    "track": "Research",
+    "tone": "pink",
+    "position": 6
+  },
+  {
+    "title": "Responsible AI",
+    "slug": "responsible-ai",
+    "href": "/docs/advanced-research-areas/responsible-ai",
+    "section": "Advanced Research Areas",
+    "sectionNum": 40,
+    "track": "Research",
+    "tone": "pink",
+    "position": 7
+  },
+  {
+    "title": "Bioinformatics",
+    "slug": "bioinformatics",
+    "href": "/docs/advanced-research-areas/bioinformatics",
+    "section": "Advanced Research Areas",
+    "sectionNum": 40,
+    "track": "Research",
+    "tone": "pink",
+    "position": 8
+  },
+  {
+    "title": "High Performance Computing",
+    "slug": "high-performance-computing",
+    "href": "/docs/advanced-research-areas/high-performance-computing",
+    "section": "Advanced Research Areas",
+    "sectionNum": 40,
+    "track": "Research",
+    "tone": "pink",
+    "position": 9
+  },
+  {
+    "title": "Quantum Information Science",
+    "slug": "quantum-information-science",
+    "href": "/docs/advanced-research-areas/quantum-information-science",
+    "section": "Advanced Research Areas",
+    "sectionNum": 40,
+    "track": "Research",
+    "tone": "pink",
+    "position": 10
+  }
+]

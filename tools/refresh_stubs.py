@@ -94,7 +94,6 @@ def main() -> None:
                     section=sec["title"],
                     pos=i,
                     lang=lang,
-                    query=topic.replace(" ", "+").replace("&", "%26"),
                 )
 
                 if fresh == current:
