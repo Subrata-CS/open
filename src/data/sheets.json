@@ -1,0 +1,59 @@
+[
+ {
+  "id": "git",
+  "title": "Git",
+  "group": "Version control",
+  "about": "The commands that cover almost every day, plus the three that get you out of trouble.",
+  "tags": [
+   "git",
+   "branches",
+   "remotes",
+   "undo"
+  ],
+  "file": "sheets/git.md",
+  "body": "## Starting out\n\n| Command | What it does |\n|---|---|\n| `git init` | start tracking the current folder |\n| `git clone <url>` | copy a remote repository, history and all |\n| `git status` | what has changed, staged and unstaged |\n| `git log --oneline --graph` | history as a readable tree |\n\n## The daily loop\n\n```bash\ngit add .                       # stage everything changed\ngit commit -m \"what and why\"    # record it\ngit push                        # send it to the remote\ngit pull                        # take what others pushed\n```\n\nStage only part of a file with `git add -p` — it asks about each chunk. This is\nhow you keep a commit about one thing.\n\n## Branches\n\n| Command | What it does |\n|---|---|\n| `git switch -c feature-x` | make a branch and move onto it |\n| `git switch main` | go back |\n| `git merge feature-x` | bring the branch into the current one |\n| `git branch -d feature-x` | delete it once merged |\n\n## Getting out of trouble\n\n| Situation | Command |\n|---|---|\n| Wrong commit message, not pushed | `git commit --amend` |\n| Undo the last commit, keep the changes | `git reset --soft HEAD~1` |\n| Throw away local changes to one file | `git restore <file>` |\n| Need to park work for a moment | `git stash` then `git stash pop` |\n| Find which commit broke something | `git bisect start` |\n\n:::caution\n`git reset --hard` deletes uncommitted work with no undo. `git revert` is the\nsafe one — it makes a new commit that reverses an old one, and keeps history.\n:::\n\n## Remotes\n\n```bash\ngit remote -v                        # which remotes exist\ngit remote add origin <url>          # attach one\ngit push -u origin main              # first push, sets the default\ngit fetch --all --prune              # update refs, drop deleted branches\n```\n"
+ },
+ {
+  "id": "linux",
+  "title": "Linux command line",
+  "group": "Systems",
+  "about": "Navigating, finding things, and understanding what a machine is actually doing.",
+  "tags": [
+   "linux",
+   "bash",
+   "shell",
+   "files",
+   "processes"
+  ],
+  "file": "sheets/linux.md",
+  "body": "## Moving around\n\n| Command | What it does |\n|---|---|\n| `pwd` | where am I |\n| `ls -lah` | list with sizes, permissions and hidden files |\n| `cd -` | jump back to the previous directory |\n| `tree -L 2` | folder structure, two levels deep |\n\n## Finding things\n\n```bash\nfind . -name \"*.log\" -mtime -7      # log files changed in the last week\ngrep -rn \"TODO\" src/                # every TODO, with line numbers\ngrep -c \"ERROR\" app.log             # count matching lines\ndu -sh * | sort -h                  # what is taking up space\n```\n\n`grep -rn` is the one to remember: recursive, with line numbers, so you can\njump straight to the place.\n\n## Files\n\n| Command | What it does |\n|---|---|\n| `head -20 file` / `tail -20 file` | first or last twenty lines |\n| `tail -f app.log` | follow a log as it is written |\n| `wc -l file` | count lines |\n| `sort file \\| uniq -c \\| sort -rn` | count and rank duplicates |\n| `chmod +x script.sh` | make a script runnable |\n\n## Processes\n\n```bash\nps aux | grep node        # is it running\ntop                       # live view of CPU and memory\nkill -9 <pid>             # stop it, without asking\ndf -h                     # disk space per mount\nfree -h                   # memory in use\n```\n\n## Pipes\n\nThe idea that makes the shell worth learning: each program does one thing, and\n`|` passes the output of one into the next.\n\n```bash\ncat access.log | awk '{print $1}' | sort | uniq -c | sort -rn | head -5\n```\n\nThat is: take the log, pull the first column, sort it, count duplicates, rank\nthem, show the top five. Five small tools, one line, no script.\n"
+ },
+ {
+  "id": "python",
+  "title": "Python",
+  "group": "Languages",
+  "about": "The parts of the standard library that remove the most code.",
+  "tags": [
+   "python",
+   "comprehensions",
+   "collections",
+   "idioms"
+  ],
+  "file": "sheets/python.md",
+  "body": "## Comprehensions\n\n```python\nsquares  = [n * n for n in nums if n % 2 == 0]\nlookup   = {word: len(word) for word in words}\nunique   = {word.lower() for word in words}\nlazy     = (n * n for n in range(1_000_000))   # generator, nothing computed yet\n```\n\nReach for a comprehension when you are building a collection. Reach for a\nnormal loop when you are doing something — a comprehension written for its\nside effects is a loop in disguise.\n\n## Unpacking\n\n```python\nfirst, *middle, last = [10, 20, 30, 40, 50]\na, b = b, a                      # swap, no temporary\nconfig = {**defaults, **overrides}\nprint(*items, sep=\", \")\n```\n\n## The collections worth knowing\n\n| Import | Use it for |\n|---|---|\n| `from collections import Counter` | counting things: `Counter(words).most_common(3)` |\n| `from collections import defaultdict` | grouping without checking keys first |\n| `from collections import deque` | a fast queue: `popleft()` is O(1), `list.pop(0)` is not |\n| `from itertools import groupby, chain` | flattening and grouping sorted data |\n| `from functools import lru_cache` | memoising a slow pure function |\n\n## Files and context managers\n\n```python\nwith open(\"data.csv\", encoding=\"utf-8\") as f:\n    rows = list(csv.DictReader(f))\n```\n\nThe `with` block closes the file even if the code inside raises. Write your own\nwith `@contextmanager` — anything that must be undone belongs in one.\n\n## Formatting\n\n```python\nname, score = \"Asha\", 91.456\nprint(f\"{name:<10} {score:>8.2f}\")      # left, right, two decimals\nprint(f\"{1234567:,}\")                   # 1,234,567\nprint(f\"{0.8734:.1%}\")                  # 87.3%\nprint(f\"{score=}\")                      # score=91.456  — for debugging\n```\n\n## Things that catch people\n\n```python\ndef add(item, bucket=[]):    # WRONG: the list is created once, and shared\n    bucket.append(item)\n    return bucket\n\ndef add(item, bucket=None):  # right\n    bucket = [] if bucket is None else bucket\n    bucket.append(item)\n    return bucket\n```\n\n`is` compares identity, `==` compares value. Use `is` only for `None`, `True`\nand `False`.\n"
+ },
+ {
+  "id": "sql",
+  "title": "SQL",
+  "group": "Data",
+  "about": "From SELECT to window functions, in the order you actually need them.",
+  "tags": [
+   "sql",
+   "joins",
+   "aggregates",
+   "indexes"
+  ],
+  "file": "sheets/sql.md",
+  "body": "## Reading rows\n\n```sql\nSELECT name, marks\nFROM student\nWHERE marks >= 80\nORDER BY marks DESC\nLIMIT 10;\n```\n\nOrder of evaluation is not the order you write it: `FROM` → `WHERE` →\n`GROUP BY` → `HAVING` → `SELECT` → `ORDER BY` → `LIMIT`. That single fact\nexplains most SQL confusion — you cannot use a `SELECT` alias in `WHERE`,\nbecause `WHERE` ran first.\n\n## Joins\n\n| Join | Keeps |\n|---|---|\n| `INNER JOIN` | rows that match on both sides |\n| `LEFT JOIN` | every row on the left, `NULL` where the right has none |\n| `RIGHT JOIN` | the mirror of a left join |\n| `FULL OUTER JOIN` | everything from both sides |\n| `CROSS JOIN` | every combination — usually a mistake |\n\n```sql\nSELECT s.name, sc.subject, sc.marks\nFROM student s\nJOIN score sc ON sc.student_id = s.id;\n```\n\n## Grouping\n\n```sql\nSELECT branch,\n       COUNT(*)            AS students,\n       ROUND(AVG(marks),1) AS average\nFROM student\nGROUP BY branch\nHAVING COUNT(*) > 1;\n```\n\n`WHERE` filters rows before grouping. `HAVING` filters groups after. Using\n`WHERE` on an aggregate is the most common beginner error.\n\n## Window functions\n\nWhere `GROUP BY` collapses rows, a window function keeps them:\n\n```sql\nSELECT name,\n       marks,\n       RANK()       OVER (ORDER BY marks DESC)          AS overall,\n       RANK()       OVER (PARTITION BY branch\n                          ORDER BY marks DESC)          AS in_branch,\n       AVG(marks)   OVER (PARTITION BY branch)          AS branch_average\nFROM student;\n```\n\n## Indexes\n\n```sql\nCREATE INDEX idx_student_branch ON student(branch);\nEXPLAIN QUERY PLAN SELECT * FROM student WHERE branch = 'CSE';\n```\n\nAn index makes reads fast and writes slightly slower. Index the columns you\nfilter and join on — not every column, and rarely a column with only a few\ndistinct values.\n"
+ }
+]

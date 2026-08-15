@@ -4,6 +4,9 @@
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  /* the decorative layer must never widen the document */
+  width: 100vw;
+  max-width: 100%;
 }
 
 /* ---------------- colour, taken from the section's track ---------------- */
@@ -163,7 +166,8 @@
     display: none;
   }
   .canvas {
-    width: 124vw;
+    width: 100%;
+    max-width: 100vw;
     opacity: 0.2;
   }
   /* a phone screen is all reading column, so the scrim goes flat and strong */

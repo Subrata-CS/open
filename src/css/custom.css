@@ -58,6 +58,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Nothing decorative should ever produce a sideways scrollbar on a phone. */
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 .navbar {

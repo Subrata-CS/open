@@ -2,7 +2,7 @@
   "name": "open-cs-hub",
   "version": "1.0.0",
   "private": true,
-  "description": "A to Z Computer Science learning hub \u2014 prepared by Subrata Pramanik",
+  "description": "A to Z Computer Science learning hub — prepared by Subrata Pramanik",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
@@ -20,6 +20,7 @@
     "@easyops-cn/docusaurus-search-local": "^0.55.3",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.1.1",
+    "marked": "^18.0.9",
     "prism-react-renderer": "^2.4.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
