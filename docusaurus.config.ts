@@ -152,12 +152,6 @@ const config: Config = {
       hideOnScroll: true,
       items: [
         { to: '/', label: 'Home', position: 'left', activeBaseRegex: '^/open/$' },
-        {
-          type: 'docSidebar',
-          sidebarId: 'csSidebar',
-          position: 'left',
-          label: 'Syllabus',
-        },
         { to: '/docs', label: 'Start here', position: 'left' },
         { to: '/playground', label: 'Code Lab', position: 'left' },
         { to: '/apps', label: 'Test Myself', position: 'left' },

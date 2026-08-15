@@ -140,10 +140,6 @@ export default function Resources(): ReactNode {
           </section>
         ))}
 
-        <p className={styles.footnote}>
-          Adding one is a single Markdown line in <code>resources/</code> — press{' '}
-          <b>Add resource</b> above and GitHub opens with the file ready.
-        </p>
       </main>
     </Layout>
   );

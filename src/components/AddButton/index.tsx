@@ -17,18 +17,31 @@ import styles from './styles.module.css';
 const REPO = 'https://github.com/Subrata-CS/open';
 
 export type AddButtonProps = {
-  /** Folder the new file belongs in, e.g. "resources". */
-  folder: string;
+  /** Folder a new file belongs in, e.g. "resources". */
+  folder?: string;
+  /**
+   * Path of an existing file to open in GitHub's editor instead. Use this
+   * where the content lives in one source file rather than a folder.
+   */
+  edit?: string;
   /** What the reader is adding, used in the label and tooltip. */
   what: string;
-  /** Optional starter content for the file. */
+  /** Optional starter content for a new file. */
   template?: string;
 };
 
-export default function AddButton({ folder, what, template }: AddButtonProps): ReactNode {
-  const url = new URL(`${REPO}/new/main`);
-  url.searchParams.set('filename', `${folder}/new-${what.toLowerCase().replace(/\s+/g, '-')}.md`);
-  if (template) url.searchParams.set('value', template);
+export default function AddButton({ folder, edit, what, template }: AddButtonProps): ReactNode {
+  const url = edit
+    ? new URL(`${REPO}/edit/main/${edit}`)
+    : new URL(`${REPO}/new/main`);
+
+  if (!edit) {
+    url.searchParams.set(
+      'filename',
+      `${folder}/new-${what.toLowerCase().replace(/\s+/g, '-')}.md`,
+    );
+    if (template) url.searchParams.set('value', template);
+  }
 
   return (
     <a
@@ -36,7 +49,11 @@ export default function AddButton({ folder, what, template }: AddButtonProps): R
       href={url.toString()}
       target="_blank"
       rel="noopener noreferrer"
-      title={`Add a ${what} — opens GitHub with a new file in ${folder}/`}>
+      title={
+        edit
+          ? `Add a ${what} — opens ${edit} in GitHub's editor`
+          : `Add a ${what} — opens GitHub with a new file in ${folder}/`
+      }>
       <span className={styles.plus} aria-hidden="true">+</span>
       Add {what}
     </a>

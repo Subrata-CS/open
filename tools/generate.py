@@ -361,11 +361,15 @@ description: "A to Z Computer Science learning hub - {len(sections)} sections, {
 
 # Open - A to Z Computer Science
 
+import AddButton from '@site/src/components/AddButton';
+
 An **open learning hub** covering everything from programming fundamentals to
 Data Structures, Algorithms, Machine Learning, Deep Learning, Generative AI
 and Computer Vision.
 
 ## Syllabus map
+
+<AddButton edit="tools/syllabus.txt" what="section" />
 
 **{len(sections)} sections · {total} topics · {len(track_data)} tracks**
 
@@ -377,7 +381,11 @@ and Computer Vision.
 
 *Prepared by **Subrata Pramanik***
 """
-    force_write(os.path.join(DOCS, "intro.md"), intro)
+    # written as .mdx so the page can use the add-a-section button
+    force_write(os.path.join(DOCS, "intro.mdx"), intro)
+    old = os.path.join(DOCS, "intro.md")
+    if os.path.exists(old):
+        os.remove(old)
 
     print(f"Tracks   : {len(track_data)}")
     print(f"Sections : {len(sections)}")

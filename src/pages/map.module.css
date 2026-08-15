@@ -132,3 +132,44 @@
   .stage { height: 62vh; }
   .legend { margin-left: 0; }
 }
+
+.headActions {
+  margin-top: 1rem;
+}
+
+.zoom {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.zoom button {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1;
+  border-radius: 50%;
+  border: 1px solid var(--open-border);
+  background: rgba(12, 17, 38, 0.9);
+  color: var(--ifm-font-color-base);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.zoom button:hover {
+  border-color: var(--ifm-color-primary);
+  background: rgba(99, 102, 241, 0.24);
+  transform: translateY(-1px);
+}
+
+.zoom button:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}

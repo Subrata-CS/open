@@ -1,5 +1,6 @@
 import { useMemo, useState, type CSSProperties, type ReactNode } from 'react';
 import Layout from '@theme/Layout';
+import AddButton from '@site/src/components/AddButton';
 import Link from '@docusaurus/Link';
 import sectionsData from '@site/src/data/sections.json';
 import stats from '@site/src/data/stats.json';
@@ -120,6 +121,10 @@ export default function Roadmaps(): ReactNode {
             in the order the job actually needs. Pick a destination — every step links
             straight into the notes, and ticks itself off as you read.
           </p>
+
+          <div className={styles.headActions}>
+            <AddButton edit="src/pages/roadmaps.tsx" what="roadmap" />
+          </div>
         </header>
 
         <div className={styles.split}>

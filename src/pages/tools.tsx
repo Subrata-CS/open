@@ -1,5 +1,6 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import Layout from '@theme/Layout';
+import AddButton from '@site/src/components/AddButton';
 import styles from './tools.module.css';
 
 /**
@@ -280,6 +281,10 @@ export default function Tools(): ReactNode {
             The small things you reach for while working. All six run on your own
             machine — nothing is uploaded, nothing is stored, and they work offline.
           </p>
+
+          <div className={styles.headActions}>
+            <AddButton edit="src/pages/tools.tsx" what="tool" />
+          </div>
         </header>
 
         <nav className={styles.tabs} aria-label="Tools">

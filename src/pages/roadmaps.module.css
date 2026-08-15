@@ -189,3 +189,7 @@
   }
   .pick { flex: 0 0 13rem; }
 }
+
+.headActions {
+  margin-top: 1rem;
+}

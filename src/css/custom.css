@@ -160,7 +160,15 @@ article .markdown h1:first-child {
   z-index: 2;
 }
 
+/*
+ * The ambient layer is fixed at z-index 0. Content that is not itself
+ * positioned therefore paints *underneath* it, and the scrim greys the whole
+ * page out — which is what happened on the Code Lab. Giving the wrapper its
+ * own stacking position puts every page above the decoration for good.
+ */
 .main-wrapper {
+  position: relative;
+  z-index: 1;
   background: transparent;
 }
 
@@ -476,5 +484,40 @@ html {
   table,
   figure {
     page-break-inside: avoid;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Select menus
+   A native <select> renders its options with the operating system's own
+   colours, which on a dark page came out pale grey on white. Setting both
+   sides explicitly makes every dropdown legible on every device.
+   ------------------------------------------------------------------ */
+
+select,
+select option {
+  color: #f1f4ff;
+  background-color: #151d3a;
+}
+
+select option:checked,
+select option:hover {
+  background-color: #2a3566;
+  color: #ffffff;
+}
+
+/* ------------------------------------------------------------------
+   Code surfaces on small screens
+   The lab and every code block sat almost black on a phone. Lifting the
+   surface keeps the syntax colours readable in daylight.
+   ------------------------------------------------------------------ */
+
+@media (max-width: 996px) {
+  :root,
+  [data-theme='dark'] {
+    --open-code-bg: #1a2344;
+    --open-code-head: #232d54;
+    --open-code-fg: #f4f6ff;
+    --open-code-dim: #aeb9d8;
   }
 }

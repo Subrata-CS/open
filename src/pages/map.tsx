@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import Layout from '@theme/Layout';
+import AddButton from '@site/src/components/AddButton';
 import { useHistory } from '@docusaurus/router';
 import { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
 import sectionsData from '@site/src/data/sections.json';
@@ -252,6 +253,13 @@ export default function KnowledgeMap(): ReactNode {
     };
   }, [matches, nodes, progressTick]);
 
+  /** Step the zoom without touching the wheel. */
+  const zoom = useCallback((factor: number) => {
+    view.current.scale = Math.max(0.2, Math.min(3, view.current.scale * factor));
+    const canvas = canvasRef.current as (HTMLCanvasElement & { __draw?: () => void }) | null;
+    canvas?.__draw?.();
+  }, []);
+
   const redraw = useCallback(() => {
     const canvas = canvasRef.current as (HTMLCanvasElement & { __draw?: () => void }) | null;
     canvas?.__draw?.();
@@ -308,6 +316,10 @@ export default function KnowledgeMap(): ReactNode {
             grouped by track. Drag to move, scroll to zoom, click any node to open it.
             Topics you have read turn green.
           </p>
+
+          <div className={styles.headActions}>
+            <AddButton edit="tools/syllabus.txt" what="section" />
+          </div>
         </header>
 
         <div className={styles.controls}>
@@ -368,6 +380,15 @@ export default function KnowledgeMap(): ReactNode {
               setHover(null);
             }}
           />
+
+          <div className={styles.zoom}>
+            <button type="button" onClick={() => zoom(1.25)} aria-label="Zoom in" title="Zoom in">
+              ↑
+            </button>
+            <button type="button" onClick={() => zoom(0.8)} aria-label="Zoom out" title="Zoom out">
+              ↓
+            </button>
+          </div>
 
           {hover && (
             <div className={styles.tip} style={{ borderColor: hover.colour }}>
