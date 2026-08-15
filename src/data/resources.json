@@ -1,0 +1,407 @@
+[
+ {
+  "id": "01-foundations",
+  "title": "Foundations",
+  "about": "The courses that teach the machine and the mathematics under everything else.",
+  "order": 1,
+  "file": "resources/01-foundations.md",
+  "items": [
+   {
+    "section": 1,
+    "name": "Harvard CS50x",
+    "url": "https://cs50.harvard.edu/x/",
+    "about": "the best first course in computer science that exists. Free, with real assignments.",
+    "sectionTitle": "Computer Fundamentals",
+    "sectionHref": "/docs/computer-fundamentals",
+    "tone": "indigo"
+   },
+   {
+    "section": 2,
+    "name": "Stanford CS106A — Programming Methodology",
+    "url": "https://see.stanford.edu/Course/CS106A",
+    "about": "how to write programs, not just syntax.",
+    "sectionTitle": "Programming Fundamentals",
+    "sectionHref": "/docs/programming-fundamentals",
+    "tone": "indigo"
+   },
+   {
+    "section": 3,
+    "name": "MIT 6.1200J — Mathematics for Computer Science",
+    "url": "https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/",
+    "about": "proofs, counting, graphs and probability, taught for CS.",
+    "sectionTitle": "Discrete Mathematics",
+    "sectionHref": "/docs/discrete-mathematics",
+    "tone": "indigo"
+   },
+   {
+    "section": 4,
+    "name": "MIT 18.06 — Linear Algebra",
+    "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+    "about": "Gilbert Strang's course. Watch it before any machine learning.",
+    "sectionTitle": "Linear Algebra",
+    "sectionHref": "/docs/linear-algebra",
+    "tone": "indigo"
+   },
+   {
+    "section": 5,
+    "name": "MIT 18.05 — Probability and Statistics",
+    "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/",
+    "about": "the practical introduction, Bayesian from the start.",
+    "sectionTitle": "Probability & Statistics",
+    "sectionHref": "/docs/probability-and-statistics",
+    "tone": "indigo"
+   },
+   {
+    "section": 6,
+    "name": "MIT 18.01SC — Single Variable Calculus",
+    "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/",
+    "about": "with full problem sets and solutions.",
+    "sectionTitle": "Calculus",
+    "sectionHref": "/docs/calculus",
+    "tone": "indigo"
+   }
+  ]
+ },
+ {
+  "id": "02-core",
+  "title": "Core computer science",
+  "about": "The classical curriculum, taught by the departments that wrote the textbooks.",
+  "order": 2,
+  "file": "resources/02-core.md",
+  "items": [
+   {
+    "section": 7,
+    "name": "MIT 6.006 — Introduction to Algorithms",
+    "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "about": "the canonical algorithms course.",
+    "sectionTitle": "Data Structures & Algorithms",
+    "sectionHref": "/docs/data-structures-and-algorithms",
+    "tone": "cyan"
+   },
+   {
+    "section": 8,
+    "name": "MIT 6.004 — Computation Structures",
+    "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2009/",
+    "about": "from transistors up to a working processor.",
+    "sectionTitle": "Computer Organization & Architecture",
+    "sectionHref": "/docs/computer-organization-and-architecture",
+    "tone": "cyan"
+   },
+   {
+    "section": 9,
+    "name": "UC Berkeley CS162 — Operating Systems",
+    "url": "https://cs162.org/",
+    "about": "full lectures, notes and projects, kept current.",
+    "sectionTitle": "Operating Systems",
+    "sectionHref": "/docs/operating-systems",
+    "tone": "cyan"
+   },
+   {
+    "section": 10,
+    "name": "Stanford CS144 — Computer Networking",
+    "url": "https://web.stanford.edu/class/cs144/",
+    "about": "you build a working TCP implementation.",
+    "sectionTitle": "Computer Networks",
+    "sectionHref": "/docs/computer-networks",
+    "tone": "cyan"
+   },
+   {
+    "section": 11,
+    "name": "UC Berkeley CS186 — Database Systems",
+    "url": "https://cs186berkeley.net/",
+    "about": "query planning and storage, not just SQL syntax.",
+    "sectionTitle": "Database Systems",
+    "sectionHref": "/docs/database-systems",
+    "tone": "cyan"
+   },
+   {
+    "section": 12,
+    "name": "MIT 6.031 — Software Construction",
+    "url": "https://web.mit.edu/6.031/www/sp22/",
+    "about": "the clearest writing anywhere on specifications and testing.",
+    "sectionTitle": "Software Engineering",
+    "sectionHref": "/docs/software-engineering",
+    "tone": "cyan"
+   }
+  ]
+ },
+ {
+  "id": "03-engineering",
+  "title": "Engineering and systems",
+  "about": "Building, shipping and running real software.",
+  "order": 3,
+  "file": "resources/03-engineering.md",
+  "items": [
+   {
+    "section": 13,
+    "name": "GitHub Skills",
+    "url": "https://skills.github.com/",
+    "about": "short courses that run inside real repositories.",
+    "sectionTitle": "Git & GitHub",
+    "sectionHref": "/docs/git-and-github",
+    "tone": "violet"
+   },
+   {
+    "section": 14,
+    "name": "Full Stack Open",
+    "url": "https://fullstackopen.com/en/",
+    "about": "University of Helsinki's React and Node course, free and graded.",
+    "sectionTitle": "Web Development",
+    "sectionHref": "/docs/web-development",
+    "tone": "violet"
+   },
+   {
+    "section": 15,
+    "name": "Stanford CS193p — Developing Apps for iOS",
+    "url": "https://cs193p.sites.stanford.edu/",
+    "about": "SwiftUI taught properly, updated every year.",
+    "sectionTitle": "Mobile Development",
+    "sectionHref": "/docs/mobile-development",
+    "tone": "violet"
+   },
+   {
+    "section": 16,
+    "name": "MIT PDOS — Systems Research",
+    "url": "https://pdos.csail.mit.edu/",
+    "about": "the group behind much of modern distributed systems teaching.",
+    "sectionTitle": "Cloud Computing",
+    "sectionHref": "/docs/cloud-computing",
+    "tone": "violet"
+   },
+   {
+    "section": 17,
+    "name": "MIT 6.858 — Computer Systems Security",
+    "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/",
+    "about": "attacks and defences at the systems level.",
+    "sectionTitle": "Cybersecurity",
+    "sectionHref": "/docs/cybersecurity",
+    "tone": "violet"
+   },
+   {
+    "section": 18,
+    "name": "MIT 6.035 — Computer Language Engineering",
+    "url": "https://ocw.mit.edu/courses/6-035-computer-language-engineering-spring-2010/",
+    "about": "you write a working compiler.",
+    "sectionTitle": "Compiler Design",
+    "sectionHref": "/docs/compiler-design",
+    "tone": "violet"
+   },
+   {
+    "section": 19,
+    "name": "MIT 18.404J — Theory of Computation",
+    "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+    "about": "Michael Sipser teaching his own textbook.",
+    "sectionTitle": "Theory of Computation",
+    "sectionHref": "/docs/theory-of-computation",
+    "tone": "violet"
+   },
+   {
+    "section": 20,
+    "name": "MIT 6.5840 — Distributed Systems",
+    "url": "https://pdos.csail.mit.edu/6.5840/",
+    "about": "Raft, MapReduce and sharded stores, in Go.",
+    "sectionTitle": "Distributed Systems",
+    "sectionHref": "/docs/distributed-systems",
+    "tone": "violet"
+   },
+   {
+    "section": 21,
+    "name": "UC Berkeley CS267 — Parallel Computing",
+    "url": "https://sites.google.com/lbl.gov/cs267-spr2023/",
+    "about": "applications of parallel computers.",
+    "sectionTitle": "Parallel Computing",
+    "sectionHref": "/docs/parallel-computing",
+    "tone": "violet"
+   },
+   {
+    "section": 22,
+    "name": "MIT 6.837 — Computer Graphics",
+    "url": "https://ocw.mit.edu/courses/6-837-computer-graphics-fall-2012/",
+    "about": "rasterisation and ray tracing from first principles.",
+    "sectionTitle": "Computer Graphics",
+    "sectionHref": "/docs/computer-graphics",
+    "tone": "violet"
+   },
+   {
+    "section": 23,
+    "name": "Stanford CS147 — Human-Computer Interaction",
+    "url": "https://web.stanford.edu/class/cs147/",
+    "about": "design thinking applied to interfaces.",
+    "sectionTitle": "Human-Computer Interaction",
+    "sectionHref": "/docs/human-computer-interaction",
+    "tone": "violet"
+   },
+   {
+    "section": 24,
+    "name": "MIT OCW — Embedded Systems",
+    "url": "https://ocw.mit.edu/search/?q=embedded+systems",
+    "about": "every embedded course MIT has published.",
+    "sectionTitle": "Embedded Systems",
+    "sectionHref": "/docs/embedded-systems",
+    "tone": "violet"
+   },
+   {
+    "section": 25,
+    "name": "MIT OCW — Real-Time Systems",
+    "url": "https://ocw.mit.edu/search/?q=real-time+systems",
+    "about": "scheduling and timing guarantees.",
+    "sectionTitle": "Real-Time Systems",
+    "sectionHref": "/docs/real-time-systems",
+    "tone": "violet"
+   }
+  ]
+ },
+ {
+  "id": "04-ai-data",
+  "title": "AI and data",
+  "about": "The courses these fields are actually taught from.",
+  "order": 4,
+  "file": "resources/04-ai-data.md",
+  "items": [
+   {
+    "section": 26,
+    "name": "UC Berkeley Data 100",
+    "url": "https://ds100.org/",
+    "about": "the principles and practice of data science.",
+    "sectionTitle": "Data Science",
+    "sectionHref": "/docs/data-science",
+    "tone": "green"
+   },
+   {
+    "section": 27,
+    "name": "Stanford CS246 — Mining Massive Data Sets",
+    "url": "https://web.stanford.edu/class/cs246/",
+    "about": "algorithms for data too big for memory.",
+    "sectionTitle": "Data Mining",
+    "sectionHref": "/docs/data-mining",
+    "tone": "green"
+   },
+   {
+    "section": 28,
+    "name": "Stanford CS276 — Information Retrieval",
+    "url": "https://web.stanford.edu/class/cs276/",
+    "about": "how search engines actually work.",
+    "sectionTitle": "Information Retrieval",
+    "sectionHref": "/docs/information-retrieval",
+    "tone": "green"
+   },
+   {
+    "section": 29,
+    "name": "MIT 6.034 — Artificial Intelligence",
+    "url": "https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/",
+    "about": "Patrick Winston's lectures, still worth the time.",
+    "sectionTitle": "Artificial Intelligence",
+    "sectionHref": "/docs/artificial-intelligence",
+    "tone": "green"
+   },
+   {
+    "section": 30,
+    "name": "Stanford CS229 — Machine Learning",
+    "url": "https://cs229.stanford.edu/",
+    "about": "the mathematical course, with full notes.",
+    "sectionTitle": "Machine Learning",
+    "sectionHref": "/docs/machine-learning",
+    "tone": "green"
+   },
+   {
+    "section": 31,
+    "name": "Stanford CS230 — Deep Learning",
+    "url": "https://cs230.stanford.edu/",
+    "about": "architectures and how to actually train them.",
+    "sectionTitle": "Deep Learning",
+    "sectionHref": "/docs/deep-learning",
+    "tone": "green"
+   },
+   {
+    "section": 32,
+    "name": "Stanford AI Lab",
+    "url": "https://ai.stanford.edu/courses/",
+    "about": "the full course list across every AI speciality.",
+    "sectionTitle": "Specialized AI Fields",
+    "sectionHref": "/docs/specialized-ai-fields",
+    "tone": "green"
+   },
+   {
+    "section": 33,
+    "name": "Full Stack Deep Learning",
+    "url": "https://fullstackdeeplearning.com/",
+    "about": "taking a model from notebook to production.",
+    "sectionTitle": "MLOps",
+    "sectionHref": "/docs/mlops",
+    "tone": "green"
+   },
+   {
+    "section": 34,
+    "name": "Google SRE Books",
+    "url": "https://sre.google/books/",
+    "about": "how Google runs systems. Free to read online.",
+    "sectionTitle": "DevOps",
+    "sectionHref": "/docs/devops",
+    "tone": "green"
+   }
+  ]
+ },
+ {
+  "id": "05-frontier",
+  "title": "Frontier and research",
+  "about": "The newer fields, and how to work in them.",
+  "order": 5,
+  "file": "resources/05-frontier.md",
+  "items": [
+   {
+    "section": 35,
+    "name": "Princeton — Bitcoin and Cryptocurrency Technologies",
+    "url": "https://bitcoinbook.cs.princeton.edu/",
+    "about": "the textbook that explains the mechanism, not the price.",
+    "sectionTitle": "Blockchain",
+    "sectionHref": "/docs/blockchain",
+    "tone": "amber"
+   },
+   {
+    "section": 36,
+    "name": "MIT OCW — Internet of Things",
+    "url": "https://ocw.mit.edu/search/?q=Internet+of+Things",
+    "about": "connected-device material across MIT's catalogue.",
+    "sectionTitle": "Internet of Things",
+    "sectionHref": "/docs/internet-of-things",
+    "tone": "amber"
+   },
+   {
+    "section": 37,
+    "name": "Stanford CS223A — Introduction to Robotics",
+    "url": "https://web.stanford.edu/class/cs223a/",
+    "about": "kinematics and control.",
+    "sectionTitle": "Robotics",
+    "sectionHref": "/docs/robotics",
+    "tone": "amber"
+   },
+   {
+    "section": 38,
+    "name": "MIT 18.435J — Quantum Computation",
+    "url": "https://ocw.mit.edu/courses/18-435j-quantum-computation-fall-2003/",
+    "about": "the mathematics behind the hype.",
+    "sectionTitle": "Quantum Computing",
+    "sectionHref": "/docs/quantum-computing",
+    "tone": "amber"
+   },
+   {
+    "section": 39,
+    "name": "How to Read a Paper — S. Keshav",
+    "url": "https://courses.cs.washington.edu/courses/cse452/22wi/papers/keshav-how-to-read-a-paper.pdf",
+    "about": "three pages that will save you months.",
+    "sectionTitle": "Research Methodology",
+    "sectionHref": "/docs/research-methodology",
+    "tone": "pink"
+   },
+   {
+    "section": 40,
+    "name": "MIT CSAIL Research",
+    "url": "https://www.csail.mit.edu/research",
+    "about": "what the largest CS lab is working on right now.",
+    "sectionTitle": "Advanced Research Areas",
+    "sectionHref": "/docs/advanced-research-areas",
+    "tone": "pink"
+   }
+  ]
+ }
+]

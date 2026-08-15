@@ -414,3 +414,7 @@
   background: rgba(99, 102, 241, 0.12);
   transform: translateY(-1px);
 }
+
+.headActions {
+  margin-top: 1rem;
+}

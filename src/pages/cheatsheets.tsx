@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import Layout from '@theme/Layout';
+import AddButton from '@site/src/components/AddButton';
 import { marked } from 'marked';
 import sheetsData from '@site/src/data/sheets.json';
 import styles from './cheatsheets.module.css';
@@ -91,6 +92,22 @@ export default function CheatSheets(): ReactNode {
             The things worth having open in another tab. <b>{SHEETS.length}</b> sheets,
             each one a plain Markdown file in the repository.
           </p>
+
+          <div className={styles.headActions}>
+            <AddButton folder="sheets" what="cheat sheet" template={`---
+title: My new sheet
+group: Languages
+about: One line describing what this sheet covers.
+tags: tag1, tag2
+---
+
+## First section
+
+| Command | What it does |
+|---|---|
+| \`example\` | what it does |
+`} />
+          </div>
         </header>
 
         <div className={styles.split}>

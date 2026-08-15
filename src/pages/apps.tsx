@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useRef, useState, type ReactNode } from 'react';
 import Layout from '@theme/Layout';
+import AddButton from '@site/src/components/AddButton';
 import CodeBlock from '@theme/CodeBlock';
 import { langById, runCode, type LangId } from '@site/src/lib/runners';
 import appsData from '@site/src/data/apps.json';
@@ -156,6 +157,16 @@ export default function AppsPage(): ReactNode {
             it on the right and run it — that is where the learning actually happens.
             <b> {APPS.length}</b> applications across <b>{languages.length}</b> languages.
           </p>
+
+          <div className={styles.headActions}>
+            <AddButton folder="apps/python" what="application" template={`# title: My application
+# level: beginner
+# about: One or two sentences on what this program does.
+# input: 42
+
+print("hello")
+`} />
+          </div>
         </header>
 
         <div className={styles.filters}>

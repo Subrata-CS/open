@@ -166,3 +166,7 @@
   line-height: 1.7;
   color: var(--open-muted);
 }
+
+.headActions {
+  margin-top: 1rem;
+}

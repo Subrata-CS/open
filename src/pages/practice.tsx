@@ -1,5 +1,6 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import Layout from '@theme/Layout';
+import AddButton from '@site/src/components/AddButton';
 import Link from '@docusaurus/Link';
 import platformsData from '@site/src/data/platforms.json';
 import styles from './practice.module.css';
@@ -67,6 +68,17 @@ export default function Practice(): ReactNode {
             of your own. Each opens in a new tab, so your place here is kept — come
             straight back and carry on.
           </p>
+
+          <div className={styles.headActions}>
+            <AddButton folder="platforms" what="platform" template={`---
+title: My new category
+about: One line describing this group.
+order: 11
+---
+
+- [Site name](https://example.com/) — one line on why it is worth using.
+`} />
+          </div>
         </header>
 
         <div className={styles.controls}>

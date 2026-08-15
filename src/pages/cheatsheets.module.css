@@ -232,3 +232,7 @@
 .split { min-width: 0; max-width: 100%; }
 
 .markdown :global(pre) { max-width: 100%; }
+
+.headActions {
+  margin-top: 1rem;
+}
