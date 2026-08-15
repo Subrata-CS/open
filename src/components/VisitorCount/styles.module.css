@@ -39,3 +39,14 @@
     animation: none;
   }
 }
+
+.licence {
+  color: var(--open-text-dim);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--open-border);
+}
+
+.licence:hover {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}

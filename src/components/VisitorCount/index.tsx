@@ -90,7 +90,10 @@ export default function VisitorCount(): ReactNode {
 
   return createPortal(
     <span className={styles.line}>
-      MIT License · © {year ?? new Date().getFullYear()} Subrata Pramanik
+      <a className={styles.licence} href="https://github.com/Subrata-CS/open/blob/main/LICENSE">
+        Code MIT · Notes CC BY-NC-SA
+      </a>{' '}
+      · © {year ?? new Date().getFullYear()} Subrata Pramanik
       {count !== null && (
         <>
           {' · '}

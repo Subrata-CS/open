@@ -1,21 +1,57 @@
-MIT License
+Open — A to Z Computer Science
+Copyright (c) 2026 Subrata Pramanik
 
-Copyright (c) 2026 SUBRATA PRAMANIK
+This repository is deliberately licensed in two parts, because code and
+writing are not the same thing.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+────────────────────────────────────────────────────────────────────────
+1. SOFTWARE — MIT License
+────────────────────────────────────────────────────────────────────────
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Applies to: everything under src/, tools/, apps/, static/, and all
+configuration files.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+────────────────────────────────────────────────────────────────────────
+2. WRITTEN CONTENT — CC BY-NC-SA 4.0
+────────────────────────────────────────────────────────────────────────
+
+Applies to: everything under docs/, sheets/, platforms/, and any other
+notes, explanations, questions or written material on the site.
+
+Licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License.
+Full text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+You are free to share and adapt this material, provided that you:
+
+  ATTRIBUTION   Credit "Subrata Pramanik — Open, A to Z Computer Science"
+                and link back to https://subrata-cs.github.io/open/
+  NON-COMMERCIAL  Do not use the material for commercial purposes without
+                written permission.
+  SHARE-ALIKE   Distribute any adaptation under this same licence.
+
+Republishing these notes without credit, or selling them, is a breach of
+this licence and of copyright.
+
+────────────────────────────────────────────────────────────────────────
+
+Questions about reuse, including commercial licensing:
+https://github.com/Subrata-CS/open/issues

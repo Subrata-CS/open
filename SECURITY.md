@@ -51,6 +51,32 @@ through the site. Keep these in place:
 5. Never paste an API key or token into a file in this repository. If one ever
    is committed, rotate it — removing the commit is not enough.
 
+## About copying
+
+A public website cannot stop its content being copied, and it is worth being
+clear about why rather than pretending otherwise. Everything a visitor's
+browser can display, it has already downloaded. "Right-click disabled" scripts
+are defeated by Ctrl+U, by DevTools, by `curl`, and by turning JavaScript off —
+while getting in the way of readers who simply wanted to copy a command. This
+project does not use them.
+
+What does work is licensing, and it is in place:
+
+- **Code** is MIT — reuse freely, keep the notice.
+- **Written notes** are CC BY-NC-SA 4.0 — reuse is allowed only with credit,
+  only non-commercially, and only under the same licence.
+
+That turns copying-without-credit from something annoying into a licence
+breach and a copyright infringement, which is a claim you can actually act on:
+GitHub, Google and every hosting provider accept DMCA takedown requests, and a
+dated public commit history is strong evidence of who wrote it first.
+
+Practical steps if you find your notes republished:
+
+1. Screenshot it, and note the date.
+2. Point at your commit history as proof of authorship.
+3. File a takedown with the host, citing the licence terms above.
+
 ## Reporting
 
 Found something? Open an issue at

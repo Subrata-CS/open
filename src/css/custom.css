@@ -50,10 +50,10 @@
   --open-surface: #111731;
   --open-muted: #94a3b8;
   --open-border: #1f2a4a;
-  --open-code-bg: #0d1226;
-  --open-code-head: #141b33;
-  --open-code-fg: #e2e8f0;
-  --open-code-dim: #8b96b4;
+  --open-code-bg: #151d3a;
+  --open-code-head: #1e2749;
+  --open-code-fg: #f1f4ff;
+  --open-code-dim: #a3aecd;
 }
 
 html {

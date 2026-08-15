@@ -1,5 +1,33 @@
 [
  {
+  "id": "complexity",
+  "title": "Big-O and complexity",
+  "group": "Theory",
+  "about": "What each growth rate costs, and which operation on each data structure gives it to you.",
+  "tags": [
+   "big-o",
+   "complexity",
+   "algorithms",
+   "data structures"
+  ],
+  "file": "sheets/complexity.md",
+  "body": "## Growth rates, in order\n\n| Notation | Name | 1,000 items feels like | Example |\n|---|---|---|---|\n| `O(1)` | constant | instant | hash lookup, array index |\n| `O(log n)` | logarithmic | instant | binary search, balanced tree |\n| `O(n)` | linear | instant | one pass over a list |\n| `O(n log n)` | linearithmic | fast | merge sort, heap sort |\n| `O(n²)` | quadratic | noticeable | nested loop, bubble sort |\n| `O(2ⁿ)` | exponential | impossible | naive subsets, naive Fibonacci |\n| `O(n!)` | factorial | impossible | every permutation |\n\nThe gap that matters most in practice is `O(n log n)` to `O(n²)`. At a million\nitems that is roughly twenty million operations against a million million.\n\n## Data structures\n\n| Structure | Access | Search | Insert | Delete |\n|---|---|---|---|---|\n| Array | `O(1)` | `O(n)` | `O(n)` | `O(n)` |\n| Sorted array | `O(1)` | `O(log n)` | `O(n)` | `O(n)` |\n| Linked list | `O(n)` | `O(n)` | `O(1)` | `O(1)` |\n| Hash table | — | `O(1)` avg | `O(1)` avg | `O(1)` avg |\n| Balanced BST | `O(log n)` | `O(log n)` | `O(log n)` | `O(log n)` |\n| Heap | `O(1)` peek | `O(n)` | `O(log n)` | `O(log n)` |\n\nHash table times are averages. A bad hash function, or an adversary choosing\nkeys, degrades them to `O(n)`.\n\n## Sorting\n\n| Algorithm | Best | Average | Worst | Space | Stable |\n|---|---|---|---|---|---|\n| Bubble | `O(n)` | `O(n²)` | `O(n²)` | `O(1)` | yes |\n| Insertion | `O(n)` | `O(n²)` | `O(n²)` | `O(1)` | yes |\n| Merge | `O(n log n)` | `O(n log n)` | `O(n log n)` | `O(n)` | yes |\n| Quick | `O(n log n)` | `O(n log n)` | `O(n²)` | `O(log n)` | no |\n| Heap | `O(n log n)` | `O(n log n)` | `O(n log n)` | `O(1)` | no |\n| Counting | `O(n+k)` | `O(n+k)` | `O(n+k)` | `O(k)` | yes |\n\nQuicksort is usually fastest in practice despite the worse bound, because its\nconstant factor is small and it works in place.\n\n## Reading a bound\n\n- Constants are dropped: `O(3n)` is `O(n)`.\n- Lower terms are dropped: `O(n² + n)` is `O(n²)`.\n- Nested loops multiply; sequential loops add.\n- `O` is the ceiling, `Ω` the floor, `Θ` both at once.\n\n## Amortised cost\n\nAppending to a dynamic array is `O(1)` *amortised*: most appends are instant,\nand occasionally one copies everything to a larger block. Spread across many\nappends the average stays constant — which is why \"worst case\" and \"what it\ncosts in practice\" are different questions.\n"
+ },
+ {
+  "id": "docker",
+  "title": "Docker",
+  "group": "Systems",
+  "about": "Images, containers and the handful of commands that cover normal use.",
+  "tags": [
+   "docker",
+   "containers",
+   "images",
+   "compose"
+  ],
+  "file": "sheets/docker.md",
+  "body": "## The mental model\n\nAn **image** is a frozen filesystem plus a command to run. A **container** is\none running copy of it. Images are built once and shared; containers are cheap\nand thrown away. Almost every Docker confusion is these two being mixed up.\n\n## Daily commands\n\n| Command | What it does |\n|---|---|\n| `docker ps` | containers running now |\n| `docker ps -a` | including stopped ones |\n| `docker images` | images on this machine |\n| `docker run -it ubuntu bash` | start a container and get a shell |\n| `docker exec -it <name> bash` | shell into one already running |\n| `docker logs -f <name>` | follow its output |\n| `docker stop <name>` / `docker rm <name>` | stop it, then remove it |\n\n## Building\n\n```dockerfile\nFROM python:3.12-slim\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install --no-cache-dir -r requirements.txt\nCOPY . .\nCMD [\"python\", \"main.py\"]\n```\n\n```bash\ndocker build -t myapp:1.0 .\ndocker run -p 8000:8000 myapp:1.0\n```\n\nCopy `requirements.txt` before the rest of the code. Docker caches each layer,\nso dependencies are only reinstalled when that one file changes — this single\nordering trick is the difference between a five-second and a five-minute build.\n\n## Ports, volumes, environment\n\n```bash\ndocker run -p 8080:80 nginx                    # host port : container port\ndocker run -v \"$(pwd)\":/app myapp              # mount the current folder\ndocker run -e DATABASE_URL=postgres://... app  # pass configuration in\n```\n\n## Compose\n\n```yaml\nservices:\n  web:\n    build: .\n    ports: [\"8000:8000\"]\n    depends_on: [db]\n  db:\n    image: postgres:16\n    environment:\n      POSTGRES_PASSWORD: example\n    volumes: [\"pgdata:/var/lib/postgresql/data\"]\n\nvolumes:\n  pgdata:\n```\n\n```bash\ndocker compose up -d      # start everything in the background\ndocker compose logs -f    # watch it\ndocker compose down       # stop and remove\n```\n\n## Cleaning up\n\n```bash\ndocker system df          # what is using disk\ndocker system prune -a    # remove everything unused — check first\n```\n\n:::caution\n`docker system prune -a` deletes every image not attached to a running\ncontainer. On a laptop that is fine; on a shared machine, look before you run.\n:::\n"
+ },
+ {
   "id": "git",
   "title": "Git",
   "group": "Version control",
@@ -41,6 +69,20 @@
   ],
   "file": "sheets/python.md",
   "body": "## Comprehensions\n\n```python\nsquares  = [n * n for n in nums if n % 2 == 0]\nlookup   = {word: len(word) for word in words}\nunique   = {word.lower() for word in words}\nlazy     = (n * n for n in range(1_000_000))   # generator, nothing computed yet\n```\n\nReach for a comprehension when you are building a collection. Reach for a\nnormal loop when you are doing something — a comprehension written for its\nside effects is a loop in disguise.\n\n## Unpacking\n\n```python\nfirst, *middle, last = [10, 20, 30, 40, 50]\na, b = b, a                      # swap, no temporary\nconfig = {**defaults, **overrides}\nprint(*items, sep=\", \")\n```\n\n## The collections worth knowing\n\n| Import | Use it for |\n|---|---|\n| `from collections import Counter` | counting things: `Counter(words).most_common(3)` |\n| `from collections import defaultdict` | grouping without checking keys first |\n| `from collections import deque` | a fast queue: `popleft()` is O(1), `list.pop(0)` is not |\n| `from itertools import groupby, chain` | flattening and grouping sorted data |\n| `from functools import lru_cache` | memoising a slow pure function |\n\n## Files and context managers\n\n```python\nwith open(\"data.csv\", encoding=\"utf-8\") as f:\n    rows = list(csv.DictReader(f))\n```\n\nThe `with` block closes the file even if the code inside raises. Write your own\nwith `@contextmanager` — anything that must be undone belongs in one.\n\n## Formatting\n\n```python\nname, score = \"Asha\", 91.456\nprint(f\"{name:<10} {score:>8.2f}\")      # left, right, two decimals\nprint(f\"{1234567:,}\")                   # 1,234,567\nprint(f\"{0.8734:.1%}\")                  # 87.3%\nprint(f\"{score=}\")                      # score=91.456  — for debugging\n```\n\n## Things that catch people\n\n```python\ndef add(item, bucket=[]):    # WRONG: the list is created once, and shared\n    bucket.append(item)\n    return bucket\n\ndef add(item, bucket=None):  # right\n    bucket = [] if bucket is None else bucket\n    bucket.append(item)\n    return bucket\n```\n\n`is` compares identity, `==` compares value. Use `is` only for `None`, `True`\nand `False`.\n"
+ },
+ {
+  "id": "regex",
+  "title": "Regular expressions",
+  "group": "Languages",
+  "about": "The syntax, the traps, and patterns you can copy straight out.",
+  "tags": [
+   "regex",
+   "patterns",
+   "matching",
+   "text"
+  ],
+  "file": "sheets/regex.md",
+  "body": "## Characters\n\n| Pattern | Matches |\n|---|---|\n| `.` | any character except a newline |\n| `\\d` `\\D` | a digit / not a digit |\n| `\\w` `\\W` | word character `[A-Za-z0-9_]` / not |\n| `\\s` `\\S` | whitespace / not |\n| `[abc]` | any one of a, b, c |\n| `[^abc]` | any character except those |\n| `[a-z0-9]` | a range |\n\n## How many\n\n| Pattern | Meaning |\n|---|---|\n| `*` | zero or more |\n| `+` | one or more |\n| `?` | zero or one |\n| `{3}` | exactly three |\n| `{2,}` | two or more |\n| `{2,5}` | between two and five |\n| `+?` `*?` | the lazy versions — as few as possible |\n\nGreedy versus lazy is the most common bug. `<.*>` on `<a><b>` matches the whole\nstring; `<.*?>` matches just `<a>`.\n\n## Anchors and groups\n\n| Pattern | Meaning |\n|---|---|\n| `^` `$` | start / end of the string (or line, with the `m` flag) |\n| `\\b` | a word boundary |\n| `(abc)` | a capturing group |\n| `(?:abc)` | a group that does not capture |\n| `(?<year>\\d{4})` | a named group |\n| `a\\|b` | a or b |\n| `(?=abc)` | followed by (lookahead) |\n| `(?<=abc)` | preceded by (lookbehind) |\n\n## Flags\n\n| Flag | Effect |\n|---|---|\n| `g` | find every match, not just the first |\n| `i` | ignore case |\n| `m` | `^` and `$` match at each line |\n| `s` | `.` also matches newlines |\n\n## Patterns worth keeping\n\n```text\n^\\S+@\\S+\\.\\S+$                       a workable email check\n^\\+?[0-9]{10,13}$                    a phone number\n^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$  password with mixed case and a digit\n\\b\\d{4}-\\d{2}-\\d{2}\\b                an ISO date\n^(https?:\\/\\/)?([\\w.-]+)\\.([a-z]{2,})  a URL, loosely\n```\n\n:::caution\nDo not validate email addresses strictly with a regex — the real specification\nis far more permissive than anyone expects, and a strict pattern rejects valid\naddresses. Check for one `@`, then send a confirmation message.\n:::\n\n## Catastrophic backtracking\n\n```text\n(a+)+$          against \"aaaaaaaaaaaaaaaaaaaaX\"\n```\n\nNested quantifiers make the engine try exponentially many splits before giving\nup. If a pattern is ever slow on a long string, look for a quantifier inside a\nquantifier first.\n"
  },
  {
   "id": "sql",
