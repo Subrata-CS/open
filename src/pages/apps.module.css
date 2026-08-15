@@ -253,7 +253,6 @@
 }
 
 .ghost {
-  margin-left: auto;
   cursor: pointer;
   font-family: var(--ifm-font-family-monospace);
   font-size: 0.7rem;
@@ -262,6 +261,10 @@
   border: 1px solid var(--open-border);
   background: transparent;
   color: var(--open-code-dim);
+}
+
+.bar .ghost:first-of-type {
+  margin-left: auto;
 }
 
 .ghost:hover {
@@ -385,4 +388,29 @@
   .right {
     position: static;
   }
+}
+
+.download {
+  margin-top: 0.7rem;
+  width: 100%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--open-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--ifm-font-color-base);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+
+.download:hover {
+  border-color: var(--ifm-color-primary);
+  background: rgba(99, 102, 241, 0.12);
+  transform: translateY(-1px);
 }

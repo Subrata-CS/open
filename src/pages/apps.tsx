@@ -75,6 +75,26 @@ export default function AppsPage(): ReactNode {
     setStatus('');
   }, []);
 
+  /** Hand the reader the file itself, named the way the project names it. */
+  const download = useCallback(
+    (which: 'mine' | 'original') => {
+      if (!active) return;
+      const body = which === 'mine' ? code : active.code;
+      const name = active.file.split('/').pop() ?? 'program.txt';
+      const blob = new Blob([body], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = which === 'mine' ? `my-${name}` : name;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      // release the object URL once the browser has taken the copy
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+    },
+    [active, code],
+  );
+
   const run = useCallback(async () => {
     if (busy || !active) return;
     setBusy(true);
@@ -188,6 +208,12 @@ export default function AppsPage(): ReactNode {
               <p className={styles.readerAbout}>{active.about}</p>
               <p className={styles.file}>{active.file}</p>
               <CodeBlock language={langById(active.lang).prism}>{active.code}</CodeBlock>
+              <button
+                type="button"
+                className={styles.download}
+                onClick={() => download('original')}>
+                <span aria-hidden="true">↓</span> Download {active.file.split('/').pop()}
+              </button>
             </section>
           </aside>
 
@@ -197,6 +223,13 @@ export default function AppsPage(): ReactNode {
               <span className={styles.barTitle}>Your version</span>
               <span className={styles.barLang}>{active.langLabel}</span>
               {dirty && <span className={styles.dirty}>edited</span>}
+              <button
+                type="button"
+                className={styles.ghost}
+                onClick={() => download('mine')}
+                title="Save your version to your computer">
+                ↓ Download
+              </button>
               <button
                 type="button"
                 className={styles.ghost}

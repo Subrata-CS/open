@@ -1,0 +1,19 @@
+# Keep dependencies patched without having to remember to check.
+# Dependabot opens a pull request; review it rather than merging blind.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      docusaurus:
+        patterns:
+          - '@docusaurus/*'
+          - 'docusaurus-*'
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

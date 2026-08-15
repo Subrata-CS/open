@@ -17,7 +17,9 @@ import styles from './styles.module.css';
  * component says so and sends the reader to the hosted assistants instead.
  */
 
-const CDN = 'https://esm.run/@mlc-ai/web-llm';
+// Pinned deliberately: an unpinned CDN import means whatever is published
+// tomorrow runs on our readers' machines.
+const CDN = 'https://esm.run/@mlc-ai/web-llm@0.2.84';
 const MODEL = 'Llama-3.2-1B-Instruct-q4f16_1-MLC';
 
 const SYSTEM = [

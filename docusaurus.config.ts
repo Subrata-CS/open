@@ -36,6 +36,56 @@ const config: Config = {
       onBrokenMarkdownLinks: 'warn',
     },
   },
+  /**
+   * Security headers, declared in the document because GitHub Pages serves
+   * static files and cannot set real HTTP headers.
+   *
+   * The policy is an allow-list: the only places the browser may fetch code,
+   * styles or data from are the ones this site actually uses. Anything
+   * injected by an attacker — an inline <script>, a hijacked third-party
+   * domain, an iframe wrapping the site — is refused by the browser itself.
+   *
+   * `frame-ancestors` is deliberately absent: browsers ignore it in a <meta>
+   * tag, and GitHub Pages cannot send it as a header, so declaring it would
+   * only produce a console warning on every page and no protection.
+   *
+   * 'unsafe-eval' and 'wasm-unsafe-eval' are unavoidable here: Pyodide,
+   * sql.js and the JavaScript sandbox all compile code at run time. That is
+   * the whole point of the Code Lab. It stays contained because user code
+   * only ever runs inside a Web Worker or a WebAssembly sandbox, never with
+   * access to the page.
+   */
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        'http-equiv': 'Content-Security-Policy',
+        content: [
+          "default-src 'self'",
+          "base-uri 'self'",
+          "object-src 'none'",
+          "form-action 'self'",
+          "script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://esm.run",
+          "worker-src 'self' blob:",
+          "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+          "img-src 'self' data: blob: https:",
+          "font-src 'self' data: https://fonts.gstatic.com",
+          "connect-src 'self' blob: data: https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://esm.run https://wandbox.org https://countapi.mileshilliard.com https://huggingface.co https://raw.githubusercontent.com",
+          "frame-src 'none'",
+          "manifest-src 'self'",
+          "upgrade-insecure-requests",
+        ].join('; '),
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'referrer',
+        content: 'strict-origin-when-cross-origin',
+      },
+    },
+  ],
+
   themes: [
     '@docusaurus/theme-mermaid',
     [
