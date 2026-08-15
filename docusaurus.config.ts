@@ -161,6 +161,7 @@ const config: Config = {
         { to: '/docs', label: 'Start here', position: 'left' },
         { to: '/playground', label: 'Code Lab', position: 'left' },
         { to: '/apps', label: 'Test Myself', position: 'left' },
+        { to: '/practice', label: 'Practice', position: 'left' },
         { to: '/cheatsheets', label: 'Cheat Sheets', position: 'left' },
         { to: '/glossary', label: 'Glossary', position: 'left' },
         { to: '/roadmaps', label: 'Roadmaps', position: 'left' },

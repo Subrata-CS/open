@@ -1,0 +1,377 @@
+[
+ {
+  "id": "01-fundamentals",
+  "title": "Beginner and fundamentals",
+  "about": "Start here if you are learning to program at all, not just a new language.",
+  "order": 1,
+  "file": "platforms/01-fundamentals.md",
+  "links": [
+   {
+    "name": "freeCodeCamp",
+    "url": "https://www.freecodecamp.org/",
+    "about": "a full curriculum with certificates, entirely free, no upsell."
+   },
+   {
+    "name": "CS50",
+    "url": "https://cs50.harvard.edu/",
+    "about": "Harvard's introduction. Still the best first course in computer science."
+   },
+   {
+    "name": "The Odin Project",
+    "url": "https://www.theodinproject.com/",
+    "about": "project-driven web development, open source and thorough."
+   },
+   {
+    "name": "MDN Web Docs",
+    "url": "https://developer.mozilla.org/",
+    "about": "the reference for HTML, CSS and JavaScript. Trust it over blog posts."
+   },
+   {
+    "name": "Exercism",
+    "url": "https://exercism.org/",
+    "about": "small exercises in 70 languages, with human mentors if you want them."
+   },
+   {
+    "name": "W3Schools",
+    "url": "https://www.w3schools.com/",
+    "about": "quick syntax lookups when you just need the shape of something."
+   },
+   {
+    "name": "Codecademy",
+    "url": "https://www.codecademy.com/",
+    "about": "guided interactive lessons; the basics are free."
+   },
+   {
+    "name": "SoloLearn",
+    "url": "https://www.sololearn.com/",
+    "about": "bite-sized lessons that work well on a phone."
+   }
+  ]
+ },
+ {
+  "id": "02-practice",
+  "title": "Programming practice",
+  "about": "Reps. The point is volume and variety, not difficulty.",
+  "order": 2,
+  "file": "platforms/02-practice.md",
+  "links": [
+   {
+    "name": "HackerRank",
+    "url": "https://www.hackerrank.com/",
+    "about": "structured tracks by language and topic, with a gentle curve."
+   },
+   {
+    "name": "Codewars",
+    "url": "https://www.codewars.com/",
+    "about": "short katas ranked by difficulty; you see other solutions after yours."
+   },
+   {
+    "name": "GeeksforGeeks",
+    "url": "https://www.geeksforgeeks.org/",
+    "about": "enormous archive of explained problems and articles."
+   },
+   {
+    "name": "CodingBat",
+    "url": "https://codingbat.com/",
+    "about": "tiny Java and Python drills, ideal for the first month."
+   },
+   {
+    "name": "Coderbyte",
+    "url": "https://coderbyte.com/",
+    "about": "challenges plus interview preparation material."
+   },
+   {
+    "name": "Kattis",
+    "url": "https://open.kattis.com/",
+    "about": "a clean judge with problems from real contests."
+   }
+  ]
+ },
+ {
+  "id": "03-dsa",
+  "title": "DSA and interviews",
+  "about": "Where to grind problems until the patterns become automatic.",
+  "order": 3,
+  "file": "platforms/03-dsa.md",
+  "links": [
+   {
+    "name": "LeetCode",
+    "url": "https://leetcode.com/",
+    "about": "the interview standard. Work by pattern, not by number."
+   },
+   {
+    "name": "NeetCode",
+    "url": "https://neetcode.io/",
+    "about": "the same problems, ordered so each one teaches the next."
+   },
+   {
+    "name": "CSES Problem Set",
+    "url": "https://cses.fi/problemset/",
+    "about": "300 problems that cover the whole classical syllabus."
+   },
+   {
+    "name": "InterviewBit",
+    "url": "https://www.interviewbit.com/",
+    "about": "a guided path with mock interviews."
+   },
+   {
+    "name": "AlgoExpert",
+    "url": "https://www.algoexpert.io/",
+    "about": "curated set with video explanations. Paid."
+   },
+   {
+    "name": "GeeksforGeeks",
+    "url": "https://www.geeksforgeeks.org/",
+    "about": "the article behind almost every algorithm you will search for."
+   }
+  ]
+ },
+ {
+  "id": "04-competitive",
+  "title": "Competitive programming",
+  "about": "Timed contests against everyone else. The fastest way to find your gaps.",
+  "order": 4,
+  "file": "platforms/04-competitive.md",
+  "links": [
+   {
+    "name": "Codeforces",
+    "url": "https://codeforces.com/",
+    "about": "the main arena. Rated contests several times a month."
+   },
+   {
+    "name": "AtCoder",
+    "url": "https://atcoder.jp/",
+    "about": "famously well-written problems and a beginner contest series."
+   },
+   {
+    "name": "CodeChef",
+    "url": "https://www.codechef.com/",
+    "about": "long and short contests, strong Indian community."
+   },
+   {
+    "name": "HackerEarth",
+    "url": "https://www.hackerearth.com/",
+    "about": "contests plus hiring challenges."
+   },
+   {
+    "name": "Topcoder",
+    "url": "https://www.topcoder.com/",
+    "about": "the oldest of them, with algorithm marathons."
+   },
+   {
+    "name": "ICPC",
+    "url": "https://icpc.global/",
+    "about": "the university team championship. Worth aiming at."
+   }
+  ]
+ },
+ {
+  "id": "05-web",
+  "title": "Web development and real projects",
+  "about": "Briefs and sandboxes for building things people can actually open.",
+  "order": 5,
+  "file": "platforms/05-web.md",
+  "links": [
+   {
+    "name": "Frontend Mentor",
+    "url": "https://www.frontendmentor.io/",
+    "about": "real designs to build against, with a community review."
+   },
+   {
+    "name": "DevChallenges",
+    "url": "https://devchallenges.io/",
+    "about": "full-stack briefs, from a landing page to an app."
+   },
+   {
+    "name": "roadmap.sh Projects",
+    "url": "https://roadmap.sh/projects",
+    "about": "project ideas graded by level, for every stack."
+   },
+   {
+    "name": "Full Stack Open",
+    "url": "https://fullstackopen.com/",
+    "about": "University of Helsinki's free React and Node course."
+   },
+   {
+    "name": "CodePen",
+    "url": "https://codepen.io/",
+    "about": "front-end sketchpad; also the best place to read other people's CSS."
+   },
+   {
+    "name": "StackBlitz",
+    "url": "https://stackblitz.com/",
+    "about": "full Node projects in the browser, instantly."
+   },
+   {
+    "name": "Replit",
+    "url": "https://replit.com/",
+    "about": "collaborative online IDE across many languages."
+   },
+   {
+    "name": "JSFiddle",
+    "url": "https://jsfiddle.net/",
+    "about": "quick HTML, CSS and JavaScript scratchpad."
+   }
+  ]
+ },
+ {
+  "id": "06-git",
+  "title": "Git, open source and portfolio",
+  "about": "The part employers actually look at.",
+  "order": 6,
+  "file": "platforms/06-git.md",
+  "links": [
+   {
+    "name": "GitHub",
+    "url": "https://github.com/",
+    "about": "where your work should live. A tidy profile is a CV."
+   },
+   {
+    "name": "GitHub Skills",
+    "url": "https://skills.github.com/",
+    "about": "short interactive courses run inside real repositories."
+   },
+   {
+    "name": "Open Source Guides",
+    "url": "https://opensource.guide/",
+    "about": "how to contribute without annoying maintainers."
+   },
+   {
+    "name": "GitLab",
+    "url": "https://gitlab.com/",
+    "about": "the alternative, with built-in CI worth learning."
+   },
+   {
+    "name": "Bitbucket",
+    "url": "https://bitbucket.org/",
+    "about": "common inside companies using Atlassian tools."
+   }
+  ]
+ },
+ {
+  "id": "07-roadmaps",
+  "title": "Career roadmaps",
+  "about": "What to learn next, and in what order, for a given job.",
+  "order": 7,
+  "file": "platforms/07-roadmaps.md",
+  "links": [
+   {
+    "name": "roadmap.sh",
+    "url": "https://roadmap.sh/",
+    "about": "frontend, backend, DevOps, AI, security and more, as visual maps."
+   },
+   {
+    "name": "Full Stack Open",
+    "url": "https://fullstackopen.com/",
+    "about": "a complete modern web stack, free and graded."
+   },
+   {
+    "name": "The Odin Project",
+    "url": "https://www.theodinproject.com/",
+    "about": "the same ground, project-first."
+   }
+  ]
+ },
+ {
+  "id": "08-ai",
+  "title": "Python, data and AI",
+  "about": "Notebooks, datasets, models and the papers behind them.",
+  "order": 8,
+  "file": "platforms/08-ai.md",
+  "links": [
+   {
+    "name": "Kaggle",
+    "url": "https://www.kaggle.com/",
+    "about": "datasets, competitions and free GPU notebooks."
+   },
+   {
+    "name": "Google Colab",
+    "url": "https://colab.research.google.com/",
+    "about": "a free GPU notebook, no setup at all."
+   },
+   {
+    "name": "Hugging Face",
+    "url": "https://huggingface.co/",
+    "about": "models, datasets and demos, all open."
+   },
+   {
+    "name": "Papers with Code",
+    "url": "https://paperswithcode.com/",
+    "about": "every paper linked to a working implementation."
+   },
+   {
+    "name": "DataCamp",
+    "url": "https://www.datacamp.com/",
+    "about": "guided data courses. Paid, with a free tier."
+   }
+  ]
+ },
+ {
+  "id": "09-sql",
+  "title": "Databases and SQL",
+  "about": "SQL rewards practice more than reading. All of these are hands-on.",
+  "order": 9,
+  "file": "platforms/09-sql.md",
+  "links": [
+   {
+    "name": "SQLBolt",
+    "url": "https://sqlbolt.com/",
+    "about": "interactive lessons that take about two hours end to end."
+   },
+   {
+    "name": "SQLZoo",
+    "url": "https://sqlzoo.net/",
+    "about": "exercises against real datasets, increasing in difficulty."
+   },
+   {
+    "name": "Mode SQL Tutorial",
+    "url": "https://mode.com/sql-tutorial/",
+    "about": "the clearest explanation of window functions anywhere."
+   },
+   {
+    "name": "HackerRank SQL",
+    "url": "https://www.hackerrank.com/domains/sql",
+    "about": "graded problems, easy to hard."
+   },
+   {
+    "name": "LeetCode Database",
+    "url": "https://leetcode.com/problemset/database/",
+    "about": "SQL questions asked in real interviews."
+   }
+  ]
+ },
+ {
+  "id": "10-cloud",
+  "title": "Cloud and DevOps",
+  "about": "The skills that turn \"it runs on my laptop\" into \"it runs for everyone\".",
+  "order": 10,
+  "file": "platforms/10-cloud.md",
+  "links": [
+   {
+    "name": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/",
+    "about": "genuinely good free training, with certification paths."
+   },
+   {
+    "name": "AWS Skill Builder",
+    "url": "https://skillbuilder.aws/",
+    "about": "Amazon's own courses; many are free."
+   },
+   {
+    "name": "Google Cloud Skills Boost",
+    "url": "https://www.cloudskillsboost.google/",
+    "about": "hands-on labs on real infrastructure."
+   },
+   {
+    "name": "Docker",
+    "url": "https://www.docker.com/",
+    "about": "start with their own getting-started guide, not a video."
+   },
+   {
+    "name": "Kubernetes",
+    "url": "https://kubernetes.io/",
+    "about": "the documentation is the best tutorial available."
+   }
+  ]
+ }
+]
