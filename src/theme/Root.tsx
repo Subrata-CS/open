@@ -19,9 +19,9 @@ const OWNER_KEY = 'open-cs-owner';
  * - "owner mode": visit any page once with ?owner=1 and the editing
  *   affordances become visible on this browser only. ?owner=0 turns
  *   them back off. Visitors never see them.
- * - the Ask AI drawer, plus the click handler that opens it. Navbar entries
- *   point at #ask-ai-<assistant>; catching those here means the menu stays
- *   plain configuration and no page navigation ever happens.
+ * - the Ask AI drawer, plus the click handler that opens it. The navbar
+ *   entries are recognised by their class, so the menu stays plain
+ *   configuration and no page navigation ever happens.
  * - reading progress, and a live diagram on each section landing page
  * - keyboard navigation: j / k move between topics, / focuses search
  */
@@ -38,10 +38,13 @@ export default function Root({ children }: { children: ReactNode }): ReactNode {
 
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
-      const link = (event.target as HTMLElement)?.closest?.('a[href*="#ask-ai"]');
+      const link = (event.target as HTMLElement)?.closest?.('a.ai-item');
       if (!link) return;
       event.preventDefault();
-      const id = (link.getAttribute('href') ?? '').split('#ask-ai-')[1] ?? '';
+      const id =
+        ['chatgpt', 'claude', 'perplexity'].find((name) =>
+          link.classList.contains(`ai-${name}`),
+        ) ?? '';
       window.dispatchEvent(new CustomEvent(OPEN_EVENT, { detail: id }));
     };
     document.addEventListener('click', onClick);

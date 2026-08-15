@@ -176,15 +176,12 @@ const config: Config = {
           position: 'left',
           className: 'navbar-ai',
           items: [
-            // These open the in-page drawer (see src/theme/Root.tsx), so the
-            // reader never leaves the page they are on.
-            { to: '#ask-ai-chatgpt', label: 'ChatGPT', className: 'ai-item ai-chatgpt' },
-            { to: '#ask-ai-claude', label: 'Claude', className: 'ai-item ai-claude' },
-            {
-              to: '#ask-ai-perplexity',
-              label: 'Perplexity',
-              className: 'ai-item ai-perplexity',
-            },
+            // These open the in-page drawer (see src/theme/Root.tsx), which
+            // recognises them by class. They carry href="#" rather than a
+            // made-up anchor so the build's anchor checking stays meaningful.
+            { href: '#', label: 'ChatGPT', className: 'ai-item ai-chatgpt' },
+            { href: '#', label: 'Claude', className: 'ai-item ai-claude' },
+            { href: '#', label: 'Perplexity', className: 'ai-item ai-perplexity' },
           ],
         },
         {
