@@ -6,52 +6,94 @@
   overflow: hidden;
 }
 
-/* soft depth wash so the animation reads as lighting, not a pasted image */
-.layer::before {
-  content: '';
+/* ---------------- colour, taken from the section's track ---------------- */
+
+.wash {
   position: absolute;
   inset: 0;
+  animation: bloom 1.2s ease both;
   background:
-    radial-gradient(1200px 700px at 78% 42%, rgba(99, 102, 241, 0.14), transparent 68%),
-    radial-gradient(900px 600px at 12% 78%, rgba(168, 85, 247, 0.09), transparent 70%);
+    radial-gradient(1250px 780px at 76% 34%, rgba(var(--amb-rgb), 0.38), transparent 66%),
+    radial-gradient(1000px 700px at 10% 82%, rgba(var(--amb-rgb), 0.17), transparent 70%),
+    radial-gradient(820px 620px at 46% 8%, rgba(255, 255, 255, 0.05), transparent 68%);
+}
+
+/* a slow drift, so the page is never quite static */
+.wash::after {
+  content: '';
+  position: absolute;
+  inset: -18%;
+  background:
+    radial-gradient(600px 420px at 30% 40%, rgba(var(--amb-rgb), 0.20), transparent 65%),
+    radial-gradient(520px 380px at 72% 70%, rgba(255, 255, 255, 0.045), transparent 68%);
+  animation: drift 26s ease-in-out infinite alternate;
+  filter: blur(30px);
+}
+
+@keyframes bloom {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4%, 3%, 0) scale(1.08);
+  }
 }
 
 /* faint engineering grid — reads as precision at any resolution */
-.layer::after {
-  content: '';
+.grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(148, 163, 184, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgba(148, 163, 184, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.055) 1px, transparent 1px);
   background-size: 64px 64px;
-  mask-image: radial-gradient(1000px 700px at 70% 45%, #000 10%, transparent 78%);
+  mask-image: radial-gradient(1100px 760px at 70% 45%, #000 8%, transparent 80%);
+  -webkit-mask-image: radial-gradient(1100px 760px at 70% 45%, #000 8%, transparent 80%);
 }
+
+/* ------------------------------- the visual ------------------------------ */
 
 .canvas,
-.canvasDocs {
+.canvasDocs,
+.echo {
   position: absolute;
-  animation: fade 1.1s ease both;
-  filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.22));
+  animation: fade 1.2s ease both;
+  filter: drop-shadow(0 0 46px rgba(var(--amb-rgb), 0.42));
+  color: var(--amb-line);
 }
 
-/* homepage — large and centred, fully inside the viewport */
+/* homepage and other wide pages — large and centred */
 .canvas {
   top: 50%;
   left: 50%;
-  width: min(1280px, 88vw);
+  width: min(1320px, 90vw);
   transform: translate(-50%, -50%);
-  opacity: 0.2;
+  opacity: 0.34;
 }
 
-/* docs pages — parked in the empty gutter right of the text column,
-   sized so nothing is ever clipped by the viewport edge */
+/* the mirrored companion, quieter and offset */
+.echo {
+  top: 18%;
+  left: -14%;
+  width: min(760px, 52vw);
+  opacity: 0.14;
+  transform: scaleX(-1);
+  animation: fade 1.6s ease both;
+}
+
+/* docs pages — parked in the gutter right of the text column */
 .canvasDocs {
   top: 50%;
   left: calc(50% + 22rem);
-  width: min(560px, 34vw);
+  width: min(620px, 36vw);
   transform: translate(-50%, -50%);
-  opacity: 0.17;
+  opacity: 0.46;
 }
 
 @keyframes fade {
@@ -59,6 +101,35 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.985);
   }
+}
+
+/* ----------------------------- readability ------------------------------ */
+
+/*
+ * The whole point of this layer. It sits above the animation and below the
+ * page content, so the colour survives at the edges while the reading column
+ * is pushed back to near the base background.
+ */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(11, 16, 32, 0.52) 0%,
+      rgba(11, 16, 32, 0.88) 20%,
+      rgba(11, 16, 32, 0.88) 58%,
+      rgba(11, 16, 32, 0.34) 78%,
+      rgba(11, 16, 32, 0.08) 100%
+    ),
+    linear-gradient(180deg, rgba(11, 16, 32, 0.55), transparent 22%, transparent 74%, rgba(11, 16, 32, 0.6));
+}
+
+/* the homepage carries less text, so it can afford more colour */
+.layer[data-mode='wide'] .scrim {
+  background:
+    radial-gradient(1000px 760px at 32% 44%, rgba(11, 16, 32, 0.82), transparent 72%),
+    linear-gradient(180deg, rgba(11, 16, 32, 0.42), transparent 26%, transparent 72%, rgba(11, 16, 32, 0.66));
 }
 
 .caption {
@@ -69,35 +140,56 @@
   font-size: 0.64rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--open-code-dim);
-  opacity: 0.45;
+  color: var(--amb-line);
+  opacity: 0.42;
 }
 
-/* below the docs breakpoint there is no gutter to park in */
+/* ------------------------------ responsive ------------------------------ */
+
 @media (max-width: 1416px) {
   .canvasDocs {
     left: auto;
     right: 1.5rem;
-    width: min(420px, 30vw);
+    width: min(460px, 32vw);
     transform: translateY(-50%);
-    opacity: 0.12;
+    opacity: 0.22;
   }
 }
 
 @media (max-width: 996px) {
   .canvasDocs,
+  .echo,
   .caption {
     display: none;
   }
   .canvas {
-    width: 118vw;
-    opacity: 0.14;
+    width: 124vw;
+    opacity: 0.2;
+  }
+  /* a phone screen is all reading column, so the scrim goes flat and strong */
+  .scrim,
+  .layer[data-mode='wide'] .scrim {
+    background: linear-gradient(180deg, rgba(11, 16, 32, 0.78), rgba(11, 16, 32, 0.88));
+  }
+  .wash {
+    opacity: 0.75;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .canvas,
-  .canvasDocs {
+  .canvasDocs,
+  .echo,
+  .wash {
     animation: none;
+  }
+  .wash::after {
+    animation: none;
+  }
+}
+
+@media print {
+  .layer {
+    display: none;
   }
 }

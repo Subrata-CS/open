@@ -110,6 +110,26 @@ const config: Config = {
         },
         { to: '/docs', label: 'Start here', position: 'left' },
         { to: '/playground', label: 'Code Lab', position: 'left' },
+        { to: '/apps', label: 'Test Yourself', position: 'left' },
+        {
+          // Opens the Ask AI drawer on the current page — no navigation, and
+          // no API key, so nothing is ever billed to us.
+          type: 'dropdown',
+          label: 'Ask AI',
+          position: 'left',
+          className: 'navbar-ai',
+          items: [
+            // These open the in-page drawer (see src/theme/Root.tsx), so the
+            // reader never leaves the page they are on.
+            { to: '#ask-ai-chatgpt', label: 'ChatGPT', className: 'ai-item ai-chatgpt' },
+            { to: '#ask-ai-claude', label: 'Claude', className: 'ai-item ai-claude' },
+            {
+              to: '#ask-ai-perplexity',
+              label: 'Perplexity',
+              className: 'ai-item ai-perplexity',
+            },
+          ],
+        },
         {
           href: 'https://www.linkedin.com/in/sp4532/',
           position: 'right',

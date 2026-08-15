@@ -1,0 +1,63 @@
+.wrap {
+  margin: 0.5rem 0 1rem;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  font-size: 0.83rem;
+  font-weight: 700;
+  padding: 0.42rem 0.85rem;
+  border-radius: 9px;
+  border: 1px solid var(--open-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--ifm-font-color-base);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.toggle:hover {
+  border-color: var(--ifm-color-primary);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.chev {
+  font-size: 0.75rem;
+  color: var(--ifm-color-primary);
+}
+
+.body {
+  margin-top: 0.6rem;
+  padding: 0.75rem 0.95rem;
+  border-left: 3px solid var(--ifm-color-primary);
+  border-radius: 0 10px 10px 0;
+  background: rgba(99, 102, 241, 0.08);
+  line-height: 1.7;
+  animation: reveal 0.18s ease;
+}
+
+.body > :last-child {
+  margin-bottom: 0;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* When printing, the answers should simply be there. */
+@media print {
+  .toggle {
+    display: none;
+  }
+  .body {
+    display: block !important;
+  }
+}

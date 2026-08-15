@@ -7,7 +7,6 @@ import {
   type CSSProperties,
   type ReactNode,
 } from 'react';
-import Link from '@docusaurus/Link';
 import { useHistory } from '@docusaurus/router';
 import { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
 import sectionsData from '@site/src/data/sections.json';
@@ -96,7 +95,6 @@ function slerp(a: Vec, b: Vec, t: number): Vec {
 export default function Globe(): ReactNode {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
-  const listRef = useRef<HTMLElement>(null);
   const history = useHistory();
   const { withBaseUrl } = useBaseUrlUtils();
 
@@ -202,55 +200,12 @@ export default function Globe(): ReactNode {
     [history, nodes, pointAt, withBaseUrl],
   );
 
-  /**
-   * Point the globe at a section when its entry in the list is hovered:
-   * work out the rotation that brings that node to the front, and let the
-   * draw loop ease towards it.
-   */
-  const focusNode = useCallback(
-    (index: number) => {
-      hoverRef.current = index;
-      setHover(index);
-      pausedRef.current = true;
-
-      const { x, y, z } = nodes[index].home;
-      const flat = Math.hypot(x, z);
-      targetRef.current = {
-        spin: Math.atan2(-x, z),
-        tilt: Math.max(-MAX_TILT, Math.min(MAX_TILT, Math.atan2(y, flat))),
-      };
-    },
-    [nodes],
-  );
-
-  /**
-   * One handler for the whole list rather than one per row: mousemove and
-   * mouseout are dispatched reliably in every browser, unlike mouseenter.
-   */
-  const overList = useCallback(
-    (e: React.MouseEvent<HTMLElement>) => {
-      const row = (e.target as HTMLElement).closest<HTMLElement>('[data-index]');
-      if (!row) return;
-      const index = Number(row.dataset.index);
-      if (index !== hoverRef.current) focusNode(index);
-    },
-    [focusNode],
-  );
-
   const blur = useCallback(() => {
     hoverRef.current = -1;
     setHover(-1);
     pausedRef.current = false;
     targetRef.current = null;
   }, []);
-
-  const outOfList = useCallback(
-    (e: React.MouseEvent<HTMLElement>) => {
-      const to = e.relatedTarget as Node | null;
-      if (!to || !listRef.current?.contains(to)) blur();
-    },
-    [blur],
-  );
 
   const leave = useCallback(() => {
     hoverRef.current = -1;
@@ -468,6 +423,17 @@ export default function Globe(): ReactNode {
 
       projected.sort((a, b) => a.z - b.z);
 
+      // Labels are collected first, then placed front-to-back so the nearest
+      // name always wins a crowded spot and nothing overlaps.
+      const labels: {
+        n: (typeof nodes)[number];
+        sx: number;
+        sy: number;
+        r: number;
+        depth: number;
+        active: boolean;
+      }[] = [];
+
       projected.forEach(({ sx, sy, z, i, n }) => {
         if (z <= -0.05) return;
 
@@ -497,19 +463,52 @@ export default function Globe(): ReactNode {
         ctx.fill();
         ctx.globalAlpha = 1;
 
-        if (active) {
-          ctx.font =
-            '700 12px "JetBrains Mono", ui-monospace, SFMono-Regular, monospace';
-          ctx.textBaseline = 'middle';
-          const label = `${String(n.num).padStart(2, '0')}  ${n.title}`;
-          const flip = sx > cx;
-          ctx.textAlign = flip ? 'right' : 'left';
-          const lx = Math.round(sx + (flip ? -(r + 10) : r + 10));
-          const ly = Math.round(sy);
-          const w = ctx.measureText(label).width;
-          const bx = Math.round(flip ? lx - w - 10 : lx - 8);
+        if (active || depth > 0.5) {
+          labels.push({ n, sx, sy, r, depth, active });
+        }
+      });
 
+      // --- section names, placed without collisions ----------------------
+      const titleBand = {
+        x0: cx - R * 0.72,
+        x1: cx + R * 0.72,
+        y0: cy - size * 0.115,
+        y1: cy + size * 0.135,
+      };
+      const placed: { x0: number; x1: number; y0: number; y1: number }[] = [];
+
+      labels.sort((a, b) => (b.active ? 1 : 0) - (a.active ? 1 : 0) || b.depth - a.depth);
+
+      for (const { n, sx, sy, r, depth, active } of labels) {
+        const label = `${String(n.num).padStart(2, '0')}  ${n.title}`;
+        const flip = sx > cx;
+        const lx = Math.round(sx + (flip ? -(r + 9) : r + 9));
+        const ly = Math.round(sy);
+
+        ctx.font = active
+          ? '700 12.5px "JetBrains Mono", ui-monospace, monospace'
+          : '600 11.5px "JetBrains Mono", ui-monospace, monospace';
+        ctx.textBaseline = 'middle';
+        ctx.textAlign = flip ? 'right' : 'left';
+
+        const w = ctx.measureText(label).width;
+        const box = {
+          x0: flip ? lx - w - 8 : lx - 6,
+          x1: flip ? lx + 6 : lx + w + 8,
+          y0: ly - 11,
+          y1: ly + 11,
+        };
+
+        const overlaps = (a: typeof box, c: typeof box) =>
+          a.x0 < c.x1 && a.x1 > c.x0 && a.y0 < c.y1 && a.y1 > c.y0;
+
+        if (!active && overlaps(box, titleBand)) continue;
+        if (!active && placed.some((q) => overlaps(box, q))) continue;
+        placed.push(box);
+
+        if (active) {
           ctx.beginPath();
+          const bx = Math.round(flip ? lx - w - 10 : lx - 8);
           if (typeof ctx.roundRect === 'function') {
             ctx.roundRect(bx, ly - 12, w + 18, 24, 7);
           } else {
@@ -517,14 +516,58 @@ export default function Globe(): ReactNode {
           }
           ctx.fillStyle = 'rgba(8, 11, 26, 0.94)';
           ctx.fill();
-          ctx.strokeStyle = `rgba(${n.colour.rgb}, 0.75)`;
+          ctx.strokeStyle = `rgba(${n.colour.rgb}, 0.8)`;
           ctx.lineWidth = 1;
           ctx.stroke();
-
           ctx.fillStyle = '#eef1ff';
           ctx.fillText(label, lx, ly);
+        } else {
+          const fade = Math.min(1, (depth - 0.5) / 0.28);
+          ctx.lineWidth = 3.5;
+          ctx.strokeStyle = `rgba(6, 9, 22, ${0.9 * fade})`;
+          ctx.strokeText(label, lx, ly);
+          ctx.fillStyle = `rgba(224, 231, 255, ${0.32 + 0.58 * fade})`;
+          ctx.fillText(label, lx, ly);
         }
-      });
+      }
+
+      // --- the title, sitting at the heart of the globe ------------------
+      const titleSize = Math.max(17, Math.round(size * 0.062));
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      const gradient = ctx.createLinearGradient(cx - R, cy, cx + R, cy);
+      gradient.addColorStop(0, '#a5b4fc');
+      gradient.addColorStop(0.5, '#c4b5fd');
+      gradient.addColorStop(1, '#f9a8d4');
+
+      ctx.font = `800 ${titleSize}px "Inter", system-ui, sans-serif`;
+      ctx.lineWidth = Math.max(5, titleSize * 0.42);
+      ctx.strokeStyle = 'rgba(6, 9, 22, 0.88)';
+      ctx.strokeText('COMPUTER', cx, cy - titleSize * 0.62);
+      ctx.strokeText('SCIENCE', cx, cy + titleSize * 0.62);
+
+      ctx.shadowColor = 'rgba(129, 140, 248, 0.55)';
+      ctx.shadowBlur = 18;
+      ctx.fillStyle = gradient;
+      ctx.fillText('COMPUTER', cx, cy - titleSize * 0.62);
+      ctx.fillText('SCIENCE', cx, cy + titleSize * 0.62);
+      ctx.shadowBlur = 0;
+
+      ctx.font = `600 ${Math.max(9, Math.round(titleSize * 0.36))}px "JetBrains Mono", monospace`;
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = 'rgba(6, 9, 22, 0.85)';
+      ctx.strokeText(
+        `${SECTIONS.length} SECTIONS · A TO Z`,
+        cx,
+        cy + titleSize * 1.62,
+      );
+      ctx.fillStyle = 'rgba(203, 213, 245, 0.85)';
+      ctx.fillText(
+        `${SECTIONS.length} SECTIONS · A TO Z`,
+        cx,
+        cy + titleSize * 1.62,
+      );
 
       raf = requestAnimationFrame(draw);
     };
@@ -552,29 +595,6 @@ export default function Globe(): ReactNode {
           aria-label={`Globe showing all ${SECTIONS.length} syllabus sections`}
         />
       </div>
-
-      <nav
-        className={styles.index}
-        aria-label="All sections"
-        onMouseMove={overList}
-        onMouseOut={outOfList}
-        ref={listRef}>
-        {nodes.map((n, i) => (
-          <Link
-            key={n.num}
-            to={n.href}
-            className={styles.chip}
-            data-index={i}
-            data-active={hover === i ? 'yes' : 'no'}
-            style={{ '--chip': n.colour.base } as CSSProperties}
-            onFocus={() => focusNode(i)}
-            onBlur={blur}>
-            <span className={styles.chipNum}>{String(n.num).padStart(2, '0')}</span>
-            <span className={styles.chipName}>{n.title}</span>
-            <span className={styles.chipCount}>{n.topics}</span>
-          </Link>
-        ))}
-      </nav>
 
     </div>
   );

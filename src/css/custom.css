@@ -257,3 +257,221 @@ html {
     animation: none;
   }
 }
+
+/* ------------------------------------------------------------------
+   Mobile navigation drawer
+   The page uses a fixed, animated background layer, and the navbar sits in
+   its own stacking context. Without these rules the drawer opens but paints
+   transparently behind the hero, so the links are invisible on a phone.
+   ------------------------------------------------------------------ */
+
+/*
+ * `backdrop-filter` on the navbar makes the navbar the containing block for
+ * any fixed-position descendant — which meant the drawer inherited the
+ * navbar's 60px height and collapsed to just its header. Dropping the filter
+ * at phone widths (and sizing in viewport units) restores a full-height panel.
+ */
+@media (max-width: 996px) {
+  .navbar {
+    backdrop-filter: none;
+  }
+}
+
+.navbar-sidebar {
+  background: #0b1020;
+  z-index: 10;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.navbar-sidebar__items {
+  height: calc(100% - var(--ifm-navbar-height));
+}
+
+.navbar-sidebar__backdrop {
+  z-index: 9;
+}
+
+.navbar-sidebar__brand {
+  background: #0b1020;
+  border-bottom: 1px solid var(--open-border);
+}
+
+.navbar-sidebar__items {
+  background: #0b1020;
+}
+
+.navbar-sidebar .menu__link {
+  font-size: 1rem;
+  padding: 0.7rem 0.85rem;
+}
+
+/* ------------------------------------------------------------------
+   "Ask AI" navbar menu
+   Three plain links to the assistants. Marked so it reads as a distinct
+   action rather than another page of the site.
+   ------------------------------------------------------------------ */
+
+.navbar__link.navbar-ai::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 0.42rem;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #a5b4fc, #f0abfc);
+  box-shadow: 0 0 0 3px rgba(165, 180, 252, 0.16);
+  vertical-align: middle;
+}
+
+.dropdown__menu {
+  min-width: 12.5rem;
+  padding: 0.4rem;
+  border: 1px solid var(--open-border);
+  border-radius: 12px;
+  background: rgba(13, 18, 40, 0.97);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 44px rgba(3, 5, 18, 0.55);
+}
+
+.ai-item.dropdown__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9px;
+  padding: 0.55rem 0.7rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+}
+
+.ai-item.dropdown__link::before {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  flex: none;
+}
+
+.ai-chatgpt.dropdown__link::before {
+  background: #10a37f;
+}
+
+.ai-claude.dropdown__link::before {
+  background: #d97757;
+}
+
+.ai-perplexity.dropdown__link::before {
+  background: #20b8cd;
+}
+
+/* Docusaurus already appends its own external-link glyph, so nothing extra
+   is added here — a second arrow just read as clutter. */
+.ai-item.dropdown__link svg {
+  margin-left: auto;
+  opacity: 0.55;
+}
+
+.ai-item.dropdown__link:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+}
+
+/* inside the mobile drawer the same items become a simple sub-list */
+.navbar-sidebar .ai-item.menu__link::before {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 0.55rem;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+.navbar-sidebar .ai-chatgpt.menu__link::before {
+  background: #10a37f;
+}
+
+.navbar-sidebar .ai-claude.menu__link::before {
+  background: #d97757;
+}
+
+.navbar-sidebar .ai-perplexity.menu__link::before {
+  background: #20b8cd;
+}
+
+/* ------------------------------------------------------------------
+   Print / PDF
+   Readers do print these pages. Strip the furniture, drop to black on
+   white, keep code blocks intact and show link targets.
+   ------------------------------------------------------------------ */
+
+@media print {
+  :root {
+    --ifm-background-color: #fff;
+    --ifm-font-color-base: #111;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .navbar,
+  .theme-doc-sidebar-container,
+  .theme-doc-toc-desktop,
+  .pagination-nav,
+  .theme-doc-breadcrumbs,
+  .footer,
+  .theme-edit-this-page,
+  .navbar-sidebar {
+    display: none !important;
+  }
+
+  .main-wrapper,
+  article,
+  .theme-doc-markdown {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  a {
+    color: #111 !important;
+    text-decoration: underline;
+  }
+
+  /* show where a link actually goes, since a printout cannot be clicked */
+  article a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.75em;
+    color: #555;
+    word-break: break-all;
+  }
+
+  pre,
+  code {
+    background: #f4f4f6 !important;
+    color: #111 !important;
+    border: 1px solid #ddd !important;
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+    page-break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: #111 !important;
+    page-break-after: avoid;
+  }
+
+  img,
+  table,
+  figure {
+    page-break-inside: avoid;
+  }
+}

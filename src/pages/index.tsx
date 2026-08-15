@@ -1,4 +1,11 @@
-import { useCallback, useRef, type CSSProperties, type ReactNode } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Globe from '@site/src/components/Globe';
@@ -6,6 +13,7 @@ import HeroVisual from '@site/src/components/HeroVisual';
 import stats from '@site/src/data/stats.json';
 import tracksData from '@site/src/data/tracks.json';
 import { LANGS } from '@site/src/lib/runners';
+import { PROGRESS_EVENT, count } from '@site/src/lib/progress';
 import { toneOf } from '@site/src/lib/tones';
 import styles from './index.module.css';
 
@@ -23,6 +31,8 @@ type Track = {
   tone: string;
   blurb: string;
   badge: string;
+  from: number;
+  to: number;
   sectionCount: number;
   topics: number;
   href: string;
@@ -34,6 +44,16 @@ const TRACKS = tracksData as Track[];
 /* ------------------------------------------------------------------ hero */
 
 function Hero(): ReactNode {
+  // Progress lives in the browser, so it can only be read after mounting.
+  const [read, setRead] = useState(0);
+
+  useEffect(() => {
+    const refresh = () => setRead(count());
+    refresh();
+    window.addEventListener(PROGRESS_EVENT, refresh);
+    return () => window.removeEventListener(PROGRESS_EVENT, refresh);
+  }, []);
+
   return (
     <header className={styles.hero}>
       <div className={styles.heroGrid}>
@@ -65,6 +85,12 @@ function Hero(): ReactNode {
               <dt>{LANGS.length}</dt>
               <dd>languages that run</dd>
             </div>
+            {read > 0 && (
+              <div>
+                <dt className={styles.readCount}>{read}</dt>
+                <dd>you have read</dd>
+              </div>
+            )}
           </dl>
 
           <div className={styles.actions}>
@@ -103,7 +129,8 @@ function TrackCard({ track }: { track: Track }): ReactNode {
           '--tone-rgb': colour.rgb,
         } as CSSProperties
       }
-      data-tone={track.tone}>
+      data-tone={track.tone}
+      data-badge={String(track.from).padStart(2, '0')}>
       <span className={styles.spotlight} aria-hidden="true" />
 
       <div className={styles.cardTop}>

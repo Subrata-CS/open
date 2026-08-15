@@ -1,0 +1,98 @@
+[
+ {
+  "id": "c-atm-machine",
+  "title": "ATM machine",
+  "lang": "c",
+  "langLabel": "C",
+  "level": "beginner",
+  "about": "A cash machine with a PIN, a balance and a withdrawal limit — the classic first \"real program\" in C.",
+  "tags": [
+   "menu",
+   "validation",
+   "state"
+  ],
+  "stdin": "1234\n2\n500\n1\n4",
+  "file": "apps/c/atm-machine.c",
+  "code": "#include <stdio.h>\n\nint main(void) {\n    const int PIN = 1234;\n    double balance = 2500.0;\n    int entered, choice;\n    double amount;\n\n    printf(\"=== Open Bank ATM ===\\n\");\n    printf(\"Enter your PIN: \");\n    if (scanf(\"%d\", &entered) != 1 || entered != PIN) {\n        printf(\"Incorrect PIN. Card retained.\\n\");\n        return 1;\n    }\n\n    while (1) {\n        printf(\"\\n1) Balance  2) Withdraw  3) Deposit  4) Exit\\n> \");\n        if (scanf(\"%d\", &choice) != 1) break;\n\n        if (choice == 1) {\n            printf(\"Balance: %.2f\\n\", balance);\n        } else if (choice == 2) {\n            printf(\"Amount: \");\n            scanf(\"%lf\", &amount);\n            if (amount <= 0) printf(\"Amount must be positive.\\n\");\n            else if (amount > balance) printf(\"Insufficient funds.\\n\");\n            else if (amount > 1000) printf(\"Daily limit is 1000.\\n\");\n            else { balance -= amount; printf(\"Dispensed %.2f. Balance %.2f\\n\", amount, balance); }\n        } else if (choice == 3) {\n            printf(\"Amount: \");\n            scanf(\"%lf\", &amount);\n            if (amount <= 0) printf(\"Amount must be positive.\\n\");\n            else { balance += amount; printf(\"Deposited %.2f. Balance %.2f\\n\", amount, balance); }\n        } else if (choice == 4) {\n            printf(\"Thank you. Please take your card.\\n\");\n            break;\n        } else {\n            printf(\"Unknown option.\\n\");\n        }\n    }\n    return 0;\n}\n"
+ },
+ {
+  "id": "c-student-grades",
+  "title": "Student grade report",
+  "lang": "c",
+  "langLabel": "C",
+  "level": "beginner",
+  "about": "Reads marks for a class, then prints an aligned report with averages, the topper and pass statistics.",
+  "tags": [
+   "arrays",
+   "structs",
+   "report"
+  ],
+  "stdin": "",
+  "file": "apps/c/student-grades.c",
+  "code": "#include <stdio.h>\n#include <string.h>\n\ntypedef struct { char name[24]; int marks[3]; } Student;\n\nint main(void) {\n    Student class[] = {\n        {\"Asha\",   {91, 86, 78}},\n        {\"Rahul\",  {74, 80, 69}},\n        {\"Meera\",  {88, 79, 95}},\n        {\"Vikram\", {55, 62, 48}},\n    };\n    int n = sizeof class / sizeof class[0];\n\n    printf(\"%-10s %5s %5s %5s %8s %6s\\n\", \"NAME\", \"DSA\", \"OS\", \"DBMS\", \"AVERAGE\", \"GRADE\");\n    printf(\"--------------------------------------------------\\n\");\n\n    double best = -1; const char *topper = \"\";\n    int passed = 0;\n\n    for (int i = 0; i < n; i++) {\n        int total = 0;\n        for (int j = 0; j < 3; j++) total += class[i].marks[j];\n        double avg = total / 3.0;\n\n        char grade = avg >= 85 ? 'A' : avg >= 70 ? 'B' : avg >= 60 ? 'C' : 'F';\n        if (grade != 'F') passed++;\n        if (avg > best) { best = avg; topper = class[i].name; }\n\n        printf(\"%-10s %5d %5d %5d %8.2f %6c\\n\",\n               class[i].name, class[i].marks[0], class[i].marks[1], class[i].marks[2], avg, grade);\n    }\n\n    printf(\"--------------------------------------------------\\n\");\n    printf(\"Topper : %s (%.2f)\\n\", topper, best);\n    printf(\"Passed : %d of %d (%.0f%%)\\n\", passed, n, 100.0 * passed / n);\n    return 0;\n}\n"
+ },
+ {
+  "id": "javascript-todo-list",
+  "title": "To-do list with due dates",
+  "lang": "javascript",
+  "langLabel": "JavaScript",
+  "level": "beginner",
+  "about": "Add, complete and sort tasks — the data model behind every to-do app, without the interface.",
+  "tags": [
+   "objects",
+   "array methods",
+   "dates"
+  ],
+  "stdin": "",
+  "file": "apps/javascript/todo-list.js",
+  "code": "class TodoList {\n  #items = [];\n  #nextId = 1;\n\n  add(text, dueInDays, priority = 'normal') {\n    const due = new Date(2026, 0, 1);\n    due.setDate(due.getDate() + dueInDays);\n    this.#items.push({ id: this.#nextId++, text, due, priority, done: false });\n    return this;\n  }\n\n  complete(id) {\n    const item = this.#items.find((t) => t.id === id);\n    if (item) item.done = true;\n    return this;\n  }\n\n  get pending() {\n    const order = { high: 0, normal: 1, low: 2 };\n    return this.#items\n      .filter((t) => !t.done)\n      .sort((a, b) => a.due - b.due || order[a.priority] - order[b.priority]);\n  }\n\n  get summary() {\n    const done = this.#items.filter((t) => t.done).length;\n    return `${done} of ${this.#items.length} done`;\n  }\n}\n\nconst list = new TodoList()\n  .add('Submit the RAIT paper', 12, 'high')\n  .add('Read the ColPali paper', 3, 'high')\n  .add('Water the plants', 1, 'low')\n  .add('Reply to the reviewer', 5)\n  .complete(3);\n\nconst fmt = (d) => d.toISOString().slice(0, 10);\n\nconsole.log('PENDING');\nfor (const t of list.pending) {\n  console.log(`  [${t.priority.padEnd(6)}] ${fmt(t.due)}  ${t.text}`);\n}\nconsole.log('\\n' + list.summary);\n"
+ },
+ {
+  "id": "python-expense-tracker",
+  "title": "Monthly expense tracker",
+  "lang": "python",
+  "langLabel": "Python",
+  "level": "beginner",
+  "about": "Groups a month of spending by category, works out the share of each, and flags where the budget went.",
+  "tags": [
+   "dictionaries",
+   "formatting",
+   "analysis"
+  ],
+  "stdin": "",
+  "file": "apps/python/expense-tracker.py",
+  "code": "expenses = [\n    (\"rent\",      12000), (\"groceries\", 4200), (\"transport\", 1800),\n    (\"internet\",   800),  (\"groceries\", 2600), (\"books\",     1500),\n    (\"transport\",  950),  (\"eating out\", 2300), (\"groceries\", 1900),\n]\nBUDGET = 30000\n\ntotals = {}\nfor category, amount in expenses:\n    totals[category] = totals.get(category, 0) + amount\n\nspent = sum(totals.values())\nranked = sorted(totals.items(), key=lambda kv: -kv[1])\n\nprint(f\"{'CATEGORY':<12}{'AMOUNT':>9}{'SHARE':>8}  BAR\")\nprint(\"-\" * 46)\nfor category, amount in ranked:\n    share = amount / spent * 100\n    print(f\"{category:<12}{amount:>9,}{share:>7.1f}%  {'#' * int(share / 3)}\")\n\nprint(\"-\" * 46)\nprint(f\"{'TOTAL':<12}{spent:>9,}\")\nprint(f\"{'BUDGET':<12}{BUDGET:>9,}\")\n\nleft = BUDGET - spent\nif left >= 0:\n    print(f\"\\nUnder budget by {left:,} — {left / BUDGET * 100:.1f}% still unspent.\")\nelse:\n    print(f\"\\nOver budget by {-left:,}. Biggest line: {ranked[0][0]} at {ranked[0][1]:,}.\")\n"
+ },
+ {
+  "id": "python-password-checker",
+  "title": "Password strength checker",
+  "lang": "python",
+  "langLabel": "Python",
+  "level": "intermediate",
+  "about": "Scores a password the way a real sign-up form does — length, variety, common patterns — and explains every point.",
+  "tags": [
+   "strings",
+   "sets",
+   "validation"
+  ],
+  "stdin": "",
+  "file": "apps/python/password-checker.py",
+  "code": "import re\n\nCOMMON = {\"password\", \"123456\", \"qwerty\", \"admin\", \"letmein\", \"welcome\"}\n\ndef assess(pw):\n    score, notes = 0, []\n\n    if len(pw) >= 12: score += 3; notes.append(\"+3  twelve characters or more\")\n    elif len(pw) >= 8: score += 2; notes.append(\"+2  at least eight characters\")\n    else: notes.append(\" 0  too short — eight is the bare minimum\")\n\n    for label, pattern, points in [\n        (\"lower case\", r\"[a-z]\", 1),\n        (\"upper case\", r\"[A-Z]\", 1),\n        (\"a digit\", r\"\\d\", 1),\n        (\"a symbol\", r\"[^A-Za-z0-9]\", 2),\n    ]:\n        if re.search(pattern, pw):\n            score += points\n            notes.append(f\"+{points}  has {label}\")\n        else:\n            notes.append(f\" 0  no {label}\")\n\n    if pw.lower() in COMMON:\n        score -= 4\n        notes.append(\"-4  this is one of the most guessed passwords there is\")\n    if re.search(r\"(.)\\1{2,}\", pw):\n        score -= 1\n        notes.append(\"-1  the same character three times in a row\")\n    if re.search(r\"(abc|123|qwe)\", pw.lower()):\n        score -= 1\n        notes.append(\"-1  contains a keyboard or counting run\")\n\n    verdict = \"strong\" if score >= 7 else \"fair\" if score >= 5 else \"weak\"\n    return max(0, score), verdict, notes\n\nfor candidate in [\"password\", \"Summer2026\", \"k9!Tarn-Vessel-42\"]:\n    score, verdict, notes = assess(candidate)\n    print(f\"\\n{candidate!r}  ->  {score}/9  {verdict.upper()}\")\n    for note in notes:\n        print(\"   \", note)\n"
+ },
+ {
+  "id": "sql-library-system",
+  "title": "Library lending system",
+  "lang": "sql",
+  "langLabel": "SQL",
+  "level": "intermediate",
+  "about": "Books, members and loans in one schema, then the query every librarian actually wants — who is overdue.",
+  "tags": [
+   "joins",
+   "dates",
+   "aggregates"
+  ],
+  "stdin": "",
+  "file": "apps/sql/library-system.sql",
+  "code": "CREATE TABLE book   (id INTEGER PRIMARY KEY, title TEXT, author TEXT, copies INTEGER);\nCREATE TABLE member (id INTEGER PRIMARY KEY, name TEXT, joined TEXT);\nCREATE TABLE loan   (id INTEGER PRIMARY KEY, book_id INTEGER, member_id INTEGER,\n                     taken TEXT, due TEXT, returned TEXT);\n\nINSERT INTO book VALUES\n (1,'Introduction to Algorithms','Cormen',3),\n (2,'Clean Code','Martin',2),\n (3,'Deep Learning','Goodfellow',1),\n (4,'The C Programming Language','Kernighan',4);\n\nINSERT INTO member VALUES\n (1,'Asha','2025-08-01'),(2,'Rahul','2025-11-14'),(3,'Meera','2026-01-09');\n\nINSERT INTO loan VALUES\n (1,1,1,'2026-07-01','2026-07-15','2026-07-12'),\n (2,3,1,'2026-07-20','2026-08-03',NULL),\n (3,2,2,'2026-06-28','2026-07-12',NULL),\n (4,4,3,'2026-07-25','2026-08-08',NULL),\n (5,1,2,'2026-07-30','2026-08-13',NULL);\n\n-- who still has a book, and how late are they on 2026-08-15?\nSELECT m.name,\n       b.title,\n       l.due,\n       CAST(julianday('2026-08-15') - julianday(l.due) AS INTEGER) AS days_late\nFROM loan l\nJOIN member m ON m.id = l.member_id\nJOIN book   b ON b.id = l.book_id\nWHERE l.returned IS NULL\nORDER BY days_late DESC;\n\n-- how many copies of each title are actually on the shelf right now?\nSELECT b.title,\n       b.copies - COUNT(l.id) AS on_shelf\nFROM book b\nLEFT JOIN loan l ON l.book_id = b.id AND l.returned IS NULL\nGROUP BY b.id\nORDER BY on_shelf, b.title;\n"
+ }
+]

@@ -130,6 +130,7 @@ description: {desc}
 ---
 
 import RunInLab from '@site/src/components/RunInLab';
+import AskBox from '@site/src/components/AskBox';
 
 # {plain}
 
@@ -156,6 +157,8 @@ _Questions to try once you have read the notes above._
 ## References
 
 - [Search for "{plain}"](https://www.google.com/search?q={query})
+
+<AskBox topic="{plain}" section="{section}" />
 """
 
 SECTION_INDEX_TMPL = """---
