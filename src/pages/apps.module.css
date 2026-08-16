@@ -418,3 +418,12 @@
 .headActions {
   margin-top: 1rem;
 }
+
+/* Same for the notebook's small buttons on a touch screen. */
+@media (pointer: coarse), (max-width: 996px) {
+  .ghost,
+  .run,
+  .chip {
+    min-height: 30px;
+  }
+}

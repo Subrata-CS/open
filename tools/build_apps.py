@@ -135,4 +135,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except BrokenPipeError:
+        # output was piped into something that closed early, e.g. `| head`
+        os._exit(0)

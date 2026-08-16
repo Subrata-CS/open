@@ -31,7 +31,7 @@
 
 .tabs {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(168px, 100%), 1fr));
   gap: 0.5rem;
   margin-bottom: 1.2rem;
 }
