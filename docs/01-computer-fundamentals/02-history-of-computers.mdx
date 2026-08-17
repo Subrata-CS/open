@@ -1,5 +1,4 @@
-
-{`---
+---
 title: History of Computers
 sidebar_position: 2
 sidebar_label: History of Computers
@@ -12,9 +11,9 @@ keywords:
   - abacus
 ---
 
-import RunInLab from '@site/src/components/RunInLab'
-import AskBox from '@site/src/components/AskBox'
-import { Lede, Callout, ProsCons, Quiz, Revision } from '@site/src/components/Note'
+import RunInLab from '@site/src/components/RunInLab';
+import AskBox from '@site/src/components/AskBox';
+import { Lede, Callout, ProsCons, Quiz, Revision } from '@site/src/components/Note';
 
 # History of Computers
 
@@ -22,7 +21,7 @@ import { Lede, Callout, ProsCons, Quiz, Revision } from '@site/src/components/No
 The history of computers is the journey from simple calculating tools to today's intelligent AI-powered machines.
 </Lede>
 
-![History](/img/computer-history.jpg)
+![Computer History](/img/computer-history.jpg)
 
 ## What is Computer History?
 
@@ -47,19 +46,13 @@ Computer history is the chronological development of calculating devices and com
 
 ![Abacus](/img/abacus.jpg)
 
-The Abacus was the first known calculating device used for arithmetic operations.
-
-| Feature | Description |
-|---|---|
-| Type | Manual Calculator |
-| Power | No Electricity |
-| Use | Addition & Subtraction |
+The Abacus was the world's first known calculating device.
 
 ## 2. Napier's Bones
 
 ![Napier](/img/napier-bones.jpg)
 
-Invented by **John Napier** in 1617 for multiplication and division.
+Invented by **John Napier** in 1617.
 
 ## 3. Pascaline
 
@@ -67,17 +60,11 @@ Invented by **John Napier** in 1617 for multiplication and division.
 
 Invented by **Blaise Pascal** in 1642.
 
-| Feature | Value |
-|---|---|
-| Technology | Mechanical |
-| Inventor | Blaise Pascal |
-| Operation | Add & Subtract |
-
 ## 4. Difference Engine
 
 ![Difference Engine](/img/difference-engine.jpg)
 
-Designed by **Charles Babbage** to generate mathematical tables automatically.
+Designed by **Charles Babbage**.
 
 ## 5. Analytical Engine
 
@@ -94,27 +81,21 @@ The first design of a programmable computer.
 
 ## Ada Lovelace
 
-![Ada](/img/ada-lovelace.jpg)
+![Ada Lovelace](/img/ada-lovelace.jpg)
 
-Ada Lovelace wrote the first computer algorithm and is known as the **First Programmer**.
+Known as the **First Computer Programmer**.
 
 ## Harvard Mark I
 
 ![Mark I](/img/mark1.jpg)
 
-An electromechanical computer developed in 1944.
+Developed in 1944.
 
 ## ENIAC
 
 ![ENIAC](/img/eniac.jpg)
 
 The first large-scale electronic digital computer.
-
-| Feature | ENIAC |
-|---|---|
-| Year | 1946 |
-| Weight | 30 Tons |
-| Vacuum Tubes | 18,000 |
 
 ## Famous Inventors
 
@@ -126,7 +107,7 @@ The first large-scale electronic digital computer.
 | Ada Lovelace | First Algorithm |
 | Howard Aiken | Harvard Mark I |
 
-## Advantages of Evolution
+## Advantages
 
 <ProsCons
   pros={[
@@ -147,7 +128,7 @@ The first large-scale electronic digital computer.
 
 ## Python Example
 
-\`\`\`python
+```python
 inventors = {
     "Abacus":"Unknown",
     "Pascaline":"Blaise Pascal",
@@ -157,55 +138,3 @@ inventors = {
 
 for name, inventor in inventors.items():
     print(name, ":", inventor)
-\`\`\`
-
-<RunInLab
-  topic="History of Computers"
-  lang="python"
-  code={\`inventors = {
-    "Abacus":"Unknown",
-    "Pascaline":"Blaise Pascal",
-    "Difference Engine":"Charles Babbage",
-    "First Algorithm":"Ada Lovelace"
-}
-
-for name, inventor in inventors.items():
-    print(name, ":", inventor)\`}
-/>
-
-## Practice Questions
-
-<Quiz
-  items={[
-    {
-      q:"Who is called the Father of Computer?",
-      a:"Charles Babbage"
-    },
-    {
-      q:"Who wrote the first algorithm?",
-      a:"Ada Lovelace"
-    },
-    {
-      q:"What does ENIAC stand for?",
-      a:"Electronic Numerical Integrator and Computer"
-    },
-    {
-      q:"What was the first calculating device?",
-      a:"Abacus"
-    }
-  ]}
-/>
-
-## Quick Revision
-
-<Revision
-  points={[
-    "Abacus = First Calculator",
-    "Pascal = Mechanical Calculator",
-    "Charles Babbage = Father of Computer",
-    "Ada Lovelace = First Programmer",
-    "ENIAC = First Electronic Computer"
-  ]}
-/>
-
-<AskBox topic="History of Computers" section="Computer Fundamentals"/>`}
