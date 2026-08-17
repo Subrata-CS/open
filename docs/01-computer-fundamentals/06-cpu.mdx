@@ -27,61 +27,73 @@ Physically, the CPU is a small chip mounted on the motherboard. Even though it's
 - **Cache Memory** — A small, high-speed memory located close to the CPU, storing frequently used data so the CPU doesn't have to fetch it from the slower RAM every time.
 - **Clock Speed (GHz)** — Measures how many cycles (steps) the CPU can perform per second. For example, 3 GHz means 3 billion cycles per second.
 - **Core** — A single CPU can have multiple "cores," where each core can work on a different task at the same time (Multi-core processor).
-- **Fetch–Decode–Execute Cycle** — The basic cycle that describes how the CPU works:
-  1. **Fetch** — Get the next instruction from memory.
-  2. **Decode** — Understand what the instruction means (what needs to be done).
-  3. **Execute** — Carry out the instruction.
+- **Fetch–Decode–Execute Cycle** — The basic cycle that describes how the CPU works: Fetch the next instruction, Decode what it means, then Execute it.
 
 ## How the CPU Works (Diagram)
 
-The diagram below shows the **Fetch → Decode → Execute** cycle, step by step.
+The diagram below shows the **Fetch → Decode → Execute** cycle, along with the ALU and Control Unit that drive it.
 
 <div style={{
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  flexWrap: 'wrap',
   gap: '1.5rem',
-  padding: '2.5rem 1rem',
-  flexWrap: 'wrap'
+  padding: '2.5rem 1rem'
 }}>
   <div style={{
-    padding: '1.2rem 1.8rem',
+    padding: '1rem 1.5rem',
     borderRadius: '12px',
     border: '2px solid #4f8cff',
     background: 'rgba(79,140,255,0.08)',
     fontWeight: 600,
-    minWidth: '120px',
     textAlign: 'center'
   }}>
     🧠 Fetch
   </div>
 
-  <span style={{ fontSize: '2rem', color: '#4f8cff' }}>➜</span>
-
   <div style={{
-    padding: '1.2rem 1.8rem',
+    padding: '1rem 1.5rem',
     borderRadius: '12px',
     border: '2px solid #ff9f43',
     background: 'rgba(255,159,67,0.08)',
     fontWeight: 600,
-    minWidth: '120px',
     textAlign: 'center'
   }}>
     🔍 Decode
   </div>
 
-  <span style={{ fontSize: '2rem', color: '#ff9f43' }}>➜</span>
-
   <div style={{
-    padding: '1.2rem 1.8rem',
-    borderRadius: '12px',
-    border: '2px solid #2ecc71',
-    background: 'rgba(46,204,113,0.08)',
-    fontWeight: 600,
-    minWidth: '120px',
+    padding: '1.4rem 2rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    fontWeight: 700,
     textAlign: 'center'
   }}>
     ⚡ Execute
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    🧮 ALU
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff6b6b',
+    background: 'rgba(255,107,107,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    🎛️ Control Unit
   </div>
 </div>
 
@@ -92,7 +104,7 @@ The diagram below shows the **Fetch → Decode → Execute** cycle, step by step
   marginTop: '-1rem',
   marginBottom: '2rem'
 }}>
-  ↩ This cycle loops back to Fetch and repeats billions of times per second
+  Fetch → Decode → Execute repeats billions of times per second, with the ALU and Control Unit working together throughout
 </div>
 
 > This repeating cycle is exactly what "Clock Speed (GHz)" measures — how many times per second the CPU can go through Fetch → Decode → Execute.
@@ -106,3 +118,19 @@ a = 5
 b = 3
 result = a + b
 print(result)  # Output: 8
+
+## Run your code
+
+<RunInLab topic="cpu" lang="python" />
+
+## Practice Questions
+What does CPU stand for, and why is it called the "brain" of the computer?
+What is the difference between the ALU and the CU?
+What is the difference between Registers and Cache Memory?
+Explain the three steps of the Fetch–Decode–Execute cycle.
+Why can a 4-core processor do more work at the same time compared to a 1-core processor?
+
+
+
+
+<AskBox topic="cpu" section="Computer Fundamentals" />
