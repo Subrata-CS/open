@@ -3,12 +3,6 @@ title: History of Computers
 sidebar_position: 2
 sidebar_label: History of Computers
 slug: /computer-fundamentals/history-of-computers
-description: Complete history of computers from Abacus to ENIAC and modern AI.
-keywords:
-  - history of computers
-  - charles babbage
-  - eniac
-  - abacus
 ---
 
 import RunInLab from '@site/src/components/RunInLab';
@@ -18,18 +12,18 @@ import { Lede, Callout, ProsCons, Quiz, Revision } from '@site/src/components/No
 # History of Computers
 
 <Lede>
-The history of computers is the journey from simple calculating tools to today's intelligent AI-powered machines.
+The history of computers is the evolution of calculating devices from the Abacus to modern AI computers.
 </Lede>
 
-![Computer History](/img/computer-history.jpg)
+![History](/img/computer-history.jpg)
 
-## What is Computer History?
+## Definition
 
 <Callout kind="def" title="Definition">
-Computer history is the chronological development of calculating devices and computer systems from ancient times to modern digital computers.
+Computer history is the chronological development of computing devices from ancient manual tools to modern digital systems.
 </Callout>
 
-## Evolution Timeline
+## Timeline
 
 | Year | Device |
 |---|---|
@@ -40,64 +34,56 @@ Computer history is the chronological development of calculating devices and com
 | 1837 | Analytical Engine |
 | 1944 | Harvard Mark I |
 | 1946 | ENIAC |
-| Present | AI Computers |
 
-## 1. Abacus
+## Abacus
 
 ![Abacus](/img/abacus.jpg)
 
-The Abacus was the world's first known calculating device.
+The Abacus was the first manual calculating device.
 
-## 2. Napier's Bones
+## Napier's Bones
 
 ![Napier](/img/napier-bones.jpg)
 
-Invented by **John Napier** in 1617.
+Invented by **John Napier**.
 
-## 3. Pascaline
+## Pascaline
 
 ![Pascaline](/img/pascaline.jpg)
 
 Invented by **Blaise Pascal** in 1642.
 
-## 4. Difference Engine
+## Difference Engine
 
-![Difference Engine](/img/difference-engine.jpg)
+![Difference](/img/difference-engine.jpg)
 
 Designed by **Charles Babbage**.
 
-## 5. Analytical Engine
+## Analytical Engine
 
-![Analytical Engine](/img/analytical-engine.jpg)
+![Analytical](/img/analytical-engine.jpg)
 
-The first design of a programmable computer.
-
-| Analytical Engine | Modern Computer |
-|---|---|
-| Mill | CPU |
-| Store | Memory |
-| Punch Card | Input |
-| Printer | Output |
+The first programmable computer design.
 
 ## Ada Lovelace
 
-![Ada Lovelace](/img/ada-lovelace.jpg)
+![Ada](/img/ada-lovelace.jpg)
 
-Known as the **First Computer Programmer**.
+The world's first computer programmer.
 
 ## Harvard Mark I
 
-![Mark I](/img/mark1.jpg)
+![Mark1](/img/mark1.jpg)
 
-Developed in 1944.
+An electromechanical computer.
 
 ## ENIAC
 
 ![ENIAC](/img/eniac.jpg)
 
-The first large-scale electronic digital computer.
+The first large electronic digital computer.
 
-## Famous Inventors
+## Inventors
 
 | Inventor | Contribution |
 |---|---|
@@ -105,36 +91,10 @@ The first large-scale electronic digital computer.
 | Blaise Pascal | Pascaline |
 | Charles Babbage | Difference Engine |
 | Ada Lovelace | First Algorithm |
-| Howard Aiken | Harvard Mark I |
 
-## Advantages
-
-<ProsCons
-  pros={[
-    "Smaller computers",
-    "Higher speed",
-    "Better storage",
-    "Lower power consumption",
-    "More reliable systems"
-  ]}
-  cons={[
-    "Electronic waste",
-    "Rapid hardware changes",
-    "Cyber security risks",
-    "Privacy concerns",
-    "High development cost"
-  ]}
-/>
-
-## Python Example
+## Python
 
 ```python
-inventors = {
-    "Abacus":"Unknown",
-    "Pascaline":"Blaise Pascal",
-    "Difference Engine":"Charles Babbage",
-    "First Algorithm":"Ada Lovelace"
-}
-
-for name, inventor in inventors.items():
-    print(name, ":", inventor)
+inventors = ["Napier", "Pascal", "Babbage", "Ada"]
+for i in inventors:
+    print(i)
