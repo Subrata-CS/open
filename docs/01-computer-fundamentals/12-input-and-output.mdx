@@ -1,34 +1,117 @@
 ---
-title: "Input & Output"
+title: "Input and Output"
 sidebar_position: 12
-sidebar_label: "Input & Output"
+sidebar_label: "Input and Output"
 slug: /computer-fundamentals/input-and-output
-description: "Input & Output - Computer Fundamentals | Open CS Hub"
+description: "Input and Output - Computer Fundamentals | Open CS Hub"
 ---
 
 import RunInLab from '@site/src/components/RunInLab';
 import AskBox from '@site/src/components/AskBox';
 
-# Input & Output
+# Input and Output
 
 ## Overview
 
-_Input & Output - part of Computer Fundamentals. A short introduction goes here._
+**Input and Output (I/O)** devices are how a computer communicates with the outside world — with you, the user. **Input devices** let you send information *into* the computer (like typing on a keyboard or clicking a mouse), while **output devices** let the computer send information back *out to you* (like showing text on a screen or playing sound).
+
+Think of a computer as a person having a conversation: input devices are like your ears, letting the computer "hear" what you want it to do, and output devices are like its mouth, letting it "respond" back to you. Without input, the computer would have no way of knowing what you want. Without output, it would have no way of showing you the result.
+
+Every interaction you have with a computer — typing a message, watching a video, printing a document — relies on this constant back-and-forth between input and output devices.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Input Devices** — Hardware that sends data or commands into the computer. Examples: keyboard, mouse, microphone, scanner, webcam.
+- **Output Devices** — Hardware that receives data from the computer and presents it to the user. Examples: monitor, speakers, printer.
+- **I/O Devices (Both)** — Some devices can act as both input and output, such as a touchscreen (input via touch, output via display) or a network card (sends and receives data).
+- **Data Flow Direction** — Input flows from the user/environment into the computer; output flows from the computer back to the user/environment.
+- **Ports and Connectors** — Physical connections (USB, HDMI, audio jack, etc.) that link I/O devices to the motherboard so they can exchange data with the CPU.
+- **Role of the CPU** — The CPU processes the data received from input devices and sends the results to output devices, acting as the "middleman" in every I/O operation.
+
+## How Input and Output Work (Diagram)
+
+The diagram below shows the flow of data from input devices, through the CPU, to output devices.
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1.5rem',
+  padding: '2.5rem 1rem'
+}}>
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    ⌨️ Input Devices
+  </div>
+
+  <div style={{
+    padding: '1.4rem 2rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    fontWeight: 700,
+    textAlign: 'center'
+  }}>
+    🧠 CPU
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    🖥️ Output Devices
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-1rem',
+  marginBottom: '2rem'
+}}>
+  Data flows in from Input Devices → CPU processes it → results are sent out to Output Devices
+</div>
+
+> Every command you give and every result you see depends on this constant cycle — input in, processing, output out.
 
 ## Example
 
-_A worked example with code._
+Let's understand this with a simple analogy instead of code, since I/O is best understood through everyday interaction.
+
+**Imagine typing a math problem into a calculator app and pressing Enter:**
+
+1. You type `5 + 3` using the **keyboard** — this is an **input device**, sending your keystrokes into the computer.
+2. The keyboard sends this data through a **port** (like USB) to the motherboard, which passes it to the **CPU**.
+3. The CPU processes the input — it understands you've typed numbers and an addition symbol, and calculates the result: 8.
+4. The CPU then sends this result to the **monitor**, an **output device**, which displays "8" on the screen.
+5. If you also had text-to-speech enabled, the CPU could send the same result to your **speakers** (another output device), which would read "eight" out loud.
+
+This entire input → processing → output cycle happens in a fraction of a second, but it's the fundamental pattern behind everything a computer does — whether you're typing a document, clicking a game character, or printing a photo.
 
 ## Run your code
 
-<RunInLab topic="Input & Output" lang="python" />
+<RunInLab topic="Input and Output" lang="python" />
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
 
-<AskBox topic="Input & Output" section="Computer Fundamentals" />
+1. What is the difference between an input device and an output device?
+2. Give two examples of devices that can act as both input and output.
+3. What role does the CPU play in the input-output process?
+4. Why can't a computer function with only input devices and no output devices (or vice versa)?
+5. Name three ports or connectors used to link I/O devices to a computer.
+
+<AskBox topic="Input and Output" section="Computer Fundamentals" />
