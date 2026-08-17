@@ -13,15 +13,116 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Motherboard - part of Computer Fundamentals. A short introduction goes here._
+The **Motherboard** is the main circuit board of a computer. It's often called the **"backbone"** of the computer because every other component — CPU, RAM, storage, graphics card, and all peripheral devices — connects to it, either directly or through cables and ports.
+
+Think of the motherboard as a city's road network: it doesn't do the "work" itself (like the CPU calculating or RAM storing data), but it provides the pathways that let every part of the computer talk to every other part. Without a motherboard, no components could communicate, and the computer simply wouldn't work.
+
+Physically, it's a large flat board filled with circuits, slots, and connectors, usually mounted inside the computer case.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **CPU Socket** — A slot where the CPU is physically installed and connected to the motherboard.
+- **RAM Slots (DIMM slots)** — Slots where RAM (memory) sticks are inserted.
+- **Chipset** — A set of chips on the motherboard that manages communication between the CPU, RAM, storage, and other components.
+- **Expansion Slots (PCIe)** — Slots used to add extra hardware like a graphics card, sound card, or network card.
+- **Storage Connectors (SATA / M.2)** — Ports used to connect hard drives or SSDs to the motherboard.
+- **BIOS/UEFI** — Firmware stored on the motherboard that runs first when you power on the computer, before the operating system loads. It checks hardware and starts the boot process.
+- **Power Connector** — Where the power supply unit (PSU) connects to provide electricity to the motherboard and, through it, to other components.
+- **Form Factor** — The physical size and layout standard of a motherboard (e.g., ATX, Micro-ATX, Mini-ITX), which determines what case it fits into.
+
+## How the Motherboard Works (Diagram)
+
+The diagram below shows how different components connect to the motherboard as the central hub.
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1.5rem',
+  padding: '2.5rem 1rem'
+}}>
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    🧠 CPU
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    💾 RAM
+  </div>
+
+  <div style={{
+    padding: '1.4rem 2rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    fontWeight: 700,
+    textAlign: 'center'
+  }}>
+    🧩 Motherboard
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    💽 Storage (SSD/HDD)
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff6b6b',
+    background: 'rgba(255,107,107,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    🎮 Graphics Card
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-1rem',
+  marginBottom: '2rem'
+}}>
+  All components connect to and communicate through the motherboard
+</div>
+
+> The motherboard doesn't perform calculations itself — it provides the pathways (called **buses**) that let the CPU, RAM, storage, and other parts exchange data with each other.
 
 ## Example
 
-_A worked example with code._
+Let's understand this with a simple analogy instead of code, since the motherboard is a hardware concept.
+
+**Imagine turning on your computer:**
+
+1. You press the power button — electricity flows from the **power supply** into the **motherboard**.
+2. The motherboard's **BIOS/UEFI firmware** starts running first. It checks if the CPU, RAM, and storage are properly connected (this is called **POST — Power-On Self-Test**).
+3. If everything checks out, the BIOS/UEFI hands control over to the **operating system** stored on the SSD/HDD, which is connected to the motherboard via a **SATA or M.2** connector.
+4. As the OS loads, it uses the **CPU** (installed in the CPU socket) to process instructions, and the **RAM** (installed in the DIMM slots) to temporarily store data being worked on.
+5. If you're running a game or video editing software, the **graphics card**, plugged into a **PCIe slot**, handles the visual processing — again, all coordinated through the motherboard's circuits.
+
+So even though the motherboard has no "processing power" of its own, nothing in the computer can work without it — it's the foundation that connects and coordinates everything.
 
 ## Run your code
 
@@ -29,6 +130,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. Why is the motherboard often called the "backbone" of the computer?
+2. What is the role of the chipset on a motherboard?
+3. What is the difference between a CPU socket and a RAM slot?
+4. What does BIOS/UEFI do when you power on the computer?
+5. Why does the form factor (ATX, Micro-ATX, Mini-ITX) of a motherboard matter when building a computer?
 
 <AskBox topic="Motherboard" section="Computer Fundamentals" />
