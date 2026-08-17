@@ -1,34 +1,466 @@
 ---
-title: "Types of Computers"
 sidebar_position: 4
 sidebar_label: "Types of Computers"
 slug: /computer-fundamentals/types-of-computers
-description: "Types of Computers - Computer Fundamentals | Open CS Hub"
+title: "Types of Computers"
+description: "Complete A–Z notes on Types of Computers with classifications, diagrams, comparison tables, real-world examples, quiz and revision."
+keywords:
+  - types of computers
+  - analog computer
+  - digital computer
+  - hybrid computer
+  - supercomputer
+  - mainframe
+  - microcomputer
 ---
 
 import RunInLab from '@site/src/components/RunInLab';
 import AskBox from '@site/src/components/AskBox';
+import Fig from '@site/src/components/Fig';
+import Diagram from '@site/src/components/Diagram';
+import { Lede, Callout, Quiz, Revision } from '@site/src/components/Note';
 
 # Types of Computers
 
+<Lede>
+Computers are classified in different ways depending on **size**, **purpose**, and the **type of data** they process. Understanding these classifications is essential because different computers are designed for different real-world tasks.
+</Lede>
+
 ## Overview
 
-_Types of Computers - part of Computer Fundamentals. A short introduction goes here._
+A **computer** is not a single type of machine. A smartwatch, a laptop, a banking server, and a weather forecasting supercomputer are all computers, but they belong to different categories.
 
-## Key Concepts
+<Callout kind="def" title="Definition">
+**Types of computers** are the different categories of computers classified according to their size, processing capability, purpose, and the kind of data they handle.
+</Callout>
 
-_The main ideas, one line each._
+### Three major classifications
 
-## Example
+<Diagram
+  type="tree"
+  label="Fig 1"
+  title="Classification of computers"
+  caption="The same computer can belong to more than one classification. For example, a laptop is both a microcomputer and a general-purpose digital computer."
+  root="Types of Computers"
+  branches={[
+    {
+      title: 'By Size',
+      subtitle: 'processing power',
+      items: ['Supercomputer', 'Mainframe', 'Minicomputer', 'Microcomputer']
+    },
+    {
+      title: 'By Purpose',
+      subtitle: 'job performed',
+      items: ['General Purpose', 'Special Purpose']
+    },
+    {
+      title: 'By Data',
+      subtitle: 'information handled',
+      items: ['Analog', 'Digital', 'Hybrid']
+    }
+  ]}
+/>
 
-_A worked example with code._
+---
 
-## Run your code
+# Types of Computers by Size
 
-<RunInLab topic="Types of Computers" lang="python" />
+Computers are classified by their **processing power, storage capacity, number of users, and physical size**.
 
-## Practice Questions
+<Diagram
+  type="pyramid"
+  label="Fig 2"
+  title="Types by size and capacity"
+  eyebrow="MOST POWER AT THE TOP"
+  caption="The higher the level, the greater the computing power. The bottom represents the computers used by most people every day."
+  items={[
+    { title: 'Supercomputer', lines: ['highest performance'] },
+    { title: 'Mainframe', lines: ['thousands of users'] },
+    { title: 'Minicomputer', lines: ['department or server'] },
+    { title: 'Microcomputer', lines: ['desktop, laptop, tablet'], highlight: true }
+  ]}
+  footnote="Most computers in the world are microcomputers."
+/>
 
-_Questions to try once you have read the notes above._
+## 1. Supercomputer
 
-<AskBox topic="Types of Computers" section="Computer Fundamentals" />
+<Fig
+  label="Fig 3"
+  title="Supercomputer"
+  caption="Supercomputers perform trillions of calculations every second using thousands of processors working together."
+>
+  <AsyncImageGroup query={["Frontier supercomputer data center","PARAM Siddhi AI supercomputer India","Supercomputer server rows"]} layout=carousel/>
+</Fig>
+
+A **supercomputer** is the fastest and most powerful type of computer. It is designed for extremely complex scientific and engineering calculations.
+
+#### Characteristics
+
+| Feature | Description |
+|---|---|
+| Users | Multiple researchers |
+| Speed | Extremely high |
+| Processors | Thousands |
+| Cost | Very expensive |
+| Size | Large data center |
+
+#### Applications
+
+- Weather forecasting
+- Climate modelling
+- Space research
+- Nuclear simulation
+- Artificial Intelligence training
+
+**Examples:** Frontier, PARAM Siddhi-AI, Fugaku
+
+<Callout kind="tip" title="Exam Fact">
+**PARAM** is India's famous series of supercomputers developed by **C-DAC**.
+</Callout>
+
+---
+
+## 2. Mainframe Computer
+
+<Fig
+  label="Fig 4"
+  title="Mainframe computer"
+  caption="Mainframes are optimized for reliability, security and supporting thousands of users simultaneously."
+>
+  <AsyncImageGroup query={["IBM z mainframe computer","Mainframe data center server","Large enterprise mainframe room"]} layout=carousel/>
+</Fig>
+
+A **mainframe computer** is a powerful computer used by large organizations to process millions of transactions every day.
+
+#### Characteristics
+
+| Feature | Description |
+|---|---|
+| Users | Thousands |
+| Reliability | Very high |
+| Processing | Bulk data |
+| Security | Excellent |
+
+#### Used in
+
+- Banking
+- Railway reservation
+- Insurance
+- Government databases
+- Airline booking
+
+**Example:** IBM Z Series
+
+---
+
+## 3. Minicomputer
+
+<Fig
+  label="Fig 5"
+  title="Minicomputer"
+  caption="Minicomputers are medium-sized systems often used as departmental servers in organizations."
+>
+  <AsyncImageGroup query={["Minicomputer server rack","DEC PDP minicomputer historical","Department server room"]} layout=carousel/>
+</Fig>
+
+A **minicomputer** is a medium-sized multi-user computer positioned between a mainframe and a microcomputer.
+
+#### Features
+
+- Supports dozens of users
+- Smaller than mainframe
+- Used as servers
+- Moderate processing power
+
+#### Applications
+
+- Schools
+- Laboratories
+- Small industries
+- Departmental databases
+
+---
+
+## 4. Microcomputer
+
+<Fig
+  label="Fig 6"
+  title="Microcomputer"
+  caption="Microcomputers are personal computers built around a single microprocessor and used by one person at a time."
+>
+  <AsyncImageGroup query={["Desktop computer setup","Modern laptop computer","Tablet and smartphone on desk"]} layout=carousel/>
+</Fig>
+
+A **microcomputer** is a personal computer designed for a single user.
+
+#### Common examples
+
+- Desktop
+- Laptop
+- Tablet
+- Smartphone
+- Chromebook
+
+#### Characteristics
+
+| Feature | Description |
+|---|---|
+| Users | One |
+| Cost | Affordable |
+| Size | Compact |
+| Processor | Single microprocessor |
+
+<Callout kind="note" title="Remember">
+Almost every computer used in homes, schools and offices is a **microcomputer**.
+</Callout>
+
+---
+
+# Comparison by Size
+
+| Type | Users | Processing Power | Example |
+|---|---|---|---|
+| Supercomputer | Thousands | Highest | Frontier |
+| Mainframe | Thousands | Very High | IBM Z |
+| Minicomputer | Dozens | Medium | Department Server |
+| Microcomputer | Single User | Moderate | Laptop |
+
+---
+
+# Types by Purpose
+
+Not all computers are built for the same job. Some perform many tasks, while others are designed for only one specific function.
+
+<Diagram
+  type="chain"
+  label="Fig 7"
+  title="Classification by purpose"
+  caption="General-purpose computers run many applications, while special-purpose computers are built for one dedicated task."
+  items={[
+    { title: 'General Purpose', lines: ['many different tasks'], highlight: true },
+    { title: 'Special Purpose', lines: ['one specific job'] }
+  ]}
+/>
+
+## General Purpose Computer
+
+<AsyncImageGroup query={["Office desktop computer","Laptop coding workspace","Student using personal computer"]} layout=carousel aspectRatio="5:4"/>
+
+A **general-purpose computer** can perform many different tasks simply by changing the software.
+
+#### Examples
+
+- Laptop
+- Desktop
+- Tablet
+- Workstation
+
+#### Uses
+
+- Programming
+- Gaming
+- Internet
+- Office work
+- Education
+
+---
+
+## Special Purpose Computer
+
+<AsyncImageGroup query={["ATM machine close up","Traffic light controller cabinet","Washing machine electronic control board"]} layout=carousel aspectRatio="5:4"/>
+
+A **special-purpose computer** is designed for one dedicated task only.
+
+| Device | Purpose |
+|---|---|
+| ATM | Banking |
+| Traffic Light | Signal control |
+| Washing Machine | Automatic washing |
+| Microwave | Cooking control |
+| ECG Machine | Medical monitoring |
+
+---
+
+# Types by Data Handling
+
+Computers are also classified according to the type of data they process.
+
+<Diagram
+  type="chain"
+  label="Fig 8"
+  title="Classification by data"
+  caption="Analog handles continuous values, digital handles binary values, and hybrid combines both approaches."
+  items={[
+    { title: 'Analog', lines: ['continuous values'] },
+    { title: 'Digital', lines: ['binary numbers'], highlight: true },
+    { title: 'Hybrid', lines: ['combination of both'] }
+  ]}
+/>
+
+## Analog Computer
+
+<Fig
+  label="Fig 9"
+  title="Analog computer"
+  caption="Analog computers work with continuously changing physical quantities rather than discrete numbers."
+>
+  <AsyncImageGroup query={["Analog speedometer dashboard","Mercury thermometer close up","Analog voltmeter instrument"]} layout=carousel/>
+</Fig>
+
+An **analog computer** processes **continuous physical values** such as temperature, speed, pressure and voltage.
+
+#### Examples
+
+- Speedometer
+- Analog thermometer
+- Voltmeter
+- Pressure gauge
+
+**Output:** Continuous values
+
+---
+
+## Digital Computer
+
+<Fig
+  label="Fig 10"
+  title="Digital computer"
+  caption="Digital computers process binary digits (0 and 1) and are the most common computers today."
+>
+  <AsyncImageGroup query={["Modern desktop computer","Laptop with programming screen","Smartphone digital device"]} layout=carousel/>
+</Fig>
+
+A **digital computer** processes data using **binary digits (0 and 1)**.
+
+#### Characteristics
+
+- High accuracy
+- Fast processing
+- Large storage
+- Most commonly used
+
+#### Examples
+
+- Desktop
+- Laptop
+- Smartphone
+- Calculator
+
+---
+
+## Hybrid Computer
+
+<Fig
+  label="Fig 11"
+  title="Hybrid computer"
+  caption="Hybrid computers combine analog measurement with digital processing, making them ideal for medical and industrial systems."
+>
+  <AsyncImageGroup query={["ICU patient monitoring system","Petrol pump digital analog system","Hospital ECG monitoring equipment"]} layout=carousel/>
+</Fig>
+
+A **hybrid computer** combines the features of **analog** and **digital** computers.
+
+#### Applications
+
+- ICU monitoring
+- ECG machine
+- Petrol pump
+- Aircraft control
+- Industrial automation
+
+<Callout kind="tip" title="Memory Trick">
+**AHD**
+
+- **A** = Analog → Continuous
+- **H** = Hybrid → Both
+- **D** = Digital → Binary
+</Callout>
+
+---
+
+# Complete Comparison
+
+| Feature | Analog | Digital | Hybrid |
+|---|---|---|---|
+| Data | Continuous | Binary | Both |
+| Accuracy | Medium | High | High |
+| Speed | Fast | Very Fast | Very Fast |
+| Example | Thermometer | Laptop | ECG Machine |
+
+---
+
+# Real-Life Examples
+
+| Device | Type |
+|---|---|
+| Smartphone | Microcomputer + Digital |
+| ATM | Special Purpose + Digital |
+| Weather Supercomputer | Supercomputer |
+| Railway Reservation Server | Mainframe |
+| ICU Patient Monitor | Hybrid |
+| Desktop PC | General Purpose |
+
+---
+
+# Example
+
+Suppose an exam asks:
+
+**Why is a laptop called a microcomputer?**
+
+**Answer:**
+
+> A laptop is called a microcomputer because it is designed for a single user and uses a single microprocessor as its CPU. It is compact, affordable and suitable for general-purpose computing.
+
+---
+
+# Practice Questions
+
+<Quiz
+  items={[
+    {
+      q: 'Which is the most powerful type of computer?',
+      a: 'Supercomputer.'
+    },
+    {
+      q: 'Which computer is used in banks?',
+      a: 'Mainframe Computer.'
+    },
+    {
+      q: 'Which computer is designed for one user?',
+      a: 'Microcomputer.'
+    },
+    {
+      q: 'What type of computer processes continuous values?',
+      a: 'Analog Computer.'
+    },
+    {
+      q: 'Which type combines analog and digital technology?',
+      a: 'Hybrid Computer.'
+    },
+    {
+      q: 'Is a laptop a general-purpose or special-purpose computer?',
+      a: 'General-purpose computer.'
+    }
+  ]}
+/>
+
+---
+
+# Quick Revision
+
+<Revision
+  points={[
+    'By Size → Super, Mainframe, Mini, Micro',
+    'By Purpose → General Purpose & Special Purpose',
+    'By Data → Analog, Digital & Hybrid',
+    'Supercomputer = Highest processing power',
+    'Mainframe = Thousands of users',
+    'Microcomputer = Personal computer',
+    'Analog = Continuous values',
+    'Digital = Binary numbers',
+    'Hybrid = Combination of Analog + Digital'
+  ]}
+/>
+
+<AskBox topic="Types of Computers" section="Computer Fundamentals"/>
