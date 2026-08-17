@@ -13,15 +13,103 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_ROM - part of Computer Fundamentals. A short introduction goes here._
+**ROM (Read Only Memory)** is a type of memory that permanently stores data, even when the computer is turned off. Unlike RAM, which loses everything when power is cut, ROM keeps its data safe no matter what — this is why it's called **non-volatile memory**.
+
+ROM usually stores the most basic, critical instructions a computer needs — like the **firmware (BIOS/UEFI)** that runs the moment you turn the computer on, before the operating system even loads. Think of ROM as a small instruction manual permanently glued inside the computer: you can read it anytime, but under normal use, you can't easily change or erase what's written in it.
+
+Physically, ROM is usually a small chip on the motherboard, much smaller in capacity than RAM or storage, because it only needs to hold a small set of essential startup instructions.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Non-Volatile Memory** — ROM keeps its data permanently, even when the computer is powered off, unlike RAM which is volatile.
+- **Read Only** — Under normal operation, data in ROM cannot be modified or deleted by regular programs, protecting critical startup instructions from being accidentally changed.
+- **Firmware** — The software permanently stored in ROM, such as BIOS/UEFI, which controls the earliest stage of the computer's startup process.
+- **ROM vs RAM** — ROM is non-volatile and mainly read-only; RAM is volatile and can be read from and written to constantly during normal use.
+- **Types of ROM** — Includes variations like **PROM** (Programmable ROM), **EPROM** (Erasable Programmable ROM), and **EEPROM** (Electrically Erasable Programmable ROM), which allow limited, controlled ways to update the stored data.
+- **Boot Process Role** — ROM holds the very first instructions the CPU executes when the computer powers on, before handing control over to the operating system.
+
+## How ROM Works (Diagram)
+
+The diagram below shows where ROM fits into the computer's startup sequence.
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1.5rem',
+  padding: '2.5rem 1rem'
+}}>
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    🔌 Power On
+  </div>
+
+  <div style={{
+    padding: '1.4rem 2rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    fontWeight: 700,
+    textAlign: 'center'
+  }}>
+    📀 ROM (BIOS/UEFI)
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    💾 RAM
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    🖥️ Operating System
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-1rem',
+  marginBottom: '2rem'
+}}>
+  Power On → ROM runs firmware and checks hardware → loads OS into RAM → OS takes over
+</div>
+
+> ROM's job finishes early — once it hands off control to the operating system, RAM and storage take over for everyday tasks.
 
 ## Example
 
-_A worked example with code._
+Let's understand this with a simple analogy instead of code, since ROM is best understood through the startup process.
+
+**Imagine turning on your computer:**
+
+1. You press the power button — electricity reaches the motherboard.
+2. The CPU's very first instructions come from **ROM**, specifically the firmware (BIOS/UEFI) stored there.
+3. This firmware performs a quick hardware check, called **POST (Power-On Self-Test)**, making sure the CPU, RAM, and storage are all working properly.
+4. Once the check passes, the firmware in ROM locates the operating system on the storage drive and loads it into **RAM**.
+5. From this point on, the operating system takes control, and ROM's job is done until the next time you restart the computer.
+
+Because ROM's instructions rarely need to change, and must always be available even after a power loss, storing them in non-volatile ROM (instead of volatile RAM) ensures the computer can always start up reliably.
 
 ## Run your code
 
@@ -29,6 +117,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What does ROM stand for, and why is it called "non-volatile memory"?
+2. What is the main difference between ROM and RAM?
+3. What kind of software is typically stored in ROM?
+4. What is the role of ROM during the computer's boot process?
+5. Why can't ROM usually be modified like RAM during normal computer use?
 
 <AskBox topic="ROM" section="Computer Fundamentals" />
