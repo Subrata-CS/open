@@ -1,0 +1,306 @@
+/**
+ * Open CS Hub — topic note styles
+ *
+ * Everything a topic page needs beyond plain markdown: the opening lede, the
+ * definition block, figures with captures, the two-column advantage/limitation
+ * cards, and the table and <details> polish.
+ *
+ * Loaded after custom.css, so it inherits --open-* tokens from there.
+ * Every block below is width-safe: nothing is absolutely positioned, tables and
+ * diagrams scroll inside their own box instead of pushing the page sideways.
+ */
+
+:root {
+  --nx-line: #94a3b8;
+  --nx-ctrl: #c026d3;
+  --nx-box-bg: #f8fafc;
+  --nx-box-br: #cbd5e1;
+  --nx-mem-bg: #eef2ff;
+  --nx-cpu-br: #818cf8;
+  --nx-ink: #0f172a;
+  --nx-dim: #64748b;
+  --nx-pro: #16a34a;
+  --nx-con: #e11d48;
+}
+
+[data-theme='dark'] {
+  --nx-line: #94a3b8;
+  --nx-ctrl: #f0abfc;
+  --nx-box-bg: #182144;
+  --nx-box-br: #34406e;
+  --nx-mem-bg: #1e2a55;
+  --nx-cpu-br: #6366f1;
+  --nx-ink: #f4f6ff;
+  --nx-dim: #a9b4d4;
+  --nx-pro: #4ade80;
+  --nx-con: #fb7185;
+}
+
+/* ---------------------------------------------------------------- lede --- */
+
+.nx-lede {
+  font-size: 1.06rem;
+  line-height: 1.75;
+  color: var(--open-text-dim, var(--nx-dim));
+  border-left: 3px solid var(--ifm-color-primary);
+  padding-left: 1rem;
+  margin: 0 0 2rem;
+}
+
+/* ---------------------------------------------------------- definition --- */
+
+.nx-def {
+  position: relative;
+  margin: 1.5rem 0 2rem;
+  padding: 1.35rem 1.35rem 1.25rem;
+  border: 1px solid var(--open-border);
+  border-left: 4px solid var(--ifm-color-primary);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--ifm-color-primary) 8%, transparent);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.nx-def__tag {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary);
+}
+
+.nx-note {
+  margin: 0.9rem 0 2rem;
+  font-size: 0.95rem;
+  color: var(--open-text-dim, var(--nx-dim));
+}
+
+/* -------------------------------------------------------------- figure --- */
+
+.nx-fig {
+  margin: 2rem 0 2.5rem;
+  padding: 1.25rem 1rem 0.9rem;
+  border: 1px solid var(--open-border);
+  border-radius: 14px;
+  background: var(--open-surface);
+  /* a wide diagram scrolls inside the card; the page itself never widens */
+  overflow-x: auto;
+}
+
+.nx-svg {
+  display: block;
+  width: 100%;
+  min-width: 560px;
+  height: auto;
+}
+
+.nx-fig figcaption {
+  margin-top: 0.9rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--open-border);
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--open-text-dim, var(--nx-dim));
+}
+
+/* svg parts, themed so the same diagram reads in light and dark */
+
+.nx-box {
+  fill: var(--nx-box-bg);
+  stroke: var(--nx-box-br);
+  stroke-width: 1.5;
+}
+
+.nx-box--mem {
+  fill: var(--nx-mem-bg);
+}
+
+.nx-cpu {
+  fill: none;
+  stroke: var(--nx-cpu-br);
+  stroke-width: 1.5;
+  stroke-dasharray: 7 6;
+}
+
+.nx-flow {
+  fill: none;
+  stroke: var(--nx-line);
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+}
+
+.nx-ctrl {
+  fill: none;
+  stroke: var(--nx-ctrl);
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+  stroke-linejoin: round;
+}
+
+.nx-head {
+  fill: var(--nx-line);
+  stroke: none;
+}
+
+.nx-head--ctrl {
+  fill: var(--nx-ctrl);
+}
+
+.nx-t {
+  fill: var(--nx-ink);
+  font-family: var(--ifm-font-family-base);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.nx-s {
+  fill: var(--nx-dim);
+  font-family: var(--ifm-font-family-base);
+  font-size: 11.5px;
+}
+
+.nx-eyebrow {
+  fill: var(--ifm-color-primary);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+/* --------------------------------------------------------------- cards --- */
+
+.nx-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2.25rem;
+}
+
+.nx-card {
+  padding: 1.1rem 1.25rem 0.5rem;
+  border: 1px solid var(--open-border);
+  border-top: 3px solid var(--open-border);
+  border-radius: 12px;
+  background: var(--open-surface);
+}
+
+.nx-card h4 {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.nx-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.nx-card li {
+  margin-bottom: 0.35rem;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.nx-card--pro {
+  border-top-color: var(--nx-pro);
+}
+
+.nx-card--pro h4 {
+  color: var(--nx-pro);
+}
+
+.nx-card--con {
+  border-top-color: var(--nx-con);
+}
+
+.nx-card--con h4 {
+  color: var(--nx-con);
+}
+
+/* -------------------------------------------------------------- tables --- */
+
+/* A six-column table on a 380px phone is the one thing that breaks the
+   layout, so every table scrolls inside its own strip. */
+.markdown table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 1.25rem 0 2rem;
+  font-size: 0.94rem;
+}
+
+.markdown table thead tr {
+  background: color-mix(in srgb, var(--ifm-color-primary) 12%, transparent);
+}
+
+.markdown table th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.markdown table th,
+.markdown table td {
+  border: 1px solid var(--open-border);
+  padding: 0.6rem 0.85rem;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.markdown table tr:nth-child(2n) {
+  background: color-mix(in srgb, var(--open-border) 22%, transparent);
+}
+
+/* ------------------------------------------------------------- details --- */
+
+.markdown details {
+  margin: 0.6rem 0;
+  border-radius: 10px;
+  border: 1px solid var(--open-border);
+  background: var(--open-surface);
+}
+
+.markdown details > summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------- mermaid --- */
+
+.docusaurus-mermaid-container {
+  margin: 1.75rem 0 2.25rem;
+  padding: 1.1rem 0.5rem;
+  border: 1px solid var(--open-border);
+  border-radius: 14px;
+  background: var(--open-surface);
+  overflow-x: auto;
+}
+
+.docusaurus-mermaid-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --------------------------------------------------------------- phone --- */
+
+@media (max-width: 600px) {
+  .nx-lede {
+    font-size: 1rem;
+  }
+
+  .nx-fig {
+    padding: 1rem 0.75rem 0.75rem;
+  }
+
+  .nx-card {
+    padding: 1rem 1rem 0.4rem;
+  }
+
+  .markdown table th,
+  .markdown table td {
+    padding: 0.5rem 0.6rem;
+  }
+}
