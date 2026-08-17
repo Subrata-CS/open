@@ -20,6 +20,7 @@
     "@easyops-cn/docusaurus-search-local": "^0.55.3",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.1.1",
+    "katex": "^0.18.4",
     "marked": "^18.0.9",
     "prism-react-renderer": "^2.4.0",
     "react": "^19.0.0",

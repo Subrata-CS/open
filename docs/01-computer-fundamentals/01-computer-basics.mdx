@@ -17,7 +17,7 @@ import RunInLab from '@site/src/components/RunInLab';
 import AskBox from '@site/src/components/AskBox';
 import Fig from '@site/src/components/Fig';
 import Diagram from '@site/src/components/Diagram';
-import { Lede, Callout, ProsCons, Quiz, Revision } from '@site/src/components/Note';
+import { Lede, Callout, ProsCons, Quiz, Revision, Eq } from '@site/src/components/Note';
 
 # Computer Basics
 
@@ -331,6 +331,8 @@ The computer stores everything — text, images, sound, video — as **bits**: 0
 | Megabyte (MB) | 1024 KB | A photo or a song |
 | Gigabyte (GB) | 1024 MB | A film |
 | Terabyte (TB) | 1024 GB | A large hard disk |
+
+<Eq block>{String.raw`1\;\text{KB} = 2^{10}\;\text{bytes} = 1024\;\text{bytes}`}</Eq>
 
 <Callout kind="note" title="Why 1024 and not 1000">
   Because the machine counts in base 2, and 2 to the power 10 equals 1024. Disk

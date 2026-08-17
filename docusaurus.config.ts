@@ -1,11 +1,11 @@
-import type { Config } from '@docusaurus/types';
+﻿import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import { themes as prismThemes } from 'prism-react-renderer';
 
 const config: Config = {
-  title: 'Open — A to Z Computer Science',
+  title: 'Open â€” A to Z Computer Science',
   tagline:
-    'An open learning hub — from programming fundamentals to Machine Learning, Deep Learning, Generative AI and Computer Vision.',
+    'An open learning hub â€” from programming fundamentals to Machine Learning, Deep Learning, Generative AI and Computer Vision.',
   favicon: 'img/favicon.svg',
 
   // ---- GitHub Pages ----
@@ -42,8 +42,8 @@ const config: Config = {
    *
    * The policy is an allow-list: the only places the browser may fetch code,
    * styles or data from are the ones this site actually uses. Anything
-   * injected by an attacker — an inline <script>, a hijacked third-party
-   * domain, an iframe wrapping the site — is refused by the browser itself.
+   * injected by an attacker â€” an inline <script>, a hijacked third-party
+   * domain, an iframe wrapping the site â€” is refused by the browser itself.
    *
    * `frame-ancestors` is deliberately absent: browsers ignore it in a <meta>
    * tag, and GitHub Pages cannot send it as a header, so declaring it would
@@ -89,7 +89,7 @@ const config: Config = {
   themes: [
     '@docusaurus/theme-mermaid',
     [
-      // Offline full-text search — GitHub Pages e kaj kore, kono API key lagbe na
+      // Offline full-text search â€” GitHub Pages e kaj kore, kono API key lagbe na
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
         hashed: true,
@@ -131,7 +131,7 @@ const config: Config = {
 
   themeConfig: {
     image: 'img/social-card.svg',
-    // Dark only — no light theme, no toggle.
+    // Dark only â€” no light theme, no toggle.
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: true,
@@ -165,7 +165,7 @@ const config: Config = {
         { to: '/tools', label: 'Tools', position: 'left' },
         { to: '/careers', label: 'Global Career Links', position: 'left' },
         {
-          // Opens the Ask AI drawer on the current page — no navigation, and
+          // Opens the Ask AI drawer on the current page â€” no navigation, and
           // no API key, so nothing is ever billed to us.
           type: 'dropdown',
           label: 'Ask AI',
@@ -197,7 +197,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [],
-      copyright: `MIT License · © ${new Date().getFullYear()} Subrata Pramanik`,
+      copyright: `MIT License Â· Â© ${new Date().getFullYear()} Subrata Pramanik`,
     },
     prism: {
       theme: prismThemes.github,
