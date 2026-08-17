@@ -16,6 +16,10 @@ import Fig from '../Fig';
  *   chain    boxes in order, arrows between them (a process, a pipeline)
  *   tree     one root splitting into branches, each with a list (a taxonomy)
  *   pyramid  stacked tiers, widest at the bottom (a hierarchy)
+ *   steps    full-width rows down the page (a long sequence: eras, phases)
+ *
+ * Use steps rather than chain whenever there are more than four stages —
+ * five boxes across a page leaves each one too narrow to read.
  *
  * Anything with a shape of its own — the CPU block diagram, a circuit — is
  * still written by hand and passed to <Fig> directly.
@@ -24,6 +28,8 @@ import Fig from '../Fig';
 export type DiagramItem = {
   /** The bold line inside the box. */
   title: string;
+  /** steps only: the era or number shown in the left column, e.g. "1946–1959". */
+  tag?: string;
   /** Up to two short lines under it. */
   lines?: string[];
   /** Tint this box, to mark the step that matters most. */
@@ -37,7 +43,7 @@ export type DiagramBranch = {
 };
 
 export type DiagramProps = {
-  type: 'chain' | 'tree' | 'pyramid';
+  type: 'chain' | 'tree' | 'pyramid' | 'steps';
   label?: string;
   title?: string;
   caption?: string;
@@ -114,6 +120,26 @@ const box = (
   );
 };
 
+/** Break a sentence into lines short enough for the given drawing width. */
+const wrapText = (text: string, maxChars: number): string[] => {
+  const words = text.split(' ');
+  const lines: string[] = [];
+  let line = '';
+
+  words.forEach((word) => {
+    const next = line ? `${line} ${word}` : word;
+    if (next.length > maxChars && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = next;
+    }
+  });
+  if (line) lines.push(line);
+
+  return lines;
+};
+
 const boxHeight = (item: DiagramItem, big: boolean) => {
   const lines = item.lines?.length ?? 0;
   return (big ? 52 : 44) + lines * (big ? 24 : 22);
@@ -125,8 +151,10 @@ function chainWide(p: DiagramProps, marker: string) {
   const items = p.items ?? [];
   const W = 880;
   const pad = 30;
-  const gap = 58;
   const n = Math.max(items.length, 1);
+  /* Four boxes in a row need the arrows to give up some room, or the labels
+     start touching the box edges. */
+  const gap = n >= 4 ? 34 : 58;
   const w = (W - pad * 2 - gap * (n - 1)) / n;
   const top = p.eyebrow ? 74 : 40;
   const h = Math.max(...items.map((i) => boxHeight(i, false)), 80);
@@ -262,7 +290,8 @@ function chainNarrow(p: DiagramProps, marker: string) {
     H = asideY + asideH + 24;
   }
 
-  if (p.footnote) H += 28;
+  const footLines = p.footnote ? wrapText(p.footnote, 44) : [];
+  if (footLines.length) H += 8 + footLines.length * 20;
 
   return (
     <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={p.title ?? 'Diagram'}>
@@ -273,11 +302,17 @@ function chainNarrow(p: DiagramProps, marker: string) {
         </text>
       )}
       {nodes}
-      {p.footnote && (
-        <text x={W / 2} y={H - 10} textAnchor="middle" className="nx-s nx-s--m">
-          {p.footnote}
+      {footLines.map((line, i) => (
+        <text
+          key={i}
+          x={W / 2}
+          y={H - (footLines.length - i) * 20 + 10}
+          textAnchor="middle"
+          className="nx-s nx-s--m"
+        >
+          {line}
         </text>
-      )}
+      ))}
     </svg>
   );
 }
@@ -461,6 +496,117 @@ function treeNarrow(p: DiagramProps, marker: string) {
   );
 }
 
+/* ---------------------------------------------------------------- steps --- */
+
+/**
+ * Rows down the page: a tag column on the left, the substance on the right.
+ * Reads the same on a laptop and a phone, which is why it suits a list of five
+ * or six stages that would be unreadable side by side.
+ */
+function steps(p: DiagramProps, W: number, marker: string, big: boolean) {
+  const items = p.items ?? [];
+  const x = big ? 20 : 30;
+  const w = W - x * 2;
+  const tagW = big ? 0 : 172;
+  const gap = 16;
+  let y = p.eyebrow ? 46 : 22;
+  const nodes: ReactNode[] = [];
+
+  items.forEach((item, i) => {
+    const nl = item.lines?.length ?? 0;
+    const h = big ? 80 + nl * 24 : 62 + nl * 22;
+    const textX = big ? x + 18 : x + tagW + 18;
+
+    nodes.push(
+      <g key={`r${i}`}>
+        <rect
+          x={x}
+          y={y}
+          width={w}
+          height={h}
+          rx={12}
+          className={item.highlight ? 'nx-box nx-box--mem' : 'nx-box'}
+        />
+        {!big && item.tag && (
+          <>
+            <line
+              x1={x + tagW}
+              y1={y + 12}
+              x2={x + tagW}
+              y2={y + h - 12}
+              className="nx-cpu"
+            />
+            <text x={x + 20} y={y + h / 2 + 4} className="nx-eyebrow">
+              {item.tag}
+            </text>
+          </>
+        )}
+        {big && item.tag && (
+          <text x={textX} y={y + 26} className="nx-eyebrow">
+            {item.tag}
+          </text>
+        )}
+        <text x={textX} y={y + (big ? 50 : 30)} className={big ? 'nx-t nx-t--m' : 'nx-t'}>
+          {item.title}
+        </text>
+        {(item.lines ?? []).map((line, j) => (
+          <text
+            key={j}
+            x={textX}
+            y={y + (big ? 76 : 52) + j * (big ? 24 : 22)}
+            className={big ? 'nx-s nx-s--m' : 'nx-s'}
+          >
+            {line}
+          </text>
+        ))}
+      </g>,
+    );
+
+    if (i < items.length - 1) {
+      const cx = big ? x + 30 : x + tagW / 2;
+      nodes.push(
+        <line
+          key={`c${i}`}
+          x1={cx}
+          y1={y + h}
+          x2={cx}
+          y2={y + h + gap + 6}
+          className="nx-flow"
+          markerEnd={`url(#${marker})`}
+        />,
+      );
+    }
+
+    y += h + gap + 6;
+  });
+
+  const footLines = p.footnote ? wrapText(p.footnote, big ? 44 : 110) : [];
+  const H = y + (footLines.length ? 10 + footLines.length * 20 : -12);
+
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={p.title ?? 'Diagram'}>
+      {arrowDefs(marker)}
+      {p.eyebrow && (
+        <text x={x} y={26} className="nx-eyebrow">
+          {p.eyebrow}
+        </text>
+      )}
+      {nodes}
+      {footLines.map((line, i) => (
+        <text
+          key={i}
+          x={W / 2}
+          y={H - (footLines.length - i) * 20 + 14}
+          textAnchor="middle"
+          className={big ? 'nx-s nx-s--m' : 'nx-s'}
+        >
+          {line}
+        </text>
+      ))}
+    </svg>
+  );
+}
+
 /* -------------------------------------------------------------- pyramid --- */
 
 function pyramid(p: DiagramProps, W: number, topW: number, botW: number, tierH: number, big: boolean) {
@@ -534,6 +680,9 @@ export default function Diagram(props: DiagramProps): ReactNode {
   if (props.type === 'chain') {
     wide = chainWide(props, mW);
     narrow = chainNarrow(props, mN);
+  } else if (props.type === 'steps') {
+    wide = steps(props, 880, mW, false);
+    narrow = steps(props, 420, mN, true);
   } else if (props.type === 'tree') {
     wide = treeWide(props, mW);
     narrow = treeNarrow(props, mN);
@@ -547,7 +696,7 @@ export default function Diagram(props: DiagramProps): ReactNode {
       label={props.label}
       title={props.title}
       caption={props.caption}
-      animated={props.animated ?? props.type === 'chain'}
+      animated={props.animated ?? (props.type === 'chain' || props.type === 'steps')}
       narrow={narrow}
     >
       {wide}
