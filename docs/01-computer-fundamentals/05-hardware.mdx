@@ -3,234 +3,253 @@ title: Computer Hardware
 sidebar_position: 5
 sidebar_label: Hardware
 slug: /computer-fundamentals/hardware
-description: Complete guide to computer hardware with diagrams, figures, tables, real-life examples, advantages, disadvantages, and practice questions.
+description: Complete guide to computer hardware with diagrams, figures, tables, advantages, disadvantages and practice questions.
 keywords:
-  - computer hardware
   - hardware
-  - internal hardware
-  - external hardware
+  - computer hardware
   - cpu
   - ram
+  - motherboard
 ---
 
-import Diagram from '@site/src/components/Diagram'
 import RunInLab from '@site/src/components/RunInLab'
 import AskBox from '@site/src/components/AskBox'
+import Diagram from '@site/src/components/Diagram'
 import { Lede, Callout, ProsCons, Quiz, Revision } from '@site/src/components/Note'
 
 # Computer Hardware
 
 <Lede>
-Computer hardware is the collection of all physical parts of a computer system. Every device you can touch—from the processor inside the motherboard to the keyboard on your desk—is hardware. Hardware works together with software to perform useful tasks.
+Computer hardware refers to every physical component of a computer system. It includes the processor, motherboard, memory, storage devices, keyboard, monitor, printer and every electronic part that can be touched.
 </Lede>
 
 ---
 
-## What is Computer Hardware?
+## What is Hardware?
 
 <Callout kind="def" title="Definition">
-**Computer Hardware** is the collection of physical electronic and mechanical components that make up a computer system. Hardware includes both the internal components inside the system unit and the external devices connected to it.
+Hardware is the collection of all physical electronic and mechanical components of a computer system.
 </Callout>
 
-### Real-Life Example
+A computer cannot work using hardware alone. Hardware performs the physical work while software provides the instructions.
 
-Think of the human body.
+### Real-Life Example
 
 | Human Body | Computer Hardware |
 |---|---|
 | Brain | CPU |
 | Memory | RAM |
-| Skeleton | Cabinet |
 | Eyes | Monitor |
 | Hands | Keyboard & Mouse |
+| Skeleton | Cabinet |
 | Heart | Power Supply |
-
-Just as the brain controls the human body, the **CPU** controls the computer.
 
 ---
 
-## Hardware Overview
+# Hardware Classification
 
 <Diagram
   type="tree"
   label="Fig 1"
-  title="Classification of Computer Hardware"
-  root="Computer Hardware"
+  title="Classification of Hardware"
+  root="Hardware"
   branches={[
     {
-      title: 'Internal Hardware',
-      subtitle: 'inside the computer',
-      items: ['CPU', 'Motherboard', 'RAM', 'Storage', 'Power Supply'],
+      title: 'Internal',
+      subtitle: 'Inside cabinet',
+      items: ['CPU','Motherboard','RAM','Storage','PSU']
     },
     {
-      title: 'External Hardware',
-      subtitle: 'outside the computer',
-      items: ['Keyboard', 'Mouse', 'Monitor', 'Printer', 'Speakers'],
-    },
+      title: 'External',
+      subtitle: 'Outside cabinet',
+      items: ['Keyboard','Mouse','Monitor','Printer']
+    }
   ]}
 />
 
-**Hardware is divided into two categories:**
-
-1. Internal Hardware
-2. External Hardware
+Hardware is divided into **Internal Hardware** and **External Hardware**.
 
 ---
 
 # Internal Hardware
 
-Internal hardware consists of the components located inside the computer cabinet.
+## CPU (Central Processing Unit)
 
-## 1. CPU (Central Processing Unit)
+![CPU](/img/hardware/cpu.jpg)
 
-<AsyncImageGroup query={["Intel Core i7 processor close up","AMD Ryzen processor top view","CPU installed on motherboard"]} layout=bento aspectRatio="5:4"/>
+*Figure 1. Intel Processor*
 
-The **CPU** is known as the **Brain of the Computer** because it performs calculations, logical operations, and executes program instructions.
+The CPU is called the **Brain of the Computer** because it executes instructions and controls every operation.
 
 | Feature | Description |
 |---|---|
 | Full Name | Central Processing Unit |
 | Function | Processes instructions |
-| Performs | Arithmetic & Logic |
-| Speed | Measured in GHz |
-| Example | Intel Core i5, AMD Ryzen 7 |
+| Speed | GHz |
+| Performs | Arithmetic & Logical Operations |
+| Example | Intel Core i7, AMD Ryzen |
 
-### Why is CPU called the Brain?
+### Functions
 
-- Executes every instruction
-- Controls other hardware
-- Performs calculations
-- Makes logical decisions
+- Execute instructions
+- Perform calculations
+- Control hardware
+- Process data
 
 ---
 
-## 2. Motherboard
+## Motherboard
 
-<AsyncImageGroup query={["Desktop computer motherboard top view","Motherboard with labeled components","Gaming motherboard high resolution"]} layout=carousel/>
+![Motherboard](/img/hardware/motherboard.jpg)
 
-The **Motherboard** is the main printed circuit board (PCB) that connects every hardware component.
+*Figure 2. Desktop Motherboard*
 
-### Main Parts
+The motherboard is the **main printed circuit board (PCB)** that connects every component together.
+
+### Main Components
 
 | Component | Purpose |
 |---|---|
-| CPU Socket | Holds the processor |
-| RAM Slot | Holds memory modules |
-| PCIe Slot | Graphics & expansion cards |
-| BIOS Chip | Starts the computer |
-| Power Connector | Receives electricity |
-
-### Real-Life Example
-
-The motherboard is like the **road network of a city**. Every device communicates through it.
+| CPU Socket | Holds processor |
+| RAM Slot | Memory installation |
+| PCIe Slot | Graphics card |
+| BIOS Chip | Starts computer |
+| SATA Port | Connect storage |
 
 ---
 
-## 3. RAM (Random Access Memory)
+## RAM (Random Access Memory)
 
-<AsyncImageGroup query={["DDR4 RAM memory module","Laptop RAM stick","RGB desktop RAM module"]} layout=carousel/>
+![RAM](/img/hardware/ram.jpg)
 
-RAM stores data **temporarily** while programs are running.
+*Figure 3. DDR4 Memory Module*
+
+RAM stores data temporarily while applications are running.
 
 <Callout kind="note" title="Important">
-RAM is **volatile memory**. All stored data disappears when the computer is powered off.
+RAM is **volatile memory**. Data disappears when power is turned off.
 </Callout>
 
 ### Example
 
-When editing a video:
+When editing a photo:
 
-- Video opens into RAM
-- CPU processes frames
-- After saving, the file moves to SSD
+1. Image loads into RAM.
+2. CPU processes it.
+3. SSD saves the final file.
 
 ---
 
-## 4. Storage Devices
+## Storage Devices
 
-<AsyncImageGroup query={["Solid state drive SSD","Internal hard disk drive HDD","NVMe M.2 SSD"]} layout=carousel/>
+![SSD and HDD](/img/hardware/ssd-hdd.jpg)
 
-Storage keeps data permanently.
+*Figure 4. Permanent Storage Devices*
 
-| Device | Speed | Capacity |
+Storage keeps files permanently.
+
+| Storage | Speed | Lifespan |
 |---|---|---|
-| HDD | Slow | Very High |
+| HDD | Slow | Medium |
 | SSD | Fast | High |
 | NVMe SSD | Very Fast | High |
 
-### Comparison
+### HDD vs SSD
 
 | Feature | HDD | SSD |
 |---|---|---|
 | Moving Parts | Yes | No |
-| Speed | Slow | Fast |
 | Noise | Yes | Silent |
-| Durability | Lower | Higher |
+| Speed | Low | High |
+| Power Use | Higher | Lower |
 
 ---
 
-## 5. Power Supply Unit (PSU)
+## Power Supply Unit (PSU)
 
-<AsyncImageGroup query={["Computer power supply unit PSU","ATX power supply open","Modular PSU desktop"]} layout=carousel/>
+![Power Supply](/img/hardware/psu.jpg)
 
-The **Power Supply Unit** converts AC electricity into DC power for computer components.
+*Figure 5. ATX Power Supply*
 
-### Voltage Conversion
+The PSU converts **AC electricity** into **DC power** for computer components.
 
 <Diagram
   type="flow"
   label="Fig 2"
-  title="Power Supply Process"
-  items={["AC Power","Power Supply","DC Electricity","Hardware Components"]}
+  title="Power Conversion"
+  items={["AC Electricity","Power Supply","DC Power","Hardware"]}
 />
 
 ---
 
 # External Hardware
 
-External hardware includes devices connected outside the computer.
+## Keyboard
 
-## Input Devices
+![Keyboard](/img/hardware/keyboard.jpg)
 
-<grid columns=2 gap=3>
-  <grid-item>
-    <box gap=1>
-      <AsyncImage query="Mechanical computer keyboard" aspectRatio="5:4" radius=lg width="100%"/>
-      **Keyboard**
+*Figure 6. Mechanical Keyboard*
 
-      Used to enter text and commands.
-    </box>
-  </grid-item>
-  <grid-item>
-    <box gap=1>
-      <AsyncImage query="Wireless computer mouse" aspectRatio="5:4" radius=lg width="100%"/>
-      **Mouse**
+The keyboard is the primary **input device** used to enter text and commands.
 
-      Used to control the pointer.
-    </box>
-  </grid-item>
-</grid>
+### Types
 
-## Output Devices
+- Mechanical
+- Membrane
+- Wireless
+- Ergonomic
 
-<grid columns=2 gap=3>
-  <grid-item>
-    <box gap=1>
-      <AsyncImage query="LED computer monitor" aspectRatio="5:4" radius=lg width="100%"/>
-      **Monitor**
+---
 
-      Displays images and videos.
-    </box>
-  </grid-item>
-  <grid-item>
-    <box gap=1>
-      <AsyncImage query="Color laser printer" aspectRatio="5:4" radius=lg width="100%"/>
-      **Printer**
+## Mouse
 
-      Produces hard-copy documents.
-    </box>
-  </grid-item>
-</grid>
+![Mouse](/img/hardware/mouse.jpg)
+
+*Figure 7. Optical Mouse*
+
+The mouse controls the pointer on the screen.
+
+### Types
+
+| Type | Use |
+|---|---|
+| Optical | Everyday use |
+| Laser | High precision |
+| Wireless | Portable |
+| Gaming | Fast response |
+
+---
+
+## Monitor
+
+![Monitor](/img/hardware/monitor.jpg)
+
+*Figure 8. LED Monitor*
+
+The monitor displays visual output generated by the computer.
+
+### Common Types
+
+- LCD
+- LED
+- OLED
+- IPS Monitor
+
+---
+
+## Printer
+
+![Printer](/img/hardware/printer.jpg)
+
+*Figure 9. Laser Printer*
+
+Printers create **hard-copy output** on paper.
+
+| Printer | Best For |
+|---|---|
+| Inkjet | Home |
+| Laser | Office |
+| Dot Matrix | Billing |
 
 ---
 
@@ -239,64 +258,65 @@ External hardware includes devices connected outside the computer.
 <Diagram
   type="cycle"
   label="Fig 3"
-  title="How Hardware Works Together"
+  title="Input → Process → Memory → Storage → Output"
   steps={[
-    "Input Devices",
-    "CPU Processing",
+    "Input",
+    "CPU",
     "RAM",
     "Storage",
-    "Output Devices"
+    "Output"
   ]}
 />
 
-### Step-by-Step Explanation
+### Step-by-Step
 
-1. Keyboard enters data.
+1. User enters data.
 2. CPU processes instructions.
 3. RAM stores temporary information.
-4. SSD saves permanent data.
-5. Monitor displays the result.
+4. SSD saves data permanently.
+5. Monitor displays results.
 
 ---
 
 # Classification by Function
 
-| Hardware Type | Examples | Function |
+| Hardware Type | Example | Purpose |
 |---|---|---|
-| Input | Keyboard, Mouse | Enter data |
-| Processing | CPU | Process instructions |
+| Input | Keyboard | Enter data |
+| Processing | CPU | Execute instructions |
 | Memory | RAM | Temporary storage |
-| Storage | SSD, HDD | Permanent storage |
-| Output | Monitor, Printer | Display results |
+| Storage | SSD | Permanent storage |
+| Output | Monitor | Display information |
 
 ---
 
-# Characteristics of Hardware
+# Characteristics
 
-- Physical and tangible
+- Physical component
+- Electronic device
 - Requires electricity
-- Can be upgraded
-- Performs electronic operations
-- Works together with software
+- Upgradeable
+- Durable
+- Works with software
 
 ---
 
-# Advantages and Disadvantages
+# Advantages & Disadvantages
 
 <ProsCons
   pros={[
-    'High processing speed',
-    'Reliable operation',
-    'Upgradeable components',
-    'Long service life',
-    'Supports multitasking'
+    "High processing speed",
+    "Reliable performance",
+    "Upgradeable components",
+    "Long service life",
+    "Supports multitasking"
   ]}
   cons={[
-    'Can be physically damaged',
-    'Requires electrical power',
-    'Produces heat',
-    'Needs regular maintenance',
-    'Hardware upgrades may be expensive'
+    "Can be physically damaged",
+    "Requires electricity",
+    "Produces heat",
+    "Needs maintenance",
+    "Replacement may be expensive"
   ]}
 />
 
@@ -306,62 +326,31 @@ External hardware includes devices connected outside the computer.
 
 | Feature | Internal | External |
 |---|---|---|
-| Location | Inside cabinet | Outside cabinet |
-| User Access | Limited | Easy |
-| Examples | CPU, RAM | Keyboard, Mouse |
+| Location | Inside cabinet | Outside |
+| Access | Limited | Easy |
+| Examples | CPU, RAM | Keyboard |
 | Replacement | Moderate | Easy |
 
 ---
 
-# Real-Life Applications
-
-| Industry | Hardware Used |
-|---|---|
-| Hospital | ECG Machine, Server |
-| Banking | Mainframe Server |
-| Education | Desktop PCs |
-| Gaming | GPU, SSD |
-| Business | Workstations |
-
----
-
-# Hardware Block Diagram
-
-<Diagram
-  type="block"
-  label="Fig 4"
-  title="Computer Hardware Block Diagram"
-  items={[
-    "Input Unit",
-    "CPU",
-    "Memory Unit",
-    "Storage",
-    "Output Unit"
-  ]}
-/>
-
----
-
-# Python Example
-
-Although hardware is physical, software communicates with hardware. This example simulates hardware information.
+# Python Demonstration
 
 ```python
 hardware = {
-    "CPU": "Intel Core i5",
-    "RAM": "16 GB",
-    "Storage": "512 GB SSD",
-    "Monitor": "24 inch LED"
+    "CPU":"Intel Core i7",
+    "RAM":"16 GB",
+    "Storage":"512 GB SSD",
+    "Monitor":"24 inch LED"
 }
 
-for device, value in hardware.items():
-    print(device, ":", value)
+for device in hardware:
+    print(device, ":", hardware[device])
 ```
 
 ### Output
 
 ```text
-CPU : Intel Core i5
+CPU : Intel Core i7
 RAM : 16 GB
 Storage : 512 GB SSD
 Monitor : 24 inch LED
@@ -371,14 +360,14 @@ Monitor : 24 inch LED
   topic="Computer Hardware"
   lang="python"
   code={`hardware = {
-    "CPU": "Intel Core i5",
-    "RAM": "16 GB",
-    "Storage": "512 GB SSD",
-    "Monitor": "24 inch LED"
+    "CPU":"Intel Core i7",
+    "RAM":"16 GB",
+    "Storage":"512 GB SSD",
+    "Monitor":"24 inch LED"
 }
 
-for device, value in hardware.items():
-    print(device, ":", value)`}
+for device in hardware:
+    print(device, ":", hardware[device])`}
 />
 
 ---
@@ -388,24 +377,24 @@ for device, value in hardware.items():
 <Quiz
   items={[
     {
-      q: "What is computer hardware?",
-      a: "The collection of all physical components of a computer system."
+      q:"What is computer hardware?",
+      a:"The collection of all physical components of a computer system."
     },
     {
-      q: "Why is the CPU called the brain of the computer?",
-      a: "Because it processes instructions and controls all operations."
+      q:"Why is the CPU called the brain of the computer?",
+      a:"Because it processes instructions and controls every operation."
     },
     {
-      q: "Which memory loses data after power is turned off?",
-      a: "RAM."
+      q:"Which memory is volatile?",
+      a:"RAM."
     },
     {
-      q: "Name two permanent storage devices.",
-      a: "HDD and SSD."
+      q:"Which storage device is faster: HDD or SSD?",
+      a:"SSD."
     },
     {
-      q: "What is the function of the motherboard?",
-      a: "It connects and allows communication between all hardware components."
+      q:"What is the purpose of the motherboard?",
+      a:"It connects all hardware components together."
     }
   ]}
 />
@@ -416,15 +405,15 @@ for device, value in hardware.items():
 
 ### Q1. What is hardware?
 
-Hardware refers to every physical component of a computer that can be touched.
+Hardware refers to every physical electronic component of a computer.
 
-### Q2. What is the difference between RAM and SSD?
+### Q2. Difference between RAM and SSD?
 
-RAM stores temporary data, while SSD stores data permanently.
+RAM stores temporary data while SSD stores permanent data.
 
 ### Q3. Why is the motherboard important?
 
-Because it connects the CPU, RAM, storage, graphics card, and other devices into one working system.
+It allows communication between the CPU, RAM, storage, graphics card and every other device.
 
 ---
 
@@ -434,12 +423,12 @@ Because it connects the CPU, RAM, storage, graphics card, and other devices into
   points={[
     "Hardware means physical components.",
     "CPU is the brain of the computer.",
-    "Motherboard connects every component.",
-    "RAM is volatile temporary memory.",
-    "SSD and HDD provide permanent storage.",
+    "Motherboard connects all components.",
+    "RAM is volatile memory.",
+    "SSD provides permanent storage.",
     "Keyboard is an input device.",
     "Monitor is an output device.",
-    "Power Supply converts AC to DC electricity."
+    "PSU converts AC into DC power."
   ]}
 />
 
