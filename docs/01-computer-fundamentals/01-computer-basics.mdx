@@ -1,499 +1,350 @@
 ---
-title: "Computer Basics"
+title: Computer Basics
 sidebar_position: 1
-sidebar_label: "Computer Basics"
+sidebar_label: Computer Basics
 slug: /computer-fundamentals/computer-basics
-description: "What a computer is, how it works (input, process, output, storage), its block diagram, characteristics, types, advantages and limitations — with diagrams, tables and practice questions."
+description: Complete introduction to computers, IPO cycle, characteristics, applications, advantages, disadvantages, and block diagram.
 keywords:
   - computer basics
-  - what is a computer
-  - block diagram of computer
-  - IPO cycle
-  - characteristics of computer
-  - types of computer
+  - what is computer
+  - ipo cycle
+  - block diagram
 ---
 
+import Diagram from '@site/src/components/Diagram';
 import RunInLab from '@site/src/components/RunInLab';
 import AskBox from '@site/src/components/AskBox';
-import Fig from '@site/src/components/Fig';
-import Diagram from '@site/src/components/Diagram';
-import { Lede, Callout, ProsCons, Quiz, Revision, Eq } from '@site/src/components/Note';
+import { Lede, Callout, Quiz, Revision, ProsCons } from '@site/src/components/Note';
 
 # Computer Basics
 
 <Lede>
-Start here even if you have never opened a computer's settings page. This topic
-answers four questions in order: what a computer is, how it works inside, what
-it is good and bad at, and which kinds exist. Every later topic in this section
-builds on these four answers.
+A computer is an electronic programmable machine that accepts raw data, processes it according to instructions, stores it, and produces meaningful information. Every modern digital device—from smartphones to supercomputers—follows this same basic principle.
 </Lede>
 
-## Overview
+![Computer System](/img/computer-system.jpg)
 
-A **computer** is an electronic machine that takes in raw facts (**input**),
-works on them by following a stored list of instructions (**processing**),
-gives back a useful result (**output**), and can keep both the facts and the
-results for later (**storage**).
+*Figure 1. A complete desktop computer system*
 
-The one line worth memorising:
+---
+
+# What is a Computer?
 
 <Callout kind="def" title="Definition">
-  A computer is an electronic device that accepts data as input, processes it
-  according to a stored set of instructions (a program), produces information as
-  output, and stores data and results for future use.
+A computer is an electronic device that accepts **input**, processes it according to stored instructions, stores data when necessary, and produces useful **output**.
 </Callout>
 
-Three words in that sentence do a lot of work, so pin them down now:
+### Simple Definition
 
-| Term | Meaning | Example |
-| --- | --- | --- |
-| **Data** | Raw, unorganised facts. On their own they mean little. | `78, 91, 65, 84` |
-| **Processing** | Any operation performed on data — sorting, adding, comparing, formatting. | Adding the four marks, dividing by 4 |
-| **Information** | Processed data that now carries meaning and can support a decision. | Average 79.5, grade B |
+A computer performs four basic operations:
 
-<Callout kind="tip" title="Exam tip">
-  "Data is input, information is output" is the shortest correct answer for a
-  one-mark question. A computer does not create information out of nothing — it
-  only reorganises the data you give it.
-</Callout>
+1. Input
+2. Processing
+3. Storage
+4. Output
 
-### The IPO cycle
+---
 
-Everything a computer does, from a calculator app to a weather forecast, fits
-this one loop. Storage sits beside the loop because data can be saved at any
-stage and pulled back in later.
+# Real-Life Example
+
+Imagine withdrawing money from an ATM.
+
+| Step | Computer | ATM Example |
+|---|---|---|
+| Input | Data entered | Insert ATM card |
+| Processing | CPU verifies PIN | Bank checks account |
+| Storage | Database | Account balance |
+| Output | Information | Cash & Receipt |
+
+Every computer system follows this workflow.
+
+---
+
+# Basic IPO Cycle
+
+![IPO Cycle](/img/ipo-cycle.jpg)
+
+*Figure 2. Input → Process → Output Cycle*
 
 <Diagram
-  type="chain"
-  label="Fig 1"
-  title="The IPO cycle"
-  eyebrow="FOUR STAGES, IN ORDER"
-  caption="Input and output face the user; processing and storage happen inside the machine."
-  items={[
-    { title: '1. INPUT', lines: ['raw data enters the machine', 'keyboard, mouse, scanner'] },
-    { title: '2. PROCESS', lines: ['the CPU follows the program', 'calculate, compare, decide'], highlight: true },
-    { title: '3. OUTPUT', lines: ['information comes back', 'monitor, printer, speaker'] },
-  ]}
-  aside={{ title: '4. STORAGE', lines: ['RAM, SSD, hard disk, cloud'] }}
-  footnote="Data can be saved at any stage and reloaded later."
+  type="flow"
+  label="Fig 2"
+  title="Input Process Output"
+  items={["Input","Process","Storage","Output"]}
 />
 
-<p className="nx-note">
-Read the loop with a real task: you type <code>78 91 65 84</code> (input), the
-CPU adds and divides (process), the screen shows <code>79.5</code> (output), and
-the file you save keeps it for tomorrow (storage).
-</p>
+### Explanation
 
-## Key Concepts
+| Stage | Description |
+|---|---|
+| Input | Data enters the computer |
+| Process | CPU performs calculations |
+| Storage | Memory stores information |
+| Output | Final result is displayed |
 
-### The block diagram of a computer
+---
 
-This is the single most asked diagram in computer fundamentals. Draw it once,
-correctly, and label the two kinds of line — **solid lines carry data, dashed
-lines carry control signals.**
+# Computer Block Diagram
 
-<Fig
-  label="Fig 2"
-  title="Block diagram of a computer"
-  caption="The CPU is not one part: it is the control unit and the ALU working together, with the memory unit feeding both."
-  narrow={
-    <svg viewBox="0 0 420 600" role="img" aria-label="Block diagram stacked vertically: input unit, CPU with control unit, ALU and memory, then output unit">
-      <defs>
-        <marker id="blkArrowM" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto">
-          <path d="M0,0 L9,3.2 L0,6.4 z" className="nx-head" />
-        </marker>
-        <marker id="blkCtrlM" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto">
-          <path d="M0,0 L9,3.2 L0,6.4 z" className="nx-head nx-head--ctrl" />
-        </marker>
-      </defs>
+![Block Diagram](/img/computer-block.jpg)
 
-      <rect x="60" y="30" width="300" height="76" rx="12" className="nx-box" />
-      <text x="210" y="62" textAnchor="middle" className="nx-t nx-t--m">Input Unit</text>
-      <text x="210" y="86" textAnchor="middle" className="nx-s nx-s--m">keyboard, mouse, scanner</text>
+*Figure 3. Computer Block Diagram*
 
-      <rect x="30" y="146" width="360" height="240" rx="16" className="nx-cpu" />
-      <text x="42" y="170" className="nx-eyebrow">CENTRAL PROCESSING UNIT</text>
+<Diagram
+  type="block"
+  label="Fig 3"
+  title="Computer Architecture"
+  items={[
+    "Input Unit",
+    "CPU",
+    "Memory Unit",
+    "Storage",
+    "Output Unit"
+  ]}
+/>
 
-      <rect x="48" y="184" width="150" height="80" rx="12" className="nx-box" />
-      <text x="123" y="216" textAnchor="middle" className="nx-t nx-t--sm">Control Unit</text>
-      <text x="123" y="238" textAnchor="middle" className="nx-s">directs and times</text>
+### Components
 
-      <rect x="224" y="184" width="148" height="80" rx="12" className="nx-box" />
-      <text x="298" y="216" textAnchor="middle" className="nx-t nx-t--sm">ALU</text>
-      <text x="298" y="238" textAnchor="middle" className="nx-s">calculates, compares</text>
+| Unit | Function |
+|---|---|
+| Input Unit | Receives data |
+| CPU | Processes instructions |
+| Memory | Temporary storage |
+| Storage | Permanent storage |
+| Output Unit | Displays information |
 
-      <line x1="200" y1="204" x2="218" y2="204" className="nx-ctrl" markerEnd="url(#blkCtrlM)" />
+---
 
-      <rect x="48" y="296" width="324" height="76" rx="12" className="nx-box nx-box--mem" />
-      <text x="210" y="328" textAnchor="middle" className="nx-t nx-t--sm">Memory Unit</text>
-      <text x="210" y="350" textAnchor="middle" className="nx-s nx-s--m">holds data, instructions, results</text>
+# Characteristics of a Computer
 
-      <line x1="280" y1="296" x2="280" y2="270" className="nx-flow" markerEnd="url(#blkArrowM)" />
-      <line x1="316" y1="264" x2="316" y2="290" className="nx-flow" markerEnd="url(#blkArrowM)" />
-      <line x1="123" y1="264" x2="123" y2="290" className="nx-ctrl" markerEnd="url(#blkCtrlM)" />
+A computer has several unique characteristics that make it useful.
 
-      <polyline points="210,106 210,124 18,124 18,334 42,334" className="nx-flow" markerEnd="url(#blkArrowM)" />
-      <polyline points="372,334 402,334 402,448 366,448" className="nx-flow" markerEnd="url(#blkArrowM)" />
-      <polyline points="48,204 8,204 8,68 54,68" className="nx-ctrl" markerEnd="url(#blkCtrlM)" />
-      <polyline points="48,244 8,244 8,460 54,460" className="nx-ctrl" markerEnd="url(#blkCtrlM)" />
+### 1. Speed
 
-      <rect x="60" y="410" width="300" height="76" rx="12" className="nx-box" />
-      <text x="210" y="442" textAnchor="middle" className="nx-t nx-t--m">Output Unit</text>
-      <text x="210" y="466" textAnchor="middle" className="nx-s nx-s--m">monitor, printer, speaker</text>
+A modern processor performs **billions of operations every second**.
 
-      <line x1="20" y1="536" x2="56" y2="536" className="nx-flow" />
-      <text x="66" y="541" className="nx-s nx-s--m">data flow</text>
-      <line x1="20" y1="568" x2="56" y2="568" className="nx-ctrl" />
-      <text x="66" y="573" className="nx-s nx-s--m">control signals</text>
-    </svg>
-  }>
-  <svg viewBox="0 0 880 470" role="img" aria-label="Block diagram of a computer showing input unit, CPU containing control unit, arithmetic and logic unit and memory unit, and output unit">
-    <defs>
-      <marker id="nxArrow" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto">
-        <path d="M0,0 L9,3.2 L0,6.4 z" className="nx-head" />
-      </marker>
-      <marker id="nxArrowC" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto">
-        <path d="M0,0 L9,3.2 L0,6.4 z" className="nx-head nx-head--ctrl" />
-      </marker>
-    </defs>
+### 2. Accuracy
 
-    {/* CPU container */}
-    <rect x="224" y="40" width="420" height="380" rx="18" className="nx-cpu" />
-    <text x="240" y="66" className="nx-eyebrow">CENTRAL PROCESSING UNIT (CPU)</text>
+Computers produce highly accurate results when instructions are correct.
 
-    {/* boxes */}
-    <rect x="14" y="200" width="176" height="72" rx="12" className="nx-box" />
-    <text x="102" y="230" textAnchor="middle" className="nx-t">Input Unit</text>
-    <text x="102" y="252" textAnchor="middle" className="nx-s">keyboard, mouse, scanner</text>
+### 3. Automation
 
-    <rect x="254" y="92" width="170" height="68" rx="12" className="nx-box" />
-    <text x="339" y="120" textAnchor="middle" className="nx-t">Control Unit</text>
-    <text x="339" y="142" textAnchor="middle" className="nx-s">directs and times</text>
+Once a program starts, the computer works automatically.
 
-    <rect x="444" y="92" width="170" height="68" rx="12" className="nx-box" />
-    <text x="529" y="120" textAnchor="middle" className="nx-t">ALU</text>
-    <text x="529" y="142" textAnchor="middle" className="nx-s">calculates, compares</text>
+### 4. Storage
 
-    <rect x="284" y="300" width="300" height="76" rx="12" className="nx-box nx-box--mem" />
-    <text x="434" y="330" textAnchor="middle" className="nx-t">Memory Unit</text>
-    <text x="434" y="352" textAnchor="middle" className="nx-s">holds data, instructions and results</text>
+Large amounts of data can be stored permanently.
 
-    <rect x="690" y="200" width="176" height="72" rx="12" className="nx-box" />
-    <text x="778" y="230" textAnchor="middle" className="nx-t">Output Unit</text>
-    <text x="778" y="252" textAnchor="middle" className="nx-s">monitor, printer, speaker</text>
+### 5. Reliability
 
-    {/* data flow */}
-    <polyline points="190,236 214,236 214,338 284,338" className="nx-flow" markerEnd="url(#nxArrow)" />
-    <polyline points="584,338 640,338 640,236 690,236" className="nx-flow" markerEnd="url(#nxArrow)" />
-    <line x1="505" y1="300" x2="505" y2="166" className="nx-flow" markerEnd="url(#nxArrow)" />
-    <line x1="553" y1="160" x2="553" y2="294" className="nx-flow" markerEnd="url(#nxArrow)" />
+Computers can perform repetitive tasks without getting tired.
 
-    {/* control flow */}
-    <polyline points="254,140 204,140 204,180 102,180 102,194" className="nx-ctrl" markerEnd="url(#nxArrowC)" />
-    <line x1="424" y1="126" x2="438" y2="126" className="nx-ctrl" markerEnd="url(#nxArrowC)" />
-    <line x1="339" y1="160" x2="339" y2="294" className="nx-ctrl" markerEnd="url(#nxArrowC)" />
-    <polyline points="390,92 390,74 778,74 778,194" className="nx-ctrl" markerEnd="url(#nxArrowC)" />
+### 6. Multitasking
 
-    {/* legend */}
-    <line x1="24" y1="440" x2="74" y2="440" className="nx-flow" />
-    <text x="84" y="445" className="nx-s">data flow</text>
-    <line x1="184" y1="440" x2="234" y2="440" className="nx-ctrl" />
-    <text x="244" y="445" className="nx-s">control signals</text>
-  </svg>
-</Fig>
+One computer can run multiple applications simultaneously.
 
-What each block is responsible for:
+---
 
-| Unit | Job in one line | Remember it as |
-| --- | --- | --- |
-| **Input unit** | Accepts data from the user and converts it into binary the machine understands. | The ears |
-| **Control unit (CU)** | Fetches instructions, decodes them, and tells every other unit when to act. It does not do the maths itself. | The manager |
-| **ALU** | Performs arithmetic (add, subtract, multiply, divide) and logic (greater than, equal to, AND, OR, NOT). | The worker |
-| **Memory unit** | Holds the program, the input data and the intermediate results while work is going on. | The desk |
-| **Output unit** | Converts binary results back into a form humans can read or hear. | The mouth |
-| **Storage** | Keeps data after the power goes off. | The cupboard |
+# Types of Data
 
-<Callout kind="note" title="CU + ALU + registers = CPU">
-  The CPU is called the brain of the computer because it is the only part that
-  both decides and calculates. Memory is often drawn inside the CPU box in
-  textbooks, but physically the main memory (RAM) sits on the motherboard beside
-  the processor.
-</Callout>
+| Data | Example |
+|---|---|
+| Text | Name |
+| Number | Marks |
+| Image | Photo |
+| Audio | Music |
+| Video | Movie |
 
-### Characteristics of a computer
+---
 
-Six properties are asked again and again. The trick is that each one has a
-matching limitation, which is why the next section exists.
+# Applications of Computer
 
-| Characteristic | What it means |
-| --- | --- |
-| **Speed** | Executes millions to billions of instructions per second. Timings are measured in milliseconds down to nanoseconds and picoseconds. |
-| **Accuracy** | Results are correct to a very high degree — errors come from wrong input or a wrong program, not from the machine. |
-| **Diligence** | No tiredness, no boredom, no drop in quality between the first task and the millionth. |
-| **Versatility** | The same hardware runs a spreadsheet, a game and a heart-rate monitor, depending only on the program loaded. |
-| **Storage capacity** | Holds huge volumes of data and recalls any item almost instantly. |
-| **Automation** | Once a program starts, it runs to the end without a human at each step. |
+Computers are used in almost every industry.
 
-Units of speed, worth memorising as a ladder:
+| Field | Example |
+|---|---|
+| Education | Online Learning |
+| Banking | ATM |
+| Hospital | Patient Records |
+| Business | Accounting |
+| Government | Passport System |
+| Science | Space Research |
+| Entertainment | Gaming & Movies |
 
-| Unit | Value | Used for |
-| --- | --- | --- |
-| Millisecond (ms) | one-thousandth of a second | Disk access, network ping |
-| Microsecond (µs) | one-millionth of a second | Older machine cycles |
-| Nanosecond (ns) | one-billionth of a second | RAM access, modern CPU cycles |
-| Picosecond (ps) | one-trillionth of a second | Signal timing inside a chip |
+![Supercomputer](/img/supercomputer.jpg)
 
-<Callout kind="warn" title="GIGO">
-  Garbage In, Garbage Out. A computer never checks whether your data makes
-  sense. Feed it a wrong marks list and it will calculate a wrong average
-  perfectly, at nanosecond speed.
-</Callout>
+*Figure 4. Modern Supercomputer*
 
-### What a computer cannot do
+---
+
+# Input Devices
+
+![Input Devices](/img/input-devices.jpg)
+
+*Figure 5. Common Input Devices*
+
+Examples:
+
+- Keyboard
+- Mouse
+- Scanner
+- Webcam
+- Microphone
+
+---
+
+# Output Devices
+
+![Output Devices](/img/output-devices.jpg)
+
+*Figure 6. Common Output Devices*
+
+Examples:
+
+- Monitor
+- Printer
+- Speaker
+- Projector
+
+---
+
+# Storage Devices
+
+![Storage Devices](/img/storage-devices.jpg)
+
+*Figure 7. Permanent Storage Devices*
+
+| Device | Capacity | Speed |
+|---|---|---|
+| HDD | High | Slow |
+| SSD | High | Fast |
+| USB | Medium | Medium |
+| DVD | Low | Slow |
+
+---
+
+# Advantages & Disadvantages
 
 <ProsCons
   pros={[
-    'Very high speed on repetitive work',
-    'Consistent, reliable results',
-    'Stores and retrieves enormous amounts of data',
-    'Reduces paperwork and manual cost over time',
-    'Multitasking — many jobs appear to run at once',
-    'Connects people and services worldwide',
+    "Very high speed",
+    "Excellent accuracy",
+    "Large storage capacity",
+    "Reliable performance",
+    "Supports multitasking"
   ]}
   cons={[
-    'No intelligence of its own — it only follows instructions',
-    'No common sense, feelings or judgement',
-    'Cannot correct a wrong input (GIGO)',
-    'Depends on electricity and on regular maintenance',
-    'Vulnerable to viruses, data theft and hardware failure',
-    'Overuse causes health strain and job displacement concerns',
+    "Cannot think independently",
+    "Requires electricity",
+    "Needs software",
+    "Security risks",
+    "Hardware failures are possible"
   ]}
 />
 
-### Hardware and software
+---
 
-A computer system is always both. Hardware is what you can touch; software is
-the set of instructions that tells the hardware what to do. Neither is useful
-alone.
+# Difference Between Data & Information
 
-<Diagram
-  type="tree"
-  label="Fig 3"
-  title="Hardware and software"
-  caption="Each side splits again. Firmware such as the BIOS sits between the two: software kept permanently on a chip."
-  root="Computer System"
-  branches={[
-    {
-      title: 'Hardware',
-      subtitle: 'the parts you can touch',
-      items: [
-        'Input devices — keyboard, mouse',
-        'Processing — the CPU',
-        'Memory and storage — RAM, SSD',
-        'Output devices — monitor, printer',
-      ],
-    },
-    {
-      title: 'Software',
-      subtitle: 'the instructions it follows',
-      items: [
-        'System software — OS, drivers',
-        'Application software — browser',
-        'Programming tools — compiler, IDE',
-      ],
-    },
-  ]}
-/>
+| Data | Information |
+|---|---|
+| Raw facts | Processed result |
+| Unorganized | Organized |
+| Input | Output |
+| Example: 80,90 | Average = 85 |
 
-| | Hardware | Software |
-| --- | --- | --- |
-| **Nature** | Physical, tangible | Logical, intangible |
-| **Made by** | Manufacturing | Programming |
-| **Wears out?** | Yes, with age and use | No, but becomes outdated or buggy |
-| **If damaged** | Replaced or repaired | Reinstalled or patched |
-| **Example** | CPU, RAM, monitor, keyboard | Windows, Linux, Chrome, Python |
+---
 
-<Callout kind="tip" title="One-liner">
-  Hardware is the body, software is the mind, and firmware (like the BIOS) is
-  the small program permanently stored on a chip that wakes the body up.
-</Callout>
-
-### How data is measured
-
-The computer stores everything — text, images, sound, video — as **bits**: 0 or 1.
-
-| Unit | Equal to | Rough feel |
-| --- | --- | --- |
-| Bit (b) | A single 0 or 1 | On or off |
-| Nibble | 4 bits | One hex digit |
-| Byte (B) | 8 bits | One character, such as `A` |
-| Kilobyte (KB) | 1024 bytes | A page of plain text |
-| Megabyte (MB) | 1024 KB | A photo or a song |
-| Gigabyte (GB) | 1024 MB | A film |
-| Terabyte (TB) | 1024 GB | A large hard disk |
-
-<Eq block>{String.raw`1\;\text{KB} = 2^{10}\;\text{bytes} = 1024\;\text{bytes}`}</Eq>
-
-<Callout kind="note" title="Why 1024 and not 1000">
-  Because the machine counts in base 2, and 2 to the power 10 equals 1024. Disk
-  makers advertise using 1000, which is why a 1 TB drive shows up as about
-  931 GB in Windows.
-</Callout>
-
-### Types of computers
-
-Three different classifications get asked. Keep them separate in your head — the
-question always tells you which basis it wants.
-
-<Diagram
-  type="pyramid"
-  label="Fig 4"
-  title="Types of computers by size"
-  eyebrow="FEWEST MACHINES, MOST POWER"
-  caption="The fewer machines of a kind that exist, the more powerful each one is. You own a microcomputer; a country owns a supercomputer."
-  items={[
-    { title: 'Supercomputer' },
-    { title: 'Mainframe', lines: ['thousands of users at once'] },
-    { title: 'Minicomputer / server', lines: ['one office or department'] },
-    { title: 'Microcomputer', lines: ['laptop, tablet, smartphone'], highlight: true },
-  ]}
-  footnote="most machines, least power each"
-/>
-
-By size and capacity, from largest down:
-
-| Type | Scale | Typical use |
-| --- | --- | --- |
-| **Supercomputer** | Fastest class, massive parallel processing | Weather forecasting, nuclear simulation, genome research. India's PARAM series belongs here. |
-| **Mainframe** | Very large, thousands of simultaneous users | Bank transactions, railway reservation, census data |
-| **Minicomputer / server** | Mid-range, serves a department | Small business systems, lab control, web servers |
-| **Microcomputer** | Single-user, one microprocessor | Desktop, laptop, tablet, smartphone, embedded devices |
-
-By the data they handle:
-
-| Type | Works with | Example |
-| --- | --- | --- |
-| **Analog** | Continuously varying physical quantities | Speedometer, analog thermometer |
-| **Digital** | Discrete binary digits | Every PC and phone you use |
-| **Hybrid** | Both, converting one to the other | Patient monitor in an ICU, petrol pump |
-
-By purpose: a **general purpose** computer runs any program you install, while a
-**special purpose** computer is built for one job only — the chip inside a
-washing machine, a traffic light controller, an ATM.
-
-### Where computers are used
-
-| Field | What the computer does |
-| --- | --- |
-| **Education** | Online classes, digital libraries, simulations, exam results |
-| **Banking** | ATMs, UPI and net banking, fraud detection, core banking servers |
-| **Healthcare** | Patient records, MRI and CT imaging, robotic surgery, drug research |
-| **Government** | Aadhaar and PAN databases, e-governance portals, census |
-| **Business** | Billing, inventory, payroll, e-commerce, data analytics |
-| **Science** | Space missions, weather models, simulations |
-| **Entertainment** | Streaming, gaming, animation, music production |
-
-## Example
-
-The point of this program is not the Python — it is that you can see all four
-stages of the IPO cycle in nine lines. Read the comments in order.
+# Python Example
 
 ```python
-# 1. INPUT — raw data comes in from the user
-marks = [78, 91, 65, 84]
+name = input("Enter name: ")
+marks = int(input("Enter marks: "))
 
-# 2. PROCESS — the CPU works on the data
-total = sum(marks)
-average = total / len(marks)
-grade = "A" if average >= 80 else "B" if average >= 60 else "C"
-
-# 3. OUTPUT — data has become information
-print("Total:", total)
-print("Average:", average)
-print("Grade:", grade)
-
-# 4. STORAGE — the result is kept for later
-with open("result.txt", "w") as f:
-    f.write(f"Average {average}, Grade {grade}")
+print("Student:", name)
+print("Marks:", marks)
 ```
 
-Expected output:
+### Output
 
 ```text
-Total: 318
-Average: 79.5
-Grade: B
+Enter name: Alex
+Enter marks: 95
+
+Student: Alex
+Marks: 95
 ```
 
-Notice what happened: `78, 91, 65, 84` was **data** — four numbers with no
-meaning. `Average 79.5, Grade B` is **information** — it answers a question and
-supports a decision.
+<RunInLab
+  topic="Computer Basics"
+  lang="python"
+  code={`name = input("Enter name: ")
+marks = int(input("Enter marks: "))
 
-## Run your code
+print("Student:", name)
+print("Marks:", marks)`}
+/>
 
-<RunInLab topic="Computer Basics" lang="python" code={`marks = [78, 91, 65, 84]
-total = sum(marks)
-average = total / len(marks)
-grade = "A" if average >= 80 else "B" if average >= 60 else "C"
+---
 
-print("Total:", total)
-print("Average:", average)
-print("Grade:", grade)`} />
-
-## Practice Questions
-
-Answer each one in your head first, then open it.
+# Practice Questions
 
 <Quiz
   items={[
     {
-      q: 'Define a computer in one sentence.',
-      a: 'An electronic device that accepts data as input, processes it according to a stored set of instructions, produces information as output, and stores data and results for future use.',
+      q:"What is a computer?",
+      a:"An electronic programmable machine that accepts input, processes data, stores it, and produces output."
     },
     {
-      q: 'Which unit of the computer is called its brain, and why?',
-      a: 'The CPU, because it contains the control unit that directs every other part and the ALU that performs all calculations and comparisons. No other unit both decides and computes.',
+      q:"What are the four basic operations of a computer?",
+      a:"Input, Processing, Storage, and Output."
     },
     {
-      q: 'State the difference between data and information with an example.',
-      a: 'Data is raw, unorganised facts — for example 78, 91, 65, 84. Information is processed data that carries meaning — for example an average of 79.5 and a grade of B. Processing converts one into the other.',
+      q:"Which unit is called the brain of the computer?",
+      a:"CPU."
     },
     {
-      q: 'The ALU performs which two categories of operation?',
-      a: 'Arithmetic operations (addition, subtraction, multiplication, division) and logical operations (comparisons such as greater than or equal to, and the logic operations AND, OR, NOT).',
-    },
-    {
-      q: 'Expand GIGO and explain what it implies.',
-      a: 'Garbage In, Garbage Out. A computer has no judgement of its own, so it processes wrong input just as faithfully as correct input. The output can never be more accurate than the input and the program.',
-    },
-    {
-      q: 'How many bits make one byte, and how many bytes make one kilobyte?',
-      a: '8 bits make 1 byte. 1024 bytes make 1 kilobyte, because the machine counts in base 2 and 2 to the power 10 equals 1024.',
-    },
-    {
-      q: 'Name the three types of computers classified by the data they handle.',
-      a: 'Analog (continuous physical quantities), digital (discrete binary digits) and hybrid (both, converting between them — as in an ICU patient monitor).',
-    },
-    {
-      q: 'Give two characteristics of a computer and one limitation for each.',
-      a: 'Speed — but it wastes that speed producing a wrong answer if the input is wrong. Diligence — but it repeats the same mistake a million times without noticing, having no common sense or self-correction.',
-    },
+      q:"What is the difference between data and information?",
+      a:"Data is raw facts, while information is processed and meaningful."
+    }
   ]}
 />
 
-### Quick revision
+---
+
+# Interview Questions
+
+### Q1. What is a computer?
+
+A programmable electronic machine that processes data.
+
+### Q2. What is the IPO cycle?
+
+Input → Process → Output.
+
+### Q3. Why is CPU important?
+
+Because it controls and executes every instruction.
+
+### Q4. Give three applications of computers.
+
+Education, Banking, Healthcare.
+
+---
+
+# Quick Revision
 
 <Revision
   points={[
-    'Computer = input, process, output — with storage alongside.',
-    'Data goes in, information comes out.',
-    'CPU = control unit + ALU (+ registers); the CU directs, the ALU computes.',
-    'Six characteristics: speed, accuracy, diligence, versatility, storage, automation.',
-    'Main limitation: no intelligence of its own — GIGO.',
-    '8 bits = 1 byte; 1024 bytes = 1 KB.',
-    'By size: supercomputer, mainframe, mini, micro.',
-    'By data: analog, digital, hybrid.',
+    "Computer = Input + Process + Storage + Output",
+    "CPU is the brain of the computer",
+    "RAM stores temporary data",
+    "Storage keeps data permanently",
+    "Data becomes information after processing",
+    "Computers are fast, accurate and reliable"
   ]}
 />
 
-<AskBox topic="Computer Basics" section="Computer Fundamentals" />
+---
+
+<AskBox topic="Computer Basics" section="Computer Fundamentals"/>
