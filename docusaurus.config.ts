@@ -119,7 +119,7 @@ const config: Config = {
         },
         blog: false,
         theme: {
-          customCss: './src/css/custom.css',
+          customCss:  ['./src/css/custom.css', './src/css/notes.css'],
         },
         sitemap: {
           changefreq: 'weekly',
