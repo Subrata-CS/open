@@ -13,15 +13,93 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Storage Devices - part of Computer Fundamentals. A short introduction goes here._
+**Storage Devices** are where a computer permanently keeps data — files, photos, videos, programs, and the operating system itself. Unlike RAM, which loses everything when the power is turned off, storage is **non-volatile**, meaning your data stays safe even after you shut down or restart the computer.
+
+Think of storage like a filing cabinet in an office: it holds all your documents permanently, and you can open, use, and put them back anytime. RAM, by comparison, is like the desk where you temporarily spread out the documents you're currently working on — once you leave for the day, the desk is cleared, but the filing cabinet still holds everything safely.
+
+The two most common types of storage devices today are **HDD (Hard Disk Drive)** and **SSD (Solid State Drive)**, each with different speed, cost, and durability characteristics.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Non-Volatile Memory** — Storage devices retain data permanently, even when the computer is powered off, unlike RAM.
+- **HDD (Hard Disk Drive)** — Uses spinning magnetic disks and a moving read/write head to store data. It's cheaper per GB but slower and more fragile due to moving parts.
+- **SSD (Solid State Drive)** — Uses flash memory chips with no moving parts, making it much faster, more durable, and more power-efficient than an HDD, though usually more expensive per GB.
+- **Storage Capacity** — Measured in GB or TB, this tells you how much data (files, programs, OS) the device can hold.
+- **Read/Write Speed** — How quickly data can be retrieved from or saved to the storage device — a major factor in how fast a computer feels overall.
+- **Primary vs Secondary Storage** — RAM is often called primary storage (fast, temporary), while HDD/SSD are called secondary storage (permanent, larger capacity).
+- **External Storage** — Devices like USB flash drives and external hard drives, used for portable or backup storage outside the main computer.
+
+## How Storage Fits In (Diagram)
+
+The diagram below shows how storage relates to RAM and the CPU in the overall flow of data.
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1.5rem',
+  padding: '2.5rem 1rem'
+}}>
+  <div style={{
+    padding: '1.4rem 2rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    fontWeight: 700,
+    textAlign: 'center'
+  }}>
+    💽 Storage (HDD/SSD)
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    💾 RAM
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    🧠 CPU
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-1rem',
+  marginBottom: '2rem'
+}}>
+  Files live permanently in Storage → get loaded into RAM when needed → CPU processes the active data
+</div>
+
+> Storage is slower than RAM, but unlike RAM, it doesn't forget anything when the power goes off — that's the trade-off between speed and permanence.
 
 ## Example
 
-_A worked example with code._
+Let's understand this with a simple analogy instead of code, since storage devices are best understood through everyday use.
+
+**Imagine opening a video file saved on your computer:**
+
+1. The video file is permanently saved on your **storage device** (HDD or SSD), even while the computer was turned off.
+2. When you double-click the video file to play it, the operating system reads the file from storage and loads the necessary parts into **RAM**, since RAM is much faster to access.
+3. The **CPU** processes the video data from RAM, decoding and sending it to the screen as you watch.
+4. If you're using an **SSD**, this loading happens almost instantly because SSDs have no moving parts and can access data very quickly. If you're using an **HDD**, there's a small delay while the spinning disk and read/write head physically locate the file.
+5. Once you close the video player, the video data is cleared from RAM, but the original file remains safely stored on your HDD/SSD, ready to be opened again anytime.
+
+This is why the type of storage device you use — HDD vs SSD — can make a noticeable difference in how fast files open and programs load, even though both are considered "storage" and both keep your data permanently.
 
 ## Run your code
 
@@ -29,6 +107,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. Why is storage called "non-volatile memory," unlike RAM?
+2. What is the main difference between an HDD and an SSD?
+3. Why is an SSD generally faster than an HDD?
+4. What is the difference between primary storage and secondary storage?
+5. Why do files remain safe on storage devices even after the computer is turned off?
 
 <AskBox topic="Storage Devices" section="Computer Fundamentals" />
