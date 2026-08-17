@@ -28,9 +28,14 @@ export type AddButtonProps = {
   what: string;
   /** Optional starter content for a new file. */
   template?: string;
+  /**
+   * Render as a small circular "+" with no label. Used on group headings,
+   * where the heading itself already says what is being added to.
+   */
+  compact?: boolean;
 };
 
-export default function AddButton({ folder, edit, what, template }: AddButtonProps): ReactNode {
+export default function AddButton({ folder, edit, what, template, compact }: AddButtonProps): ReactNode {
   const url = edit
     ? new URL(`${REPO}/edit/main/${edit}`)
     : new URL(`${REPO}/new/main`);
@@ -43,17 +48,31 @@ export default function AddButton({ folder, edit, what, template }: AddButtonPro
     if (template) url.searchParams.set('value', template);
   }
 
+  const title = edit
+    ? `Add a ${what} — opens ${edit} in GitHub's editor`
+    : `Add a ${what} — opens GitHub with a new file in ${folder}/`;
+
+  if (compact) {
+    return (
+      <a
+        className={styles.compact}
+        href={url.toString()}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={title}
+        aria-label={`Add a ${what}`}>
+        <span aria-hidden="true">+</span>
+      </a>
+    );
+  }
+
   return (
     <a
       className={styles.add}
       href={url.toString()}
       target="_blank"
       rel="noopener noreferrer"
-      title={
-        edit
-          ? `Add a ${what} — opens ${edit} in GitHub's editor`
-          : `Add a ${what} — opens GitHub with a new file in ${folder}/`
-      }>
+      title={title}>
       <span className={styles.plus} aria-hidden="true">+</span>
       Add {what}
     </a>

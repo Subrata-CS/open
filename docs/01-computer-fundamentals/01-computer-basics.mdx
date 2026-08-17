@@ -3,198 +3,32 @@ title: "Computer Basics"
 sidebar_position: 1
 sidebar_label: "Computer Basics"
 slug: /computer-fundamentals/computer-basics
-description: "Learn what a computer is, how it works, its components, types, advantages, limitations, and real-world applications."
+description: "Computer Basics - Computer Fundamentals | Open CS Hub"
 ---
 
 import RunInLab from '@site/src/components/RunInLab';
 import AskBox from '@site/src/components/AskBox';
 
-import Hero from './assets/computer-hero.jpg';
-import CPU from './assets/cpu.jpg';
-import RAM from './assets/ram.jpg';
-import Storage from './assets/storage.jpg';
-import IO from './assets/io.jpg';
-import Types from './assets/types.jpg';
-
 # Computer Basics
 
 ## Overview
 
-A **computer** is an electronic device that accepts **input**, processes data according to instructions, stores information, and produces meaningful **output**.
+_Computer Basics - part of Computer Fundamentals. A short introduction goes here._
 
-<img src={Hero} alt="Modern computer setup" style={{width:"100%",borderRadius:"16px"}}/>
+## Key Concepts
 
----
+_The main ideas, one line each._
 
-## Why Computers Matter
+## Example
 
-Computers are essential in almost every industry because they solve problems quickly, accurately, and efficiently.
+_A worked example with code._
 
-| Area | Example |
-|---|---|
-| Education | Online learning |
-| Healthcare | Medical diagnosis |
-| Business | Accounting software |
-| Communication | Email & Video calls |
-| Science | Space research |
-| AI | Machine learning |
-
----
-
-## What Is a Computer?
-
-A computer performs four basic operations.
-
-<svg viewBox="0 0 700 120" width="100%" role="img" aria-label="Input, Process, Output and Storage flow diagram">
-  <rect width="700" height="120" rx="16" fill="#0f172a"/>
-  <rect x="25" y="35" width="140" height="50" rx="8" fill="#2563eb"/>
-  <rect x="190" y="35" width="140" height="50" rx="8" fill="#7c3aed"/>
-  <rect x="355" y="35" width="140" height="50" rx="8" fill="#059669"/>
-  <rect x="520" y="35" width="155" height="50" rx="8" fill="#ea580c"/>
-  <text x="95" y="65" fill="white" fontSize="16" textAnchor="middle" fontFamily="Arial" fontWeight="bold">INPUT</text>
-  <text x="260" y="65" fill="white" fontSize="16" textAnchor="middle" fontFamily="Arial" fontWeight="bold">PROCESS</text>
-  <text x="425" y="65" fill="white" fontSize="16" textAnchor="middle" fontFamily="Arial" fontWeight="bold">OUTPUT</text>
-  <text x="598" y="65" fill="white" fontSize="16" textAnchor="middle" fontFamily="Arial" fontWeight="bold">STORAGE</text>
-  <path d="M165 60 L190 60" stroke="#94a3b8" strokeWidth="2" strokeDasharray="5 5"/>
-  <path d="M330 60 L355 60" stroke="#94a3b8" strokeWidth="2" strokeDasharray="5 5"/>
-  <path d="M495 60 L520 60" stroke="#94a3b8" strokeWidth="2" strokeDasharray="5 5"/>
-</svg>
-
-**Example**
-
-- **Input:** Press the `A` key.
-- **Process:** CPU interprets the signal.
-- **Output:** The letter appears on the screen.
-- **Storage:** The document is saved to an SSD.
-
----
-
-## Main Components
-
-<div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))",gap:"18px"}}><div><img src={CPU} alt="CPU" style={{borderRadius:"12px"}}/><h4>CPU</h4><p>The brain of the computer that performs calculations.</p></div><div><img src={RAM} alt="RAM" style={{borderRadius:"12px"}}/><h4>RAM</h4><p>Temporary working memory for active programs.</p></div><div><img src={Storage} alt="Storage" style={{borderRadius:"12px"}}/><h4>Storage</h4><p>Permanently stores files and applications.</p></div><div><img src={IO} alt="Input Output" style={{borderRadius:"12px"}}/><h4>Input & Output</h4><p>Allows communication between users and computers.</p></div></div>
-
----
-
-## Hardware vs Software
-
-| Hardware | Software |
-|---|---|
-| Physical components | Programs and applications |
-| CPU, RAM, Keyboard | Windows, Linux, Chrome |
-| Can be touched | Cannot be touched |
-| Manufactured | Developed by programmers |
-
----
-
-## Types of Computers
-
-<img src={Types} alt="Types of computers" style={{width:"100%",borderRadius:"16px"}}/>
-
-| Type | Primary Use |
-|---|---|
-| Desktop | Programming & Office |
-| Laptop | Portable Work |
-| Server | Websites & Cloud |
-| Supercomputer | Scientific Research |
-
----
-
-## How a Computer Works Internally
-
-<svg viewBox="0 0 340 210" width="100%" role="img" aria-label="Computer architecture">
-  <rect width="340" height="210" rx="14" fill="#111827"/>
-  {["USER","INPUT","CPU","RAM","STORAGE","OUTPUT"].map((item,i)=>(
-    <g key={item}>
-      <rect x="80" y={12+i*31} width="180" height="22" rx="6" fill="#2563eb"/>
-      <text x="170" y={27+i*31} fill="white" fontSize="11" textAnchor="middle" fontFamily="Arial" fontWeight="bold">{item}</text>
-      {i<5 && <path d={`M170 ${34+i*31} V ${43+i*31}`} stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="3 3"/>}
-    </g>
-  ))}
-</svg>
-
-1. User gives input.
-2. Input devices send signals.
-3. CPU processes instructions.
-4. RAM holds temporary data.
-5. Storage saves information.
-6. Output displays results.
-
----
-
-## Advantages
-
-- High speed
-- Excellent accuracy
-- Large storage capacity
-- Multitasking
-- Global connectivity
-
-## Limitations
-
-- Requires electricity
-- Hardware may fail
-- Vulnerable to cyber attacks
-- Depends on software
-- Cannot think independently
-
----
-
-## Real-World Example
-
-**Opening YouTube**
-
-<svg viewBox="0 0 320 180" width="100%" role="img" aria-label="YouTube request flow">
-  <rect width="320" height="180" rx="12" fill="#0f172a"/>
-  {["User Click","Browser","Internet","YouTube Server","Video Plays"].map((s,i)=>(
-    <g key={s}>
-      <rect x="70" y={10+i*33} width="180" height="22" rx="6" fill={["#2563eb","#7c3aed","#0ea5e9","#f59e0b","#16a34a"][i]}/>
-      <text x="160" y={25+i*33} fill="white" fontSize="10" textAnchor="middle" fontFamily="Arial">{s}</text>
-      {i<4 && <path d={`M160 ${32+i*33} V ${43+i*33}`} stroke="#9ca3af" strokeWidth="1.5" strokeDasharray="3 3"/>}
-    </g>
-  ))}
-</svg>
-
-Your request travels from the browser to YouTube servers and returns the video to your screen.
-
----
-
-## Example Code
-
-```python
-print("Hello, Computer Science!")
-```
-
-**Output**
-
-```text
-Hello, Computer Science!
-```
-
----
-
-## Run Your Code
+## Run your code
 
 <RunInLab topic="Computer Basics" lang="python" />
 
----
-
-## Summary
-
-> **Input → Process → Output → Storage** is the fundamental working cycle of every computer.
-
-- CPU is the processing brain.
-- RAM is temporary memory.
-- Storage permanently saves data.
-- Hardware and software work together.
-
----
-
 ## Practice Questions
 
-1. Define a computer.
-2. Explain the IPO cycle.
-3. Difference between RAM and Storage?
-4. What is the role of the CPU?
-5. Name four types of computers.
+_Questions to try once you have read the notes above._
 
 <AskBox topic="Computer Basics" section="Computer Fundamentals" />

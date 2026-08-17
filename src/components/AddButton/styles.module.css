@@ -42,3 +42,36 @@
   outline: 2px solid var(--ifm-color-primary);
   outline-offset: 2px;
 }
+
+/* Small circular "+" for group headings — same target, no label. */
+.compact {
+  display: grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  flex: none;
+  border-radius: 50%;
+  border: 1px dashed var(--open-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--open-text-dim);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  transition: border-color 0.16s ease, color 0.16s ease, background 0.16s ease,
+    transform 0.16s ease;
+}
+
+.compact:hover {
+  border-style: solid;
+  border-color: var(--ifm-color-primary);
+  background: rgba(99, 102, 241, 0.18);
+  color: #f0f3ff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.compact:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}

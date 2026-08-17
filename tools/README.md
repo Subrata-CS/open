@@ -111,3 +111,52 @@ change, no rebuild step to remember.
 A track can hold as many cells as you like; add them to the `lesson` array.
 The reader's own notebook on the right is never limited to these snippets —
 it runs whatever they write, in any supported language.
+
+---
+
+## The link pipelines
+
+Four pages are nothing but curated lists, and all four are built the same way:
+one Markdown file per group, one line per link.
+
+| Page | Folder | Builder | Data |
+|---|---|---|---|
+| Practice | `platforms/` | `build_platforms.py` | `src/data/platforms.json` |
+| Resources | `resources/` | `build_resources.py` | `src/data/resources.json` |
+| Global Career Links | `careers/` | `build_careers.py` | `src/data/careers.json` |
+| Projects | `projects/` | `build_projects.py` | `src/data/projects.json` |
+
+Each file starts with three optional front-matter keys — `title`, `about`,
+`order` — and then a plain Markdown list:
+
+```markdown
+---
+title: Big tech
+about: The largest employers of software engineers on earth.
+order: 1
+---
+
+- [Google](https://careers.google.com/) — the biggest new-grad intake anywhere.
+- [Microsoft](https://careers.microsoft.com/)
+```
+
+The note after the em dash is optional, so the smallest entry really is a name
+and a link. Lines that are not links are ignored, which means you can keep
+working notes in the file.
+
+```bash
+cd tools && python build_careers.py
+cd tools && python build_projects.py
+```
+
+**Careers is deduplicated.** `build_careers.py` compares company names loosely
+(case, spaces and punctuation are ignored, so `HP Inc.` and `hp inc` are the
+same employer) and drops the second copy with a warning. That is what lets
+several separate lists be merged into `careers/` without the page showing
+Qualcomm four times. Companies inside a group are sorted alphabetically by the
+builder, so you can append to the bottom of a file and never think about it.
+
+Contributors do not need any of this: the **+** on each group opens that
+Markdown file straight in GitHub's editor, and the **+** in the page header
+starts a whole new group from a template. Commit, and Actions rebuilds the
+site.

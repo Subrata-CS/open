@@ -1,0 +1,138 @@
+[
+ {
+  "id": "01-idea-lists",
+  "title": "Where to find ideas",
+  "about": "Curated lists to pull a project from when nothing comes to mind.",
+  "order": 1,
+  "file": "projects/01-idea-lists.md",
+  "links": [
+   {
+    "name": "Build Your Own X",
+    "url": "https://github.com/codecrafters-io/build-your-own-x",
+    "about": "write your own git, database, shell or interpreter, step by step"
+   },
+   {
+    "name": "Project Based Learning",
+    "url": "https://github.com/practical-tutorials/project-based-learning",
+    "about": "tutorials that end in a working thing, sorted by language"
+   },
+   {
+    "name": "App Ideas Collection",
+    "url": "https://github.com/florinpop17/app-ideas",
+    "about": "hundreds of briefs graded from beginner to advanced"
+   },
+   {
+    "name": "The Odin Project",
+    "url": "https://www.theodinproject.com/",
+    "about": "a full curriculum where every lesson ends in a project"
+   },
+   {
+    "name": "RealWorld",
+    "url": "https://github.com/gothinkster/realworld",
+    "about": "the same Medium clone built in 100+ stacks, so you can compare"
+   }
+  ]
+ },
+ {
+  "id": "02-systems",
+  "title": "Systems and low level",
+  "about": "Build the thing under the thing — compilers, editors, kernels, databases.",
+  "order": 2,
+  "file": "projects/02-systems.md",
+  "links": [
+   {
+    "name": "Nand2Tetris",
+    "url": "https://www.nand2tetris.org/",
+    "about": "build a computer from logic gates up to an operating system"
+   },
+   {
+    "name": "Write a C Compiler",
+    "url": "https://norasandler.com/2017/11/29/Write-a-Compiler.html",
+    "about": "a compiler in small, testable stages"
+   },
+   {
+    "name": "Build Your Own Text Editor",
+    "url": "https://viewsourcecode.org/snaptoken/kilo/",
+    "about": "kilo, in about a thousand lines of C"
+   },
+   {
+    "name": "Crafting Interpreters",
+    "url": "https://craftinginterpreters.com/",
+    "about": "two complete language implementations, free to read online"
+   },
+   {
+    "name": "Operating Systems: From 0 to 1",
+    "url": "https://github.com/tuhdo/os01",
+    "about": "write a bootloader and a small kernel from scratch"
+   },
+   {
+    "name": "CodeCrafters",
+    "url": "https://app.codecrafters.io/catalog",
+    "about": "rebuild Redis, Docker, git or a HTTP server, with tests"
+   }
+  ]
+ },
+ {
+  "id": "03-ai-and-ml",
+  "title": "AI and machine learning",
+  "about": "Projects that teach the mathematics by making you implement it.",
+  "order": 3,
+  "file": "projects/03-ai-and-ml.md",
+  "links": [
+   {
+    "name": "micrograd",
+    "url": "https://github.com/karpathy/micrograd",
+    "about": "autograd and a neural net in about 150 lines"
+   },
+   {
+    "name": "nanoGPT",
+    "url": "https://github.com/karpathy/nanoGPT",
+    "about": "a small, readable GPT you can actually train"
+   },
+   {
+    "name": "Made With ML",
+    "url": "https://madewithml.com/",
+    "about": "take a model from notebook to production properly"
+   },
+   {
+    "name": "fast.ai — Practical Deep Learning",
+    "url": "https://course.fast.ai/",
+    "about": "top-down course, project on day one"
+   },
+   {
+    "name": "Kaggle Competitions",
+    "url": "https://www.kaggle.com/competitions",
+    "about": "real datasets, public leaderboard, honest feedback"
+   }
+  ]
+ },
+ {
+  "id": "04-web-and-apps",
+  "title": "Web and applications",
+  "about": "Things with a screen. Good portfolio material, and the easiest to show someone.",
+  "order": 4,
+  "file": "projects/04-web-and-apps.md",
+  "links": [
+   {
+    "name": "Frontend Mentor",
+    "url": "https://www.frontendmentor.io/",
+    "about": "real designs to build to, with community reviews"
+   },
+   {
+    "name": "Full Stack Open",
+    "url": "https://fullstackopen.com/en/",
+    "about": "University of Helsinki's React, Node and GraphQL course"
+   },
+   {
+    "name": "Awesome Portfolio Websites",
+    "url": "https://github.com/emmabostian/developer-portfolios",
+    "about": "hundreds of developer portfolios to study before building yours"
+   },
+   {
+    "name": "Public APIs",
+    "url": "https://github.com/public-apis/public-apis",
+    "about": "free APIs to build something on top of this weekend"
+   }
+  ]
+ }
+]

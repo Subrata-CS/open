@@ -1,0 +1,976 @@
+[
+ {
+  "id": "01-big-tech",
+  "title": "Big tech",
+  "about": "The largest employers of software engineers on earth. Huge intakes, structured interviews, published levels.",
+  "order": 1,
+  "file": "careers/01-big-tech.md",
+  "links": [
+   {
+    "name": "Adobe",
+    "url": "https://careers.adobe.com/",
+    "about": "Creative Cloud, PDF and Firefly; graphics and ML roles"
+   },
+   {
+    "name": "Amazon",
+    "url": "https://amazon.jobs/",
+    "about": "AWS plus retail; the largest volume of software roles in the world"
+   },
+   {
+    "name": "AMD",
+    "url": "https://careers.amd.com/",
+    "about": "Ryzen, EPYC and ROCm; strong for computer architecture"
+   },
+   {
+    "name": "Apple",
+    "url": "https://jobs.apple.com/",
+    "about": "silicon, iOS and hardware; teams are secretive by design"
+   },
+   {
+    "name": "Cisco",
+    "url": "https://jobs.cisco.com/",
+    "about": "networking, Webex and security; strong systems engineering"
+   },
+   {
+    "name": "Google",
+    "url": "https://careers.google.com/",
+    "about": "search, Android, Cloud, and the biggest new-grad intake anywhere"
+   },
+   {
+    "name": "IBM",
+    "url": "https://www.ibm.com/careers",
+    "about": "mainframes, consulting, Red Hat and quantum computing"
+   },
+   {
+    "name": "Intel",
+    "url": "https://jobs.intel.com/",
+    "about": "x86 CPUs, foundry, compilers and firmware"
+   },
+   {
+    "name": "LG Electronics",
+    "url": "https://www.lg.com/global/careers",
+    "about": "consumer electronics, displays and webOS"
+   },
+   {
+    "name": "Meta",
+    "url": "https://www.metacareers.com/",
+    "about": "Facebook, Instagram, WhatsApp, PyTorch and Llama"
+   },
+   {
+    "name": "Microsoft",
+    "url": "https://careers.microsoft.com/",
+    "about": "Azure, Windows, Office, GitHub and OpenAI money"
+   },
+   {
+    "name": "Netflix",
+    "url": "https://jobs.netflix.com/",
+    "about": "small teams, senior-only culture, top of the market pay"
+   },
+   {
+    "name": "NVIDIA",
+    "url": "https://www.nvidia.com/en-us/about-nvidia/careers/",
+    "about": "GPUs, CUDA and the hardware the whole AI industry runs on"
+   },
+   {
+    "name": "Oracle",
+    "url": "https://careers.oracle.com/",
+    "about": "databases, OCI cloud and enterprise applications"
+   },
+   {
+    "name": "Qualcomm",
+    "url": "https://www.qualcomm.com/company/careers",
+    "about": "mobile SoCs and modems; huge India engineering presence"
+   },
+   {
+    "name": "Salesforce",
+    "url": "https://careers.salesforce.com/",
+    "about": "the largest SaaS company; Slack, Tableau and MuleSoft too"
+   },
+   {
+    "name": "Samsung",
+    "url": "https://www.samsung.com/us/careers/",
+    "about": "phones, displays and memory; R&D centres across Asia"
+   },
+   {
+    "name": "SAP",
+    "url": "https://jobs.sap.com/",
+    "about": "enterprise resource planning; huge Germany and India centres"
+   },
+   {
+    "name": "Sony",
+    "url": "https://www.sony.com/en/SonyInfo/Careers/",
+    "about": "PlayStation, imaging sensors and entertainment technology"
+   },
+   {
+    "name": "Tesla",
+    "url": "https://www.tesla.com/careers",
+    "about": "autonomy, embedded firmware, energy and manufacturing software"
+   }
+  ]
+ },
+ {
+  "id": "02-ai-labs",
+  "title": "AI and research labs",
+  "about": "Frontier model labs. Small headcounts, very high bars, research and engineering blended together.",
+  "order": 2,
+  "file": "careers/02-ai-labs.md",
+  "links": [
+   {
+    "name": "Anthropic",
+    "url": "https://www.anthropic.com/careers",
+    "about": "Claude, interpretability and AI safety research"
+   },
+   {
+    "name": "Cohere",
+    "url": "https://cohere.com/careers",
+    "about": "enterprise language models, retrieval and embeddings"
+   },
+   {
+    "name": "Google DeepMind",
+    "url": "https://deepmind.google/about/careers/",
+    "about": "Gemini, AlphaFold and reinforcement learning research"
+   },
+   {
+    "name": "Hugging Face",
+    "url": "https://huggingface.co/jobs",
+    "about": "the open model hub; transformers, datasets and remote-first"
+   },
+   {
+    "name": "OpenAI",
+    "url": "https://openai.com/careers/",
+    "about": "GPT, Sora and the API most products are built on"
+   },
+   {
+    "name": "xAI",
+    "url": "https://x.ai/careers",
+    "about": "Grok; small teams, very fast shipping cadence"
+   }
+  ]
+ },
+ {
+  "id": "03-cloud-and-saas",
+  "title": "Cloud, software and SaaS",
+  "about": "Product companies selling software to other companies. Steady hiring, remote-friendly, real engineering depth.",
+  "order": 3,
+  "file": "careers/03-cloud-and-saas.md",
+  "links": [
+   {
+    "name": "ADP",
+    "url": "https://jobs.adp.com/",
+    "about": "payroll and HR at enormous scale; steady, stable engineering"
+   },
+   {
+    "name": "Alteryx",
+    "url": "https://www.alteryx.com/about-us/careers",
+    "about": "self-service analytics and data preparation"
+   },
+   {
+    "name": "Atlassian",
+    "url": "https://www.atlassian.com/company/careers",
+    "about": "Jira, Confluence and Bitbucket; distributed by default"
+   },
+   {
+    "name": "Autodesk",
+    "url": "https://www.autodesk.com/careers",
+    "about": "CAD, geometry and simulation; graphics-heavy engineering"
+   },
+   {
+    "name": "Avaya",
+    "url": "https://www.avaya.com/en/about-avaya/careers/",
+    "about": "business communications and contact centre platforms"
+   },
+   {
+    "name": "Bentley Systems",
+    "url": "https://www.bentley.com/careers/",
+    "about": "infrastructure engineering software and digital twins"
+   },
+   {
+    "name": "Box",
+    "url": "https://www.box.com/about-us/careers",
+    "about": "enterprise content management and secure sharing"
+   },
+   {
+    "name": "Canonical",
+    "url": "https://canonical.com/careers",
+    "about": "Ubuntu; fully remote, written interviews, open source throughout"
+   },
+   {
+    "name": "Citrix",
+    "url": "https://careers.cloud.com/",
+    "about": "virtual desktops and delivery, now part of Cloud Software Group"
+   },
+   {
+    "name": "DigitalOcean",
+    "url": "https://www.digitalocean.com/careers",
+    "about": "developer-friendly cloud; smaller and less bureaucratic than the big three"
+   },
+   {
+    "name": "Dropbox",
+    "url": "https://jobs.dropbox.com/",
+    "about": "file sync and storage; strong distributed systems work"
+   },
+   {
+    "name": "Intuit",
+    "url": "https://www.intuit.com/careers/",
+    "about": "TurboTax, QuickBooks and Mailchimp; applied ML on financial data"
+   },
+   {
+    "name": "OpenText",
+    "url": "https://careers.opentext.com/",
+    "about": "information management; acquires and runs many enterprise products"
+   },
+   {
+    "name": "Rackspace",
+    "url": "https://www.rackspace.com/careers",
+    "about": "managed multicloud services and support engineering"
+   },
+   {
+    "name": "Red Hat",
+    "url": "https://www.redhat.com/en/jobs",
+    "about": "enterprise Linux, Kubernetes and OpenShift; open source by contract"
+   },
+   {
+    "name": "RingCentral",
+    "url": "https://www.ringcentral.com/careers.html",
+    "about": "cloud communications and contact centre software"
+   },
+   {
+    "name": "ServiceNow",
+    "url": "https://careers.servicenow.com/",
+    "about": "enterprise workflow platform; large India and US teams"
+   },
+   {
+    "name": "Shopify",
+    "url": "https://www.shopify.com/careers",
+    "about": "commerce at scale, Ruby and Rails; remote-first"
+   },
+   {
+    "name": "Splunk",
+    "url": "https://www.splunk.com/en_us/careers.html",
+    "about": "log search and observability, now part of Cisco"
+   },
+   {
+    "name": "Tableau",
+    "url": "https://careers.salesforce.com/",
+    "about": "data visualisation; roles are posted through Salesforce"
+   },
+   {
+    "name": "Twilio",
+    "url": "https://www.twilio.com/en-us/company/jobs",
+    "about": "messaging and voice APIs; remote-friendly"
+   },
+   {
+    "name": "Veeam",
+    "url": "https://careers.veeam.com/",
+    "about": "backup and data resilience for virtual and cloud workloads"
+   },
+   {
+    "name": "Veritas",
+    "url": "https://www.veritas.com/company/careers",
+    "about": "enterprise data protection and storage management"
+   },
+   {
+    "name": "VMware",
+    "url": "https://www.broadcom.com/company/careers",
+    "about": "virtualisation and Tanzu, now hiring under Broadcom"
+   },
+   {
+    "name": "Workday",
+    "url": "https://www.workday.com/en-us/company/careers.html",
+    "about": "HR and finance cloud; the ATS half the industry applies through"
+   },
+   {
+    "name": "Zendesk",
+    "url": "https://www.zendesk.com/jobs/",
+    "about": "customer support software; product and platform roles"
+   },
+   {
+    "name": "Zoom",
+    "url": "https://careers.zoom.us/",
+    "about": "real-time video, media codecs and low-latency networking"
+   }
+  ]
+ },
+ {
+  "id": "04-cybersecurity",
+  "title": "Cybersecurity",
+  "about": "Security product companies. Reliable hiring through downturns and good places to learn systems deeply.",
+  "order": 4,
+  "file": "careers/04-cybersecurity.md",
+  "links": [
+   {
+    "name": "Akamai",
+    "url": "https://www.akamai.com/careers",
+    "about": "the original CDN; edge delivery and web application security"
+   },
+   {
+    "name": "Check Point",
+    "url": "https://careers.checkpoint.com/",
+    "about": "one of the oldest firewall vendors; large Israel R&D base"
+   },
+   {
+    "name": "Cloudflare",
+    "url": "https://www.cloudflare.com/careers/",
+    "about": "CDN, edge compute and DDoS defence; strong systems blog"
+   },
+   {
+    "name": "CrowdStrike",
+    "url": "https://www.crowdstrike.com/careers/",
+    "about": "endpoint detection at cloud scale; remote-first"
+   },
+   {
+    "name": "Fortinet",
+    "url": "https://www.fortinet.com/corporate/careers",
+    "about": "network security appliances and custom security silicon"
+   },
+   {
+    "name": "Okta",
+    "url": "https://www.okta.com/company/careers/",
+    "about": "identity and single sign-on for enterprises"
+   },
+   {
+    "name": "Palo Alto Networks",
+    "url": "https://jobs.paloaltonetworks.com/",
+    "about": "firewalls, Prisma and Cortex; the largest pure-play security firm"
+   },
+   {
+    "name": "Rubrik",
+    "url": "https://www.rubrik.com/company/careers",
+    "about": "data security, backup and ransomware recovery"
+   },
+   {
+    "name": "Zscaler",
+    "url": "https://www.zscaler.com/careers",
+    "about": "zero-trust network access delivered from the cloud"
+   }
+  ]
+ },
+ {
+  "id": "05-data-and-devtools",
+  "title": "Data, databases and developer tools",
+  "about": "The tools engineers use to build everything else. Deep technical work and open source contribution as part of the job.",
+  "order": 5,
+  "file": "careers/05-data-and-devtools.md",
+  "links": [
+   {
+    "name": "Cloudera",
+    "url": "https://www.cloudera.com/about/careers.html",
+    "about": "the Hadoop-era data platform, now hybrid cloud"
+   },
+   {
+    "name": "Confluent",
+    "url": "https://careers.confluent.io/",
+    "about": "Kafka and event streaming, from the people who wrote it"
+   },
+   {
+    "name": "Databricks",
+    "url": "https://www.databricks.com/company/careers",
+    "about": "Spark, Delta Lake and the lakehouse; heavy distributed systems"
+   },
+   {
+    "name": "Datadog",
+    "url": "https://careers.datadoghq.com/",
+    "about": "monitoring and observability; enormous ingest pipelines"
+   },
+   {
+    "name": "Docker",
+    "url": "https://www.docker.com/career-openings/",
+    "about": "containers and Docker Desktop; small team, wide reach"
+   },
+   {
+    "name": "Elastic",
+    "url": "https://www.elastic.co/careers",
+    "about": "Elasticsearch and observability; distributed and remote-first"
+   },
+   {
+    "name": "Figma",
+    "url": "https://www.figma.com/careers/",
+    "about": "browser-based design; WebAssembly, rendering and CRDTs"
+   },
+   {
+    "name": "GitHub",
+    "url": "https://github.careers/",
+    "about": "where the code lives; Actions, Copilot and remote-first culture"
+   },
+   {
+    "name": "GitLab",
+    "url": "https://about.gitlab.com/jobs/",
+    "about": "all-remote since day one, with a public company handbook"
+   },
+   {
+    "name": "HashiCorp",
+    "url": "https://www.hashicorp.com/en/careers",
+    "about": "Terraform, Vault and Consul; infrastructure as code"
+   },
+   {
+    "name": "MongoDB",
+    "url": "https://www.mongodb.com/careers",
+    "about": "document database, Atlas cloud and storage engine work"
+   },
+   {
+    "name": "Palantir",
+    "url": "https://www.palantir.com/careers/",
+    "about": "Foundry and Gotham; forward-deployed engineering roles"
+   },
+   {
+    "name": "Redis",
+    "url": "https://redis.io/careers/",
+    "about": "the in-memory data store nearly every backend touches"
+   },
+   {
+    "name": "Snowflake",
+    "url": "https://careers.snowflake.com/",
+    "about": "cloud data warehouse; storage and query engine internals"
+   },
+   {
+    "name": "Teradata",
+    "url": "https://careers.teradata.com/",
+    "about": "large-scale analytics warehousing for banks and telecoms"
+   }
+  ]
+ },
+ {
+  "id": "06-semiconductors",
+  "title": "Semiconductors and chips",
+  "about": "Where the hardware actually gets made. Verilog, EDA, firmware and physics — and a hiring boom driven by AI.",
+  "order": 6,
+  "file": "careers/06-semiconductors.md",
+  "links": [
+   {
+    "name": "Analog Devices",
+    "url": "https://careers.analog.com/",
+    "about": "signal processing, converters and power management"
+   },
+   {
+    "name": "Applied Materials",
+    "url": "https://careers.appliedmaterials.com/",
+    "about": "the machines that make chips; process and software roles"
+   },
+   {
+    "name": "Arm",
+    "url": "https://careers.arm.com/",
+    "about": "the instruction set in every phone; architecture and compilers"
+   },
+   {
+    "name": "ASML",
+    "url": "https://www.asml.com/en/careers",
+    "about": "EUV lithography; the hardest optics and control problem in tech"
+   },
+   {
+    "name": "Broadcom",
+    "url": "https://www.broadcom.com/company/careers",
+    "about": "networking silicon plus the VMware and CA software portfolio"
+   },
+   {
+    "name": "Infineon",
+    "url": "https://www.infineon.com/cms/en/careers/",
+    "about": "power semiconductors, automotive and security chips"
+   },
+   {
+    "name": "KLA",
+    "url": "https://careers.kla.com/",
+    "about": "process control and wafer inspection; heavy computer vision"
+   },
+   {
+    "name": "Lam Research",
+    "url": "https://careers.lamresearch.com/",
+    "about": "etch and deposition equipment for fabs"
+   },
+   {
+    "name": "Marvell",
+    "url": "https://www.marvell.com/company/careers.html",
+    "about": "data infrastructure silicon; custom AI and networking chips"
+   },
+   {
+    "name": "Micron",
+    "url": "https://careers.micron.com/",
+    "about": "DRAM and NAND memory; fabs in the US, Japan and India"
+   },
+   {
+    "name": "NXP Semiconductors",
+    "url": "https://www.nxp.com/company/about-nxp/careers:CAREERS",
+    "about": "automotive, edge processing and secure connectivity"
+   },
+   {
+    "name": "onsemi",
+    "url": "https://www.onsemi.com/careers",
+    "about": "power and sensing silicon for automotive and industry"
+   },
+   {
+    "name": "Renesas Electronics",
+    "url": "https://www.renesas.com/en/about/careers",
+    "about": "microcontrollers and automotive systems-on-chip"
+   },
+   {
+    "name": "Synopsys",
+    "url": "https://careers.synopsys.com/",
+    "about": "EDA tools and IP; where chip design software is written"
+   },
+   {
+    "name": "Texas Instruments",
+    "url": "https://careers.ti.com/",
+    "about": "analog and embedded processors; strong new-graduate programme"
+   },
+   {
+    "name": "TSMC",
+    "url": "https://careers.tsmc.com/",
+    "about": "the foundry that fabricates most advanced chips on earth"
+   }
+  ]
+ },
+ {
+  "id": "07-hardware-and-networking",
+  "title": "Devices, storage and networking",
+  "about": "Servers, laptops, drives, radios and the companies that assemble them. Firmware, drivers and embedded work.",
+  "order": 7,
+  "file": "careers/07-hardware-and-networking.md",
+  "links": [
+   {
+    "name": "Acer",
+    "url": "https://www.acer.com/us-en/about/careers",
+    "about": "consumer PCs, displays and gaming hardware"
+   },
+   {
+    "name": "ASUS",
+    "url": "https://www.asus.com/careers/",
+    "about": "motherboards, laptops and ROG gaming hardware"
+   },
+   {
+    "name": "BlackBerry",
+    "url": "https://www.blackberry.com/us/en/company/careers",
+    "about": "QNX embedded systems and automotive software"
+   },
+   {
+    "name": "Dell Technologies",
+    "url": "https://jobs.dell.com/",
+    "about": "servers, storage and client devices; large India engineering base"
+   },
+   {
+    "name": "Ericsson",
+    "url": "https://www.ericsson.com/en/careers",
+    "about": "5G radio access networks and telecom infrastructure"
+   },
+   {
+    "name": "Foxconn",
+    "url": "https://www.foxconn.com/en-us/careers",
+    "about": "contract manufacturing at planetary scale; automation and robotics"
+   },
+   {
+    "name": "Fujitsu",
+    "url": "https://www.fujitsu.com/global/about/careers/",
+    "about": "supercomputing, services and enterprise systems"
+   },
+   {
+    "name": "Hewlett Packard Enterprise",
+    "url": "https://careers.hpe.com/",
+    "about": "enterprise servers, HPC and supercomputing after the Cray deal"
+   },
+   {
+    "name": "Hitachi",
+    "url": "https://careers.hitachi.com/",
+    "about": "industrial systems, storage and digital services"
+   },
+   {
+    "name": "HP Inc.",
+    "url": "https://jobs.hp.com/",
+    "about": "PCs and printing; firmware, drivers and cloud services"
+   },
+   {
+    "name": "Jabil",
+    "url": "https://careers.jabil.com/",
+    "about": "design and manufacturing services across many industries"
+   },
+   {
+    "name": "Juniper Networks",
+    "url": "https://careers.juniper.net/",
+    "about": "routing, switching and Mist AI networking"
+   },
+   {
+    "name": "Lenovo",
+    "url": "https://jobs.lenovo.com/",
+    "about": "ThinkPad, data centre systems and Motorola phones"
+   },
+   {
+    "name": "Logitech",
+    "url": "https://jobs.logitech.com/",
+    "about": "peripherals, streaming gear and embedded firmware"
+   },
+   {
+    "name": "Motorola Solutions",
+    "url": "https://careers.motorolasolutions.com/",
+    "about": "public safety radio, video security and command centre software"
+   },
+   {
+    "name": "NEC",
+    "url": "https://www.nec.com/en/global/careers/",
+    "about": "networks, biometrics and public sector systems"
+   },
+   {
+    "name": "NetApp",
+    "url": "https://www.netapp.com/careers/",
+    "about": "enterprise storage systems and hybrid cloud data services"
+   },
+   {
+    "name": "Nokia",
+    "url": "https://www.nokia.com/about-us/careers/",
+    "about": "networks, optical transport and Bell Labs research"
+   },
+   {
+    "name": "Pure Storage",
+    "url": "https://www.purestorage.com/company/careers.html",
+    "about": "all-flash arrays; tight software and hardware co-design"
+   },
+   {
+    "name": "Roku",
+    "url": "https://www.roku.com/careers",
+    "about": "streaming players and TV operating system engineering"
+   },
+   {
+    "name": "Sanmina",
+    "url": "https://www.sanmina.com/careers/",
+    "about": "electronics manufacturing for medical, defence and communications"
+   },
+   {
+    "name": "Siemens",
+    "url": "https://jobs.siemens.com/",
+    "about": "industrial automation, EDA through Siemens Digital Industries Software"
+   },
+   {
+    "name": "Supermicro",
+    "url": "https://www.supermicro.com/en/about/careers",
+    "about": "AI and GPU server systems, built to order"
+   },
+   {
+    "name": "Western Digital",
+    "url": "https://jobs.westerndigital.com/",
+    "about": "hard drives and flash storage; firmware and controller work"
+   }
+  ]
+ },
+ {
+  "id": "08-consumer-and-fintech",
+  "title": "Consumer internet, fintech and commerce",
+  "about": "Product companies with millions of users. Scale, payments and mobile engineering, plus a lot of applied data work.",
+  "order": 8,
+  "file": "careers/08-consumer-and-fintech.md",
+  "links": [
+   {
+    "name": "Airbnb",
+    "url": "https://careers.airbnb.com/",
+    "about": "marketplace, search ranking and trust systems"
+   },
+   {
+    "name": "Block",
+    "url": "https://block.xyz/careers",
+    "about": "Square, Cash App and Bitcoin infrastructure"
+   },
+   {
+    "name": "Bloomberg",
+    "url": "https://careers.bloomberg.com/",
+    "about": "the Terminal; low-latency market data and C++ at scale"
+   },
+   {
+    "name": "Discord",
+    "url": "https://discord.com/careers",
+    "about": "real-time chat and voice for hundreds of millions of users"
+   },
+   {
+    "name": "DoorDash",
+    "url": "https://careers.doordash.com/",
+    "about": "logistics, routing and marketplace optimisation"
+   },
+   {
+    "name": "eBay",
+    "url": "https://jobs.ebayinc.com/",
+    "about": "one of the oldest marketplaces; search and recommendation work"
+   },
+   {
+    "name": "Expedia Group",
+    "url": "https://careers.expediagroup.com/",
+    "about": "travel search, pricing and inventory systems"
+   },
+   {
+    "name": "GoDaddy",
+    "url": "https://careers.godaddy.com/",
+    "about": "domains, hosting and small-business web tooling"
+   },
+   {
+    "name": "Indeed",
+    "url": "https://www.indeed.jobs/",
+    "about": "job search itself; large-scale matching and ranking"
+   },
+   {
+    "name": "Klarna",
+    "url": "https://www.klarna.com/careers/",
+    "about": "buy now pay later; Swedish fintech with a big AI push"
+   },
+   {
+    "name": "LinkedIn",
+    "url": "https://careers.linkedin.com/",
+    "about": "professional graph, feed ranking and Kafka's birthplace"
+   },
+   {
+    "name": "PayPal",
+    "url": "https://careers.pypl.com/",
+    "about": "payments, Venmo and Braintree; heavy risk and fraud modelling"
+   },
+   {
+    "name": "Pinterest",
+    "url": "https://www.pinterestcareers.com/",
+    "about": "visual discovery; computer vision and recommendations"
+   },
+   {
+    "name": "Revolut",
+    "url": "https://www.revolut.com/careers/",
+    "about": "digital banking across Europe; fast, demanding culture"
+   },
+   {
+    "name": "Spotify",
+    "url": "https://www.lifeatspotify.com/jobs",
+    "about": "audio streaming, recommendations and a strong engineering culture"
+   },
+   {
+    "name": "Stripe",
+    "url": "https://stripe.com/jobs",
+    "about": "developer-first payments; famously high engineering bar"
+   },
+   {
+    "name": "Uber",
+    "url": "https://www.uber.com/careers/",
+    "about": "real-time dispatch, mapping and pricing at global scale"
+   },
+   {
+    "name": "Visa",
+    "url": "https://jobs.visa.com/",
+    "about": "the card network itself; extreme reliability requirements"
+   },
+   {
+    "name": "Wayfair",
+    "url": "https://www.aboutwayfair.com/careers",
+    "about": "e-commerce, supply chain and 3D product visualisation"
+   },
+   {
+    "name": "Xero",
+    "url": "https://www.xero.com/about/careers/",
+    "about": "cloud accounting for small business; New Zealand and Australia"
+   },
+   {
+    "name": "Yahoo",
+    "url": "https://www.yahooinc.com/careers/",
+    "about": "search, mail, finance and advertising technology"
+   },
+   {
+    "name": "Yandex",
+    "url": "https://yandex.com/jobs",
+    "about": "search, maps and self-driving research"
+   }
+  ]
+ },
+ {
+  "id": "09-gaming",
+  "title": "Gaming",
+  "about": "Engines, live services and studios. Graphics, networking and performance work you will not find elsewhere.",
+  "order": 9,
+  "file": "careers/09-gaming.md",
+  "links": [
+   {
+    "name": "Epic Games",
+    "url": "https://www.epicgames.com/site/careers",
+    "about": "Unreal Engine and Fortnite; graphics and live-ops at scale"
+   },
+   {
+    "name": "Riot Games",
+    "url": "https://www.riotgames.com/en/work-with-us",
+    "about": "League of Legends and Valorant; anti-cheat and netcode"
+   },
+   {
+    "name": "Roblox",
+    "url": "https://careers.roblox.com/",
+    "about": "user-generated worlds; simulation, safety and physics"
+   },
+   {
+    "name": "Unity",
+    "url": "https://careers.unity.com/",
+    "about": "the engine behind most mobile games; rendering and tooling"
+   },
+   {
+    "name": "Valve",
+    "url": "https://www.valvesoftware.com/en/jobs",
+    "about": "Steam, Source and Steam Deck; flat structure, tiny headcount"
+   }
+  ]
+ },
+ {
+  "id": "10-it-services",
+  "title": "IT services and consulting",
+  "about": "The largest graduate intakes in India and the usual first job for lakhs of engineers each year.",
+  "order": 10,
+  "file": "careers/10-it-services.md",
+  "links": [
+   {
+    "name": "Accenture",
+    "url": "https://www.accenture.com/us-en/careers",
+    "about": "consulting and delivery across every industry"
+   },
+   {
+    "name": "Booz Allen Hamilton",
+    "url": "https://careers.boozallen.com/",
+    "about": "consulting and analytics for US government agencies"
+   },
+   {
+    "name": "Capgemini",
+    "url": "https://www.capgemini.com/careers/",
+    "about": "engineering and digital transformation services"
+   },
+   {
+    "name": "CDW",
+    "url": "https://www.cdwjobs.com/",
+    "about": "technology procurement and managed services"
+   },
+   {
+    "name": "Cognizant",
+    "url": "https://careers.cognizant.com/",
+    "about": "large India delivery centres and steady fresher hiring"
+   },
+   {
+    "name": "Concentrix",
+    "url": "https://jobs.concentrix.com/",
+    "about": "customer experience technology and support operations"
+   },
+   {
+    "name": "Deloitte",
+    "url": "https://careers.deloitte.com/",
+    "about": "technology consulting, audit and risk advisory"
+   },
+   {
+    "name": "DXC Technology",
+    "url": "https://careers.dxc.com/",
+    "about": "enterprise IT operations and application management"
+   },
+   {
+    "name": "HCLTech",
+    "url": "https://www.hcltech.com/careers",
+    "about": "engineering and R&D services; also hires straight after class 12"
+   },
+   {
+    "name": "Infosys",
+    "url": "https://career.infosys.com/",
+    "about": "Mysore training campus and the HackWithInfy hiring route"
+   },
+   {
+    "name": "Insight Enterprises",
+    "url": "https://careers.insight.com/",
+    "about": "IT solutions integration and cloud services"
+   },
+   {
+    "name": "Kyndryl",
+    "url": "https://www.kyndryl.com/us/en/careers",
+    "about": "the infrastructure services business spun out of IBM"
+   },
+   {
+    "name": "Leidos",
+    "url": "https://careers.leidos.com/",
+    "about": "defence, intelligence and health IT; US clearance often required"
+   },
+   {
+    "name": "SAIC",
+    "url": "https://www.saic.com/careers",
+    "about": "government systems integration and mission IT"
+   },
+   {
+    "name": "Tata Consultancy Services",
+    "url": "https://www.tcs.com/careers",
+    "about": "the biggest Indian IT employer; hires through NQT"
+   },
+   {
+    "name": "Thoughtworks",
+    "url": "https://www.thoughtworks.com/careers",
+    "about": "smaller, craft-focused consultancy; strong engineering practices"
+   },
+   {
+    "name": "Unisys",
+    "url": "https://www.unisys.com/careers/",
+    "about": "mainframe modernisation and managed infrastructure"
+   },
+   {
+    "name": "Wipro",
+    "url": "https://careers.wipro.com/",
+    "about": "services and engineering; hires through the Elite NTH test"
+   }
+  ]
+ },
+ {
+  "id": "11-asia-pacific",
+  "title": "Asia-Pacific and India",
+  "about": "The other half of the industry. Massive scale, different interview formats, and hiring you will not see on US boards.",
+  "order": 11,
+  "file": "careers/11-asia-pacific.md",
+  "links": [
+   {
+    "name": "Alibaba",
+    "url": "https://talent.alibaba.com/",
+    "about": "e-commerce, Alipay-adjacent systems and Alibaba Cloud"
+   },
+   {
+    "name": "Baidu",
+    "url": "https://talent.baidu.com/",
+    "about": "search, Ernie models and autonomous driving"
+   },
+   {
+    "name": "ByteDance",
+    "url": "https://jobs.bytedance.com/",
+    "about": "TikTok and Douyin; recommendation systems at extreme scale"
+   },
+   {
+    "name": "Coupang",
+    "url": "https://www.coupang.jobs/",
+    "about": "Korean e-commerce and logistics engineering"
+   },
+   {
+    "name": "Grab",
+    "url": "https://www.grab.careers/",
+    "about": "rides, deliveries and payments across Southeast Asia"
+   },
+   {
+    "name": "Huawei",
+    "url": "https://career.huawei.com/",
+    "about": "telecom equipment, HarmonyOS and Kirin silicon"
+   },
+   {
+    "name": "Jio",
+    "url": "https://careers.jio.com/",
+    "about": "telecom platform engineering at Indian population scale"
+   },
+   {
+    "name": "NetEase",
+    "url": "https://careers.netease.com/",
+    "about": "games, music and education platforms"
+   },
+   {
+    "name": "Paytm",
+    "url": "https://paytm.com/careers",
+    "about": "payments and financial services across India"
+   },
+   {
+    "name": "Rakuten",
+    "url": "https://global.rakuten.com/corp/careers/",
+    "about": "commerce, fintech and mobile; English is the internal language"
+   },
+   {
+    "name": "Tencent",
+    "url": "https://careers.tencent.com/",
+    "about": "WeChat, games and cloud; one of the largest tech employers"
+   },
+   {
+    "name": "Xiaomi",
+    "url": "https://hr.xiaomi.com/",
+    "about": "phones, IoT devices and electric vehicles"
+   },
+   {
+    "name": "Zoho",
+    "url": "https://www.zoho.com/careers/",
+    "about": "bootstrapped SaaS from Chennai; hires without degree requirements"
+   }
+  ]
+ }
+]

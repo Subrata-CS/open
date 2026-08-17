@@ -521,3 +521,30 @@ select option:hover {
     --open-code-dim: #aeb9d8;
   }
 }
+
+/* --------------------------------------------------------------------------
+ * Navbar breathing room.
+ *
+ * The bar now carries fourteen destinations, one of them three words long
+ * ("Global Career Links"). Between the mobile breakpoint (997px) and a wide
+ * desktop the row would otherwise run into the search box, so the links
+ * tighten up slightly through that band instead of overflowing. Above 1500px
+ * nothing changes.
+ * ----------------------------------------------------------------------- */
+@media (min-width: 997px) and (max-width: 1500px) {
+  .navbar__item,
+  .navbar__link {
+    padding-left: 0.42rem;
+    padding-right: 0.42rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 997px) and (max-width: 1200px) {
+  .navbar__item,
+  .navbar__link {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    font-size: 0.84rem;
+  }
+}
