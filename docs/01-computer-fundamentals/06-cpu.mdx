@@ -32,18 +32,17 @@ Physically, the CPU is a small chip mounted on the motherboard. Even though it's
   2. **Decode** — Understand what the instruction means (what needs to be done).
   3. **Execute** — Carry out the instruction.
 
-## How the CPU Works (Live Diagram)
+## How the CPU Works (Diagram)
 
-The diagram below shows the **Fetch → Decode → Execute** cycle with an animated moving arrow, so you can visualize how data/instructions flow step by step.
+The diagram below shows the **Fetch → Decode → Execute** cycle, step by step.
 
 <div style={{
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: '2rem',
-  padding: '3rem 1rem',
-  flexWrap: 'wrap',
-  position: 'relative'
+  gap: '1.5rem',
+  padding: '2.5rem 1rem',
+  flexWrap: 'wrap'
 }}>
   <div style={{
     padding: '1.2rem 1.8rem',
@@ -57,11 +56,7 @@ The diagram below shows the **Fetch → Decode → Execute** cycle with an anima
     🧠 Fetch
   </div>
 
-  <span style={{
-    fontSize: '2rem',
-    color: '#4f8cff',
-    animation: 'cpuArrowMove 1.4s infinite ease-in-out'
-  }}>➜</span>
+  <span style={{ fontSize: '2rem', color: '#4f8cff' }}>➜</span>
 
   <div style={{
     padding: '1.2rem 1.8rem',
@@ -75,12 +70,7 @@ The diagram below shows the **Fetch → Decode → Execute** cycle with an anima
     🔍 Decode
   </div>
 
-  <span style={{
-    fontSize: '2rem',
-    color: '#ff9f43',
-    animation: 'cpuArrowMove 1.4s infinite ease-in-out',
-    animationDelay: '0.4s'
-  }}>➜</span>
+  <span style={{ fontSize: '2rem', color: '#ff9f43' }}>➜</span>
 
   <div style={{
     padding: '1.2rem 1.8rem',
@@ -93,34 +83,19 @@ The diagram below shows the **Fetch → Decode → Execute** cycle with an anima
   }}>
     ⚡ Execute
   </div>
-
-  <span style={{
-    fontSize: '2rem',
-    color: '#2ecc71',
-    animation: 'cpuArrowLoopBack 1.4s infinite ease-in-out',
-    animationDelay: '0.8s',
-    position: 'absolute',
-    right: '5%',
-    bottom: '-1.5rem'
-  }}>↩ back to Fetch</span>
 </div>
 
-<style>
-{`
-@keyframes cpuArrowMove {
-  0%   { transform: translateX(0px); opacity: 0.4; }
-  50%  { transform: translateX(8px); opacity: 1; }
-  100% { transform: translateX(0px); opacity: 0.4; }
-}
-@keyframes cpuArrowLoopBack {
-  0%   { opacity: 0.3; }
-  50%  { opacity: 1; }
-  100% { opacity: 0.3; }
-}
-`}
-</style>
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-1rem',
+  marginBottom: '2rem'
+}}>
+  ↩ This cycle loops back to Fetch and repeats billions of times per second
+</div>
 
-> This cycle repeats billions of times per second — that's what "Clock Speed (GHz)" actually measures.
+> This repeating cycle is exactly what "Clock Speed (GHz)" measures — how many times per second the CPU can go through Fetch → Decode → Execute.
 
 ## Example
 
