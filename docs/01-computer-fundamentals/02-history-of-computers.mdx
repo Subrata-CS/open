@@ -1,65 +1,38 @@
----
+
+{`---
 title: History of Computers
 sidebar_position: 2
 sidebar_label: History of Computers
 slug: /computer-fundamentals/history-of-computers
-description: Complete history of computers from Abacus to Artificial Intelligence with diagrams, inventors, generations and practice questions.
+description: Complete history of computers from Abacus to ENIAC and modern AI.
 keywords:
   - history of computers
   - charles babbage
   - eniac
-  - generations
+  - abacus
 ---
 
-import RunInLab from '@site/src/components/RunInLab';
-import AskBox from '@site/src/components/AskBox';
-import Diagram from '@site/src/components/Diagram';
-import { Lede, Callout, ProsCons, Quiz, Revision } from '@site/src/components/Note';
+import RunInLab from '@site/src/components/RunInLab'
+import AskBox from '@site/src/components/AskBox'
+import { Lede, Callout, ProsCons, Quiz, Revision } from '@site/src/components/Note'
 
 # History of Computers
 
 <Lede>
-The history of computers is the journey from simple manual calculating tools to today's intelligent AI-powered machines. Every invention contributed to the modern computer we use today.
+The history of computers is the journey from simple calculating tools to today's intelligent AI-powered machines.
 </Lede>
 
-![Computer History](/img/computer-history.jpg)
+![History](/img/computer-history.jpg)
 
-*Figure 1. Evolution of Computing Devices*
-
----
-
-## What is the History of Computers?
+## What is Computer History?
 
 <Callout kind="def" title="Definition">
-The history of computers refers to the chronological development of calculating devices and computer systems from ancient times to the modern digital era.
+Computer history is the chronological development of calculating devices and computer systems from ancient times to modern digital computers.
 </Callout>
 
-### Why is it Important?
+## Evolution Timeline
 
-- Understand technological evolution
-- Learn about famous inventors
-- Understand computer generations
-- Know how modern computers were developed
-
----
-
-# Evolution Timeline
-
-<Diagram
-  type="chain"
-  label="Fig 2"
-  title="Major Milestones in Computer History"
-  items={[
-    { title:"ABACUS", lines:["2400 BC"] },
-    { title:"PASCALINE", lines:["1642"] },
-    { title:"ANALYTICAL", lines:["1837"] },
-    { title:"MARK I", lines:["1944"] },
-    { title:"ENIAC", lines:["1946"] },
-    { title:"AI", lines:["Today"] }
-  ]}
-/>
-
-| Year | Invention |
+| Year | Device |
 |---|---|
 | 2400 BC | Abacus |
 | 1617 | Napier's Bones |
@@ -68,217 +41,162 @@ The history of computers refers to the chronological development of calculating 
 | 1837 | Analytical Engine |
 | 1944 | Harvard Mark I |
 | 1946 | ENIAC |
-| Today | AI Computers |
+| Present | AI Computers |
 
----
-
-# 1. Abacus
+## 1. Abacus
 
 ![Abacus](/img/abacus.jpg)
 
-*Figure 2. Ancient Abacus*
-
-The **Abacus** was the world's first calculating device. It used beads placed on rods to perform arithmetic operations.
-
-### Features
+The Abacus was the first known calculating device used for arithmetic operations.
 
 | Feature | Description |
 |---|---|
-| Invented | Around 2400 BC |
 | Type | Manual Calculator |
-| Operations | Addition & Subtraction |
 | Power | No Electricity |
+| Use | Addition & Subtraction |
 
----
-
-# 2. Napier's Bones
+## 2. Napier's Bones
 
 ![Napier](/img/napier-bones.jpg)
 
-*Figure 3. Napier's Bones*
+Invented by **John Napier** in 1617 for multiplication and division.
 
-Invented by **John Napier** in 1617.
-
-### Uses
-
-- Multiplication
-- Division
-- Square Roots
-
----
-
-# 3. Pascaline
+## 3. Pascaline
 
 ![Pascaline](/img/pascaline.jpg)
 
-*Figure 4. Mechanical Calculator*
-
-The **Pascaline** was invented by **Blaise Pascal** and was the first successful mechanical calculator.
+Invented by **Blaise Pascal** in 1642.
 
 | Feature | Value |
 |---|---|
-| Year | 1642 |
+| Technology | Mechanical |
 | Inventor | Blaise Pascal |
-| Technology | Mechanical Gears |
+| Operation | Add & Subtract |
 
----
-
-# 4. Difference Engine
+## 4. Difference Engine
 
 ![Difference Engine](/img/difference-engine.jpg)
 
-*Figure 5. Difference Engine*
+Designed by **Charles Babbage** to generate mathematical tables automatically.
 
-Designed by **Charles Babbage** for automatic mathematical calculations.
-
-<Callout kind="tip" title="Exam Fact">
-Charles Babbage is called the **Father of Computer** because he introduced the concept of programmable computing.
-</Callout>
-
----
-
-# 5. Analytical Engine
+## 5. Analytical Engine
 
 ![Analytical Engine](/img/analytical-engine.jpg)
 
-*Figure 6. Analytical Engine*
-
-The Analytical Engine was the first design of a **programmable computer**.
+The first design of a programmable computer.
 
 | Analytical Engine | Modern Computer |
 |---|---|
 | Mill | CPU |
 | Store | Memory |
-| Punch Cards | Input |
+| Punch Card | Input |
 | Printer | Output |
 
----
+## Ada Lovelace
 
-# Ada Lovelace
+![Ada](/img/ada-lovelace.jpg)
 
-![Ada Lovelace](/img/ada-lovelace.jpg)
+Ada Lovelace wrote the first computer algorithm and is known as the **First Programmer**.
 
-*Figure 7. Ada Lovelace*
-
-Ada Lovelace wrote the first algorithm for the Analytical Engine and is known as the **First Computer Programmer**.
-
----
-
-# Harvard Mark I
+## Harvard Mark I
 
 ![Mark I](/img/mark1.jpg)
 
-*Figure 8. Harvard Mark I*
+An electromechanical computer developed in 1944.
 
-An electromechanical computer developed in 1944 by **Howard Aiken** with IBM.
-
----
-
-# ENIAC
+## ENIAC
 
 ![ENIAC](/img/eniac.jpg)
 
-*Figure 9. ENIAC Computer*
-
-ENIAC stands for **Electronic Numerical Integrator and Computer**.
+The first large-scale electronic digital computer.
 
 | Feature | ENIAC |
 |---|---|
+| Year | 1946 |
 | Weight | 30 Tons |
 | Vacuum Tubes | 18,000 |
-| Year | 1946 |
 
----
-
-# Famous Inventors
+## Famous Inventors
 
 | Inventor | Contribution |
 |---|---|
 | John Napier | Napier's Bones |
 | Blaise Pascal | Pascaline |
-| Charles Babbage | Difference & Analytical Engine |
+| Charles Babbage | Difference Engine |
 | Ada Lovelace | First Algorithm |
 | Howard Aiken | Harvard Mark I |
 
----
-
-# Advantages of Computer Evolution
+## Advantages of Evolution
 
 <ProsCons
   pros={[
-    "Smaller devices",
+    "Smaller computers",
     "Higher speed",
-    "Greater storage",
+    "Better storage",
     "Lower power consumption",
     "More reliable systems"
   ]}
   cons={[
     "Electronic waste",
     "Rapid hardware changes",
-    "Higher development cost",
     "Cyber security risks",
-    "Privacy challenges"
+    "Privacy concerns",
+    "High development cost"
   ]}
 />
 
----
+## Python Example
 
-# Python Example
-
-```python
+\`\`\`python
 inventors = {
     "Abacus":"Unknown",
     "Pascaline":"Blaise Pascal",
-    "Analytical Engine":"Charles Babbage",
+    "Difference Engine":"Charles Babbage",
     "First Algorithm":"Ada Lovelace"
 }
 
-for k,v in inventors.items():
-    print(k,":",v)
-```
+for name, inventor in inventors.items():
+    print(name, ":", inventor)
+\`\`\`
 
 <RunInLab
   topic="History of Computers"
   lang="python"
-  code={`inventors = {
+  code={\`inventors = {
     "Abacus":"Unknown",
     "Pascaline":"Blaise Pascal",
-    "Analytical Engine":"Charles Babbage",
+    "Difference Engine":"Charles Babbage",
     "First Algorithm":"Ada Lovelace"
 }
 
-for k,v in inventors.items():
-    print(k,":",v)`}
- />
+for name, inventor in inventors.items():
+    print(name, ":", inventor)\`}
+/>
 
----
-
-# Practice Questions
+## Practice Questions
 
 <Quiz
   items={[
     {
       q:"Who is called the Father of Computer?",
-      a:"Charles Babbage."
+      a:"Charles Babbage"
     },
     {
       q:"Who wrote the first algorithm?",
-      a:"Ada Lovelace."
+      a:"Ada Lovelace"
     },
     {
       q:"What does ENIAC stand for?",
-      a:"Electronic Numerical Integrator and Computer."
+      a:"Electronic Numerical Integrator and Computer"
     },
     {
       q:"What was the first calculating device?",
-      a:"Abacus."
+      a:"Abacus"
     }
   ]}
 />
 
----
-
-# Quick Revision
+## Quick Revision
 
 <Revision
   points={[
@@ -290,6 +208,4 @@ for k,v in inventors.items():
   ]}
 />
 
----
-
-<AskBox topic="History of Computers" section="Computer Fundamentals"/>
+<AskBox topic="History of Computers" section="Computer Fundamentals"/>`}
