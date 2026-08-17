@@ -1,483 +1,111 @@
 ---
 title: History of Computers
 sidebar_position: 2
-sidebar_label: History of Computers
-slug: /computer-fundamentals/history-of-computers
-description: Complete history of computers from Abacus to Artificial Intelligence with timeline, generations, inventors, diagrams, tables and practice questions.
-keywords:
-  - history of computer
-  - generations of computer
-  - charles babbage
-  - eniac
-  - abacus
 ---
-
-import RunInLab from '@site/src/components/RunInLab';
-import AskBox from '@site/src/components/AskBox';
-import Diagram from '@site/src/components/Diagram';
-import { Lede, Callout, Quiz, Revision, ProsCons } from '@site/src/components/Note';
 
 # History of Computers
 
-<Lede>
-The history of computers is the story of humanity's effort to perform calculations faster and more accurately. From the wooden Abacus to modern Artificial Intelligence, computers have evolved through remarkable inventions over thousands of years.
-</Lede>
+The history of computers began with simple calculating devices and evolved into powerful AI systems.
 
 ![Timeline](/img/generation-timeline.jpg)
 
-*Figure 1. Evolution of Computers Through Time*
+## Evolution Timeline
 
----
+<svg viewBox="0 0 700 120">
+  <rect width="700" height="120" fill="#F8FAFC" rx="12"/>
+  <line x1="60" y1="60" x2="640" y2="60" stroke="#2563EB" stroke-width="4"/>
 
-# What is the History of Computers?
+  <circle cx="60" cy="60" r="8" fill="#2563EB"/>
+  <circle cx="180" cy="60" r="8" fill="#2563EB"/>
+  <circle cx="300" cy="60" r="8" fill="#2563EB"/>
+  <circle cx="420" cy="60" r="8" fill="#2563EB"/>
+  <circle cx="540" cy="60" r="8" fill="#2563EB"/>
+  <circle cx="640" cy="60" r="8" fill="#2563EB"/>
 
-Computer history describes the development of calculating devices from ancient manual tools to modern electronic digital computers.
+  <text x="60" y="30" font-size="10" text-anchor="middle">2400 BC</text>
+  <text x="180" y="30" font-size="10" text-anchor="middle">1617</text>
+  <text x="300" y="30" font-size="10" text-anchor="middle">1642</text>
+  <text x="420" y="30" font-size="10" text-anchor="middle">1837</text>
+  <text x="540" y="30" font-size="10" text-anchor="middle">1946</text>
+  <text x="640" y="30" font-size="10" text-anchor="middle">Today</text>
 
-### Why Study History?
+  <text x="60" y="90" font-size="10" text-anchor="middle">Abacus</text>
+  <text x="180" y="90" font-size="10" text-anchor="middle">Napier</text>
+  <text x="300" y="90" font-size="10" text-anchor="middle">Pascal</text>
+  <text x="420" y="90" font-size="10" text-anchor="middle">Babbage</text>
+  <text x="540" y="90" font-size="10" text-anchor="middle">ENIAC</text>
+  <text x="640" y="90" font-size="10" text-anchor="middle">AI</text>
+</svg>
 
-- Understand technological evolution
-- Learn about famous inventors
-- Understand computer generations
-- Know how modern computers were developed
-
----
-
-# Evolution Timeline
-
-<Diagram
-  type="chain"
-  label="Fig 2"
-  title="Computer Evolution Timeline"
-  items={[
-    { title:"ABACUS", lines:["2400 BC","First calculator"] },
-    { title:"PASCALINE", lines:["1642","Mechanical"] },
-    { title:"ANALYTICAL", lines:["1837","Programmable"] },
-    { title:"ENIAC", lines:["1946","Electronic"] },
-    { title:"AI", lines:["Present","Intelligent systems"] }
-  ]}
-/>
-
-| Year | Invention |
-|---|---|
-| 2400 BC | Abacus |
-| 1617 | Napier's Bones |
-| 1642 | Pascaline |
-| 1673 | Leibniz Calculator |
-| 1822 | Difference Engine |
-| 1837 | Analytical Engine |
-| 1944 | Harvard Mark I |
-| 1946 | ENIAC |
-| Present | AI Computers |
-
----
-
-# 1. Abacus (2400 BC)
+## Abacus
 
 ![Abacus](/img/abacus.jpg)
 
-*Figure 2. Ancient Abacus*
+The **Abacus** was the first known calculating device used for arithmetic operations.
 
-The **Abacus** is considered the world's first calculating device.
+## Napier's Bones
 
-### Features
+![Napier](/img/napier-bones.jpg)
 
-- Wooden frame
-- Beads on rods
-- Manual calculation
-- Used for addition & subtraction
+Invented by **John Napier** in 1617 for multiplication and division.
 
-### Advantages
-
-- Simple
-- No electricity
-- Fast manual calculation
-
-### Limitation
-
-Cannot store data.
-
----
-
-# 2. Napier's Bones (1617)
-
-![Napier Bones](/img/napier-bones.jpg)
-
-*Figure 3. Napier's Bones*
-
-Invented by **John Napier**.
-
-Used for:
-
-- Multiplication
-- Division
-- Square roots
-
-This device reduced complex mathematical calculations.
-
----
-
-# 3. Pascaline (1642)
+## Pascaline
 
 ![Pascaline](/img/pascaline.jpg)
 
-*Figure 4. Pascal Mechanical Calculator*
+Created by **Blaise Pascal** in 1642 using mechanical gears.
 
-Invented by **Blaise Pascal**.
-
-### Characteristics
-
-| Feature | Value |
-|---|---|
-| Type | Mechanical |
-| Operation | Addition & Subtraction |
-| Wheels | Gear Wheels |
-| Inventor | Blaise Pascal |
-
----
-
-# 4. Difference Engine (1822)
+## Difference Engine
 
 ![Difference Engine](/img/difference-engine.jpg)
 
-*Figure 5. Difference Engine*
+Designed by **Charles Babbage** to calculate mathematical tables automatically.
 
-Designed by **Charles Babbage**.
-
-Purpose:
-
-- Mathematical tables
-- Automatic calculations
-- Reduced human errors
-
-<Callout kind="tip" title="Exam Fact">
-Charles Babbage is known as the **Father of Computer** because he designed the Difference Engine and Analytical Engine.
-</Callout>
-
----
-
-# 5. Analytical Engine (1837)
+## Analytical Engine
 
 ![Analytical Engine](/img/analytical-engine.jpg)
 
-*Figure 6. Analytical Engine*
+The first design of a **programmable computer**.
 
-The Analytical Engine introduced the idea of a **programmable computer**.
-
-### Main Components
-
-| Part | Modern Equivalent |
+| Part | Modern Computer |
 |---|---|
 | Mill | CPU |
 | Store | Memory |
-| Punch Card | Input |
+| Punch Cards | Input |
 | Printer | Output |
 
-This architecture inspired modern computers.
+## Ada Lovelace
 
----
+![Ada](/img/ada-lovelace.jpg)
 
-# Ada Lovelace
+Known as the **First Computer Programmer**.
 
-![Ada Lovelace](/img/ada-lovelace.jpg)
-
-*Figure 7. Ada Lovelace*
-
-Ada Lovelace wrote the first algorithm for the Analytical Engine.
-
-She is known as the **First Computer Programmer**.
-
----
-
-# Harvard Mark I (1944)
+## Harvard Mark I
 
 ![Mark I](/img/mark1.jpg)
 
-*Figure 8. Harvard Mark I*
+An electromechanical computer developed in 1944.
 
-Developed by **Howard Aiken** with IBM.
-
-Features:
-
-- Electromechanical
-- Automatic calculations
-- Very large machine
-
----
-
-# ENIAC (1946)
+## ENIAC
 
 ![ENIAC](/img/eniac.jpg)
 
-*Figure 9. ENIAC Computer*
+The first large-scale electronic digital computer.
 
-ENIAC stands for **Electronic Numerical Integrator and Computer**.
-
-### Specifications
-
-| Feature | ENIAC |
-|---|---|
-| Weight | 30 Tons |
-| Vacuum Tubes | 18,000 |
-| Speed | 5,000 additions/sec |
-| Year | 1946 |
-
-ENIAC is regarded as the first large-scale electronic digital computer.
-
----
-
-# Five Generations of Computers
-
-## First Generation (1940–1956)
-
-![Vacuum Tube](/img/vacuum-tube.jpg)
-
-*Figure 10. Vacuum Tube*
-
-Technology: **Vacuum Tubes**
-
-Examples:
-
-- ENIAC
-- UNIVAC
-
-Advantages:
-
-- First electronic computers
-
-Disadvantages:
-
-- Huge size
-- High heat
-- Expensive
-
----
-
-## Second Generation (1956–1963)
-
-![Transistor](/img/transistor.jpg)
-
-*Figure 11. Transistor*
-
-Technology: **Transistors**
-
-Benefits:
-
-- Smaller
-- Faster
-- Less heat
-- More reliable
-
----
-
-## Third Generation (1964–1971)
-
-![Integrated Circuit](/img/integrated-circuit.jpg)
-
-*Figure 12. Integrated Circuit*
-
-Technology: **IC (Integrated Circuit)**
-
-Features:
-
-- High speed
-- Small size
-- Lower cost
-- Better reliability
-
----
-
-## Fourth Generation (1971–Present)
-
-![Microprocessor](/img/microprocessor.jpg)
-
-*Figure 13. Intel 4004 Microprocessor*
-
-Technology: **Microprocessor**
-
-Examples:
-
-- Desktop
-- Laptop
-- Smartphone
-
-This generation made personal computers possible.
-
----
-
-## Fifth Generation (Present & Future)
-
-![AI Computer](/img/ai-computer.jpg)
-
-*Figure 14. Artificial Intelligence Computer*
-
-Technology includes:
-
-- Artificial Intelligence
-- Machine Learning
-- Robotics
-- Natural Language Processing
-
-Examples:
-
-- ChatGPT
-- Self-driving cars
-- Smart robots
-
----
-
-# Comparison of Generations
-
-| Generation | Technology | Example |
-|---|---|---|
-| First | Vacuum Tube | ENIAC |
-| Second | Transistor | IBM 7094 |
-| Third | IC | IBM System/360 |
-| Fourth | Microprocessor | Personal Computer |
-| Fifth | AI | Intelligent Systems |
-
----
-
-# Important Inventors
+## Important Inventors
 
 | Inventor | Contribution |
 |---|---|
 | John Napier | Napier's Bones |
 | Blaise Pascal | Pascaline |
-| Charles Babbage | Difference & Analytical Engine |
-| Ada Lovelace | First Programmer |
+| Charles Babbage | Difference Engine |
+| Ada Lovelace | First Algorithm |
 | Howard Aiken | Harvard Mark I |
 
----
+## Quick Revision
 
-# Why Charles Babbage is Father of Computer?
-
-- Designed programmable computer
-- Introduced memory concept
-- Introduced CPU concept
-- Introduced input/output architecture
-
-Modern computers still follow his design principles.
-
----
-
-# Advantages of Computer Evolution
-
-<ProsCons
-  pros={[
-    "Smaller devices",
-    "Higher speed",
-    "Lower power consumption",
-    "Greater storage",
-    "Artificial Intelligence capabilities"
-  ]}
-  cons={[
-    "Rapid hardware obsolescence",
-    "Electronic waste",
-    "Cyber security challenges",
-    "Higher development cost",
-    "Privacy concerns"
-  ]}
-/>
-
----
-
-# Python Example
-
-```python
-generations = {
-    1: "Vacuum Tube",
-    2: "Transistor",
-    3: "Integrated Circuit",
-    4: "Microprocessor",
-    5: "Artificial Intelligence"
-}
-
-for g, tech in generations.items():
-    print(f"Generation {g}: {tech}")
-```
-
-<RunInLab
-  topic="History of Computers"
-  lang="python"
-  code={`generations = {
-    1: "Vacuum Tube",
-    2: "Transistor",
-    3: "Integrated Circuit",
-    4: "Microprocessor",
-    5: "Artificial Intelligence"
-}
-
-for g, tech in generations.items():
-    print(f"Generation {g}: {tech}")`}
-/>
-
----
-
-# Practice Questions
-
-<Quiz
-  items={[
-    {
-      q:"Who is known as the Father of Computer?",
-      a:"Charles Babbage."
-    },
-    {
-      q:"Who wrote the first computer algorithm?",
-      a:"Ada Lovelace."
-    },
-    {
-      q:"What does ENIAC stand for?",
-      a:"Electronic Numerical Integrator and Computer."
-    },
-    {
-      q:"Which generation introduced microprocessors?",
-      a:"Fourth Generation."
-    },
-    {
-      q:"Which device is considered the first calculating machine?",
-      a:"Abacus."
-    }
-  ]}
-/>
-
----
-
-# Interview Questions
-
-### Q1. Why is Charles Babbage called the Father of Computer?
-
-Because he designed the Difference Engine and Analytical Engine, introducing the concept of a programmable computer.
-
-### Q2. Who is the first programmer?
-
-Ada Lovelace.
-
-### Q3. What technology was used in the first generation?
-
-Vacuum Tubes.
-
-### Q4. Which generation uses Artificial Intelligence?
-
-Fifth Generation.
-
----
-
-# Quick Revision
-
-<Revision
-  points={[
-    "Abacus was the first calculating device.",
-    "John Napier invented Napier's Bones.",
-    "Blaise Pascal created Pascaline.",
-    "Charles Babbage designed the Analytical Engine.",
-    "Ada Lovelace was the first programmer.",
-    "ENIAC was the first large electronic digital computer.",
-    "First Generation used Vacuum Tubes.",
-    "Fourth Generation introduced Microprocessors.",
-    "Fifth Generation focuses on Artificial Intelligence."
-  ]}
-/>
-
----
-
-<AskBox topic="History of Computers" section="Computer Fundamentals"/>
+- Abacus = First Calculator
+- Pascal = Mechanical Calculator
+- Charles Babbage = Father of Computer
+- Ada Lovelace = First Programmer
+- ENIAC = First Electronic Computer
