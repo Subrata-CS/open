@@ -13,22 +13,121 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_CPU - part of Computer Fundamentals. A short introduction goes here._
+The **CPU (Central Processing Unit)** is often called the **"brain"** of the computer. Every task the computer performs — calculations, decisions, running programs — is controlled and processed by the CPU.
+
+For example, when we run a program — say a calculator app adding 5 + 3 — it is the CPU that actually performs the addition and tells the screen what to display. In short, every instruction in a computer passes through and is executed by the CPU.
+
+Physically, the CPU is a small chip mounted on the motherboard. Even though it's small in size, it contains billions of transistors working together to perform all the calculations and logic operations.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **ALU (Arithmetic Logic Unit)** — The part of the CPU that performs mathematical operations (add, subtract, multiply, divide) and logical operations (AND, OR, NOT).
+- **CU (Control Unit)** — The part of the CPU that decides which instruction should run when, and coordinates the other parts of the computer (memory, input/output devices) with proper instructions.
+- **Registers** — Very small but extremely fast memory locations inside the CPU, used to temporarily hold data the CPU is currently working with.
+- **Cache Memory** — A small, high-speed memory located close to the CPU, storing frequently used data so the CPU doesn't have to fetch it from the slower RAM every time.
+- **Clock Speed (GHz)** — Measures how many cycles (steps) the CPU can perform per second. For example, 3 GHz means 3 billion cycles per second.
+- **Core** — A single CPU can have multiple "cores," where each core can work on a different task at the same time (Multi-core processor).
+- **Fetch–Decode–Execute Cycle** — The basic cycle that describes how the CPU works:
+  1. **Fetch** — Get the next instruction from memory.
+  2. **Decode** — Understand what the instruction means (what needs to be done).
+  3. **Execute** — Carry out the instruction.
+
+## How the CPU Works (Live Diagram)
+
+The diagram below shows the **Fetch → Decode → Execute** cycle with an animated moving arrow, so you can visualize how data/instructions flow step by step.
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '2rem',
+  padding: '3rem 1rem',
+  flexWrap: 'wrap',
+  position: 'relative'
+}}>
+  <div style={{
+    padding: '1.2rem 1.8rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    fontWeight: 600,
+    minWidth: '120px',
+    textAlign: 'center'
+  }}>
+    🧠 Fetch
+  </div>
+
+  <span style={{
+    fontSize: '2rem',
+    color: '#4f8cff',
+    animation: 'cpuArrowMove 1.4s infinite ease-in-out'
+  }}>➜</span>
+
+  <div style={{
+    padding: '1.2rem 1.8rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    fontWeight: 600,
+    minWidth: '120px',
+    textAlign: 'center'
+  }}>
+    🔍 Decode
+  </div>
+
+  <span style={{
+    fontSize: '2rem',
+    color: '#ff9f43',
+    animation: 'cpuArrowMove 1.4s infinite ease-in-out',
+    animationDelay: '0.4s'
+  }}>➜</span>
+
+  <div style={{
+    padding: '1.2rem 1.8rem',
+    borderRadius: '12px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.08)',
+    fontWeight: 600,
+    minWidth: '120px',
+    textAlign: 'center'
+  }}>
+    ⚡ Execute
+  </div>
+
+  <span style={{
+    fontSize: '2rem',
+    color: '#2ecc71',
+    animation: 'cpuArrowLoopBack 1.4s infinite ease-in-out',
+    animationDelay: '0.8s',
+    position: 'absolute',
+    right: '5%',
+    bottom: '-1.5rem'
+  }}>↩ back to Fetch</span>
+</div>
+
+<style>
+{`
+@keyframes cpuArrowMove {
+  0%   { transform: translateX(0px); opacity: 0.4; }
+  50%  { transform: translateX(8px); opacity: 1; }
+  100% { transform: translateX(0px); opacity: 0.4; }
+}
+@keyframes cpuArrowLoopBack {
+  0%   { opacity: 0.3; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+`}
+</style>
+
+> This cycle repeats billions of times per second — that's what "Clock Speed (GHz)" actually measures.
 
 ## Example
 
-_A worked example with code._
+Let's take a simple Python program that adds two numbers:
 
-## Run your code
-
-<RunInLab topic="CPU" lang="python" />
-
-## Practice Questions
-
-_Questions to try once you have read the notes above._
-
-<AskBox topic="CPU" section="Computer Fundamentals" />
+```python
+a = 5
+b = 3
+result = a + b
+print(result)  # Output: 8
