@@ -223,12 +223,6 @@ export default function Careers(): ReactNode {
               </ul>
             </section>
           ))}
-
-        <p className={styles.footnote}>
-          Portals move. If one of these lands on a 404, press <b>+</b> on that group and
-          fix the line — it is a single Markdown edit, and the site rebuilds itself.
-          Nothing here is sponsored and no company has paid to be on this page.
-        </p>
       </main>
     </Layout>
   );
