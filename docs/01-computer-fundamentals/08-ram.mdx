@@ -13,15 +13,93 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_RAM - part of Computer Fundamentals. A short introduction goes here._
+**RAM (Random Access Memory)** is the computer's **short-term memory**. It temporarily stores the data and instructions that the CPU is actively using, so the CPU can access them quickly.
+
+Think of RAM like a desk where you keep the books and papers you're currently working with — it's fast to grab something off the desk, but the desk isn't where you permanently store things. Once you close a book (or shut down the computer), whatever was on the desk (in RAM) disappears. This is why RAM is called **volatile memory** — it loses all its data when the power goes off, unlike storage (SSD/HDD) which keeps data permanently.
+
+Physically, RAM comes as small stick-shaped modules that plug into the **DIMM slots** on the motherboard.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Volatile Memory** — RAM only holds data while the computer is powered on; everything is lost when the power is turned off.
+- **Speed** — RAM is much faster than storage (SSD/HDD), which is why the CPU uses it for active tasks instead of reading directly from storage every time.
+- **Capacity (GB)** — How much data RAM can hold at once (e.g., 8GB, 16GB, 32GB). More RAM means more programs and data can be kept ready for quick access at the same time.
+- **RAM vs Storage** — Storage (SSD/HDD) keeps files permanently, even when powered off. RAM only holds what's being actively used right now.
+- **Multitasking** — More RAM allows the computer to keep more applications open and responsive at the same time without slowing down.
+- **RAM Types (DDR4, DDR5, etc.)** — Different generations of RAM, each faster and more efficient than the last. The motherboard determines which type is supported.
+- **Swap/Virtual Memory** — When RAM is full, the operating system can temporarily use space on the storage drive as "extra RAM," though this is much slower.
+
+## How RAM Works (Diagram)
+
+The diagram below shows how RAM sits between the CPU and storage, acting as fast temporary workspace.
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1.5rem',
+  padding: '2.5rem 1rem'
+}}>
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    💽 Storage (SSD/HDD)
+  </div>
+
+  <div style={{
+    padding: '1.4rem 2rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    fontWeight: 700,
+    textAlign: 'center'
+  }}>
+    💾 RAM
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    🧠 CPU
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-1rem',
+  marginBottom: '2rem'
+}}>
+  Data moves from slow permanent Storage → fast temporary RAM → CPU for processing
+</div>
+
+> RAM acts as a bridge between slow, permanent storage and the extremely fast CPU — keeping active data close at hand so the CPU doesn't have to wait.
 
 ## Example
 
-_A worked example with code._
+Let's understand this with a simple analogy instead of code, since RAM is best understood through everyday use.
+
+**Imagine opening a photo-editing app:**
+
+1. The app's files are stored permanently on your **SSD/HDD**.
+2. When you double-click to open the app, the operating system copies the necessary files from storage into **RAM**, because RAM is much faster to read from than the storage drive.
+3. As you edit a photo, the CPU constantly reads and writes data to RAM — things like the image you're editing, undo history, and open tool settings — all kept in RAM for quick access.
+4. If you open more apps (a browser, music player, etc.) at the same time, each one also uses a portion of RAM. If RAM runs out, the computer slows down because it has to use the much slower storage drive as backup ("swap").
+5. When you close the app or shut down the computer, everything that was in RAM disappears — but your actual photo file, if saved, remains safely on the storage drive.
+
+This is why having more RAM makes a computer feel faster and smoother when multitasking, while storage capacity affects how many files you can permanently keep.
 
 ## Run your code
 
@@ -29,6 +107,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What does RAM stand for, and why is it called "volatile memory"?
+2. What is the main difference between RAM and storage (SSD/HDD)?
+3. Why does the computer slow down when RAM is full?
+4. What happens to the data in RAM when you shut down the computer?
+5. Why does having more RAM help with multitasking?
 
 <AskBox topic="RAM" section="Computer Fundamentals" />
