@@ -16,15 +16,17 @@ keywords:
 import RunInLab from '@site/src/components/RunInLab';
 import AskBox from '@site/src/components/AskBox';
 import Fig from '@site/src/components/Fig';
+import Diagram from '@site/src/components/Diagram';
+import { Lede, Callout, ProsCons, Quiz, Revision } from '@site/src/components/Note';
 
 # Computer Basics
 
-<p className="nx-lede">
+<Lede>
 Start here even if you have never opened a computer's settings page. This topic
 answers four questions in order: what a computer is, how it works inside, what
 it is good and bad at, and which kinds exist. Every later topic in this section
 builds on these four answers.
-</p>
+</Lede>
 
 ## Overview
 
@@ -35,12 +37,11 @@ results for later (**storage**).
 
 The one line worth memorising:
 
-<div className="nx-call nx-call--def">
-  <span className="nx-call__tag">Definition</span>
+<Callout kind="def" title="Definition">
   A computer is an electronic device that accepts data as input, processes it
   according to a stored set of instructions (a program), produces information as
   output, and stores data and results for future use.
-</div>
+</Callout>
 
 Three words in that sentence do a lot of work, so pin them down now:
 
@@ -50,12 +51,11 @@ Three words in that sentence do a lot of work, so pin them down now:
 | **Processing** | Any operation performed on data — sorting, adding, comparing, formatting. | Adding the four marks, dividing by 4 |
 | **Information** | Processed data that now carries meaning and can support a decision. | Average 79.5, grade B |
 
-<div className="nx-call nx-call--tip">
-  <span className="nx-call__tag">Exam tip</span>
+<Callout kind="tip" title="Exam tip">
   "Data is input, information is output" is the shortest correct answer for a
   one-mark question. A computer does not create information out of nothing — it
   only reorganises the data you give it.
-</div>
+</Callout>
 
 ### The IPO cycle
 
@@ -63,83 +63,20 @@ Everything a computer does, from a calculator app to a weather forecast, fits
 this one loop. Storage sits beside the loop because data can be saved at any
 stage and pulled back in later.
 
-<Fig
+<Diagram
+  type="chain"
   label="Fig 1"
   title="The IPO cycle"
+  eyebrow="FOUR STAGES, IN ORDER"
   caption="Input and output face the user; processing and storage happen inside the machine."
-  narrow={
-    <svg viewBox="0 0 420 620" role="img" aria-label="The four stages stacked vertically: input, process, output and storage">
-      <defs>
-        <marker id="ipoArrowM" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto">
-          <path d="M0,0 L9,3.2 L0,6.4 z" className="nx-head" />
-        </marker>
-      </defs>
-      <text x="14" y="22" className="nx-eyebrow">FOUR STAGES, IN ORDER</text>
-
-      <rect x="60" y="40" width="340" height="96" rx="14" className="nx-box" />
-      <text x="230" y="76" textAnchor="middle" className="nx-t nx-t--m">1. INPUT</text>
-      <text x="230" y="102" textAnchor="middle" className="nx-s nx-s--m">raw data enters the machine</text>
-      <text x="230" y="122" textAnchor="middle" className="nx-s nx-s--m">keyboard, mouse, scanner</text>
-
-      <line x1="230" y1="136" x2="230" y2="170" className="nx-flow" markerEnd="url(#ipoArrowM)" />
-
-      <rect x="60" y="176" width="340" height="96" rx="14" className="nx-box nx-box--mem" />
-      <text x="230" y="212" textAnchor="middle" className="nx-t nx-t--m">2. PROCESS</text>
-      <text x="230" y="238" textAnchor="middle" className="nx-s nx-s--m">the CPU follows the program</text>
-      <text x="230" y="258" textAnchor="middle" className="nx-s nx-s--m">calculate, compare, decide</text>
-
-      <line x1="230" y1="272" x2="230" y2="306" className="nx-flow" markerEnd="url(#ipoArrowM)" />
-
-      <rect x="60" y="312" width="340" height="96" rx="14" className="nx-box" />
-      <text x="230" y="348" textAnchor="middle" className="nx-t nx-t--m">3. OUTPUT</text>
-      <text x="230" y="374" textAnchor="middle" className="nx-s nx-s--m">information comes back</text>
-      <text x="230" y="394" textAnchor="middle" className="nx-s nx-s--m">monitor, printer, speaker</text>
-
-      <rect x="60" y="470" width="340" height="86" rx="14" className="nx-box nx-box--alt" />
-      <text x="230" y="506" textAnchor="middle" className="nx-t nx-t--m">4. STORAGE</text>
-      <text x="230" y="532" textAnchor="middle" className="nx-s nx-s--m">RAM, SSD, hard disk, cloud</text>
-
-      <polyline points="60,212 34,212 34,500 52,500" className="nx-flow" markerEnd="url(#ipoArrowM)" />
-      <polyline points="60,530 18,530 18,240 52,240" className="nx-flow" markerEnd="url(#ipoArrowM)" />
-      <text x="230" y="592" textAnchor="middle" className="nx-s nx-s--m">saved at any stage, reloaded later</text>
-    </svg>
-  }>
-  <svg viewBox="0 0 880 330" role="img" aria-label="Input, process and output in a line, with storage connected to the process stage">
-    <defs>
-      <marker id="ipoArrow" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto">
-        <path d="M0,0 L9,3.2 L0,6.4 z" className="nx-head" />
-      </marker>
-    </defs>
-
-    <text x="30" y="52" className="nx-eyebrow">THE FOUR STAGES EVERY COMPUTER REPEATS</text>
-
-    <rect x="30" y="100" width="210" height="96" rx="14" className="nx-box" />
-    <text x="135" y="136" textAnchor="middle" className="nx-t">1. INPUT</text>
-    <text x="135" y="160" textAnchor="middle" className="nx-s">raw data enters the machine</text>
-    <text x="135" y="180" textAnchor="middle" className="nx-s">keyboard, mouse, scanner</text>
-
-    <rect x="335" y="100" width="210" height="96" rx="14" className="nx-box nx-box--mem" />
-    <text x="440" y="136" textAnchor="middle" className="nx-t">2. PROCESS</text>
-    <text x="440" y="160" textAnchor="middle" className="nx-s">the CPU follows the program</text>
-    <text x="440" y="180" textAnchor="middle" className="nx-s">calculate, compare, decide</text>
-
-    <rect x="640" y="100" width="210" height="96" rx="14" className="nx-box" />
-    <text x="745" y="136" textAnchor="middle" className="nx-t">3. OUTPUT</text>
-    <text x="745" y="160" textAnchor="middle" className="nx-s">information comes back</text>
-    <text x="745" y="180" textAnchor="middle" className="nx-s">monitor, printer, speaker</text>
-
-    <line x1="240" y1="148" x2="329" y2="148" className="nx-flow" markerEnd="url(#ipoArrow)" />
-    <line x1="545" y1="148" x2="634" y2="148" className="nx-flow" markerEnd="url(#ipoArrow)" />
-
-    <rect x="335" y="248" width="210" height="62" rx="14" className="nx-box nx-box--alt" />
-    <text x="440" y="274" textAnchor="middle" className="nx-t nx-t--sm">4. STORAGE</text>
-    <text x="440" y="294" textAnchor="middle" className="nx-s">RAM, SSD, hard disk, cloud</text>
-
-    <line x1="415" y1="196" x2="415" y2="242" className="nx-flow" markerEnd="url(#ipoArrow)" />
-    <line x1="465" y1="248" x2="465" y2="202" className="nx-flow" markerEnd="url(#ipoArrow)" />
-    <text x="500" y="228" className="nx-s">save now, reload later</text>
-  </svg>
-</Fig>
+  items={[
+    { title: '1. INPUT', lines: ['raw data enters the machine', 'keyboard, mouse, scanner'] },
+    { title: '2. PROCESS', lines: ['the CPU follows the program', 'calculate, compare, decide'], highlight: true },
+    { title: '3. OUTPUT', lines: ['information comes back', 'monitor, printer, speaker'] },
+  ]}
+  aside={{ title: '4. STORAGE', lines: ['RAM, SSD, hard disk, cloud'] }}
+  footnote="Data can be saved at any stage and reloaded later."
+/>
 
 <p className="nx-note">
 Read the loop with a real task: you type <code>78 91 65 84</code> (input), the
@@ -276,13 +213,12 @@ What each block is responsible for:
 | **Output unit** | Converts binary results back into a form humans can read or hear. | The mouth |
 | **Storage** | Keeps data after the power goes off. | The cupboard |
 
-<div className="nx-call nx-call--note">
-  <span className="nx-call__tag">CU + ALU + registers = CPU</span>
+<Callout kind="note" title="CU + ALU + registers = CPU">
   The CPU is called the brain of the computer because it is the only part that
   both decides and calculates. Memory is often drawn inside the CPU box in
   textbooks, but physically the main memory (RAM) sits on the motherboard beside
   the processor.
-</div>
+</Callout>
 
 ### Characteristics of a computer
 
@@ -307,39 +243,32 @@ Units of speed, worth memorising as a ladder:
 | Nanosecond (ns) | one-billionth of a second | RAM access, modern CPU cycles |
 | Picosecond (ps) | one-trillionth of a second | Signal timing inside a chip |
 
-<div className="nx-call nx-call--warn">
-  <span className="nx-call__tag">GIGO</span>
+<Callout kind="warn" title="GIGO">
   Garbage In, Garbage Out. A computer never checks whether your data makes
   sense. Feed it a wrong marks list and it will calculate a wrong average
   perfectly, at nanosecond speed.
-</div>
+</Callout>
 
 ### What a computer cannot do
 
-<div className="nx-grid">
-  <div className="nx-card nx-card--pro">
-    <h4>Advantages</h4>
-    <ul>
-      <li>Very high speed on repetitive work</li>
-      <li>Consistent, reliable results</li>
-      <li>Stores and retrieves enormous amounts of data</li>
-      <li>Reduces paperwork and manual cost over time</li>
-      <li>Multitasking — many jobs appear to run at once</li>
-      <li>Connects people and services worldwide</li>
-    </ul>
-  </div>
-  <div className="nx-card nx-card--con">
-    <h4>Limitations</h4>
-    <ul>
-      <li>No intelligence of its own — it only follows instructions</li>
-      <li>No common sense, feelings or judgement</li>
-      <li>Cannot correct a wrong input (GIGO)</li>
-      <li>Depends on electricity and on regular maintenance</li>
-      <li>Vulnerable to viruses, data theft and hardware failure</li>
-      <li>Overuse causes health strain and job displacement concerns</li>
-    </ul>
-  </div>
-</div>
+<ProsCons
+  pros={[
+    'Very high speed on repetitive work',
+    'Consistent, reliable results',
+    'Stores and retrieves enormous amounts of data',
+    'Reduces paperwork and manual cost over time',
+    'Multitasking — many jobs appear to run at once',
+    'Connects people and services worldwide',
+  ]}
+  cons={[
+    'No intelligence of its own — it only follows instructions',
+    'No common sense, feelings or judgement',
+    'Cannot correct a wrong input (GIGO)',
+    'Depends on electricity and on regular maintenance',
+    'Vulnerable to viruses, data theft and hardware failure',
+    'Overuse causes health strain and job displacement concerns',
+  ]}
+/>
 
 ### Hardware and software
 
@@ -347,110 +276,34 @@ A computer system is always both. Hardware is what you can touch; software is
 the set of instructions that tells the hardware what to do. Neither is useful
 alone.
 
-<Fig
+<Diagram
+  type="tree"
   label="Fig 3"
   title="Hardware and software"
   caption="Each side splits again. Firmware such as the BIOS sits between the two: software kept permanently on a chip."
-  narrow={
-    <svg viewBox="0 0 420 620" role="img" aria-label="A computer system splits into hardware with four parts and software with three kinds">
-      <defs>
-        <marker id="hwArrowM" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto">
-          <path d="M0,0 L9,3.2 L0,6.4 z" className="nx-head" />
-        </marker>
-      </defs>
-
-      <rect x="90" y="16" width="240" height="48" rx="12" className="nx-box nx-box--mem" />
-      <text x="210" y="46" textAnchor="middle" className="nx-t nx-t--sm">Computer System</text>
-
-      <polyline points="210,64 210,80 24,80 24,403" className="nx-flow" />
-      <line x1="24" y1="111" x2="52" y2="111" className="nx-flow" markerEnd="url(#hwArrowM)" />
-      <line x1="24" y1="403" x2="52" y2="403" className="nx-flow" markerEnd="url(#hwArrowM)" />
-
-      <rect x="60" y="88" width="340" height="46" rx="12" className="nx-box" />
-      <text x="230" y="108" textAnchor="middle" className="nx-t nx-t--sm">Hardware</text>
-      <text x="230" y="126" textAnchor="middle" className="nx-s">the parts you can touch</text>
-
-      <polyline points="230,134 230,142 64,142 64,334" className="nx-flow" />
-      <line x1="64" y1="172" x2="76" y2="172" className="nx-flow" markerEnd="url(#hwArrowM)" />
-      <line x1="64" y1="226" x2="76" y2="226" className="nx-flow" markerEnd="url(#hwArrowM)" />
-      <line x1="64" y1="280" x2="76" y2="280" className="nx-flow" markerEnd="url(#hwArrowM)" />
-      <line x1="64" y1="334" x2="76" y2="334" className="nx-flow" markerEnd="url(#hwArrowM)" />
-
-      <rect x="80" y="150" width="320" height="44" rx="10" className="nx-box nx-box--alt" />
-      <text x="240" y="177" textAnchor="middle" className="nx-s nx-s--m">Input devices — keyboard, mouse</text>
-      <rect x="80" y="204" width="320" height="44" rx="10" className="nx-box nx-box--alt" />
-      <text x="240" y="231" textAnchor="middle" className="nx-s nx-s--m">Processing — the CPU</text>
-      <rect x="80" y="258" width="320" height="44" rx="10" className="nx-box nx-box--alt" />
-      <text x="240" y="285" textAnchor="middle" className="nx-s nx-s--m">Memory and storage — RAM, SSD</text>
-      <rect x="80" y="312" width="320" height="44" rx="10" className="nx-box nx-box--alt" />
-      <text x="240" y="339" textAnchor="middle" className="nx-s nx-s--m">Output devices — monitor, printer</text>
-
-      <rect x="60" y="380" width="340" height="46" rx="12" className="nx-box" />
-      <text x="230" y="400" textAnchor="middle" className="nx-t nx-t--sm">Software</text>
-      <text x="230" y="418" textAnchor="middle" className="nx-s">the instructions it follows</text>
-
-      <polyline points="230,426 230,434 64,434 64,572" className="nx-flow" />
-      <line x1="64" y1="464" x2="76" y2="464" className="nx-flow" markerEnd="url(#hwArrowM)" />
-      <line x1="64" y1="518" x2="76" y2="518" className="nx-flow" markerEnd="url(#hwArrowM)" />
-      <line x1="64" y1="572" x2="76" y2="572" className="nx-flow" markerEnd="url(#hwArrowM)" />
-
-      <rect x="80" y="442" width="320" height="44" rx="10" className="nx-box nx-box--alt" />
-      <text x="240" y="469" textAnchor="middle" className="nx-s nx-s--m">System software — OS, drivers</text>
-      <rect x="80" y="496" width="320" height="44" rx="10" className="nx-box nx-box--alt" />
-      <text x="240" y="523" textAnchor="middle" className="nx-s nx-s--m">Application software — browser</text>
-      <rect x="80" y="550" width="320" height="44" rx="10" className="nx-box nx-box--alt" />
-      <text x="240" y="577" textAnchor="middle" className="nx-s nx-s--m">Programming tools — compiler, IDE</text>
-    </svg>
-  }>
-  <svg viewBox="0 0 880 450" role="img" aria-label="Tree showing a computer system splitting into hardware and software, each with its own categories">
-    <defs>
-      <marker id="hwArrow" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto">
-        <path d="M0,0 L9,3.2 L0,6.4 z" className="nx-head" />
-      </marker>
-    </defs>
-
-    <rect x="350" y="16" width="180" height="52" rx="12" className="nx-box nx-box--mem" />
-    <text x="440" y="47" textAnchor="middle" className="nx-t nx-t--sm">Computer System</text>
-
-    <polyline points="440,68 440,100 230,100 230,124" className="nx-flow" markerEnd="url(#hwArrow)" />
-    <polyline points="440,68 440,100 650,100 650,124" className="nx-flow" markerEnd="url(#hwArrow)" />
-
-    <rect x="120" y="130" width="220" height="56" rx="12" className="nx-box" />
-    <text x="230" y="155" textAnchor="middle" className="nx-t nx-t--sm">Hardware</text>
-    <text x="230" y="174" textAnchor="middle" className="nx-s">the parts you can touch</text>
-
-    <rect x="540" y="130" width="220" height="56" rx="12" className="nx-box" />
-    <text x="650" y="155" textAnchor="middle" className="nx-t nx-t--sm">Software</text>
-    <text x="650" y="174" textAnchor="middle" className="nx-s">the instructions it follows</text>
-
-    <polyline points="230,186 230,204 130,204 130,392" className="nx-flow" />
-    <line x1="130" y1="236" x2="144" y2="236" className="nx-flow" markerEnd="url(#hwArrow)" />
-    <line x1="130" y1="288" x2="144" y2="288" className="nx-flow" markerEnd="url(#hwArrow)" />
-    <line x1="130" y1="340" x2="144" y2="340" className="nx-flow" markerEnd="url(#hwArrow)" />
-    <line x1="130" y1="392" x2="144" y2="392" className="nx-flow" markerEnd="url(#hwArrow)" />
-
-    <rect x="150" y="214" width="250" height="44" rx="10" className="nx-box nx-box--alt" />
-    <text x="275" y="241" textAnchor="middle" className="nx-s">Input devices — keyboard, mouse</text>
-    <rect x="150" y="266" width="250" height="44" rx="10" className="nx-box nx-box--alt" />
-    <text x="275" y="293" textAnchor="middle" className="nx-s">Processing — the CPU</text>
-    <rect x="150" y="318" width="250" height="44" rx="10" className="nx-box nx-box--alt" />
-    <text x="275" y="345" textAnchor="middle" className="nx-s">Memory and storage — RAM, SSD</text>
-    <rect x="150" y="370" width="250" height="44" rx="10" className="nx-box nx-box--alt" />
-    <text x="275" y="397" textAnchor="middle" className="nx-s">Output devices — monitor, printer</text>
-
-    <polyline points="650,186 650,204 480,204 480,340" className="nx-flow" />
-    <line x1="480" y1="236" x2="494" y2="236" className="nx-flow" markerEnd="url(#hwArrow)" />
-    <line x1="480" y1="288" x2="494" y2="288" className="nx-flow" markerEnd="url(#hwArrow)" />
-    <line x1="480" y1="340" x2="494" y2="340" className="nx-flow" markerEnd="url(#hwArrow)" />
-
-    <rect x="500" y="214" width="270" height="44" rx="10" className="nx-box nx-box--alt" />
-    <text x="635" y="241" textAnchor="middle" className="nx-s">System software — OS, drivers, utilities</text>
-    <rect x="500" y="266" width="270" height="44" rx="10" className="nx-box nx-box--alt" />
-    <text x="635" y="293" textAnchor="middle" className="nx-s">Application software — browser, editor</text>
-    <rect x="500" y="318" width="270" height="44" rx="10" className="nx-box nx-box--alt" />
-    <text x="635" y="345" textAnchor="middle" className="nx-s">Programming tools — compiler, IDE</text>
-  </svg>
-</Fig>
+  root="Computer System"
+  branches={[
+    {
+      title: 'Hardware',
+      subtitle: 'the parts you can touch',
+      items: [
+        'Input devices — keyboard, mouse',
+        'Processing — the CPU',
+        'Memory and storage — RAM, SSD',
+        'Output devices — monitor, printer',
+      ],
+    },
+    {
+      title: 'Software',
+      subtitle: 'the instructions it follows',
+      items: [
+        'System software — OS, drivers',
+        'Application software — browser',
+        'Programming tools — compiler, IDE',
+      ],
+    },
+  ]}
+/>
 
 | | Hardware | Software |
 | --- | --- | --- |
@@ -460,11 +313,10 @@ alone.
 | **If damaged** | Replaced or repaired | Reinstalled or patched |
 | **Example** | CPU, RAM, monitor, keyboard | Windows, Linux, Chrome, Python |
 
-<div className="nx-call nx-call--tip">
-  <span className="nx-call__tag">One-liner</span>
+<Callout kind="tip" title="One-liner">
   Hardware is the body, software is the mind, and firmware (like the BIOS) is
   the small program permanently stored on a chip that wakes the body up.
-</div>
+</Callout>
 
 ### How data is measured
 
@@ -480,79 +332,31 @@ The computer stores everything — text, images, sound, video — as **bits**: 0
 | Gigabyte (GB) | 1024 MB | A film |
 | Terabyte (TB) | 1024 GB | A large hard disk |
 
-<div className="nx-call nx-call--note">
-  <span className="nx-call__tag">Why 1024 and not 1000</span>
+<Callout kind="note" title="Why 1024 and not 1000">
   Because the machine counts in base 2, and 2 to the power 10 equals 1024. Disk
   makers advertise using 1000, which is why a 1 TB drive shows up as about
   931 GB in Windows.
-</div>
+</Callout>
 
 ### Types of computers
 
 Three different classifications get asked. Keep them separate in your head — the
 question always tells you which basis it wants.
 
-<Fig
+<Diagram
+  type="pyramid"
   label="Fig 4"
   title="Types of computers by size"
-  animated={false}
+  eyebrow="FEWEST MACHINES, MOST POWER"
   caption="The fewer machines of a kind that exist, the more powerful each one is. You own a microcomputer; a country owns a supercomputer."
-  narrow={
-    <svg viewBox="0 0 420 530" role="img" aria-label="Pyramid of computer types, supercomputer at the top down to microcomputer at the base">
-      <text x="210" y="22" textAnchor="middle" className="nx-eyebrow">FEWEST MACHINES, MOST POWER</text>
-
-      <polygon points="150,40 270,40 300,150 120,150" className="nx-box" />
-      <text x="210" y="105" textAnchor="middle" className="nx-t nx-t--sm">Supercomputer</text>
-
-      <polygon points="120,150 300,150 330,260 90,260" className="nx-box" />
-      <text x="210" y="196" textAnchor="middle" className="nx-t nx-t--sm">Mainframe</text>
-      <text x="210" y="220" textAnchor="middle" className="nx-s nx-s--m">thousands of users</text>
-
-      <polygon points="90,260 330,260 360,370 60,370" className="nx-box" />
-      <text x="210" y="306" textAnchor="middle" className="nx-t nx-t--sm">Minicomputer / server</text>
-      <text x="210" y="330" textAnchor="middle" className="nx-s nx-s--m">one office or department</text>
-
-      <polygon points="60,370 360,370 390,480 30,480" className="nx-box nx-box--mem" />
-      <text x="210" y="416" textAnchor="middle" className="nx-t nx-t--sm">Microcomputer</text>
-      <text x="210" y="440" textAnchor="middle" className="nx-s nx-s--m">laptop, tablet, smartphone</text>
-
-      <text x="210" y="510" textAnchor="middle" className="nx-s nx-s--m">most machines, least power</text>
-    </svg>
-  }>
-  <svg viewBox="0 0 880 380" role="img" aria-label="Pyramid of computer types by size, from supercomputer at the top to microcomputer at the base">
-    <defs>
-      <marker id="pyArrow" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto">
-        <path d="M0,0 L9,3.2 L0,6.4 z" className="nx-head" />
-      </marker>
-      <marker id="pyArrowC" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto">
-        <path d="M0,0 L9,3.2 L0,6.4 z" className="nx-head nx-head--ctrl" />
-      </marker>
-    </defs>
-
-    <polygon points="380,40 500,40 555,110 325,110" className="nx-box" />
-    <text x="440" y="84" textAnchor="middle" className="nx-t nx-t--sm">Supercomputer</text>
-
-    <polygon points="325,110 555,110 610,180 270,180" className="nx-box" />
-    <text x="440" y="144" textAnchor="middle" className="nx-t nx-t--sm">Mainframe</text>
-    <text x="440" y="165" textAnchor="middle" className="nx-s">thousands of users at once</text>
-
-    <polygon points="270,180 610,180 665,250 215,250" className="nx-box" />
-    <text x="440" y="214" textAnchor="middle" className="nx-t nx-t--sm">Minicomputer / server</text>
-    <text x="440" y="235" textAnchor="middle" className="nx-s">serves one department or office</text>
-
-    <polygon points="215,250 665,250 720,320 160,320" className="nx-box nx-box--mem" />
-    <text x="440" y="284" textAnchor="middle" className="nx-t nx-t--sm">Microcomputer</text>
-    <text x="440" y="305" textAnchor="middle" className="nx-s">desktop, laptop, tablet, smartphone</text>
-
-    <line x1="768" y1="320" x2="768" y2="46" className="nx-ctrl" markerEnd="url(#pyArrowC)" />
-    <text x="806" y="180" textAnchor="middle" className="nx-s" transform="rotate(-90 806 180)">speed, size and cost increase</text>
-
-    <line x1="112" y1="46" x2="112" y2="320" className="nx-flow" markerEnd="url(#pyArrow)" />
-    <text x="74" y="180" textAnchor="middle" className="nx-s" transform="rotate(-90 74 180)">number of machines increases</text>
-
-    <text x="160" y="358" className="nx-eyebrow">CLASSIFICATION BY SIZE AND PROCESSING POWER</text>
-  </svg>
-</Fig>
+  items={[
+    { title: 'Supercomputer' },
+    { title: 'Mainframe', lines: ['thousands of users at once'] },
+    { title: 'Minicomputer / server', lines: ['one office or department'] },
+    { title: 'Microcomputer', lines: ['laptop, tablet, smartphone'], highlight: true },
+  ]}
+  footnote="most machines, least power each"
+/>
 
 By size and capacity, from largest down:
 
@@ -638,86 +442,56 @@ print("Grade:", grade)`} />
 
 Answer each one in your head first, then open it.
 
-<details>
-<summary>1. Define a computer in one sentence.</summary>
-
-An electronic device that accepts data as input, processes it according to a
-stored set of instructions, produces information as output, and stores data and
-results for future use.
-
-</details>
-
-<details>
-<summary>2. Which unit of the computer is called its brain, and why?</summary>
-
-The **CPU**, because it contains the control unit that directs every other part
-and the ALU that performs all calculations and comparisons. No other unit both
-decides and computes.
-
-</details>
-
-<details>
-<summary>3. State the difference between data and information with an example.</summary>
-
-Data is raw, unorganised facts — for example `78, 91, 65, 84`. Information is
-processed data that carries meaning — for example "average 79.5, grade B".
-Processing is what converts one into the other.
-
-</details>
-
-<details>
-<summary>4. The ALU performs which two categories of operation?</summary>
-
-**Arithmetic** operations (addition, subtraction, multiplication, division) and
-**logical** operations (comparisons such as greater than or equal to, and the
-logic operations AND, OR, NOT).
-
-</details>
-
-<details>
-<summary>5. Expand GIGO and explain what it implies.</summary>
-
-**Garbage In, Garbage Out.** A computer has no judgement of its own, so it
-processes wrong input just as faithfully as correct input. The accuracy of the
-output can never be better than the accuracy of the input and the program.
-
-</details>
-
-<details>
-<summary>6. How many bits make one byte, and how many bytes make one kilobyte?</summary>
-
-8 bits make 1 byte. 1024 bytes make 1 kilobyte, because the machine counts in
-base 2 and 2<sup>10</sup> equals 1024.
-
-</details>
-
-<details>
-<summary>7. Name the three types of computers classified by the data they handle.</summary>
-
-**Analog** (continuous physical quantities), **digital** (discrete binary
-digits) and **hybrid** (both, converting between them — as in an ICU patient
-monitor).
-
-</details>
-
-<details>
-<summary>8. Give two characteristics of a computer and one limitation for each.</summary>
-
-*Speed* — but it wastes that speed producing a wrong answer if the input is
-wrong. *Diligence* — but it will repeat the same mistake a million times without
-noticing, because it has no common sense or self-correction.
-
-</details>
+<Quiz
+  items={[
+    {
+      q: 'Define a computer in one sentence.',
+      a: 'An electronic device that accepts data as input, processes it according to a stored set of instructions, produces information as output, and stores data and results for future use.',
+    },
+    {
+      q: 'Which unit of the computer is called its brain, and why?',
+      a: 'The CPU, because it contains the control unit that directs every other part and the ALU that performs all calculations and comparisons. No other unit both decides and computes.',
+    },
+    {
+      q: 'State the difference between data and information with an example.',
+      a: 'Data is raw, unorganised facts — for example 78, 91, 65, 84. Information is processed data that carries meaning — for example an average of 79.5 and a grade of B. Processing converts one into the other.',
+    },
+    {
+      q: 'The ALU performs which two categories of operation?',
+      a: 'Arithmetic operations (addition, subtraction, multiplication, division) and logical operations (comparisons such as greater than or equal to, and the logic operations AND, OR, NOT).',
+    },
+    {
+      q: 'Expand GIGO and explain what it implies.',
+      a: 'Garbage In, Garbage Out. A computer has no judgement of its own, so it processes wrong input just as faithfully as correct input. The output can never be more accurate than the input and the program.',
+    },
+    {
+      q: 'How many bits make one byte, and how many bytes make one kilobyte?',
+      a: '8 bits make 1 byte. 1024 bytes make 1 kilobyte, because the machine counts in base 2 and 2 to the power 10 equals 1024.',
+    },
+    {
+      q: 'Name the three types of computers classified by the data they handle.',
+      a: 'Analog (continuous physical quantities), digital (discrete binary digits) and hybrid (both, converting between them — as in an ICU patient monitor).',
+    },
+    {
+      q: 'Give two characteristics of a computer and one limitation for each.',
+      a: 'Speed — but it wastes that speed producing a wrong answer if the input is wrong. Diligence — but it repeats the same mistake a million times without noticing, having no common sense or self-correction.',
+    },
+  ]}
+/>
 
 ### Quick revision
 
-- Computer = **input → process → output**, with **storage** alongside.
-- **Data** goes in, **information** comes out.
-- CPU = **control unit + ALU** (+ registers); the CU directs, the ALU computes.
-- Six characteristics: **speed, accuracy, diligence, versatility, storage, automation.**
-- Main limitation: **no intelligence of its own** — GIGO.
-- 8 bits = 1 byte; 1024 bytes = 1 KB.
-- By size: **supercomputer > mainframe > mini > micro.**
-- By data: **analog, digital, hybrid.**
+<Revision
+  points={[
+    'Computer = input, process, output — with storage alongside.',
+    'Data goes in, information comes out.',
+    'CPU = control unit + ALU (+ registers); the CU directs, the ALU computes.',
+    'Six characteristics: speed, accuracy, diligence, versatility, storage, automation.',
+    'Main limitation: no intelligence of its own — GIGO.',
+    '8 bits = 1 byte; 1024 bytes = 1 KB.',
+    'By size: supercomputer, mainframe, mini, micro.',
+    'By data: analog, digital, hybrid.',
+  ]}
+/>
 
 <AskBox topic="Computer Basics" section="Computer Fundamentals" />
