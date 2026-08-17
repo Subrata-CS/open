@@ -1,34 +1,313 @@
 ---
-title: "Generations of Computers"
 sidebar_position: 3
 sidebar_label: "Generations of Computers"
 slug: /computer-fundamentals/generations-of-computers
-description: "Generations of Computers - Computer Fundamentals | Open CS Hub"
+description: "Complete notes on the five generations of computers with technologies, features, examples, comparison tables, diagrams and exam questions."
+keywords:
+  - generations of computers
+  - first generation computer
+  - vacuum tube
+  - transistor
+  - IC
+  - microprocessor
+  - AI computers
 ---
 
 import RunInLab from '@site/src/components/RunInLab';
 import AskBox from '@site/src/components/AskBox';
+import Fig from '@site/src/components/Fig';
+import Diagram from '@site/src/components/Diagram';
+import { Lede, Callout, Quiz, Revision } from '@site/src/components/Note';
 
 # Generations of Computers
 
+<Lede>
+The development of computers is divided into **five generations** based on the major electronic technology used. Every new generation made computers smaller, faster, cheaper and more reliable.
+</Lede>
+
 ## Overview
 
-_Generations of Computers - part of Computer Fundamentals. A short introduction goes here._
+A **generation of computers** refers to a stage in the evolution of computers distinguished by the technology used in their electronic circuits.
 
-## Key Concepts
+<Callout kind="def" title="Definition">
+A computer generation is the classification of computers according to the main hardware technology used during a particular period.
+</Callout>
 
-_The main ideas, one line each._
+### Evolution of generations
+
+<Diagram
+  type="chain"
+  label="Fig 1"
+  title="Evolution of computer generations"
+  eyebrow="FIVE STAGES"
+  caption="Each new generation replaced the previous electronic technology with a more efficient one."
+  items={[
+    { title: '1st', lines: ['Vacuum Tubes'] },
+    { title: '2nd', lines: ['Transistors'] },
+    { title: '3rd', lines: ['Integrated Circuits'] },
+    { title: '4th', lines: ['Microprocessors'] },
+    { title: '5th', lines: ['Artificial Intelligence'], highlight: true }
+  ]}
+/>
+
+---
+
+## First Generation (1940–1956)
+
+<Fig
+  label="Fig 2"
+  title="First generation computers"
+  caption="Vacuum tubes were large, consumed huge amounts of electricity and generated excessive heat."
+>
+  <AsyncImageGroup query={["ENIAC computer room","Vacuum tube electronic component","UNIVAC I historical photograph"]} layout=carousel/>
+</Fig>
+
+The **first generation** used **vacuum tubes** as its primary electronic component. These computers occupied entire rooms and required continuous cooling.
+
+#### Key characteristics
+
+| Feature | Details |
+|---|---|
+| Technology | Vacuum Tube |
+| Period | 1940–1956 |
+| Size | Very large |
+| Speed | Milliseconds |
+| Memory | Magnetic drum |
+| Language | Machine language |
+
+#### Advantages
+
+- First electronic computer
+- Faster than electromechanical machines
+- Automatic calculations
+
+#### Limitations
+
+- Consumed enormous electricity
+- Produced excessive heat
+- Very expensive
+- Required frequent maintenance
+
+**Examples:** ENIAC, EDVAC, UNIVAC I
+
+---
+
+## Second Generation (1956–1963)
+
+<Fig
+  label="Fig 3"
+  title="Second generation computers"
+  caption="The invention of the transistor made computers smaller, cooler and much more reliable."
+>
+  <AsyncImageGroup query={["Transistor electronic component","IBM 1401 computer","Second generation computer historical"]} layout=carousel/>
+</Fig>
+
+The **second generation** replaced vacuum tubes with **transistors**.
+
+<Callout kind="note" title="Why was the transistor important?">
+A transistor performed the same job as a vacuum tube while being much smaller, consuming less power and producing very little heat.
+</Callout>
+
+#### Features
+
+| Feature | Details |
+|---|---|
+| Technology | Transistor |
+| Size | Smaller |
+| Speed | Microseconds |
+| Reliability | Higher |
+| Languages | FORTRAN, COBOL |
+
+**Examples:** IBM 1401, IBM 7094
+
+---
+
+## Third Generation (1964–1971)
+
+<Fig
+  label="Fig 4"
+  title="Third generation computers"
+  caption="Integrated Circuits (ICs) combined thousands of electronic components onto a single silicon chip."
+>
+  <AsyncImageGroup query={["Integrated circuit chip close up","IBM System 360 computer","IC semiconductor illustration"]} layout=carousel/>
+</Fig>
+
+The **third generation** introduced **Integrated Circuits (ICs)**, replacing individual transistors.
+
+#### Major improvements
+
+- Keyboard and monitor became common
+- Operating systems developed
+- Multiprogramming introduced
+- Higher storage capacity
+- Smaller and faster machines
+
+| Feature | Details |
+|---|---|
+| Technology | IC |
+| Speed | Nanoseconds |
+| Memory | Semiconductor memory |
+| Example | IBM System/360 |
+
+---
+
+## Fourth Generation (1971–Present)
+
+<Fig
+  label="Fig 5"
+  title="Fourth generation computers"
+  caption="A complete CPU could now fit onto a single microprocessor chip, leading to personal computers."
+>
+  <AsyncImageGroup query={["Intel 4004 microprocessor","Desktop personal computer","Modern laptop motherboard"]} layout=carousel/>
+</Fig>
+
+The **fourth generation** began with the invention of the **microprocessor**.
+
+#### What changed?
+
+- CPU placed on a single chip
+- Personal computers introduced
+- GUI operating systems developed
+- Networking became common
+- Very high processing speed
+
+| Feature | Details |
+|---|---|
+| Technology | Microprocessor |
+| Speed | Picoseconds |
+| Devices | Desktop, Laptop, Tablet |
+| Example | IBM PC, Apple Macintosh |
+
+---
+
+## Fifth Generation (Present & Future)
+
+<Fig
+  label="Fig 6"
+  title="Fifth generation computers"
+  caption="Modern computers combine powerful hardware with Artificial Intelligence, machine learning and natural language processing."
+>
+  <AsyncImageGroup query={["Artificial intelligence robot digital interface","AI neural network visualization","Modern humanoid AI concept"]} layout=carousel/>
+</Fig>
+
+The **fifth generation** focuses on **Artificial Intelligence (AI)** rather than only increasing hardware speed.
+
+#### AI technologies
+
+- Machine Learning
+- Deep Learning
+- Natural Language Processing
+- Computer Vision
+- Robotics
+- Expert Systems
+
+<Callout kind="tip" title="Exam point">
+The **fifth generation** is identified by **Artificial Intelligence**, not simply by faster processors.
+</Callout>
+
+---
+
+## Comparison of All Five Generations
+
+| Generation | Technology | Speed | Example |
+|---|---|---|---|
+| First | Vacuum Tube | Milliseconds | ENIAC |
+| Second | Transistor | Microseconds | IBM 1401 |
+| Third | IC | Nanoseconds | IBM 360 |
+| Fourth | Microprocessor | Picoseconds | IBM PC |
+| Fifth | Artificial Intelligence | Extremely High | AI Systems |
+
+---
+
+## Size Reduction Across Generations
+
+<Diagram
+  type="pyramid"
+  label="Fig 7"
+  title="Computers became smaller over time"
+  eyebrow="SIZE EVOLUTION"
+  caption="The top represents the largest machines; the bottom represents today's compact intelligent devices."
+  items={[
+    { title: 'First Generation', lines: ['Room-sized computers'] },
+    { title: 'Second Generation', lines: ['Cabinet-sized systems'] },
+    { title: 'Third Generation', lines: ['Mini computers'] },
+    { title: 'Fourth Generation', lines: ['Personal computers'] },
+    { title: 'Fifth Generation', lines: ['Smart AI devices'], highlight: true }
+  ]}
+/>
+
+---
+
+## Memory Trick
+
+<Callout kind="tip" title="Remember the order">
+**V → T → IC → MP → AI**
+
+- **V** = Vacuum Tube
+- **T** = Transistor
+- **IC** = Integrated Circuit
+- **MP** = Microprocessor
+- **AI** = Artificial Intelligence
+</Callout>
+
+---
 
 ## Example
 
-_A worked example with code._
+Suppose an exam asks:
 
-## Run your code
+**Why is the fourth generation called the Microprocessor Generation?**
 
-<RunInLab topic="Generations of Computers" lang="python" />
+**Answer:**
+
+> The fourth generation is called the Microprocessor Generation because the complete CPU was integrated onto a single silicon chip, making computers smaller, faster, cheaper and suitable for personal use.
+
+---
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+<Quiz
+  items={[
+    {
+      q: 'How many generations of computers are there?',
+      a: 'Five generations.'
+    },
+    {
+      q: 'Which technology was used in the first generation?',
+      a: 'Vacuum Tubes.'
+    },
+    {
+      q: 'Which generation introduced transistors?',
+      a: 'Second Generation.'
+    },
+    {
+      q: 'What does IC stand for?',
+      a: 'Integrated Circuit.'
+    },
+    {
+      q: 'Which generation introduced personal computers?',
+      a: 'Fourth Generation.'
+    },
+    {
+      q: 'Which generation focuses on Artificial Intelligence?',
+      a: 'Fifth Generation.'
+    }
+  ]}
+/>
 
-<AskBox topic="Generations of Computers" section="Computer Fundamentals" />
+---
+
+## Quick Revision
+
+<Revision
+  points={[
+    '1st Generation → Vacuum Tubes',
+    '2nd Generation → Transistors',
+    '3rd Generation → Integrated Circuits',
+    '4th Generation → Microprocessors',
+    '5th Generation → Artificial Intelligence',
+    'Computers became smaller, faster and more reliable in every generation.'
+  ]}
+/>
+
+<AskBox topic="Generations of Computers" section="Computer Fundamentals"/>
