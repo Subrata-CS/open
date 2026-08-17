@@ -1,34 +1,657 @@
 ---
-title: "History of Computers"
 sidebar_position: 2
 sidebar_label: "History of Computers"
 slug: /computer-fundamentals/history-of-computers
-description: "History of Computers - Computer Fundamentals | Open CS Hub"
+title: "History of Computers"
+description: "Complete A–Z history of computers from Abacus to Artificial Intelligence with generations, inventors, timeline, diagrams, tables and exam questions."
+keywords:
+  - history of computers
+  - computer generations
+  - Charles Babbage
+  - ENIAC
+  - AI computers
 ---
 
 import RunInLab from '@site/src/components/RunInLab';
 import AskBox from '@site/src/components/AskBox';
+import Fig from '@site/src/components/Fig';
+import Diagram from '@site/src/components/Diagram';
+import { Lede, Callout, Quiz, Revision } from '@site/src/components/Note';
 
 # History of Computers
 
+<Lede>
+The history of computers began with simple counting tools and evolved into powerful Artificial Intelligence systems. Understanding this journey helps explain how modern computers became faster, smaller, smarter and more reliable.
+</Lede>
+
 ## Overview
 
-_History of Computers - part of Computer Fundamentals. A short introduction goes here._
+A **computer** did not appear overnight. It developed through thousands of years of inventions, beginning with manual calculating devices and progressing through mechanical, electromechanical and electronic computers.
 
-## Key Concepts
+<Callout kind="def" title="Definition">
+The **history of computers** is the chronological development of calculating devices and computing machines from the Abacus to modern AI-powered computers.
+</Callout>
 
-_The main ideas, one line each._
+### Evolution at a glance
+
+| Period | Major Technology | Example |
+|---|---|---|
+| Ancient | Manual counting | Abacus |
+| 1600s | Mechanical calculation | Pascaline |
+| 1800s | Programmable mechanical design | Analytical Engine |
+| 1900s | Electromechanical | Mark I |
+| 1940s–Present | Electronic computers | ENIAC → AI |
+
+---
+
+## Timeline of Computer History
+
+<svg viewBox="0 0 340 520" role="img" aria-label="Vertical timeline of major milestones in the history of computers from Abacus to AI computers.">
+  <rect width=340 height=520 rx=18 fill="#F8FAFC"/>
+  <line x1=60 y1=40 x2=60 y2=480 stroke="#94A3B8" strokeWidth=2 strokeLinecap="round"/>
+  {#each [
+      {y:40,c:"#2563EB"},
+      {y:95,c:"#2563EB"},
+      {y:150,c:"#2563EB"},
+      {y:205,c:"#7C3AED"},
+      {y:260,c:"#7C3AED"},
+      {y:315,c:"#059669"},
+      {y:370,c:"#EA580C"},
+      {y:425,c:"#DC2626"},
+      {y:480,c:"#0F172A"}
+    ] as item}
+    <circle cx=60 cy={item.y} r=8 fill={item.c} stroke="#FFFFFF" strokeWidth=2.5/>
+  {/each}
+</svg>
+
+<box gap=1>
+  <row align=start gap=2>
+    <box background="#DBEAFE" radius=md size="40px" align=center justify=center>
+      **1**
+    </box>
+    <box flex=1>
+      **3000 BC — Abacus**
+
+      <caption>First known calculating device</caption>
+    </box>
+  </row>
+  <row align=start gap=2>
+    <box background="#DBEAFE" radius=md size="40px" align=center justify=center>
+      **2**
+    </box>
+    <box flex=1>
+      **1617 — Napier's Bones**
+
+      <caption>Multiplication using rods</caption>
+    </box>
+  </row>
+  <row align=start gap=2>
+    <box background="#DBEAFE" radius=md size="40px" align=center justify=center>
+      **3**
+    </box>
+    <box flex=1>
+      **1642 — Pascaline**
+
+      <caption>First mechanical adding machine</caption>
+    </box>
+  </row>
+  <row align=start gap=2>
+    <box background="#E9D5FF" radius=md size="40px" align=center justify=center>
+      **4**
+    </box>
+    <box flex=1>
+      **1673 — Leibniz Calculator**
+
+      <caption>Addition, subtraction, multiplication & division</caption>
+    </box>
+  </row>
+  <row align=start gap=2>
+    <box background="#E9D5FF" radius=md size="40px" align=center justify=center>
+      **5**
+    </box>
+    <box flex=1>
+      **1837 — Analytical Engine**
+
+      <caption>First programmable computer concept</caption>
+    </box>
+  </row>
+  <row align=start gap=2>
+    <box background="#D1FAE5" radius=md size="40px" align=center justify=center>
+      **6**
+    </box>
+    <box flex=1>
+      **1890 — Hollerith Tabulating Machine**
+
+      <caption>Punched cards for census processing</caption>
+    </box>
+  </row>
+  <row align=start gap=2>
+    <box background="#FED7AA" radius=md size="40px" align=center justify=center>
+      **7**
+    </box>
+    <box flex=1>
+      **1944 — Harvard Mark I**
+
+      <caption>Large electromechanical computer</caption>
+    </box>
+  </row>
+  <row align=start gap=2>
+    <box background="#FCA5A5" radius=md size="40px" align=center justify=center>
+      **8**
+    </box>
+    <box flex=1>
+      **1946 — ENIAC**
+
+      <caption>First general-purpose electronic computer</caption>
+    </box>
+  </row>
+  <row align=start gap=2>
+    <box background="#E5E7EB" radius=md size="40px" align=center justify=center>
+      **9**
+    </box>
+    <box flex=1>
+      **Present — AI Computers**
+
+      <caption>Intelligent systems using machine learning</caption>
+    </box>
+  </row>
+</box>
+
+---
+
+## Early Calculating Devices
+
+### 1. Abacus (3000 BC)
+
+<AsyncImageGroup query={["Ancient abacus wooden counting frame","Chinese abacus close up","Traditional soroban abacus"]} layout=bento aspectRatio="5:4"/>
+
+The **Abacus** is considered the world's first calculating device. It uses beads sliding on rods to perform arithmetic operations.
+
+| Invented | Around 3000 BC |
+|---|---|
+| Origin | China / Mesopotamia |
+| Type | Manual |
+| Uses | Addition, subtraction, multiplication |
+
+> **Exam Fact:** Abacus is **not a computer** because it has no memory or processor.
+
+---
+
+### 2. Napier's Bones (1617)
+
+<AsyncImageGroup query={["Napier's Bones calculating rods","John Napier portrait","Napier bones historical illustration"]} aspectRatio="5:4"/>
+
+Scottish mathematician **John Napier** invented numbered rods called **Napier's Bones**.
+
+**Features**
+
+- Simplified multiplication
+- Used division and square roots
+- Mechanical mathematical aid
+
+---
+
+### 3. Pascaline (1642)
+
+<AsyncImageGroup query={["Pascaline calculator antique","Blaise Pascal portrait","Pascaline brass gears close up"]} aspectRatio="5:4"/>
+
+French scientist **Blaise Pascal** created the first successful **mechanical calculator**.
+
+| Inventor | Blaise Pascal |
+|---|---|
+| Year | 1642 |
+| Operation | Addition & subtraction |
+| Technology | Gear wheels |
+
+---
+
+### 4. Leibniz Calculator (1673)
+
+<AsyncImageGroup query={["Leibniz stepped reckoner reconstruction","Gottfried Wilhelm Leibniz portrait","Stepped reckoner mechanical calculator"]} aspectRatio="5:4"/>
+
+**Gottfried Wilhelm Leibniz** improved Pascal's machine by introducing the **Stepped Reckoner**.
+
+It could perform:
+
+- Addition
+- Subtraction
+- Multiplication
+- Division
+
+---
+
+## Programmable Machines
+
+### Jacquard Loom (1801)
+
+<AsyncImageGroup query={["Jacquard loom punched cards","Joseph Marie Jacquard loom","Punched card textile loom close up"]} aspectRatio="5:4"/>
+
+The **Jacquard Loom** was the first machine controlled by **punched cards**.
+
+**Importance:** It inspired future computer programming.
+
+---
+
+### Charles Babbage's Difference Engine
+
+<AsyncImageGroup query={["Charles Babbage Difference Engine museum","Difference Engine mechanical computer","Charles Babbage portrait"]} aspectRatio="5:4"/>
+
+Designed to calculate mathematical tables automatically.
+
+| Inventor | Charles Babbage |
+|---|---|
+| Year | 1822 |
+| Type | Mechanical |
+| Purpose | Automatic calculations |
+
+---
+
+### Analytical Engine (1837)
+
+<AsyncImageGroup query={["Analytical Engine Charles Babbage model","Analytical Engine reconstruction","Charles Babbage analytical engine illustration"]} layout=bento aspectRatio="5:4"/>
+
+The **Analytical Engine** is regarded as the **first design of a modern computer**.
+
+<Callout kind="note" title="Why was it revolutionary?">
+It included almost every component of today's computers: Input, Memory, Processor, Control Unit and Output.
+</Callout>
+
+### Structure
+
+<svg viewBox="0 0 320 260" role="img" aria-label="Block diagram of Analytical Engine showing Input to Memory, Memory to Mill, Mill to Output, and Control Unit connected to Memory and Mill.">
+  <rect width=320 height=260 rx=16 fill="#FFFFFF" stroke="#E5E7EB"/>
+  <defs>
+    <marker id="arrow" markerWidth=10 markerHeight=10 refX=9 refY=3 orient="auto">
+      <path d="M0 0 L9 3 L0 6 Z" fill="#64748B"/>
+    </marker>
+  </defs>
+  <rect x=18 y=92 width=64 height=40 rx=8 fill="#DBEAFE" stroke="#2563EB"/>
+  <rect x=128 y=26 width=64 height=40 rx=8 fill="#F3E8FF" stroke="#7C3AED"/>
+  <rect x=128 y=144 width=64 height=40 rx=8 fill="#FCE7F3" stroke="#DB2777"/>
+  <rect x=238 y=92 width=64 height=40 rx=8 fill="#D1FAE5" stroke="#059669"/>
+  <rect x=128 y=92 width=64 height=40 rx=8 fill="#FDE68A" stroke="#D97706"/>
+  <line x1=82 y1=112 x2=120 y2=112 stroke="#64748B" strokeWidth=2 markerEnd="url(#arrow)"/>
+  <line x1=160 y1=66 x2=160 y2=84 stroke="#64748B" strokeWidth=2 markerEnd="url(#arrow)"/>
+  <line x1=160 y1=132 x2=160 y2=144 stroke="#64748B" strokeWidth=2 markerEnd="url(#arrow)"/>
+  <line x1=192 y1=112 x2=230 y2=112 stroke="#64748B" strokeWidth=2 markerEnd="url(#arrow)"/>
+</svg>
+
+| Modern Part | Analytical Engine Name |
+|---|---|
+| CPU | Mill |
+| Memory | Store |
+| Input | Punched Cards |
+| Output | Printer |
+
+> Charles Babbage is called the **Father of the Computer**.
+
+---
+
+### Ada Lovelace — First Programmer
+
+<AsyncImageGroup query={["Ada Lovelace portrait painting","Ada Lovelace illustration","Ada Lovelace historical portrait"]} aspectRatio="5:4"/>
+
+**Ada Lovelace** wrote the first algorithm intended for the Analytical Engine.
+
+**Therefore she is known as the First Computer Programmer.**
+
+---
+
+## Punched Card Era
+
+### Hollerith Tabulating Machine (1890)
+
+<AsyncImageGroup query={["Hollerith tabulating machine","Herman Hollerith portrait","1890 punched card tabulator"]} aspectRatio="5:4"/>
+
+Invented by **Herman Hollerith** for the U.S. Census.
+
+**Achievements**
+
+- Used punched cards
+- Reduced census time dramatically
+- Later became IBM
+
+---
+
+## Electromechanical Computer
+
+### Harvard Mark I (1944)
+
+<AsyncImageGroup query={["Harvard Mark I computer","Harvard Mark I full length machine","Grace Hopper with Harvard Mark I"]} layout=bento aspectRatio="5:4"/>
+
+The **Harvard Mark I** was one of the earliest large automatic computers.
+
+| Length | 51 feet |
+|---|---|
+| Weight | 5 tons |
+| Technology | Electromechanical |
+| Inventor | Howard Aiken |
+
+---
+
+## First Electronic Computers
+
+### ENIAC (1946)
+
+<AsyncImageGroup query={["ENIAC computer room","ENIAC vacuum tubes","ENIAC historical photograph"]} layout=bento aspectRatio="5:4"/>
+
+**Electronic Numerical Integrator and Computer**
+
+| Feature | Value |
+|---|---|
+| Year | 1946 |
+| Vacuum Tubes | 18,000 |
+| Weight | 30 tons |
+| Speed | 5,000 additions/sec |
+
+**Limitations**
+
+- Huge size
+- High electricity consumption
+- Generated enormous heat
+
+---
+
+### EDVAC
+
+Introduced the **Stored Program Concept** proposed by **John von Neumann**.
+
+This became the foundation of modern computer architecture.
+
+---
+
+### UNIVAC I (1951)
+
+<AsyncImageGroup query={["UNIVAC I computer","UNIVAC I historical photo","UNIVAC magnetic tape computer"]} aspectRatio="5:4"/>
+
+The **Universal Automatic Computer** was the first commercially successful computer.
+
+Used in:
+
+- Business
+- Government
+- Census
+- Banking
+
+---
+
+# Generations of Computers
+
+## Generation Timeline
+
+<svg viewBox="0 0 320 360" role="img" aria-label="Vertical timeline showing five generations of computers from first to fifth with colored milestone dots.">
+  <rect width=320 height=360 rx=16 fill="#F8FAFC"/>
+  <line x1=52 y1=30 x2=52 y2=330 stroke="#CBD5E1" strokeWidth=2 strokeLinecap="round"/>
+  {#each [
+      {y:40,c:"#DC2626"},
+      {y:105,c:"#EA580C"},
+      {y:170,c:"#2563EB"},
+      {y:235,c:"#7C3AED"},
+      {y:300,c:"#059669"}
+    ] as item}
+    <circle cx=52 cy={item.y} r=9 fill={item.c} stroke="#FFFFFF" strokeWidth=3/>
+  {/each}
+</svg>
+
+<box gap=1>
+  <row align=start gap=2>
+    <box background="#FEE2E2" radius=md size="44px" align=center justify=center>
+      **1**
+    </box>
+    <box flex=1>
+      **1940–1956**
+
+      <caption>Vacuum Tubes</caption>
+    </box>
+  </row>
+  <row align=start gap=2>
+    <box background="#FFEDD5" radius=md size="44px" align=center justify=center>
+      **2**
+    </box>
+    <box flex=1>
+      **1956–1963**
+
+      <caption>Transistors</caption>
+    </box>
+  </row>
+  <row align=start gap=2>
+    <box background="#DBEAFE" radius=md size="44px" align=center justify=center>
+      **3**
+    </box>
+    <box flex=1>
+      **1964–1971**
+
+      <caption>Integrated Circuits</caption>
+    </box>
+  </row>
+  <row align=start gap=2>
+    <box background="#E9D5FF" radius=md size="44px" align=center justify=center>
+      **4**
+    </box>
+    <box flex=1>
+      **1971–Present**
+
+      <caption>Microprocessors</caption>
+    </box>
+  </row>
+  <row align=start gap=2>
+    <box background="#D1FAE5" radius=md size="44px" align=center justify=center>
+      **5**
+    </box>
+    <box flex=1>
+      **Present & Future**
+
+      <caption>Artificial Intelligence</caption>
+    </box>
+  </row>
+</box>
+
+---
+
+## First Generation (1940–1956)
+
+<AsyncImageGroup query={["Vacuum tube close up","ENIAC vacuum tube panels","First generation computer room"]} aspectRatio="5:4"/>
+
+**Technology:** Vacuum Tubes
+
+| Advantages | Disadvantages |
+|---|---|
+| First electronic computer | Very large |
+| Faster than Mark I | Consumed much power |
+| Automatic | Produced heat |
+
+Examples: ENIAC, EDVAC, UNIVAC
+
+---
+
+## Second Generation (1956–1963)
+
+<AsyncImageGroup query={["Transistor electronic component","IBM 1401 computer","Second generation transistor computer"]} aspectRatio="5:4"/>
+
+**Technology:** Transistors
+
+**Improvements**
+
+- Smaller
+- Faster
+- Less heat
+- More reliable
+
+Languages introduced:
+
+- FORTRAN
+- COBOL
+
+---
+
+## Third Generation (1964–1971)
+
+<AsyncImageGroup query={["Integrated circuit chip close up","IBM System 360 computer","IC semiconductor illustration"]} aspectRatio="5:4"/>
+
+**Technology:** Integrated Circuit (IC)
+
+**Major Features**
+
+- Keyboard + Monitor
+- Operating Systems
+- Multiprogramming
+- Higher storage
+
+Example: IBM System/360
+
+---
+
+## Fourth Generation (1971–Present)
+
+<AsyncImageGroup query={["Intel 4004 microprocessor","Desktop personal computer","Modern laptop motherboard microprocessor"]} layout=bento aspectRatio="5:4"/>
+
+**Technology:** Microprocessor
+
+This generation introduced **Personal Computers (PCs)**.
+
+Examples:
+
+- IBM PC
+- Apple Macintosh
+- Desktop
+- Laptop
+
+---
+
+## Fifth Generation (Present & Future)
+
+<AsyncImageGroup query={["Artificial intelligence humanoid concept","AI neural network visualization","Modern AI robot with digital interface"]} layout=bento aspectRatio="5:4"/>
+
+**Technology:** Artificial Intelligence
+
+Current computers can perform:
+
+- Machine Learning
+- Natural Language Processing
+- Robotics
+- Expert Systems
+- Computer Vision
+
+> Today's AI computers learn from data instead of only following fixed instructions.
+
+---
+
+## Comparison of All Generations
+
+| Generation | Technology | Size | Example |
+|---|---|---|---|
+| First | Vacuum Tube | Very Large | ENIAC |
+| Second | Transistor | Smaller | IBM 1401 |
+| Third | IC | Compact | IBM 360 |
+| Fourth | Microprocessor | Personal | IBM PC |
+| Fifth | AI | Intelligent | Modern AI Systems |
+
+---
+
+## Important Inventors
+
+| Scientist | Contribution |
+|---|---|
+| John Napier | Napier's Bones |
+| Blaise Pascal | Pascaline |
+| Leibniz | Stepped Reckoner |
+| Jacquard | Punched Cards |
+| Charles Babbage | Analytical Engine |
+| Ada Lovelace | First Programmer |
+| Herman Hollerith | Tabulating Machine |
+| Howard Aiken | Mark I |
+| John von Neumann | Stored Program Architecture |
+
+---
+
+## Memory Tricks
+
+<Callout kind="tip" title="Father Titles">
+- **Father of Computer** → Charles Babbage
+- **First Programmer** → Ada Lovelace
+- **Father of AI** → John McCarthy
+- **Stored Program** → John von Neumann
+</Callout>
+
+<Callout kind="tip" title="Generation Formula">
+**Vacuum → Transistor → IC → Microprocessor → AI**
+</Callout>
+
+---
 
 ## Example
 
-_A worked example with code._
+Suppose a student asks:
 
-## Run your code
+**Why is Charles Babbage called the Father of Computer?**
 
-<RunInLab topic="History of Computers" lang="python" />
+**Answer:**
+
+> Charles Babbage designed the **Analytical Engine (1837)**, the first programmable computer concept containing input, memory, processor, control and output units. Modern computers are based on this architecture.
+
+---
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+<Quiz
+  items={[
+    {
+      q: "Who invented the Abacus?",
+      a: "The exact inventor is unknown; it originated around 3000 BC in ancient China and Mesopotamia."
+    },
+    {
+      q: "Who is called the Father of Computer?",
+      a: "Charles Babbage."
+    },
+    {
+      q: "Who wrote the first computer program?",
+      a: "Ada Lovelace."
+    },
+    {
+      q: "Which machine first used punched cards?",
+      a: "Jacquard Loom."
+    },
+    {
+      q: "Which was the first general-purpose electronic computer?",
+      a: "ENIAC (1946)."
+    },
+    {
+      q: "Which generation used transistors?",
+      a: "Second Generation."
+    },
+    {
+      q: "Which generation introduced microprocessors?",
+      a: "Fourth Generation."
+    },
+    {
+      q: "What is the technology of the fifth generation?",
+      a: "Artificial Intelligence (AI)."
+    }
+  ]}
+/>
 
-<AskBox topic="History of Computers" section="Computer Fundamentals" />
+---
+
+## Quick Revision
+
+<Revision
+  points={[
+    "Abacus = First calculating device",
+    "Pascal = First mechanical calculator",
+    "Leibniz = Stepped Reckoner",
+    "Jacquard = Punched cards",
+    "Charles Babbage = Father of Computer",
+    "Ada Lovelace = First Programmer",
+    "Hollerith = Census tabulating machine",
+    "Mark I = Electromechanical computer",
+    "ENIAC = First electronic general-purpose computer",
+    "UNIVAC = First commercial computer",
+    "1st = Vacuum Tube",
+    "2nd = Transistor",
+    "3rd = IC",
+    "4th = Microprocessor",
+    "5th = Artificial Intelligence"
+  ]}
+/>
+
+<AskBox topic="History of Computers" section="Computer Fundamentals"/>
