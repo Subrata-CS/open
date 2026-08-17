@@ -13,15 +13,112 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Cache Memory - part of Computer Fundamentals. A short introduction goes here._
+**Cache Memory** is a small, extremely fast type of memory located very close to the CPU — sometimes even built directly inside it. Its job is to store copies of data and instructions that the CPU uses frequently, so the CPU doesn't have to wait for the much slower RAM every single time.
+
+Think of cache like a small notepad you keep on your desk while working, next to a large bookshelf (RAM) across the room. Instead of walking to the bookshelf every time you need information, you jot down the most commonly used facts on the notepad. This saves time, because reaching for the notepad is much faster than getting up and walking to the shelf every time.
+
+Cache memory is much smaller in size than RAM, but it's significantly faster, which is exactly why it's used only for the data the CPU needs right now or is likely to need very soon.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Speed** — Cache memory is much faster than RAM, though also much smaller in size and more expensive per byte.
+- **Proximity to CPU** — Cache is located physically closer to the CPU (often inside the CPU chip itself), which reduces the time it takes to access data.
+- **Cache Levels (L1, L2, L3)** — Cache is usually organized in levels: **L1** is the smallest and fastest (closest to the CPU core), **L2** is larger but slightly slower, and **L3** is the largest and shared across multiple cores.
+- **Cache Hit** — When the CPU finds the data it needs already in the cache, saving time by avoiding a trip to RAM.
+- **Cache Miss** — When the data isn't in the cache, forcing the CPU to fetch it from the slower RAM instead.
+- **Locality of Reference** — The principle that programs tend to reuse the same data and instructions repeatedly, which is why caching recently used data is so effective.
+
+## How Cache Memory Works (Diagram)
+
+The diagram below shows where cache sits between the CPU and RAM, and how the cache levels are organized.
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1.5rem',
+  padding: '2.5rem 1rem'
+}}>
+  <div style={{
+    padding: '1.4rem 2rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    fontWeight: 700,
+    textAlign: 'center'
+  }}>
+    🧠 CPU Core
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    ⚡ L1 Cache (fastest, smallest)
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    🔸 L2 Cache
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    🔹 L3 Cache (shared, largest)
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff6b6b',
+    background: 'rgba(255,107,107,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    💾 RAM
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-1rem',
+  marginBottom: '2rem'
+}}>
+  CPU checks L1 first, then L2, then L3 — only going to slower RAM if the data isn't found anywhere in cache
+</div>
+
+> The closer memory is to the CPU, the faster but smaller it tends to be — this is why cache is organized into levels, balancing speed and size.
 
 ## Example
 
-_A worked example with code._
+Let's understand this with a simple analogy instead of code, since cache memory works "behind the scenes" automatically.
+
+**Imagine running a loop that adds numbers repeatedly:**
+
+```python
+total = 0
+for i in range(1000000):
+    total += i
+print(total)
 
 ## Run your code
 
