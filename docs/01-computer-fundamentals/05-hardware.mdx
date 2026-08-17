@@ -3,7 +3,7 @@ title: "Hardware"
 sidebar_position: 5
 sidebar_label: "Hardware"
 slug: /computer-fundamentals/hardware
-description: "Complete A–Z notes on computer hardware with internal & external devices, diagrams, tables, examples and practice questions."
+description: "Complete A–Z notes on Computer Hardware with internal and external components, diagrams, tables, examples and practice questions."
 keywords:
   - hardware
   - computer hardware
@@ -15,40 +15,41 @@ import RunInLab from '@site/src/components/RunInLab';
 import AskBox from '@site/src/components/AskBox';
 import Diagram from '@site/src/components/Diagram';
 import { Lede, Callout, Quiz, Revision } from '@site/src/components/Note';
+import AsyncImageGroup from '@site/src/components/AsyncImageGroup';
 
 # Hardware
 
 <Lede>
-Hardware is the **physical part of a computer** that you can see and touch. Every computer system consists of hardware and software working together. This chapter explains every major hardware component from the motherboard to external devices.
+Hardware is the physical part of a computer that you can see and touch. Every computer system is made of hardware and software working together. This chapter explains all important hardware devices from the motherboard to printers.
 </Lede>
 
 ## Overview
 
-A computer system contains two main parts:
+A computer system has two major parts:
 
 - **Hardware** → Physical components
 - **Software** → Programs and instructions
 
 <Callout kind="def" title="Definition">
-**Hardware** is the collection of physical and tangible components of a computer system, including internal parts and external devices.
+**Hardware** is the collection of physical and tangible components of a computer system, including internal parts and external peripheral devices.
 </Callout>
 
 <Diagram
   type="tree"
   label="Fig 1"
-  title="Classification of hardware"
-  caption="Hardware is usually divided into internal components and external peripherals."
+  title="Classification of Hardware"
+  caption="Hardware is divided into internal components and external peripheral devices."
   root="Computer Hardware"
   branches={[
     {
-      title: 'Internal Hardware',
-      subtitle: 'inside the system unit',
-      items: ['Motherboard','CPU','RAM','ROM','Storage']
+      title: "Internal Hardware",
+      subtitle: "inside system unit",
+      items: ["Motherboard","CPU","RAM","ROM","Storage Devices"]
     },
     {
-      title: 'External Hardware',
-      subtitle: 'connected devices',
-      items: ['Keyboard','Mouse','Monitor','Printer']
+      title: "External Hardware",
+      subtitle: "outside system unit",
+      items: ["Keyboard","Mouse","Monitor","Printer"]
     }
   ]}
 />
@@ -57,117 +58,175 @@ A computer system contains two main parts:
 
 ### Internal Hardware
 
-Internal hardware is installed **inside the computer cabinet** and is responsible for processing, memory and storage.
+Internal hardware is installed inside the computer cabinet and performs processing, memory and storage functions.
 
 #### Motherboard
 
-The **motherboard** is the main circuit board that connects every hardware component.
+<AsyncImageGroup
+  query={[
+    "computer motherboard top view",
+    "ATX motherboard labeled",
+    "desktop motherboard close up"
+  ]}
+  layout="bento"
+  aspectRatio="5:4"
+/>
 
-<AsyncImageGroup query={["computer motherboard top view","ATX motherboard labeled","desktop motherboard close up"]} layout=bento aspectRatio="5:4"/>
+The **Motherboard** is the main circuit board that connects every hardware component together.
 
 | Function | Description |
 |---|---|
-| Connects components | CPU, RAM, Storage |
-| Data communication | Through buses |
-| Expansion | PCIe & M.2 slots |
-| Power distribution | Supplies power to devices |
+| Connection | Connects CPU, RAM and storage |
+| Communication | Transfers data through buses |
+| Expansion | PCIe and M.2 slots |
+| Power | Distributes electrical power |
 
----
+<Callout kind="tip" title="Exam Tip">
+The motherboard is often called the **backbone of the computer** because every major hardware component is connected to it.
+</Callout>
 
-#### CPU (Central Processing Unit)
+### CPU (Central Processing Unit)
 
-The **CPU** is called the **brain of the computer**.
+<AsyncImageGroup
+  query={[
+    "modern Intel CPU processor",
+    "AMD Ryzen processor close up",
+    "CPU installed on motherboard"
+  ]}
+  layout="carousel"
+  aspectRatio="5:4"
+/>
 
-<AsyncImageGroup query={["modern Intel CPU processor","AMD Ryzen processor close up","CPU installed on motherboard"]} layout=carousel aspectRatio="5:4"/>
-
-**Main Parts**
-
-- Control Unit (CU)
-- Arithmetic Logic Unit (ALU)
-- Registers
+The **CPU** is called the **Brain of the Computer** because it controls all processing operations.
 
 <Diagram
   type="chain"
   label="Fig 2"
-  title="Main parts of the CPU"
-  caption="The Control Unit directs operations, the ALU performs calculations, and registers temporarily hold data."
+  title="Main Parts of CPU"
+  caption="The CPU consists of the Control Unit, ALU and Registers."
   items={[
-    { title:'Control Unit', lines:['controls operations'] },
-    { title:'ALU', lines:['arithmetic & logic'] },
-    { title:'Registers', lines:['temporary storage'], highlight:true }
+    { title: "Control Unit", lines: ["controls operations"] },
+    { title: "ALU", lines: ["arithmetic & logic"] },
+    { title: "Registers", lines: ["temporary storage"], highlight: true }
   ]}
 />
 
----
+| Part | Function |
+|---|---|
+| Control Unit (CU) | Controls all operations |
+| ALU | Performs arithmetic and logical operations |
+| Registers | Stores temporary data during processing |
 
-#### RAM (Random Access Memory)
+### RAM (Random Access Memory)
 
-RAM is **temporary memory** used while the computer is running.
+<AsyncImageGroup
+  query={[
+    "DDR5 RAM memory module",
+    "Desktop RAM stick close up",
+    "RAM installed on motherboard"
+  ]}
+  layout="carousel"
+  aspectRatio="5:4"
+/>
 
-<AsyncImageGroup query={["DDR5 RAM memory module","Desktop RAM stick close up","RAM installed on motherboard"]} layout=carousel aspectRatio="5:4"/>
+RAM is the **temporary working memory** of a computer.
 
 | Feature | RAM |
 |---|---|
-| Memory Type | Volatile |
+| Type | Volatile |
 | Data | Temporary |
 | Speed | Very Fast |
 | Power Off | Data Lost |
 
----
+<Callout kind="note" title="Remember">
+**RAM is volatile memory** — all stored data disappears when power is turned off.
+</Callout>
 
-#### ROM (Read Only Memory)
+### ROM (Read Only Memory)
 
-ROM stores permanent startup instructions.
+<AsyncImageGroup
+  query={[
+    "ROM BIOS chip motherboard",
+    "EEPROM BIOS chip close up",
+    "Computer firmware ROM chip"
+  ]}
+  layout="carousel"
+  aspectRatio="5:4"
+/>
 
-<AsyncImageGroup query={["ROM BIOS chip motherboard","EEPROM chip close up","Computer BIOS firmware chip"]} layout=carousel aspectRatio="5:4"/>
+ROM permanently stores the computer's startup instructions.
 
 | Feature | ROM |
 |---|---|
-| Memory Type | Non-volatile |
+| Type | Non-volatile |
 | Stores | BIOS / Firmware |
-| Editable | Very Limited |
+| Editable | Rarely |
 
----
+### Storage Devices
 
-#### Storage Devices
+<AsyncImageGroup
+  query={[
+    "Solid state drive SSD",
+    "Hard disk drive HDD open",
+    "NVMe M.2 SSD module"
+  ]}
+  layout="bento"
+  aspectRatio="5:4"
+/>
 
-Storage keeps data permanently.
+Storage devices permanently save data.
 
-<AsyncImageGroup query={["Solid state drive SSD","Hard disk drive HDD open","NVMe M.2 SSD module"]} layout=bento aspectRatio="5:4"/>
-
-| Device | Speed | Storage |
+| Device | Speed | Example |
 |---|---|---|
-| HDD | Medium | Large |
-| SSD | Fast | Medium–Large |
-| NVMe SSD | Very Fast | High |
+| HDD | Medium | Desktop Hard Drive |
+| SSD | Fast | SATA SSD |
+| NVMe SSD | Very Fast | M.2 SSD |
 
----
+## External Hardware
 
-### External Hardware
+External hardware is connected outside the system unit and is also called **Peripheral Devices**.
 
-External hardware is connected from outside the computer.
+### Keyboard
 
-#### Keyboard
+<AsyncImageGroup
+  query={[
+    "computer keyboard top view",
+    "mechanical keyboard RGB",
+    "wireless keyboard white background"
+  ]}
+  layout="carousel"
+  aspectRatio="5:4"
+/>
 
-<AsyncImageGroup query={["computer keyboard top view","mechanical keyboard RGB","wireless keyboard white background"]} layout=carousel aspectRatio="5:4"/>
+A **Keyboard** is an input device used to enter text, numbers and commands.
 
-Used to enter **text and commands**.
+### Mouse
 
----
+<AsyncImageGroup
+  query={[
+    "wireless optical mouse",
+    "computer mouse top view",
+    "gaming mouse side view"
+  ]}
+  layout="carousel"
+  aspectRatio="5:4"
+/>
 
-#### Mouse
+A **Mouse** controls the pointer and allows users to select objects on the screen.
 
-<AsyncImageGroup query={["computer mouse top view","wireless optical mouse","gaming mouse side view"]} layout=carousel aspectRatio="5:4"/>
+### Monitor
 
-Used to control the **pointer**.
+<AsyncImageGroup
+  query={[
+    "LED computer monitor",
+    "curved 4K monitor desk",
+    "LCD desktop monitor"
+  ]}
+  layout="carousel"
+  aspectRatio="5:4"
+/>
 
----
-
-#### Monitor
-
-<AsyncImageGroup query={["LED computer monitor","4K desktop monitor","curved monitor on desk"]} layout=carousel aspectRatio="5:4"/>
-
-Displays visual output.
+A **Monitor** is an output device that displays visual information.
 
 | Type | Example |
 |---|---|
@@ -175,62 +234,61 @@ Displays visual output.
 | LED | Modern Display |
 | OLED | Premium Display |
 
----
+### Printer
 
-#### Printer
+<AsyncImageGroup
+  query={[
+    "laser printer office",
+    "inkjet printer color",
+    "all in one printer scanner"
+  ]}
+  layout="carousel"
+  aspectRatio="5:4"
+/>
 
-<AsyncImageGroup query={["laser printer office","inkjet printer color","all in one printer scanner"]} layout=carousel aspectRatio="5:4"/>
+A **Printer** produces a hard copy of digital documents.
 
-Produces hard copies.
-
-| Printer | Best For |
+| Printer | Best Use |
 |---|---|
 | Inkjet | Color Printing |
-| Laser | Fast Documents |
-
----
+| Laser | Fast Document Printing |
 
 ## Hardware vs Software
 
-| Hardware | Software |
-|---|---|
-| Physical | Logical |
-| Can be touched | Cannot be touched |
-| Manufactured | Programmed |
-| Example: CPU | Example: Windows |
-
-<Callout kind="tip" title="Remember">
-**Hardware = Body**  
-**Software = Brain's Instructions**
-</Callout>
-
-## Complete Hardware Diagram
-
 <Diagram
-  type="tree"
+  type="chain"
   label="Fig 3"
-  title="Complete hardware structure"
-  caption="Every major hardware component belongs to either the internal system or external peripherals."
-  root="Hardware"
-  branches={[
+  title="Hardware and Software"
+  caption="A computer works only when hardware and software work together."
+  items={[
     {
-      title: 'Internal',
-      subtitle: 'inside cabinet',
-      items: ['Motherboard','CPU','RAM','ROM','SSD / HDD']
+      title: "Hardware",
+      lines: ["physical components"]
     },
     {
-      title: 'External',
-      subtitle: 'peripherals',
-      items: ['Keyboard','Mouse','Monitor','Printer']
+      title: "Software",
+      lines: ["programs & instructions"],
+      highlight: true
     }
   ]}
 />
 
+| Hardware | Software |
+|---|---|
+| Physical | Logical |
+| Tangible | Intangible |
+| Manufactured | Programmed |
+| CPU, RAM | Windows, Linux |
+
+<Callout kind="warn" title="Difference">
+Hardware can be **seen and touched**, while software consists of **instructions** that tell hardware what to do.
+</Callout>
+
 ## Example
 
-**Question:** Why is RAM called temporary memory?
+**Question:** Why is the CPU called the brain of the computer?
 
-**Answer:** RAM stores data only while the computer has power. When the power is turned off, all data stored in RAM is lost.
+**Answer:** The CPU controls all operations, processes data, performs calculations and coordinates every hardware component, making it the brain of the computer.
 
 ## Run your code
 
@@ -247,8 +305,8 @@ Produces hard copies.
     "Mouse"
 ]
 
-for item in hardware:
-    print(item)`}
+for device in hardware:
+    print(device)`}
 />
 
 ## Practice Questions
@@ -256,28 +314,28 @@ for item in hardware:
 <Quiz
   items={[
     {
-      q:"What is hardware?",
-      a:"The physical components of a computer."
+      q: "What is hardware?",
+      a: "The physical components of a computer system."
     },
     {
-      q:"Which hardware is called the brain?",
-      a:"CPU."
+      q: "Which hardware is called the brain of the computer?",
+      a: "CPU (Central Processing Unit)."
     },
     {
-      q:"Which memory is temporary?",
-      a:"RAM."
+      q: "Which memory is temporary?",
+      a: "RAM."
     },
     {
-      q:"Which memory stores BIOS?",
-      a:"ROM."
+      q: "Which memory stores BIOS?",
+      a: "ROM."
     },
     {
-      q:"Which device connects all components?",
-      a:"Motherboard."
+      q: "Which device connects all hardware components?",
+      a: "Motherboard."
     },
     {
-      q:"Name two external hardware devices.",
-      a:"Keyboard and Mouse."
+      q: "Name two output devices.",
+      a: "Monitor and Printer."
     }
   ]}
 />
@@ -286,12 +344,12 @@ for item in hardware:
 
 <Revision
   points={[
-    "Hardware = Physical parts of a computer",
+    "Hardware = Physical components",
     "Internal → Motherboard, CPU, RAM, ROM, Storage",
     "External → Keyboard, Mouse, Monitor, Printer",
-    "CPU = Brain of computer",
-    "RAM = Temporary memory",
-    "ROM = Permanent firmware memory",
+    "CPU = Brain of the computer",
+    "RAM = Volatile memory",
+    "ROM = Non-volatile memory",
     "SSD is faster than HDD"
   ]}
 />
