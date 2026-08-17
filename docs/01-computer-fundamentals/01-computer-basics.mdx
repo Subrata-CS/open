@@ -9,99 +9,69 @@ description: "Learn what a computer is, how it works, its components, types, adv
 import RunInLab from '@site/src/components/RunInLab';
 import AskBox from '@site/src/components/AskBox';
 
+import Hero from './assets/computer-hero.jpg';
+import CPU from './assets/cpu.jpg';
+import RAM from './assets/ram.jpg';
+import Storage from './assets/storage.jpg';
+import IO from './assets/io.jpg';
+import Types from './assets/types.jpg';
+
 # Computer Basics
 
 ## Overview
 
-A **computer** is an electronic device that accepts **data (input)**, processes it according to instructions, stores information, and produces meaningful **output**. Modern computers are used in education, business, healthcare, science, entertainment, artificial intelligence, and almost every part of daily life. <Cite refs={["turn0search5","turn0search11"]}/>
+A **computer** is an electronic device that accepts **input**, processes data according to instructions, stores information, and produces meaningful **output**.
 
-<AsyncImageGroup query={["modern desktop computer on office desk","laptop with programming code on screen","inside computer motherboard cpu ram","student using computer for learning"]} layout=bento aspectRatio="5:4"/>
+<img src={Hero} alt="Modern computer setup" style={{width:"100%",borderRadius:"16px"}}/>
 
 ---
 
 ## Why Computers Matter
 
-Computers have transformed the world because they can solve problems much faster and more accurately than humans for repetitive tasks.
+Computers are essential in almost every industry because they solve problems quickly, accurately, and efficiently.
 
 | Area | Example |
 |---|---|
-| Education | Online learning, digital classrooms |
-| Healthcare | Medical diagnosis, MRI analysis |
-| Business | Accounting, inventory management |
-| Communication | Email, video calls, messaging |
-| Science | Weather prediction, space research |
-| AI | Machine learning, robotics |
+| Education | Online learning |
+| Healthcare | Medical diagnosis |
+| Business | Accounting software |
+| Communication | Email & Video calls |
+| Science | Space research |
+| AI | Machine learning |
 
 ---
 
 ## What Is a Computer?
 
-A computer follows a simple four-step cycle.
+A computer performs four basic operations.
 
-<svg viewBox="0 0 320 92" role="img" aria-label="Flowchart showing Input, Processing, Output, and Storage connected by arrows.">
-  <rect width=320 height=92 rx=12 fill="#0B1020"/>
-  {#each [
-      ["INPUT","#2563EB",42],
-      ["PROCESS","#7C3AED",118],
-      ["OUTPUT","#059669",194],
-      ["STORAGE","#EA580C",270]
-    ] as item}
-    <rect x={item[2]-28} y=26 width=56 height=36 rx=8 fill={item[1]}/>
-    <text x={item[2]} y=42 fontSize=7.5 textAnchor="middle" fontFamily="Arial" fontWeight="bold" fill="#FFFFFF">{item[0]}</text>
-  {/each}
-  <path d="M70 44 L90 44" stroke="#94A3B8" strokeWidth=1.5 strokeLinecap="round"/>
-  <polygon points="90,44 84,40 84,48" fill="#94A3B8"/>
-  <path d="M146 44 L166 44" stroke="#94A3B8" strokeWidth=1.5 strokeLinecap="round"/>
-  <polygon points="166,44 160,40 160,48" fill="#94A3B8"/>
-  <path d="M222 44 L242 44" stroke="#94A3B8" strokeWidth=1.5 strokeLinecap="round"/>
-  <polygon points="242,44 236,40 236,48" fill="#94A3B8"/>
+<svg viewBox="0 0 700 120" width="100%" role="img" aria-label="Input, Process, Output and Storage flow diagram">
+  <rect width="700" height="120" rx="16" fill="#0f172a"/>
+  <rect x="25" y="35" width="140" height="50" rx="8" fill="#2563eb"/>
+  <rect x="190" y="35" width="140" height="50" rx="8" fill="#7c3aed"/>
+  <rect x="355" y="35" width="140" height="50" rx="8" fill="#059669"/>
+  <rect x="520" y="35" width="155" height="50" rx="8" fill="#ea580c"/>
+  <text x="95" y="65" fill="white" fontSize="16" textAnchor="middle" fontFamily="Arial" fontWeight="bold">INPUT</text>
+  <text x="260" y="65" fill="white" fontSize="16" textAnchor="middle" fontFamily="Arial" fontWeight="bold">PROCESS</text>
+  <text x="425" y="65" fill="white" fontSize="16" textAnchor="middle" fontFamily="Arial" fontWeight="bold">OUTPUT</text>
+  <text x="598" y="65" fill="white" fontSize="16" textAnchor="middle" fontFamily="Arial" fontWeight="bold">STORAGE</text>
+  <path d="M165 60 L190 60" stroke="#94a3b8" strokeWidth="2" strokeDasharray="5 5"/>
+  <path d="M330 60 L355 60" stroke="#94a3b8" strokeWidth="2" strokeDasharray="5 5"/>
+  <path d="M495 60 L520 60" stroke="#94a3b8" strokeWidth="2" strokeDasharray="5 5"/>
 </svg>
 
 **Example**
 
-- **Input:** You press the `A` key.
-- **Process:** The CPU interprets the signal.
+- **Input:** Press the `A` key.
+- **Process:** CPU interprets the signal.
 - **Output:** The letter appears on the screen.
-- **Storage:** The document can be saved to an SSD.
+- **Storage:** The document is saved to an SSD.
 
 ---
 
-## Main Components of a Computer
+## Main Components
 
-<grid columns=2 gap=3>
-  <grid-item>
-    <box gap=1>
-      <AsyncImage query="computer cpu processor close up" aspectRatio="1:1" radius=lg width="100%"/>
-      **CPU (Central Processing Unit)**
-
-      The brain of the computer that performs calculations and controls operations.
-    </box>
-  </grid-item>
-  <grid-item>
-    <box gap=1>
-      <AsyncImage query="computer ram memory module" aspectRatio="1:1" radius=lg width="100%"/>
-      **RAM**
-
-      Temporary memory used while programs are running.
-    </box>
-  </grid-item>
-  <grid-item>
-    <box gap=1>
-      <AsyncImage query="ssd solid state drive and hard disk" aspectRatio="1:1" radius=lg width="100%"/>
-      **Storage**
-
-      Permanently stores files, applications, and the operating system.
-    </box>
-  </grid-item>
-  <grid-item>
-    <box gap=1>
-      <AsyncImage query="computer monitor keyboard mouse" aspectRatio="1:1" radius=lg width="100%"/>
-      **Input & Output Devices**
-
-      Allow users to communicate with the computer.
-    </box>
-  </grid-item>
-</grid>
+<div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))",gap:"18px"}}><div><img src={CPU} alt="CPU" style={{borderRadius:"12px"}}/><h4>CPU</h4><p>The brain of the computer that performs calculations.</p></div><div><img src={RAM} alt="RAM" style={{borderRadius:"12px"}}/><h4>RAM</h4><p>Temporary working memory for active programs.</p></div><div><img src={Storage} alt="Storage" style={{borderRadius:"12px"}}/><h4>Storage</h4><p>Permanently stores files and applications.</p></div><div><img src={IO} alt="Input Output" style={{borderRadius:"12px"}}/><h4>Input & Output</h4><p>Allows communication between users and computers.</p></div></div>
 
 ---
 
@@ -109,139 +79,86 @@ A computer follows a simple four-step cycle.
 
 | Hardware | Software |
 |---|---|
-| Physical parts | Programs and applications |
+| Physical components | Programs and applications |
 | CPU, RAM, Keyboard | Windows, Linux, Chrome |
 | Can be touched | Cannot be touched |
 | Manufactured | Developed by programmers |
-
-<grid columns=2 gap=3>
-  <grid-item>
-    <box gap=1>
-      <AsyncImage query="computer hardware motherboard cpu ram" aspectRatio="5:4" radius=lg width="100%"/>
-      **Hardware**
-    </box>
-  </grid-item>
-  <grid-item>
-    <box gap=1>
-      <AsyncImage query="software applications windows linux icons" aspectRatio="5:4" radius=lg width="100%"/>
-      **Software**
-    </box>
-  </grid-item>
-</grid>
 
 ---
 
 ## Types of Computers
 
-<AsyncImageGroup query={["desktop computer workstation","modern business laptop","server rack data center","supercomputer server room"]} aspectRatio="16:9"/>
+<img src={Types} alt="Types of computers" style={{width:"100%",borderRadius:"16px"}}/>
 
 | Type | Primary Use |
 |---|---|
-| Desktop | Office, programming, design |
-| Laptop | Portable work and study |
-| Server | Websites, cloud services |
-| Supercomputer | Scientific research and AI |
+| Desktop | Programming & Office |
+| Laptop | Portable Work |
+| Server | Websites & Cloud |
+| Supercomputer | Scientific Research |
 
 ---
 
 ## How a Computer Works Internally
 
-<svg viewBox="0 0 320 180" role="img" aria-label="Vertical architecture diagram showing User, Input Devices, CPU, RAM, Storage, and Output Devices connected by arrows.">
-  <defs>
-    <linearGradient id="g" x1=0 y1=0 x2=1 y2=1>
-      <stop offset="0%" stopColor="#2563EB"/>
-      <stop offset="100%" stopColor="#7C3AED"/>
-    </linearGradient>
-  </defs>
-  <rect width=320 height=180 rx=12 fill="#0F172A"/>
-  {#each [
-      ["User",16],
-      ["Input Devices",42],
-      ["CPU",68],
-      ["RAM",94],
-      ["Storage",120],
-      ["Output Devices",146]
-    ] as row}
-    <rect x=70 y={row[1]} width=180 height=18 rx=6 fill="url(#g)" opacity=0.95/>
-    <text x=160 y={row[1]+12} fontSize=8 textAnchor="middle" fontFamily="Arial" fill="#FFFFFF">{row[0]}</text>
-    {#if row[0] !== "Output Devices"}
-      <path d={`M160 ${row[1]+18} V ${row[1]+24}`} stroke="#94A3B8" strokeWidth=1.5 strokeDasharray="3 3" strokeLinecap="round"/>
-      <polygon points={`160,${row[1]+24} 156,${row[1]+20} 164,${row[1]+20}`} fill="#94A3B8"/>
-    {/if}
-  {/each}
+<svg viewBox="0 0 340 210" width="100%" role="img" aria-label="Computer architecture">
+  <rect width="340" height="210" rx="14" fill="#111827"/>
+  {["USER","INPUT","CPU","RAM","STORAGE","OUTPUT"].map((item,i)=>(
+    <g key={item}>
+      <rect x="80" y={12+i*31} width="180" height="22" rx="6" fill="#2563eb"/>
+      <text x="170" y={27+i*31} fill="white" fontSize="11" textAnchor="middle" fontFamily="Arial" fontWeight="bold">{item}</text>
+      {i<5 && <path d={`M170 ${34+i*31} V ${43+i*31}`} stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="3 3"/>}
+    </g>
+  ))}
 </svg>
 
-1. The user provides input.
-2. Input devices send signals to the CPU.
-3. The CPU processes instructions.
-4. RAM temporarily holds active data.
-5. Storage saves information permanently.
-6. Results appear through output devices.
+1. User gives input.
+2. Input devices send signals.
+3. CPU processes instructions.
+4. RAM holds temporary data.
+5. Storage saves information.
+6. Output displays results.
 
 ---
 
-## Advantages and Limitations
+## Advantages
 
-<grid columns=2 gap=3>
-  <grid-item>
-    <box gap=2>
-      <row align=center gap=2>
-        <icon name=check-circle-filled color="#16A34A" size=xl/>
-        **Advantages**
-      </row>
-      - Extremely fast
-      - High accuracy
-      - Large storage capacity
-      - Works continuously
-      - Connects billions of users
-    </box>
-  </grid-item>
-  <grid-item>
-    <box gap=2>
-      <row align=center gap=2>
-        <icon name=minus-circle-filled color="#DC2626" size=xl/>
-        **Limitations**
-      </row>
-      - Requires electricity
-      - Depends on software
-      - Vulnerable to cyber attacks
-      - Hardware can fail
-      - Cannot think independently
-    </box>
-  </grid-item>
-</grid>
+- High speed
+- Excellent accuracy
+- Large storage capacity
+- Multitasking
+- Global connectivity
+
+## Limitations
+
+- Requires electricity
+- Hardware may fail
+- Vulnerable to cyber attacks
+- Depends on software
+- Cannot think independently
 
 ---
 
 ## Real-World Example
 
-Imagine opening YouTube.
+**Opening YouTube**
 
-<svg viewBox="0 0 320 176" role="img" aria-label="Flowchart showing User Click, Browser, Internet, Server, and Video Plays connected vertically with arrows.">
-  <rect width=320 height=176 rx=12 fill="#111827"/>
-  {#each [
-      ["User Click","#2563EB"],
-      ["Browser","#7C3AED"],
-      ["Internet","#0EA5E9"],
-      ["YouTube Server","#F59E0B"],
-      ["Video Plays","#16A34A"]
-    ] as step, i}
-    <rect x=76 y={12+i*32} width=168 height=20 rx=6 fill={step[1]}/>
-    <text x=160 y={25+i*32} fontSize=8 textAnchor="middle" fontFamily="Arial" fill="#FFFFFF">{step[0]}</text>
-    {#if i<4}
-      <path d={["M160 32 V 44","M160 64 V 76","M160 96 V 108","M160 128 V 140"][i]} stroke="#9CA3AF" strokeWidth=1.5 strokeDasharray="3 3" strokeLinecap="round"/>
-      <polygon points={["160,44 156,38 164,38","160,76 156,70 164,70","160,108 156,102 164,102","160,140 156,134 164,134"][i]} fill="#9CA3AF"/>
-    {/if}
-  {/each}
+<svg viewBox="0 0 320 180" width="100%" role="img" aria-label="YouTube request flow">
+  <rect width="320" height="180" rx="12" fill="#0f172a"/>
+  {["User Click","Browser","Internet","YouTube Server","Video Plays"].map((s,i)=>(
+    <g key={s}>
+      <rect x="70" y={10+i*33} width="180" height="22" rx="6" fill={["#2563eb","#7c3aed","#0ea5e9","#f59e0b","#16a34a"][i]}/>
+      <text x="160" y={25+i*33} fill="white" fontSize="10" textAnchor="middle" fontFamily="Arial">{s}</text>
+      {i<4 && <path d={`M160 ${32+i*33} V ${43+i*33}`} stroke="#9ca3af" strokeWidth="1.5" strokeDasharray="3 3"/>}
+    </g>
+  ))}
 </svg>
 
-Your click travels through the browser and internet to YouTube’s servers, which process the request and send the video back to your screen.
+Your request travels from the browser to YouTube servers and returns the video to your screen.
 
 ---
 
 ## Example Code
-
-The first program most learners write:
 
 ```python
 print("Hello, Computer Science!")
@@ -263,35 +180,21 @@ Hello, Computer Science!
 
 ## Summary
 
-<box background=surface radius=lg padding=3 gap=1>
-  <row align=center gap=2>
-    <icon name=check-circle-filled color="#22C55E" size=lg/>
-    **Key Takeaways**
-  </row>
-  - A computer accepts **input**, performs **processing**, generates **output**, and saves **storage**.
-  - Hardware refers to physical components; software refers to programs.
-  - CPU is the processing brain, RAM is temporary memory, and SSD/HDD provides permanent storage.
-  - Computers power education, business, healthcare, AI, and communication.
-</box>
+> **Input → Process → Output → Storage** is the fundamental working cycle of every computer.
+
+- CPU is the processing brain.
+- RAM is temporary memory.
+- Storage permanently saves data.
+- Hardware and software work together.
 
 ---
 
 ## Practice Questions
 
-1. Define a computer in one sentence.
-2. What is the difference between hardware and software?
-3. Why is RAM called temporary memory?
-4. Name four types of computers.
-5. Explain the Input → Process → Output cycle with a real-life example.
-
-<AskBox topic="Computer Basics" section="Computer Fundamentals" />
-
-## Run your code
-
-<RunInLab topic="Computer Basics" lang="python" />
-
-## Practice Questions
-
-_Questions to try once you have read the notes above._
+1. Define a computer.
+2. Explain the IPO cycle.
+3. Difference between RAM and Storage?
+4. What is the role of the CPU?
+5. Name four types of computers.
 
 <AskBox topic="Computer Basics" section="Computer Fundamentals" />
