@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://pragyapath.com/class7/computer/history-of-computer.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>History of Computer — Class 7 Computer Science | Pragyapath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./generation-timeline_files/css2" rel="stylesheet">
+<link rel="stylesheet" href="./generation-timeline_files/shared.css">
+<link rel="canonical" href="https://pragyapath.com/class7/computer/history-of-computer.html">
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#1e40af;--brand-l:rgba(30,64,175,0.10);--brand-d:#1e3a8a;
+  --grn:#15803d;--grn-l:rgba(21,128,61,0.10);
+  --amb:#b45309;--amb-l:rgba(180,83,9,0.10);
+  --pur:#7c3aed;--pur-l:rgba(124,58,237,0.10);
+  --red:#dc2626;--red-l:rgba(220,38,38,0.10);
+  --teal:#0d9488;--teal-l:rgba(13,148,136,0.10);
+  --r:8px;--r2:12px;--r3:16px;--r4:20px;
+  --mono:'Space Mono',monospace;--sans:'Outfit',sans-serif;
+  --shadow-sm:0 1px 4px rgba(0,0,0,.07);
+  --shadow:0 4px 18px rgba(0,0,0,.10);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-size:15px;line-height:1.7;padding:0 0 64px}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+
+/* HEADER */
+.hdr{border-radius:var(--r4);position:relative;overflow:hidden;margin-top:16px;padding:32px 28px 26px;color:#fff}
+.hdr-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.hdr-tag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;opacity:.8;margin-bottom:6px;position:relative}
+.hdr-title{font-size:clamp(22px,4vw,34px);font-weight:900;color:#fff;line-height:1.15;position:relative}
+.hdr-title span{background:linear-gradient(135deg,#fbbf24,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hdr-sub{font-size:13.5px;color:rgba(255,255,255,.72);margin-top:6px;position:relative}
+.hdr-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;position:relative}
+.badge{font-size:11px;padding:3px 11px;border-radius:20px;font-weight:600;background:rgba(255,255,255,.12);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.15)}
+.badge.hi{background:rgba(251,191,36,.2);color:#fbbf24;border-color:rgba(251,191,36,.35)}
+
+/* MAIN NAV */
+.main-nav{display:flex;gap:3px;background:var(--bg2,#fff);border-radius:var(--r2);padding:5px;
+  margin:14px 0 0;overflow-x:auto;border:1px solid var(--border,rgba(0,0,0,.1));scrollbar-width:none;
+  position:sticky;top:60px;z-index:50;box-shadow:var(--shadow-sm)}
+.main-nav::-webkit-scrollbar{display:none}
+.mnav{flex:1;min-width:72px;padding:8px 6px;border-radius:var(--r);font-size:12px;font-weight:700;
+  border:none;background:transparent;color:var(--text3,#888);cursor:pointer;transition:all .17s;
+  text-align:center;white-space:nowrap;font-family:var(--sans)}
+.mnav:hover{background:var(--bg3,#f4f4f4);color:var(--text,#111)}
+.mnav.on{background:var(--brand);color:#fff;box-shadow:0 2px 10px rgba(30,64,175,.3)}
+.sec{display:none;padding:16px 0 10px}.sec.on{display:block}
+
+/* CARDS */
+.card{background:var(--bg2,#fff);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:var(--r3);
+  padding:20px 22px;margin-bottom:14px;box-shadow:var(--shadow-sm)}
+.card h2{font-size:18px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:9px;color:var(--text,#111)}
+.card h3{font-size:14px;font-weight:700;margin:12px 0 6px;color:var(--text,#111)}
+.card p,.card li{font-size:13.5px;color:var(--text2,#444);margin-bottom:5px;line-height:1.65}
+.card ul,.card ol{padding-left:18px}
+
+/* CALLOUTS */
+.def{background:var(--brand-l);border-left:3px solid var(--brand);border-radius:0 var(--r) var(--r) 0;padding:11px 15px;margin:9px 0;font-size:13.5px;color:var(--brand-d)}
+.eg{background:var(--grn-l);border-left:3px solid var(--grn);border-radius:0 var(--r) var(--r) 0;padding:11px 15px;margin:9px 0;font-size:13.5px;color:var(--grn)}
+.note{background:var(--amb-l);border-left:3px solid var(--amb);border-radius:0 var(--r) var(--r) 0;padding:10px 14px;margin:8px 0;font-size:13px;color:var(--amb)}
+.tip{background:var(--pur-l);border-left:3px solid var(--pur);border-radius:0 var(--r) var(--r) 0;padding:10px 14px;margin:8px 0;font-size:13px;color:var(--pur)}
+.warn{background:var(--red-l);border-left:3px solid var(--red);border-radius:0 var(--r) var(--r) 0;padding:10px 14px;margin:8px 0;font-size:13px;color:var(--red)}
+
+/* COMPARISON GRID */
+.cmp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0}
+.cmp-box{border-radius:var(--r2);padding:14px;border:1.5px solid}
+.cmp-box.blue{background:var(--brand-l);border-color:rgba(30,64,175,.25)}
+.cmp-box.grn{background:var(--grn-l);border-color:rgba(21,128,61,.25)}
+.cmp-box.red{background:var(--red-l);border-color:rgba(220,38,38,.25)}
+.cmp-box.pur{background:var(--pur-l);border-color:rgba(124,58,237,.25)}
+.cmp-box.amb{background:var(--amb-l);border-color:rgba(180,83,9,.25)}
+.cmp-box.teal{background:var(--teal-l);border-color:rgba(13,148,136,.25)}
+.cmp-tag{font-size:9px;font-family:var(--mono);text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:5px;opacity:.75}
+.cmp-box h3{font-size:13px;font-weight:800;margin-bottom:5px}
+.cmp-box p{font-size:12.5px;line-height:1.6;margin:0}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0;border-radius:var(--r);overflow:hidden}
+.tbl th{text-align:left;padding:9px 12px;background:var(--bg3,#f4f4f4);color:var(--brand);font-weight:700;font-size:11px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.07em;border-bottom:1.5px solid var(--border,rgba(0,0,0,.1))}
+.tbl td{padding:8px 12px;border-bottom:.5px solid var(--border,rgba(0,0,0,.07));color:var(--text2,#444);font-size:13px;vertical-align:top}
+.tbl tr:hover td{background:var(--bg3,#f4f4f4)}
+.tbl tr:last-child td{border-bottom:none}
+
+/* TABS */
+.ctabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+.ctab{padding:5px 13px;border-radius:20px;font-size:12px;font-weight:700;border:1.5px solid var(--border,rgba(0,0,0,.1));background:transparent;color:var(--text3,#888);cursor:pointer;font-family:var(--sans);transition:all .15s}
+.ctab:hover{border-color:var(--brand);color:var(--brand)}
+.ctab.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.cpanel{display:none}.cpanel.on{display:block}
+
+/* FORMULA */
+.fml{font-family:var(--mono);font-size:15px;font-weight:700;background:var(--bg3,#f4f4f4);border:1.5px solid var(--border,rgba(0,0,0,.1));border-radius:var(--r2);padding:14px 18px;margin:10px 0;text-align:center;letter-spacing:.05em}
+
+/* TIMELINE */
+.timeline{margin:14px 0;position:relative;padding-left:20px}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--brand);opacity:.25;border-radius:2px}
+.tl-item{position:relative;margin-bottom:20px;padding-left:24px}
+.tl-item::before{content:'';position:absolute;left:-16px;top:6px;width:12px;height:12px;border-radius:50%;border:2.5px solid var(--brand);background:var(--bg2,#fff)}
+.tl-year{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--brand);margin-bottom:3px}
+.tl-title{font-size:14px;font-weight:800;color:var(--text,#111);margin-bottom:3px}
+.tl-desc{font-size:12.5px;color:var(--text2,#444);line-height:1.6}
+
+/* DEVICE GRID */
+.device-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin:12px 0}
+.device-card{background:var(--bg3,#f4f4f4);border:1.5px solid var(--border,rgba(0,0,0,.08));border-radius:var(--r2);padding:14px;text-align:center;cursor:pointer;transition:all .2s}
+.device-card:hover,.device-card.on{border-color:var(--brand);transform:translateY(-2px);box-shadow:var(--shadow)}
+.device-card.on{background:var(--brand-l)}
+.device-icon{font-size:30px;margin-bottom:6px}
+.device-name{font-size:12px;font-weight:700;color:var(--text,#111)}
+.device-detail{background:var(--bg2,#fff);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:var(--r2);padding:16px;margin-top:10px;font-size:13.5px;color:var(--text2,#444);line-height:1.7;display:none}
+.device-detail.on{display:block}
+
+/* WIKI IMAGE */
+.wiki-fig{margin:14px 0;border-radius:var(--r2);overflow:hidden;border:1px solid var(--border,rgba(0,0,0,.08))}
+.wiki-fig img{width:100%;display:block;cursor:zoom-in;transition:opacity .2s}
+.wiki-fig img:hover{opacity:.9}
+.wiki-cap{font-size:11px;color:var(--text3,#888);font-family:var(--mono);padding:7px 10px;background:var(--bg3,#f4f4f4);line-height:1.5}
+.wiki-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:12px 0}
+.wiki-item{border-radius:var(--r2);overflow:hidden;border:1px solid var(--border,rgba(0,0,0,.08))}
+.wiki-item img{width:100%;height:140px;object-fit:cover;display:block;cursor:zoom-in;transition:opacity .2s}
+.wiki-item img:hover{opacity:.9}
+.wiki-item-cap{font-size:11px;color:var(--text3,#888);font-family:var(--mono);padding:6px 8px}
+
+/* GENERATION / ERA CARDS */
+.gen-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px;margin:12px 0}
+.gen-card{border-radius:var(--r2);padding:16px;border:1.5px solid;position:relative;overflow:hidden}
+.gen-num{position:absolute;top:10px;right:12px;font-family:var(--mono);font-size:28px;font-weight:900;opacity:.08;line-height:1}
+.gen-era{font-size:9px;font-family:var(--mono);text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:6px;opacity:.7}
+.gen-title{font-size:13.5px;font-weight:800;margin-bottom:5px}
+.gen-tech{font-size:11.5px;opacity:.8;line-height:1.5}
+
+/* SIMULATION BOX */
+.sim-box{background:var(--bg2,#fff);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:var(--r3);padding:20px;margin:12px 0;box-shadow:var(--shadow-sm)}
+.sim-title{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--brand);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sim-title::after{content:'';flex:1;height:1px;background:var(--border,rgba(0,0,0,.1))}
+.sim-screen{background:#0a0e1a;border-radius:var(--r);padding:16px;font-family:var(--mono);font-size:13px;color:#00d4ff;min-height:80px;margin:10px 0;border:1px solid rgba(0,212,255,.2)}
+.btn-sim{padding:8px 20px;border-radius:var(--r);border:none;background:var(--brand);color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--sans);transition:all .15s;margin:4px}
+.btn-sim:hover{opacity:.88;transform:translateY(-1px)}
+.btn-sim.grn{background:var(--grn)}.btn-sim.red{background:var(--red)}.btn-sim.pur{background:var(--pur)}
+.slider-row{display:flex;align-items:center;gap:10px;margin:8px 0}
+.s-lbl{font-size:11px;font-weight:700;color:var(--text3,#888);min-width:90px;font-family:var(--mono)}
+.s-val{font-size:12px;font-weight:700;color:var(--brand);min-width:60px;font-family:var(--mono)}
+input[type=range]{flex:1;accent-color:var(--brand)}
+
+/* HARDWARE COMPONENT DIAGRAM */
+.hw-diagram{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0;max-width:500px}
+.hw-block{border-radius:var(--r2);padding:12px;text-align:center;border:2px solid;font-size:12px;font-weight:700;position:relative}
+.hw-cpu{background:#1e3a8a;border-color:#3b82f6;color:#fff;grid-column:2;grid-row:1}
+.hw-ram{background:#065f46;border-color:#10b981;color:#fff}
+.hw-storage{background:#7f1d1d;border-color:#ef4444;color:#fff}
+.hw-io{background:#4c1d95;border-color:#8b5cf6;color:#fff}
+.hw-mb{background:#92400e;border-color:#f59e0b;color:#fff;grid-column:1/-1}
+
+/* ACTIVITY BLOCK */
+.activity{background:linear-gradient(135deg,var(--grn-l),var(--brand-l));border:1.5px dashed var(--grn);border-radius:var(--r2);padding:16px;margin:14px 0}
+.activity-hd{font-size:13px;font-weight:800;color:var(--grn);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.activity p{font-size:13.5px;color:var(--text2,#444);line-height:1.65;margin:0}
+
+/* EXERCISES */
+.ex-score{display:flex;align-items:center;gap:14px;padding:11px 15px;background:var(--bg2,#fff);border:1px solid var(--border,rgba(0,0,0,.08));border-radius:var(--r2);margin-bottom:14px;box-shadow:var(--shadow-sm);position:sticky;top:110px;z-index:20}
+.ex-snum{font-family:var(--mono);font-size:22px;font-weight:800;color:var(--brand)}
+.ex-slbl{font-size:10px;color:var(--text3,#888);font-family:var(--mono);text-transform:uppercase}
+.pbar-o{background:var(--bg3,#f4f4f4);border-radius:4px;height:5px;flex:1;overflow:hidden}
+.pbar-i{height:100%;background:var(--brand);border-radius:4px;transition:width .4s}
+.btn-rst{padding:5px 12px;background:transparent;color:var(--text3,#888);border:1.5px solid var(--border,rgba(0,0,0,.1));border-radius:var(--r);font-size:11px;font-weight:700;cursor:pointer;font-family:var(--sans)}
+.ex-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
+.ex-tab{padding:5px 13px;border-radius:20px;font-size:11px;font-weight:700;border:1.5px solid var(--border,rgba(0,0,0,.1));background:transparent;color:var(--text3,#888);cursor:pointer;font-family:var(--sans);transition:all .15s}
+.ex-tab.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.ex-sec{display:none}.ex-sec.on{display:block}
+.q-card{background:var(--bg2,#fff);border:1.5px solid var(--border,rgba(0,0,0,.08));border-radius:var(--r2);margin-bottom:9px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.q-body{padding:13px 16px 0}
+.q-text{font-size:13.5px;font-weight:600;color:var(--text,#111);line-height:1.65;margin-bottom:9px}
+.q-pts{font-size:10px;color:var(--text3,#888);font-weight:400;font-family:var(--mono)}
+.opts{display:flex;flex-direction:column;gap:5px;padding:0 16px 13px}
+.opt{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--r);font-size:13px;font-weight:600;border:1.5px solid var(--border,rgba(0,0,0,.1));background:var(--bg3,#f4f4f4);color:var(--text2,#444);cursor:pointer;text-align:left;transition:all .14s;font-family:var(--sans);width:100%}
+.opt:hover{border-color:var(--brand);color:var(--text,#111)}
+.opt.ok{background:var(--grn-l);border-color:var(--grn);color:var(--grn)}
+.opt.ng{background:var(--red-l);border-color:var(--red);color:var(--red)}
+.opt.dim{opacity:.3;pointer-events:none}
+.opt-l{width:20px;height:20px;border-radius:4px;background:var(--bg3,#f4f4f4);color:var(--text3,#888);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--mono);transition:all .14s}
+.opt.ok .opt-l{background:var(--grn);color:#fff}.opt.ng .opt-l{background:var(--red);color:#fff}
+.fb{display:none;margin:0 16px 12px;padding:8px 12px;border-radius:var(--r);font-size:12.5px;font-weight:600;line-height:1.6}
+.fb.on{display:block}
+.fb.ok{background:var(--grn-l);color:var(--grn)}.fb.ng{background:var(--red-l);color:var(--red)}
+
+/* SUMMARY GRID */
+.sum-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin:12px 0}
+.sum-box{background:var(--bg3,#f4f4f4);border-radius:var(--r2);padding:13px;border:1px solid var(--border,rgba(0,0,0,.08))}
+.sum-term{font-size:13px;font-weight:800;color:var(--brand);margin-bottom:3px}
+.sum-def{font-size:12px;color:var(--text2,#444);line-height:1.5}
+
+/* STEP LIST */
+.steps{margin:12px 0}
+.step{display:flex;gap:12px;margin-bottom:10px;align-items:flex-start}
+.step-n{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:var(--mono);margin-top:2px}
+.step-b{font-size:13.5px;color:var(--text2,#444);line-height:1.65}
+.step-b strong{color:var(--text,#111)}
+
+/* SOFTWARE TREE */
+.sw-tree{margin:12px 0}
+.sw-root{background:var(--brand);color:#fff;border-radius:var(--r2);padding:12px 16px;font-weight:800;font-size:14px;text-align:center;margin-bottom:8px}
+.sw-children{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sw-branch{border-radius:var(--r2);padding:12px;border:2px solid}
+.sw-branch.sys{background:var(--brand-l);border-color:rgba(30,64,175,.3)}
+.sw-branch.app{background:var(--grn-l);border-color:rgba(21,128,61,.3)}
+.sw-branch h4{font-size:13px;font-weight:800;margin-bottom:6px}
+.sw-branch ul{padding-left:16px;font-size:12.5px;color:var(--text2,#444)}
+.sw-branch li{margin-bottom:3px}
+
+/* BINARY DEMO */
+.bit-row{display:flex;gap:4px;flex-wrap:wrap;margin:10px 0}
+.bit{width:36px;height:36px;border-radius:var(--r);border:2px solid var(--border,rgba(0,0,0,.1));font-family:var(--mono);font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;background:var(--bg3,#f4f4f4);color:var(--text3,#888)}
+.bit.on{background:var(--brand);border-color:var(--brand);color:#fff;transform:scale(1.1)}
+.bit-val{font-family:var(--mono);font-size:20px;font-weight:800;color:var(--brand);text-align:center;margin:8px 0}
+
+/* CHART CANVAS */
+canvas.chart{width:100%;max-height:200px;display:block}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.card{animation:fadeUp .2s ease}
+@media(max-width:600px){.cmp-grid{grid-template-columns:1fr 1fr}.gen-grid{grid-template-columns:1fr 1fr}.hw-diagram{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.cmp-grid,.gen-grid,.hw-diagram{grid-template-columns:1fr}}
+
+
+/* ── QnA Section ─────────────────────────────────────────── */
+.qna-controls{display:flex;align-items:center;justify-content:space-between;
+  gap:10px;flex-wrap:wrap;background:var(--bg2,#fff);
+  border:1.5px solid rgba(128,128,128,.18);border-radius:14px;
+  padding:11px 16px;margin-bottom:18px;position:sticky;top:95px;z-index:20;
+  box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.qna-ctrl-info{font-size:12px;color:var(--text2,#444);font-family:var(--mono,'Space Mono',monospace)}
+.qna-ctrl-info strong{color:var(--text,#111)}
+.qna-ctrl-btns{display:flex;gap:7px}
+.qna-btn{padding:6px 16px;border-radius:8px;font-size:11px;font-weight:700;
+  font-family:var(--sans,'Outfit',sans-serif);cursor:pointer;transition:all .14s;border:none}
+.qna-btn-show{background:var(--brand,#1e40af);color:#fff}
+.qna-btn-show:hover{opacity:.88}
+.qna-btn-hide{background:transparent;color:var(--text2,#444);
+  border:1.5px solid rgba(128,128,128,.25)}
+.qna-btn-hide:hover{color:var(--text,#111)}
+
+.qna-mark-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.qna-mark-btn{display:flex;align-items:center;gap:7px;padding:9px 20px;
+  border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;
+  border:2px solid transparent;background:var(--bg2,#fff);
+  transition:all .16s;font-family:var(--sans,'Outfit',sans-serif);white-space:nowrap}
+.qna-mark-btn .mb-pip{width:9px;height:9px;border-radius:50%;
+  background:currentColor;opacity:.4;flex-shrink:0}
+.qna-mark-btn.on .mb-pip{opacity:1}
+.qna-mark-btn .mb-count{font-size:10px;font-family:var(--mono,'Space Mono',monospace);
+  background:rgba(0,0,0,.08);padding:1px 7px;border-radius:10px}
+.qna-mark-btn.on .mb-count{background:rgba(255,255,255,.25);color:#fff}
+.qna-mark-btn[data-mark="1"]{color:#4a8fd4;border-color:rgba(74,143,212,.25)}
+.qna-mark-btn[data-mark="1"].on{background:#4a8fd4;color:#fff;border-color:#4a8fd4}
+.qna-mark-btn[data-mark="2"]{color:#e85d26;border-color:rgba(232,93,38,.25)}
+.qna-mark-btn[data-mark="2"].on{background:#e85d26;color:#fff;border-color:#e85d26}
+.qna-mark-btn[data-mark="4"]{color:#2db89a;border-color:rgba(45,184,154,.25)}
+.qna-mark-btn[data-mark="4"].on{background:#2db89a;color:#fff;border-color:#2db89a}
+.qna-mark-panel{display:none}.qna-mark-panel.on{display:block}
+
+.qna-group-head{display:flex;align-items:center;gap:12px;
+  margin:24px 0 12px;padding-bottom:10px;
+  border-bottom:2px solid rgba(128,128,128,.12)}
+.qna-group-icon{width:36px;height:36px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.gi-1m{background:rgba(74,143,212,.13)}
+.gi-2m{background:rgba(232,93,38,.11)}
+.gi-4m{background:rgba(45,184,154,.11)}
+.qna-group-title{font-size:14px;font-weight:800;color:var(--text,#111)}
+.qna-group-sub{font-size:11px;color:var(--text2,#444);margin-top:2px;font-style:italic}
+
+.qna-card{background:var(--bg2,#fff);border:1.5px solid rgba(128,128,128,.18);
+  border-radius:14px;margin-bottom:10px;overflow:hidden;
+  transition:box-shadow .18s,transform .15s}
+.qna-card:hover{box-shadow:0 4px 18px rgba(0,0,0,.10);transform:translateY(-1px)}
+.qna-card.m1{border-left:4px solid #4a8fd4}
+.qna-card.m2{border-left:4px solid #e85d26}
+.qna-card.m4{border-left:4px solid #2db89a}
+
+.qna-q{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;
+  cursor:pointer;user-select:none;transition:background .14s}
+.qna-q:hover{background:rgba(0,0,0,.025)}
+.qna-q-num{flex-shrink:0;width:26px;height:26px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;color:#fff;margin-top:2px;
+  font-family:var(--mono,'Space Mono',monospace)}
+.m1 .qna-q-num{background:#4a8fd4}
+.m2 .qna-q-num{background:#e85d26}
+.m4 .qna-q-num{background:#2db89a}
+.qna-q-body{flex:1}
+.qna-badge{display:inline-block;font-size:9px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;
+  border-radius:4px;margin-bottom:5px;font-family:var(--mono,'Space Mono',monospace)}
+.m1 .qna-badge{background:rgba(74,143,212,.12);color:#4a8fd4}
+.m2 .qna-badge{background:rgba(232,93,38,.10);color:#e85d26}
+.m4 .qna-badge{background:rgba(45,184,154,.10);color:#2db89a}
+.qna-q-en{font-size:13.5px;font-weight:600;color:var(--text,#111);
+  line-height:1.6;display:block}
+.qna-q-np{font-size:12px;color:var(--text2,#444);font-style:italic;
+  margin-top:3px;line-height:1.5}
+.qna-chevron{flex-shrink:0;width:26px;height:26px;border-radius:50%;
+  border:1.5px solid rgba(128,128,128,.22);background:rgba(0,0,0,.03);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:var(--text2,#444);transition:all .18s;margin-top:2px}
+.qna-card.open .qna-chevron{transform:rotate(180deg);
+  background:var(--brand,#1e40af);border-color:var(--brand,#1e40af);color:#fff}
+
+.qna-a{display:none;padding:0 18px 16px;
+  border-top:1px solid rgba(128,128,128,.10)}
+.qna-card.open .qna-a{display:block}
+.qna-a-inner{padding-top:14px;font-size:13px;color:var(--text2,#444);line-height:1.8}
+.qna-a-inner p{margin-bottom:8px}.qna-a-inner p:last-child{margin-bottom:0}
+.qna-a-inner strong{color:var(--text,#111)}
+.qna-a-inner ul,.qna-a-inner ol{padding-left:20px;margin-bottom:8px}
+.qna-a-inner li{margin-bottom:4px}
+.qna-a-inner table{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0}
+.qna-a-inner th{text-align:left;padding:7px 10px;background:rgba(0,0,0,.04);
+  font-weight:700;font-size:10px;text-transform:uppercase;
+  letter-spacing:.07em;border-bottom:1.5px solid rgba(0,0,0,.08)}
+.qna-a-inner td{padding:7px 10px;border-bottom:.5px solid rgba(0,0,0,.06);vertical-align:top}
+.qna-a-inner tr:last-child td{border-bottom:none}
+
+</style>
+  <meta name="description" content="From Abacus to AI · Ancient Calculators · 5 Generations · Famous Pioneers · Interactive Simulations">
+  <meta name="keywords" content="Pragyapath Nepal NEB SEE Class 10 board exam papers interactive learning bilingual प्रज्ञापथ">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="History of Computer — Class 7 Computer Science | Pragyapath">
+  <meta property="og:description" content="From Abacus to AI · Ancient Calculators · 5 Generations · Famous Pioneers · Interactive Simulations">
+  <meta property="og:url" content="https://pragyapath.com/class7/computer/history-of-computer.html">
+  <meta property="og:site_name" content="Pragyapath">
+  <meta property="og:image" content="https://pragyapath.com/assets/images/og/history-of-computer.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="History of Computer — Class 7 Computer Science | Pragyapath">
+  <meta name="twitter:description" content="From Abacus to AI · Ancient Calculators · 5 Generations · Famous Pioneers · Interactive Simulations">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": "https://pragyapath.com/class7/computer/history-of-computer.html#resource",
+      "name": "History of Computer — Class 7 Computer Science | Pragyapath",
+      "description": "From Abacus to AI · Ancient Calculators · 5 Generations · Famous Pioneers · Interactive Simulations",
+      "url": "https://pragyapath.com/class7/computer/history-of-computer.html",
+      "inLanguage": "en",
+      "educationalLevel": "Grade 7",
+      "isAccessibleForFree": true,
+      "learningResourceType": [
+        "Lesson"
+      ],
+      "publisher": {
+        "@id": "https://pragyapath.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Class 7",
+          "item": "https://pragyapath.com/class7/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Computer Science",
+          "item": "https://pragyapath.com/class7/computer/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "History of Computer",
+          "item": "https://pragyapath.com/class7/computer/history-of-computer.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<meta name="google-adsense-account" content="ca-pub-5372610660880863"><link rel="icon" type="image/png" sizes="32x32" href="https://pragyapath.com/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="192x192" href="https://pragyapath.com/assets/favicon-192x192.png"><link rel="shortcut icon" type="image/x-icon" href="https://pragyapath.com/assets/favicon.ico"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pragyapath.com"},{"@type":"ListItem","position":2,"name":"Class 7","item":"https://pragyapath.com/class7/index.html"},{"@type":"ListItem","position":3,"name":"Computer Science","item":"https://pragyapath.com/class7/computer/index.html"},{"@type":"ListItem","position":4,"name":"History of Computer"}]}</script><style id="pp-search-widget-style">
+        #pp-search-widget{
+          position:fixed; right:22px; bottom:22px; z-index:999;
+          display:flex; align-items:center;
+          background:var(--bg2,#fff); border:1.5px solid var(--border2,#e2e2e2);
+          border-radius:999px; box-shadow:var(--shadow,0 4px 18px rgba(0,0,0,.12));
+          overflow:hidden;
+          transition:box-shadow .2s ease;
+        }
+        #pp-search-widget:hover{ box-shadow:0 6px 22px rgba(0,0,0,.16); }
+        #pp-search-btn{
+          all:unset; display:flex; align-items:center; justify-content:center;
+          width:44px; height:44px; flex-shrink:0; cursor:pointer; color:var(--ink,#1a1a1a);
+        }
+        #pp-search-form{
+          width:0; opacity:0; overflow:hidden;
+          transition:width .22s ease, opacity .18s ease;
+        }
+        #pp-search-widget.open #pp-search-form{
+          width:220px; opacity:1;
+        }
+        #pp-search-input{
+          all:unset; box-sizing:border-box; width:100%; height:44px;
+          padding:0 14px 0 2px; font-size:14px; font-family:inherit; color:var(--ink,#1a1a1a);
+        }
+        @media (max-width:480px){
+          #pp-search-widget.open #pp-search-form{ width:52vw; }
+        }
+      </style><meta name="theme-color" content="#2c3e9e"><style>
+    #ann-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      z-index: 9990;
+      pointer-events: none;
+      cursor: crosshair;
+      touch-action: none;
+    }
+    #ann-canvas.active { pointer-events: auto; }
+
+    /* Active-mode page border */
+    body.ann-active::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 9989;
+      border: 3px solid #dc143c;
+      pointer-events: none;
+      border-radius: 4px;
+      opacity: 0.55;
+    }
+
+    /* Toggle button — sits above the language toggle (#pp-lang-btn is at bottom:20px) */
+    #ann-toggle {
+      position: fixed; bottom: 74px; right: 24px; z-index: 9995;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--brand, #2c3e9e);
+      color: #fff; border: none; cursor: pointer;
+      font-size: 22px; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 18px rgba(44,62,158,0.45);
+      transition: all 0.2s cubic-bezier(0.16,1,0.3,1);
+      user-select: none;
+    }
+    #ann-toggle:hover { transform: scale(1.08); box-shadow: 0 6px 24px rgba(44,62,158,0.55); }
+    #ann-toggle.on {
+      background: #dc143c;
+      box-shadow: 0 4px 18px rgba(220,20,60,0.5);
+    }
+    #ann-toggle .ann-tip {
+      position: absolute; right: 62px; bottom: 50%;
+      transform: translateY(50%);
+      background: var(--bg2, #fff); color: var(--text, #1a1d2e);
+      font-size: 12px; font-weight: 600; padding: 5px 10px;
+      border-radius: 8px; white-space: nowrap;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+      border: 1px solid var(--border, rgba(0,0,0,0.09));
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.15s;
+      font-family: var(--font-body, system-ui);
+    }
+    #ann-toggle:hover .ann-tip { opacity: 1; }
+
+    /* Toolbar — slides up from just above the annotation toggle */
+    #ann-toolbar {
+      position: fixed; bottom: 136px; right: 16px; z-index: 9995;
+      background: var(--bg2, #fff);
+      border: 1px solid var(--border, rgba(0,0,0,0.09));
+      border-radius: 18px;
+      padding: 12px 10px;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      transform: translateY(20px) scale(0.95);
+      opacity: 0; pointer-events: none;
+      transition: all 0.22s cubic-bezier(0.16,1,0.3,1);
+      user-select: none;
+      max-height: calc(100vh - 160px);
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+    #ann-toolbar.open {
+      transform: translateY(0) scale(1);
+      opacity: 1; pointer-events: auto;
+    }
+    #ann-toolbar::-webkit-scrollbar { display: none; }
+
+    .ann-sep {
+      width: 28px; height: 1px;
+      background: var(--border, rgba(0,0,0,0.09));
+      margin: 2px 0;
+    }
+
+    /* Tool buttons */
+    .ann-btn {
+      width: 38px; height: 38px; border-radius: 10px;
+      border: 1.5px solid var(--border, rgba(0,0,0,0.09));
+      background: transparent;
+      color: var(--text2, #4a4f63);
+      font-size: 17px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.15s; position: relative;
+      flex-shrink: 0;
+    }
+    .ann-btn:hover {
+      background: var(--bg3, #eeeef5);
+      color: var(--text, #1a1d2e);
+      border-color: var(--border2, rgba(0,0,0,0.16));
+    }
+    .ann-btn.sel {
+      background: var(--brand, #2c3e9e);
+      border-color: var(--brand, #2c3e9e);
+      color: #fff;
+    }
+    .ann-btn.danger:hover { background: rgba(220,20,60,0.1); color: #dc143c; border-color: rgba(220,20,60,0.3); }
+    .ann-btn .ann-tip {
+      position: absolute; right: 46px; top: 50%;
+      transform: translateY(-50%);
+      background: var(--bg2, #fff); color: var(--text, #1a1d2e);
+      font-size: 11px; font-weight: 600; padding: 4px 9px;
+      border-radius: 7px; white-space: nowrap;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+      border: 1px solid var(--border, rgba(0,0,0,0.09));
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.15s;
+      font-family: var(--font-body, system-ui);
+      z-index: 1;
+    }
+    .ann-btn:hover .ann-tip { opacity: 1; }
+
+    /* Colour dots */
+    .ann-col {
+      width: 22px; height: 22px; border-radius: 50%;
+      border: 2.5px solid transparent;
+      cursor: pointer; flex-shrink: 0;
+      transition: all 0.15s; outline: none;
+    }
+    .ann-col:hover { transform: scale(1.2); }
+    .ann-col.sel { border-color: var(--text, #1a1d2e); transform: scale(1.15); }
+
+    .ann-colours {
+      display: flex; flex-direction: column; gap: 5px;
+      align-items: center;
+    }
+
+    /* Thickness dots */
+    .ann-thick {
+      width: 30px; height: 30px; border-radius: 8px;
+      border: 1.5px solid var(--border, rgba(0,0,0,0.09));
+      background: transparent; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text2, #4a4f63);
+      transition: all 0.15s; flex-shrink: 0;
+      font-size: 11px; font-weight: 700;
+    }
+    .ann-thick:hover { background: var(--bg3, #eeeef5); }
+    .ann-thick.sel {
+      background: var(--brand-glow, rgba(44,62,158,0.12));
+      border-color: var(--brand, #2c3e9e);
+      color: var(--brand, #2c3e9e);
+    }
+
+    /* Count badge */
+    #ann-count {
+      font-size: 9px; font-weight: 700;
+      min-width: 18px; height: 18px; border-radius: 9px;
+      background: var(--accent, #dc143c);
+      color: #fff; display: none;
+      align-items: center; justify-content: center;
+      padding: 0 4px;
+    }
+    #ann-count.show { display: flex; }
+
+    /* Text input overlay */
+    #ann-text-input {
+      position: absolute; z-index: 9998;
+      background: rgba(255,255,253,0.95);
+      border: 2px solid var(--brand, #2c3e9e);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 16px; font-family: var(--font-body, system-ui);
+      color: #1a1d2e;
+      min-width: 180px; max-width: 360px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+      resize: none; outline: none;
+      line-height: 1.5;
+    }
+    @media (prefers-color-scheme: dark) {
+      #ann-text-input { background: rgba(20,23,41,0.97); color: #e8eaf5; }
+    }
+
+    /* Mobile: move toolbar to bottom */
+    @media (max-width: 600px) {
+      #ann-toolbar {
+        bottom: 136px; right: 8px;
+        flex-direction: row; flex-wrap: wrap;
+        border-radius: 14px; padding: 10px;
+        max-height: none; max-width: calc(100vw - 70px);
+        overflow-x: auto;
+      }
+      .ann-colours { flex-direction: row; flex-wrap: wrap; }
+      #ann-toggle { bottom: 74px; right: 16px; width: 46px; height: 46px; font-size: 19px; }
+    }
+  </style></head>
+<body data-path-prefix="../../" data-class="7" data-seo-title="History of Computer — Class 7 Computer Science | Pragyapath" data-seo-desc="From Abacus to AI · Ancient Calculators · 5 Generations · Famous Pioneers · Interactive Simulations">
+
+
+      <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="https://pragyapath.com/index.html" class="logo" aria-label="Pragyapath — Home">
+          <div class="logo-mark" aria-hidden="true">📚</div>
+          <div class="logo-text">
+            Pragyapath
+            <span>Class 7 · NEB</span>
+          </div>
+        </a>
+
+        <div class="nav-links" role="menubar">
+          <a href="https://pragyapath.com/class7/math/index.html" class="nav-link" aria-current="false">Mathematics</a><a href="https://pragyapath.com/class7/science/index.html" class="nav-link" aria-current="false">Science</a><a href="https://pragyapath.com/class7/english/index.html" class="nav-link" aria-current="false">English</a><a href="https://pragyapath.com/class7/nepali/index.html" class="nav-link" aria-current="false">Nepali</a><a href="https://pragyapath.com/class7/social/index.html" class="nav-link" aria-current="false">Social Studies</a><a href="https://pragyapath.com/class7/computer/index.html" class="nav-link active" aria-current="page">Computer Science</a>
+          <a href="https://pragyapath.com/practice/index.html" class="nav-link" aria-current="false">Practice</a>
+          <a href="https://pragyapath.com/tools/index.html" class="nav-link" aria-current="false">Tools</a>
+          <a href="https://pragyapath.com/blog/index.html" class="nav-link" aria-current="false">Blog</a>
+        </div>
+
+        <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-mobile">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+
+<div class="wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="https://pragyapath.com/index.html" aria-label="Home">Home</a><span class="sep" aria-hidden="true">›</span><a href="https://pragyapath.com/class7/index.html">Class 7</a><span class="sep" aria-hidden="true">›</span><a href="https://pragyapath.com/class7/computer/index.html">Computer Science</a><span class="sep" aria-hidden="true">›</span><span class="current" aria-current="page">History of Computer</span></nav>
+
+<div class="hdr" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 100%);border:1px solid rgba(251,191,36,0.3)">
+  <div class="hdr-grid"></div>
+  <div style="position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:80px;opacity:.08;line-height:1">🕰️⚙️</div>
+  <div class="hdr-tag">Class 7 · Computer Science Chapter 1</div>
+  <div class="hdr-title">History of Computer</div>
+  <div class="hdr-sub">From Abacus to AI · Ancient Calculators · 5 Generations · Famous Pioneers · Interactive Simulations</div>
+  <div class="hdr-badges"><span class="badge hi">🖥️ Interactive</span><span class="badge">📸 Real Images</span><span class="badge">🔬 Simulations</span><span class="badge">📝 Exercises</span><span class="badge">✅ Activities</span></div>
+</div>
+
+<nav class="main-nav">
+<button class="mnav  on" data-nav="learn">📖 Learn</button>
+<button class="mnav" data-nav="sim">🔬 Simulate</button>
+<button class="mnav" data-nav="compare">⚖️ Compare</button>
+<button class="mnav" data-nav="ex">📝 Exercises</button>
+<button class="mnav" data-nav="sum">📋 Summary</button>
+<button class="mnav" data-nav="qna">✅ Solved QnA</button>
+</nav>
+
+
+<!-- ═══ LEARN ═══ -->
+<div class="sec on" id="sec-learn">
+
+<div class="card">
+<h2>🏛️ Before Electronic Computers — Ancient Calculating Devices</h2>
+<p>Long before computers existed, humans invented tools to help with calculations. These early devices planted the seeds of modern computing.</p>
+<div class="wiki-row"><div class="wiki-item">
+<img src="./generation-timeline_files/Abacus_6.png" alt="A Chinese Suanpan abacus with beads" class="zoomable" data-author="Lookang" data-license="CC BY-SA 3.0" data-source="https://commons.wikimedia.org/wiki/File:Abacus_6.png" data-source-label="Wikimedia Commons">
+<div class="wiki-item-cap">Abacus — ~2400 BC</div></div><div class="wiki-item">
+<img src="./generation-timeline_files/Napier&#39;s_Bones_circa_1700,_Computer_History_Museum.jpg" alt="Napier&#39;s Bones — multiplication rods (1617)" class="zoomable" data-author="The wub" data-license="CC BY-SA 4.0" data-source="https://commons.wikimedia.org/wiki/File:Napier%27s_Bones_circa_1700,_Computer_History_Museum.jpg" data-source-label="Wikimedia Commons">
+<div class="wiki-item-cap">Napier's Bones — 1617</div></div><div class="wiki-item">
+<img src="./generation-timeline_files/Arts_et_Metiers_Pascaline_dsc03869.jpg" alt="The Pascaline — mechanical adding machine by Blaise Pascal (1642)" class="zoomable" data-author="David Monniaux" data-license="CC BY-SA 3.0" data-source="https://commons.wikimedia.org/wiki/File:Arts_et_Metiers_Pascaline_dsc03869.jpg" data-source-label="Wikimedia Commons">
+<div class="wiki-item-cap">Pascaline — 1642</div></div></div>
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-year">~2400 BC</div>
+    <div class="tl-title">Abacus</div>
+    <div class="tl-desc">The earliest known computing tool — rows of beads on rods. Used in China, Greece and Rome for arithmetic. Still used in some parts of the world today.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1617</div>
+    <div class="tl-title">Napier's Bones</div>
+    <div class="tl-desc">John Napier invented numbered rods that could multiply and divide large numbers quickly. Also invented logarithms.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1642</div>
+    <div class="tl-title">Pascaline</div>
+    <div class="tl-desc">Blaise Pascal built the first mechanical adding machine using gears and wheels. It could add and subtract automatically.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1671</div>
+    <div class="tl-title">Leibniz Calculator</div>
+    <div class="tl-desc">Gottfried Leibniz improved Pascal's design to also multiply and divide. Introduced the binary number system (0s and 1s) — the language all computers use today.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1801</div>
+    <div class="tl-title">Jacquard Loom</div>
+    <div class="tl-desc">Joseph Jacquard invented a loom controlled by punched cards — the first programmable machine. This directly inspired computer punched-card input systems.</div>
+  </div>
+</div>
+<div class="activity">
+  <div class="activity-hd">🎯 Activity: Count Like an Abacus</div>
+  <p>Use your fingers as abacus beads! Hold up all 10 fingers = 10. Each hand = one column. Try counting to 20 using both hands. How did ancient people use the abacus for larger numbers?</p>
+</div>
+</div>
+
+<div class="card">
+<h2>⚙️ Mechanical Era — Babbage &amp; Ada Lovelace</h2>
+<div class="wiki-row"><div class="wiki-item">
+<img src="./generation-timeline_files/Charles_Babbage_-_1860.jpg" alt="Charles Babbage — Father of the Computer" class="zoomable" data-author="Maull &amp; Polyblank" data-license="Public Domain" data-source="https://commons.wikimedia.org/wiki/File:Charles_Babbage_-_1860.jpg" data-source-label="Wikimedia Commons">
+<div class="wiki-item-cap">Charles Babbage</div></div><div class="wiki-item">
+<img src="./generation-timeline_files/Ada_Lovelace_portrait.jpg" alt="Ada Lovelace — World&#39;s First Programmer" class="zoomable" data-author="Alfred Edward Chalon" data-license="Public Domain" data-source="https://commons.wikimedia.org/wiki/File:Ada_Lovelace_portrait.jpg" data-source-label="Wikimedia Commons">
+<div class="wiki-item-cap">Ada Lovelace</div></div><div class="wiki-item">
+<img src="./generation-timeline_files/Babbage_Difference_Engine.jpg" alt="Babbage Difference Engine — reconstructed model at London Science Museum" class="zoomable" data-author="Geni" data-license="CC BY-SA 4.0" data-source="https://commons.wikimedia.org/wiki/File:Babbage_Difference_Engine.jpg" data-source-label="Wikimedia Commons">
+<div class="wiki-item-cap">Difference Engine</div></div></div>
+<div class="cmp-grid">
+  <div class="cmp-box blue">
+    <div class="cmp-tag">1822 — Charles Babbage</div>
+    <h3>Difference Engine</h3>
+    <p>A mechanical machine designed to compute mathematical tables automatically using gears. Never fully built in his lifetime — but the design worked perfectly.</p>
+  </div>
+  <div class="cmp-box pur">
+    <div class="cmp-tag">1837 — Charles Babbage</div>
+    <h3>Analytical Engine</h3>
+    <p>The first design for a general-purpose computer! Had a "mill" (CPU), "store" (memory), input (punched cards) and output — exactly like modern computers.</p>
+  </div>
+  <div class="cmp-box grn">
+    <div class="cmp-tag">1843 — Ada Lovelace</div>
+    <h3>First Algorithm</h3>
+    <p>Ada Lovelace wrote the first step-by-step algorithm for the Analytical Engine to compute Bernoulli numbers — making her the world's <strong>first programmer</strong>.</p>
+  </div>
+</div>
+<div class="def">💡 <strong>Babbage's Analytical Engine had all four key parts of a modern computer:</strong><br>
+Input (punched cards) → Store (memory) → Mill (processor/CPU) → Output (printed results)</div>
+</div>
+
+<div class="card">
+<h2>💡 Electronic Era — Generations of Computers</h2>
+<div class="def">Computers are classified into <strong>5 generations</strong> based on the technology used to build them. Each generation was faster, smaller, cheaper and more powerful.</div>
+
+<div class="gen-grid">
+  <div class="gen-card" style="background:rgba(220,38,38,.06);border-color:rgba(220,38,38,.25)">
+    <div class="gen-num">1</div>
+    <div class="gen-era" style="color:#dc2626">1940s–1956</div>
+    <div class="gen-title" style="color:#dc2626">First Generation</div>
+    <div class="gen-tech">🔌 Vacuum tubes · Punched cards · Machine language · ENIAC, UNIVAC</div>
+  </div>
+  <div class="gen-card" style="background:rgba(217,119,6,.06);border-color:rgba(217,119,6,.25)">
+    <div class="gen-num">2</div>
+    <div class="gen-era" style="color:#b45309">1956–1963</div>
+    <div class="gen-title" style="color:#b45309">Second Generation</div>
+    <div class="gen-tech">🔧 Transistors · Assembly language · Magnetic core memory · IBM 1401</div>
+  </div>
+  <div class="gen-card" style="background:rgba(30,64,175,.06);border-color:rgba(30,64,175,.25)">
+    <div class="gen-num">3</div>
+    <div class="gen-era" style="color:#1e40af">1964–1971</div>
+    <div class="gen-title" style="color:#1e40af">Third Generation</div>
+    <div class="gen-tech">⚡ Integrated Circuits (IC) · High-level languages · IBM System/360</div>
+  </div>
+  <div class="gen-card" style="background:rgba(21,128,61,.06);border-color:rgba(21,128,61,.25)">
+    <div class="gen-num">4</div>
+    <div class="gen-era" style="color:#15803d">1971–Present</div>
+    <div class="gen-title" style="color:#15803d">Fourth Generation</div>
+    <div class="gen-tech">🖥️ Microprocessors (VLSI) · Personal computers · GUI · Intel, Apple</div>
+  </div>
+  <div class="gen-card" style="background:rgba(124,58,237,.06);border-color:rgba(124,58,237,.25)">
+    <div class="gen-num">5</div>
+    <div class="gen-era" style="color:#7c3aed">Present–Future</div>
+    <div class="gen-title" style="color:#7c3aed">Fifth Generation</div>
+    <div class="gen-tech">🤖 AI · Machine Learning · Natural Language Processing · Quantum Computing</div>
+  </div>
+</div>
+
+<div class="wiki-row"><div class="wiki-item">
+<img src="./generation-timeline_files/Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg" alt="ENIAC — First general-purpose electronic computer (1945), University of Pennsylvania" class="zoomable" data-author="U.S. Army" data-license="Public Domain" data-source="https://commons.wikimedia.org/wiki/File:Eniac.jpg" data-source-label="Wikimedia Commons">
+<div class="wiki-item-cap">ENIAC (1945) — 1st Gen</div></div><div class="wiki-item">
+<img src="./generation-timeline_files/Bundesarchiv_B_145_Bild-F038812-0014,_Wolfsburg,_VW_Autowerk.jpg" alt="IBM mainframe computer in industrial use — 3rd generation era" class="zoomable" data-author="Bundesarchiv" data-license="CC BY-SA 3.0 DE" data-source="https://commons.wikimedia.org/wiki/File:Bundesarchiv_B_145_Bild-F038812-0014,_Wolfsburg,_VW_Autowerk.jpg" data-source-label="Wikimedia Commons">
+<div class="wiki-item-cap">IBM Mainframe — 3rd Gen</div></div><div class="wiki-item">
+<img src="./generation-timeline_files/Computer_macintosh_128k,_1984_(all_about_Apple_onlus).jpg" alt="Apple Macintosh (1984) — first popular personal computer with GUI" class="zoomable" data-author="Sailko" data-license="CC BY-SA 3.0" data-source="https://commons.wikimedia.org/wiki/File:Computer_macintosh_128k,_1984_(all_about_Apple_onlus).jpg" data-source-label="Wikimedia Commons">
+<div class="wiki-item-cap">Apple Mac (1984) — 4th Gen</div></div></div>
+
+<table class="tbl">
+<thead><tr><th>Generation</th><th>Technology</th><th>Speed</th><th>Size</th><th>Cost</th><th>Language</th></tr></thead>
+<tbody>
+<tr><td><strong>1st (1940s)</strong></td><td>Vacuum tubes</td><td>Milliseconds</td><td>Room-sized</td><td>Very high</td><td>Machine language</td></tr>
+<tr><td><strong>2nd (1956)</strong></td><td>Transistors</td><td>Microseconds</td><td>Cabinet-sized</td><td>High</td><td>Assembly language</td></tr>
+<tr><td><strong>3rd (1964)</strong></td><td>Integrated Circuits</td><td>Nanoseconds</td><td>Desk-sized</td><td>Medium</td><td>COBOL, FORTRAN</td></tr>
+<tr><td><strong>4th (1971)</strong></td><td>Microprocessors</td><td>Picoseconds</td><td>Hand-held</td><td>Low</td><td>C, Python, Java</td></tr>
+<tr><td><strong>5th (now)</strong></td><td>AI/VLSI/Quantum</td><td>Femtoseconds</td><td>Wearable</td><td>Very low</td><td>AI/ML frameworks</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card">
+<h2>🌐 Key Milestones Timeline</h2>
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-year">1945</div><div class="tl-title">ENIAC Completed</div>
+    <div class="tl-desc">First electronic computer built at University of Pennsylvania. Filled 1800 sq ft, weighed 30 tons, used 18,000 vacuum tubes.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1951</div><div class="tl-title">UNIVAC-I — First Commercial Computer</div>
+    <div class="tl-desc">First computer sold commercially. Delivered to the US Census Bureau. Could process 1,905 operations per second.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1956</div><div class="tl-title">Transistors Replace Vacuum Tubes</div>
+    <div class="tl-desc">IBM 7090 used transistors — 100× faster, far smaller, much less power. Start of 2nd generation.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1971</div><div class="tl-title">Intel 4004 — First Microprocessor</div>
+    <div class="tl-desc">Intel's 4004 put the entire CPU on one chip — starting the microprocessor revolution and personal computing era.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1984</div><div class="tl-title">Apple Macintosh — GUI for Everyone</div>
+    <div class="tl-desc">First popular computer with a graphical user interface (windows, icons, mouse). Made computing accessible to non-engineers.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1989</div><div class="tl-title">World Wide Web Invented</div>
+    <div class="tl-desc">Tim Berners-Lee invented the Web at CERN to share research documents. Changed how the entire world communicates.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">2007</div><div class="tl-title">Smartphone Era Begins</div>
+    <div class="tl-desc">Apple launches iPhone — a pocket-sized computer more powerful than 1990s supercomputers. Computing goes truly mobile.</div>
+  </div>
+</div>
+</div>
+
+
+<div class="card">
+<h2>🇳🇵 History of Computer in Nepal</h2>
+<div class="def">Nepal's journey with computers began in 1971 — relatively early for a developing nation — and has rapidly accelerated since the 1990s with internet access, mobile computing and now digital government services.</div>
+
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-year">1971</div>
+    <div class="tl-title">First Computer in Nepal — IBM 1401</div>
+    <div class="tl-desc">Nepal's first computer, an <strong>IBM 1401</strong> (2nd generation, transistor-based), was installed at the <strong>Central Bureau of Statistics (CBS)</strong> in Kathmandu. It was used for processing census data. Nepal was among the first countries in South Asia to use a computer for government work.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1975</div>
+    <div class="tl-title">Computer at Tribhuvan University</div>
+    <div class="tl-desc">Tribhuvan University (TU) acquired computers for academic and research purposes. This marked the beginning of computer education in Nepal's higher education system.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1980s</div>
+    <div class="tl-title">Computers in Banking &amp; Government</div>
+    <div class="tl-desc">Nepal Rastra Bank and major commercial banks began using computers for accounting and transaction records. Government ministries started computerising administrative records. Computers remained expensive and rare — only large institutions could afford them.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1992</div>
+    <div class="tl-title">Computer Education Begins in Schools</div>
+    <div class="tl-desc">The Government of Nepal introduced computer science as a subject in secondary schools (Grade 9-10). This was a landmark step in making computer literacy accessible to Nepali students across the country.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1993</div>
+    <div class="tl-title">First Private IT Companies</div>
+    <div class="tl-desc">Private computer training institutes and IT companies emerged in Kathmandu. Companies like Mercantile Communications and others began selling personal computers and providing IT training to the public.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1994</div>
+    <div class="tl-title">Internet Arrives in Nepal</div>
+    <div class="tl-desc"><strong>Nepal Telecom</strong> introduced the first internet service in Nepal in 1994, making Nepal one of the early South Asian countries with internet connectivity. Initially limited to dial-up connections for institutions.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1999</div>
+    <div class="tl-title">IT Policy of Nepal</div>
+    <div class="tl-desc">The Government of Nepal formulated the first <strong>National Information Technology Policy 1999</strong>, recognising ICT as a priority sector for national development. This set the foundation for Nepal's digital future.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">2000s</div>
+    <div class="tl-title">Internet Cafés &amp; Computer Boom</div>
+    <div class="tl-desc">Internet cafés (cyber cafés) spread across Nepal's cities and towns, making internet access affordable for ordinary citizens. Personal computer prices dropped significantly — middle-class families began buying PCs. Computer education centres flourished in every district.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">2007</div>
+    <div class="tl-title">Digital Nepal Initiatives</div>
+    <div class="tl-desc">Government of Nepal began <strong>e-governance</strong> initiatives — online tax filing, government websites, digital land records. NTC launched ADSL broadband internet. Computer labs established in government schools through donor programs.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">2010s</div>
+    <div class="tl-title">Mobile Revolution &amp; Smartphones</div>
+    <div class="tl-desc">Smartphone adoption surged across Nepal. Mobile internet (3G then 4G) reached even remote districts. Mobile payment apps <strong>eSewa (2009)</strong> and <strong>Khalti</strong> transformed digital finance. Nepal's IT industry grew rapidly with software exports to India, USA and UK.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">2017</div>
+    <div class="tl-title">Digital Nepal Framework</div>
+    <div class="tl-desc">The Government launched the <strong>Digital Nepal Framework</strong> — an ambitious plan to digitise 8 sectors: digital foundation, agriculture, health, education, energy, tourism, finance and urban infrastructure. Aimed to make Nepal a digital economy by 2022.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">2020–Present</div>
+    <div class="tl-title">COVID, Online Education &amp; 5G Era</div>
+    <div class="tl-desc">COVID-19 (2020) forced rapid adoption of online education and remote work in Nepal. Platforms like Pragyapath, YouTube, Zoom became essential for school students. NTC and Ncell launched <strong>5G trials</strong>. Nepal now has over 40 million mobile internet users. Nagarik App provides digital government services.</div>
+  </div>
+</div>
+
+<div class="cmp-grid">
+  <div class="cmp-box blue">
+    <div class="cmp-tag">Nepal IT Industry Today</div>
+    <h3>💼 Growing Sector</h3>
+    <p>Nepal's IT sector employs thousands of software developers. Companies in Kathmandu export software to global clients. IT Parks in Bhaktapur and other cities attract investment. Annual IT exports growing rapidly.</p>
+  </div>
+  <div class="cmp-box grn">
+    <div class="cmp-tag">Internet Penetration</div>
+    <h3>🌐 Connected Nepal</h3>
+    <p>Over 40 million internet users (2024). Fibre broadband in major cities. 4G coverage in most districts. Remote areas connected via satellite internet (Starlink available in Nepal since 2023).</p>
+  </div>
+  <div class="cmp-box pur">
+    <div class="cmp-tag">Digital Education</div>
+    <h3>📚 Computer in Schools</h3>
+    <p>Computer labs in most government and private schools. ICT included in National Curriculum (Grades 1–12). OLPC (One Laptop per Child) projects in rural areas. Pragyapath and similar platforms provide free digital education.</p>
+  </div>
+  <div class="cmp-box amb">
+    <div class="cmp-tag">Challenges Remaining</div>
+    <h3>⚠️ Digital Divide</h3>
+    <p>Rural-urban digital gap: cities have fast fibre; remote hills/mountains rely on slow mobile data. Electricity outages affect computer use. Need for more Nepali-language digital content.</p>
+  </div>
+</div>
+
+<div class="note">🏆 <strong>Notable achievement:</strong> Nepal was one of the first countries in South Asia to install a computer (1971) — even before many wealthier neighbouring nations. Today, young Nepali developers work for global tech companies including Google, Microsoft and Amazon.</div>
+
+<div class="activity">
+  <div class="activity-hd">🎯 Activity: Interview a Senior Person</div>
+  <p>Talk to a teacher, parent or grandparent and ask: "Do you remember when you first saw or used a computer? What was it like?" Compare their experience with how you use computers and smartphones today. Write down 3 differences and share with the class.</p>
+</div>
+</div>
+
+</div><!-- /learn -->
+
+<!-- ═══ SIM ═══ -->
+<div class="sec" id="sec-sim">
+<div class="card">
+<h2>🔬 Interactive: Computer Generation Explorer</h2>
+<p style="font-size:13px;color:var(--text2,#444)">Click each generation to see the technology, a famous machine, and its specs.</p>
+<div class="ctabs">
+  <button class="ctab on active" data-ct="gen1">🔴 1st Gen</button>
+  <button class="ctab" data-ct="gen2">🟠 2nd Gen</button>
+  <button class="ctab" data-ct="gen3">🔵 3rd Gen</button>
+  <button class="ctab" data-ct="gen4">🟢 4th Gen</button>
+  <button class="ctab" data-ct="gen5">🟣 5th Gen</button>
+</div>
+<div class="cpanel on" id="gen1">
+  <div class="cmp-grid">
+    <div class="cmp-box red"><div class="cmp-tag">Technology</div><h3>Vacuum Tubes</h3><p>Giant glass tubes that controlled electrical signals. 18,000 needed in ENIAC. Got very hot and burned out frequently.</p></div>
+    <div class="cmp-box amb"><div class="cmp-tag">Famous Machine</div><h3>ENIAC (1945)</h3><p>Weighed 30 tons · Filled 1800 sq ft · 18,000 vacuum tubes · Could do 5,000 additions per second · Cost $400,000</p></div>
+    <div class="cmp-box blue"><div class="cmp-tag">Programming</div><h3>Machine Language Only</h3><p>Programmed using physical switches and punched paper cards. No operating system. Very slow and error-prone to program.</p></div>
+  </div>
+  <div class="note">⚠️ ENIAC used as much electricity as a small town and its operators had to wait hours for it to cool down between calculations!</div>
+</div>
+<div class="cpanel" id="gen2">
+  <div class="cmp-grid">
+    <div class="cmp-box amb"><div class="cmp-tag">Technology</div><h3>Transistors (1956)</h3><p>Tiny semiconductor devices replaced vacuum tubes. 100× faster, far more reliable, used much less power, and didn't burn out.</p></div>
+    <div class="cmp-box blue"><div class="cmp-tag">Famous Machine</div><h3>IBM 1401 (1959)</h3><p>First widely installed business computer · Used magnetic tape · Could process payroll, accounting · Rented for $2,500/month</p></div>
+    <div class="cmp-box grn"><div class="cmp-tag">Programming</div><h3>Assembly + COBOL/FORTRAN</h3><p>First high-level languages appeared. COBOL for business, FORTRAN for science. Much easier to program than 1st gen.</p></div>
+  </div>
+  <div class="eg">✅ A transistor is the size of your fingernail — vs. a vacuum tube the size of a light bulb!</div>
+</div>
+<div class="cpanel" id="gen3">
+  <div class="cmp-grid">
+    <div class="cmp-box blue"><div class="cmp-tag">Technology</div><h3>Integrated Circuits (IC)</h3><p>Hundreds of transistors etched onto a single silicon chip. Smaller, faster, cheaper. Made by Texas Instruments and Fairchild.</p></div>
+    <div class="cmp-box pur"><div class="cmp-tag">Famous Machine</div><h3>IBM System/360 (1964)</h3><p>First family of compatible computers · Could run same software on different sized machines · Launched the modern software industry</p></div>
+    <div class="cmp-box grn"><div class="cmp-tag">Programming</div><h3>Operating Systems + Time-sharing</h3><p>First real operating systems (UNIX, DOS). Multiple users could share one computer simultaneously for the first time.</p></div>
+  </div>
+  <div class="tip">💡 An IC the size of a postage stamp could hold circuits that would have filled an entire room in 1st generation!</div>
+</div>
+<div class="cpanel" id="gen4">
+  <div class="cmp-grid">
+    <div class="cmp-box grn"><div class="cmp-tag">Technology</div><h3>Microprocessors (VLSI)</h3><p>Millions of transistors on one chip. Intel 4004 (1971) → entire CPU on one silicon chip. Led to personal computers for everyone.</p></div>
+    <div class="cmp-box blue"><div class="cmp-tag">Famous Machines</div><h3>Apple II, IBM PC, Mac</h3><p>Apple II (1977) · IBM PC (1981) · Apple Mac (1984) with first GUI · Computers became affordable for homes and schools</p></div>
+    <div class="cmp-box pur"><div class="cmp-tag">Programming</div><h3>GUI + High-Level Languages</h3><p>Windows, icons, mouse interface. C, C++, Basic, Pascal. The Internet and World Wide Web (1989). Smartphones (2007).</p></div>
+  </div>
+  <div class="def">🖥️ Your school computer, smartphone and tablet are all 4th generation computers!</div>
+</div>
+<div class="cpanel" id="gen5">
+  <div class="cmp-grid">
+    <div class="cmp-box pur"><div class="cmp-tag">Technology</div><h3>AI + Parallel Processing</h3><p>Artificial Intelligence, Machine Learning, Neural Networks. Quantum computing emerging. Chips with billions of transistors.</p></div>
+    <div class="cmp-box teal"><div class="cmp-tag">Examples Today</div><h3>AI Systems</h3><p>ChatGPT, AlphaGo, self-driving cars, voice assistants (Siri, Alexa). Computers that learn and reason like humans.</p></div>
+    <div class="cmp-box amb"><div class="cmp-tag">Future Direction</div><h3>Quantum Computers</h3><p>Use quantum bits (qubits) instead of 0s and 1s. Can solve problems that would take classical computers billions of years.</p></div>
+  </div>
+  <div class="warn">🔮 Quantum computers may one day crack today's encryption — requiring completely new security systems!</div>
+</div>
+</div>
+
+<div class="card">
+<h2>🖥️ Simulation: Binary Number Counter</h2>
+<p style="font-size:13px;color:var(--text2,#444)">All computers store information using binary (0s and 1s). Click the bits below to toggle them ON/OFF and see the decimal value!</p>
+<div class="sim-box">
+  <div class="sim-title">Binary ↔ Decimal Converter</div>
+  <div style="font-size:11px;color:var(--text3,#888);font-family:var(--mono);text-align:center;margin-bottom:6px">Position values: 128 · 64 · 32 · 16 · 8 · 4 · 2 · 1</div>
+  <div class="bit-row" id="bit-row" style="justify-content:center">
+    <div class="bit" data-pos="7">0</div><div class="bit" data-pos="6">0</div>
+    <div class="bit" data-pos="5">0</div><div class="bit" data-pos="4">0</div>
+    <div class="bit" data-pos="3">0</div><div class="bit" data-pos="2">0</div>
+    <div class="bit" data-pos="1">0</div><div class="bit" data-pos="0">0</div>
+  </div>
+  <div class="bit-val" id="bit-val">Decimal value: <span style="color:var(--brand)">0</span></div>
+  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+    <button class="btn-sim" onclick="setBits(65)">Letter 'A' (65)</button>
+    <button class="btn-sim grn" onclick="setBits(1)">Number 1</button>
+    <button class="btn-sim pur" onclick="setBits(255)">Max (255)</button>
+    <button class="btn-sim red" onclick="setBits(0)">Reset</button>
+  </div>
+  <div class="sim-screen" id="bin-info" style="margin-top:10px;min-height:50px;font-size:12px">
+    Click any bit above to toggle it. All computer data — text, images, video — is stored as combinations of 0s and 1s!
+  </div>
+</div>
+</div>
+</div><!-- /sim -->
+
+<!-- ═══ COMPARE ═══ -->
+<div class="sec" id="sec-compare">
+<div class="card">
+<h2>⚖️ Comparison: Computing Across Eras</h2>
+<table class="tbl">
+<thead><tr><th>Feature</th><th>Abacus (2400 BC)</th><th>ENIAC (1945)</th><th>Smartphone (2024)</th></tr></thead>
+<tbody>
+<tr><td><strong>Speed</strong></td><td>~10 ops/min (human)</td><td>5,000 ops/sec</td><td>Billions/sec</td></tr>
+<tr><td><strong>Size</strong></td><td>Fits in one hand</td><td>Fills a large room (1800 sq ft)</td><td>Fits in a pocket</td></tr>
+<tr><td><strong>Weight</strong></td><td>~500 g</td><td>~30,000 kg</td><td>~170 g</td></tr>
+<tr><td><strong>Power needed</strong></td><td>None (manual)</td><td>150,000 watts</td><td>~5 watts</td></tr>
+<tr><td><strong>Storage</strong></td><td>None</td><td>Punched cards</td><td>256 GB+</td></tr>
+<tr><td><strong>Cost</strong></td><td>A few dollars</td><td>$400,000 (1940s)</td><td>$200–$1,000</td></tr>
+<tr><td><strong>Users</strong></td><td>Anyone</td><td>Trained engineers only</td><td>4+ billion people</td></tr>
+</tbody>
+</table>
+<div class="note">📱 Your smartphone is <strong>1 million times more powerful</strong> than ENIAC — and fits in your pocket. Computing has advanced more in 80 years than almost any other technology in human history!</div>
+</div>
+
+<div class="card">
+<h2>🏆 Famous People in Computer History</h2>
+<div class="wiki-row"><div class="wiki-item">
+<img src="./generation-timeline_files/480px-Alan_Turing_Aged_16.jpg" alt="Alan Turing — Father of Theoretical Computer Science and AI" class="zoomable" data-author="Unknown" data-license="Public Domain" data-source="https://commons.wikimedia.org/wiki/File:Alan_Turing_Aged_16.jpg" data-source-label="Wikimedia Commons">
+<div class="wiki-item-cap">Alan Turing (age 16)</div></div><div class="wiki-item">
+<img src="./generation-timeline_files/480px-John_von_Neumann.jpg" alt="John von Neumann — designed the architecture used in all modern computers" class="zoomable" data-author="LANL" data-license="Public Domain" data-source="https://commons.wikimedia.org/wiki/File:John_von_Neumann.jpg" data-source-label="Wikimedia Commons">
+<div class="wiki-item-cap">John von Neumann</div></div><div class="wiki-item">
+<img src="./generation-timeline_files/480px-Gracehopper.agr.jpg" alt="Grace Hopper — invented the first compiler and coined the term " debugging""="" class="zoomable" data-author="Unknown" data-license="Public Domain" data-source="https://commons.wikimedia.org/wiki/File:Gracehopper.agr.jpg" data-source-label="Wikimedia Commons">
+<div class="wiki-item-cap">Grace Hopper</div></div></div>
+<div class="cmp-grid">
+  <div class="cmp-box blue"><div class="cmp-tag">Alan Turing (1912–1954)</div><h3>Father of AI</h3><p>Invented the Turing Machine — the theoretical model of all computers. Proposed the Turing Test for machine intelligence. Broke Nazi codes in WW2.</p></div>
+  <div class="cmp-box grn"><div class="cmp-tag">Grace Hopper (1906–1992)</div><h3>First Compiler</h3><p>Created the first compiler (translates code to machine language). Coined "debugging" after finding a real moth stuck in a relay. Rear Admiral in US Navy.</p></div>
+  <div class="cmp-box pur"><div class="cmp-tag">John von Neumann (1903–1957)</div><h3>von Neumann Architecture</h3><p>Designed the stored-program concept — programs stored in memory alongside data. ALL modern computers use von Neumann Architecture.</p></div>
+</div>
+</div>
+</div><!-- /compare -->
+
+<!-- ═══ EXERCISES ═══ -->
+<div class="sec" id="sec-ex">
+<div class="card">
+<h2>📝 Exercises</h2>
+<div class="ex-score">
+  <div><div class="ex-snum" id="ex-score-num">0</div><div class="ex-slbl">Score</div></div>
+  <div><div class="ex-snum" id="ex-score-ans">0</div><div class="ex-slbl">Answered</div></div>
+  <div style="flex:1"><div class="pbar-o"><div class="pbar-i" id="ex-pbar" style="width: 0%;"></div></div>
+  <div style="font-size:10px;font-family:var(--mono);color:var(--text3,#888);margin-top:3px"><span id="ex-total">8</span> questions</div></div>
+  <button class="btn-rst" data-reset="1">↺ Reset</button>
+</div>
+<div class="ex-tabs">
+  <button class="ex-tab on" data-et="ea">📖 History Basics</button>
+  <button class="ex-tab" data-et="eb">⚙️ Generations</button>
+</div>
+<div class="ex-sec on" id="ex-ea"><div class="q-card" id="c1a1">
+<div class="q-body"><div class="q-text">Who invented the first mechanical calculator called the Pascaline?</div></div>
+<div class="opts"><button class="opt" data-mcq="c1a1" data-c="A"><span class="opt-l">A</span>Charles Babbage</button>
+<button class="opt" data-mcq="c1a1" data-c="B"><span class="opt-l">B</span>Blaise Pascal</button>
+<button class="opt" data-mcq="c1a1" data-c="C"><span class="opt-l">C</span>Ada Lovelace</button>
+<button class="opt" data-mcq="c1a1" data-c="D"><span class="opt-l">D</span>Herman Hollerith</button>
+</div>
+<div class="fb" id="fb-c1a1"></div>
+</div><div class="q-card" id="c1a2">
+<div class="q-body"><div class="q-text">What is ENIAC?</div></div>
+<div class="opts"><button class="opt" data-mcq="c1a2" data-c="A"><span class="opt-l">A</span>A programming language</button>
+<button class="opt" data-mcq="c1a2" data-c="B"><span class="opt-l">B</span>First general-purpose electronic computer (1945)</button>
+<button class="opt" data-mcq="c1a2" data-c="C"><span class="opt-l">C</span>A software company</button>
+<button class="opt" data-mcq="c1a2" data-c="D"><span class="opt-l">D</span>A storage device</button>
+</div>
+<div class="fb" id="fb-c1a2"></div>
+</div><div class="q-card" id="c1a3">
+<div class="q-body"><div class="q-text">The Abacus is considered the earliest computing device. Where did it originate?</div></div>
+<div class="opts"><button class="opt" data-mcq="c1a3" data-c="A"><span class="opt-l">A</span>Egypt</button>
+<button class="opt" data-mcq="c1a3" data-c="B"><span class="opt-l">B</span>China</button>
+<button class="opt" data-mcq="c1a3" data-c="C"><span class="opt-l">C</span>Greece</button>
+<button class="opt" data-mcq="c1a3" data-c="D"><span class="opt-l">D</span>India</button>
+</div>
+<div class="fb" id="fb-c1a3"></div>
+</div><div class="q-card" id="c1a4">
+<div class="q-body"><div class="q-text">Who is known as the "Father of the Computer"?</div></div>
+<div class="opts"><button class="opt" data-mcq="c1a4" data-c="A"><span class="opt-l">A</span>Alan Turing</button>
+<button class="opt" data-mcq="c1a4" data-c="B"><span class="opt-l">B</span>Bill Gates</button>
+<button class="opt" data-mcq="c1a4" data-c="C"><span class="opt-l">C</span>Charles Babbage</button>
+<button class="opt" data-mcq="c1a4" data-c="D"><span class="opt-l">D</span>John von Neumann</button>
+</div>
+<div class="fb" id="fb-c1a4"></div>
+</div><div class="q-card" id="c1a5">
+<div class="q-body"><div class="q-text">Ada Lovelace is remembered as the world's first:</div></div>
+<div class="opts"><button class="opt" data-mcq="c1a5" data-c="A"><span class="opt-l">A</span>Computer scientist</button>
+<button class="opt" data-mcq="c1a5" data-c="B"><span class="opt-l">B</span>Computer programmer</button>
+<button class="opt" data-mcq="c1a5" data-c="C"><span class="opt-l">C</span>Hardware engineer</button>
+<button class="opt" data-mcq="c1a5" data-c="D"><span class="opt-l">D</span>Database designer</button>
+</div>
+<div class="fb" id="fb-c1a5"></div>
+</div><div class="q-card" id="c1a6">
+<div class="q-body"><div class="q-text">Which generation of computers used transistors?</div></div>
+<div class="opts"><button class="opt" data-mcq="c1a6" data-c="A"><span class="opt-l">A</span>First (1940s–1956)</button>
+<button class="opt" data-mcq="c1a6" data-c="B"><span class="opt-l">B</span>Second (1956–1963)</button>
+<button class="opt" data-mcq="c1a6" data-c="C"><span class="opt-l">C</span>Third (1964–1971)</button>
+<button class="opt" data-mcq="c1a6" data-c="D"><span class="opt-l">D</span>Fourth (1971–present)</button>
+</div>
+<div class="fb" id="fb-c1a6"></div>
+</div><div class="q-card" id="c1a7">
+<div class="q-body"><div class="q-text">The UNIVAC-I was significant because it was the first computer to:</div></div>
+<div class="opts"><button class="opt" data-mcq="c1a7" data-c="A"><span class="opt-l">A</span>Use transistors</button>
+<button class="opt" data-mcq="c1a7" data-c="B"><span class="opt-l">B</span>Use integrated circuits</button>
+<button class="opt" data-mcq="c1a7" data-c="C"><span class="opt-l">C</span>Be commercially sold to a business</button>
+<button class="opt" data-mcq="c1a7" data-c="D"><span class="opt-l">D</span>Use vacuum tubes</button>
+</div>
+<div class="fb" id="fb-c1a7"></div>
+</div><div class="q-card" id="c1a8">
+<div class="q-body"><div class="q-text">What does "ENIAC" stand for?</div></div>
+<div class="opts"><button class="opt" data-mcq="c1a8" data-c="A"><span class="opt-l">A</span>Electronic Numerical Integrator And Computer</button>
+<button class="opt" data-mcq="c1a8" data-c="B"><span class="opt-l">B</span>Electronic Network Integrated Advanced Computer</button>
+<button class="opt" data-mcq="c1a8" data-c="C"><span class="opt-l">C</span>Electrical Numerical Information And Calculator</button>
+<button class="opt" data-mcq="c1a8" data-c="D"><span class="opt-l">D</span>Electronic Numeric Integrated Analytical Computer</button>
+</div>
+<div class="fb" id="fb-c1a8"></div>
+</div></div>
+<div class="ex-sec" id="ex-eb"><div class="q-card" id="c1b1">
+<div class="q-body"><div class="q-text">Computers that use both analog and digital signals are called:</div></div>
+<div class="opts"><button class="opt" data-mcq="c1b1" data-c="A"><span class="opt-l">A</span>Hybrid computers</button>
+<button class="opt" data-mcq="c1b1" data-c="B"><span class="opt-l">B</span>Supercomputers</button>
+<button class="opt" data-mcq="c1b1" data-c="C"><span class="opt-l">C</span>Mainframe computers</button>
+<button class="opt" data-mcq="c1b1" data-c="D"><span class="opt-l">D</span>Embedded computers</button>
+</div>
+<div class="fb" id="fb-c1b1"></div>
+</div><div class="q-card" id="c1b2">
+<div class="q-body"><div class="q-text">Which of the following represents the correct order of computer generations?</div></div>
+<div class="opts"><button class="opt" data-mcq="c1b2" data-c="A"><span class="opt-l">A</span>Transistors → Vacuum tubes → IC → VLSI</button>
+<button class="opt" data-mcq="c1b2" data-c="B"><span class="opt-l">B</span>Vacuum tubes → Transistors → IC → VLSI</button>
+<button class="opt" data-mcq="c1b2" data-c="C"><span class="opt-l">C</span>IC → Transistors → Vacuum tubes → VLSI</button>
+<button class="opt" data-mcq="c1b2" data-c="D"><span class="opt-l">D</span>VLSI → IC → Transistors → Vacuum tubes</button>
+</div>
+<div class="fb" id="fb-c1b2"></div>
+</div><div class="q-card" id="c1b3">
+<div class="q-body"><div class="q-text">Who built the first mechanical computer called the "Difference Engine"?</div></div>
+<div class="opts"><button class="opt" data-mcq="c1b3" data-c="A"><span class="opt-l">A</span>Alan Turing</button>
+<button class="opt" data-mcq="c1b3" data-c="B"><span class="opt-l">B</span>John von Neumann</button>
+<button class="opt" data-mcq="c1b3" data-c="C"><span class="opt-l">C</span>Charles Babbage</button>
+<button class="opt" data-mcq="c1b3" data-c="D"><span class="opt-l">D</span>Gottfried Leibniz</button>
+</div>
+<div class="fb" id="fb-c1b3"></div>
+</div><div class="q-card" id="c1b4">
+<div class="q-body"><div class="q-text">The Fifth Generation of computers is characterised by:</div></div>
+<div class="opts"><button class="opt" data-mcq="c1b4" data-c="A"><span class="opt-l">A</span>Vacuum tubes and punched cards</button>
+<button class="opt" data-mcq="c1b4" data-c="B"><span class="opt-l">B</span>Transistors and magnetic cores</button>
+<button class="opt" data-mcq="c1b4" data-c="C"><span class="opt-l">C</span>Integrated circuits</button>
+<button class="opt" data-mcq="c1b4" data-c="D"><span class="opt-l">D</span>Artificial Intelligence and parallel processing</button>
+</div>
+<div class="fb" id="fb-c1b4"></div>
+</div><div class="q-card" id="c1b5">
+<div class="q-body"><div class="q-text">The Napier's Bones (1617) was invented to perform:</div></div>
+<div class="opts"><button class="opt" data-mcq="c1b5" data-c="A"><span class="opt-l">A</span>Addition only</button>
+<button class="opt" data-mcq="c1b5" data-c="B"><span class="opt-l">B</span>Subtraction only</button>
+<button class="opt" data-mcq="c1b5" data-c="C"><span class="opt-l">C</span>Multiplication and division</button>
+<button class="opt" data-mcq="c1b5" data-c="D"><span class="opt-l">D</span>Boolean operations</button>
+</div>
+<div class="fb" id="fb-c1b5"></div>
+</div><div class="q-card" id="c1b6">
+<div class="q-body"><div class="q-text">In which year was the World Wide Web invented?</div></div>
+<div class="opts"><button class="opt" data-mcq="c1b6" data-c="A"><span class="opt-l">A</span>1969</button>
+<button class="opt" data-mcq="c1b6" data-c="B"><span class="opt-l">B</span>1981</button>
+<button class="opt" data-mcq="c1b6" data-c="C"><span class="opt-l">C</span>1989</button>
+<button class="opt" data-mcq="c1b6" data-c="D"><span class="opt-l">D</span>1995</button>
+</div>
+<div class="fb" id="fb-c1b6"></div>
+</div><div class="q-card" id="c1b7">
+<div class="q-body"><div class="q-text">Which device was used for input in first-generation computers?</div></div>
+<div class="opts"><button class="opt" data-mcq="c1b7" data-c="A"><span class="opt-l">A</span>Mouse and keyboard</button>
+<button class="opt" data-mcq="c1b7" data-c="B"><span class="opt-l">B</span>Punched cards and paper tape</button>
+<button class="opt" data-mcq="c1b7" data-c="C"><span class="opt-l">C</span>Touchscreen</button>
+<button class="opt" data-mcq="c1b7" data-c="D"><span class="opt-l">D</span>Optical scanner</button>
+</div>
+<div class="fb" id="fb-c1b7"></div>
+</div></div>
+</div>
+</div><!-- /ex -->
+
+<!-- ═══ SUMMARY ═══ -->
+<div class="sec" id="sec-sum">
+<div class="card">
+<h2>📋 Key Points Summary</h2>
+<div class="sum-grid">
+  <div class="sum-box"><div class="sum-term">Abacus (~2400 BC)</div><div class="sum-def">World's first calculating tool. Uses beads on rods. Origin: China.</div></div>
+  <div class="sum-box"><div class="sum-term">Pascaline (1642)</div><div class="sum-def">First mechanical calculator. Invented by Blaise Pascal. Could add and subtract.</div></div>
+  <div class="sum-box"><div class="sum-term">Charles Babbage</div><div class="sum-def">Father of the Computer. Designed Difference Engine (1822) and Analytical Engine (1837).</div></div>
+  <div class="sum-box"><div class="sum-term">Ada Lovelace</div><div class="sum-def">World's first programmer. Wrote first algorithm for Babbage's Analytical Engine (1843).</div></div>
+  <div class="sum-box"><div class="sum-term">ENIAC (1945)</div><div class="sum-def">First general-purpose electronic computer. Used 18,000 vacuum tubes. Weighed 30 tons.</div></div>
+  <div class="sum-box"><div class="sum-term">5 Generations</div><div class="sum-def">1st: Vacuum tubes · 2nd: Transistors · 3rd: IC · 4th: Microprocessors · 5th: AI</div></div>
+  <div class="sum-box"><div class="sum-term">Binary System</div><div class="sum-def">All computers store data as 0s and 1s (binary digits/bits). Invented by Leibniz (1671).</div></div>
+  <div class="sum-box"><div class="sum-term">WWW (1989)</div><div class="sum-def">World Wide Web invented by Tim Berners-Lee at CERN. Changed global communication forever.</div></div>
+</div>
+<div class="activity">
+  <div class="activity-hd">🎯 Research Activity</div>
+  <p>Find out: What computing devices exist in your school, home, and local area? Make a list and try to identify which generation each belongs to. Share your findings with the class!</p>
+</div>
+</div>
+</div><!-- /sum -->
+
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--  SOLVED QnA SECTION                                    -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="sec" id="sec-qna">
+<!-- Sticky controls -->
+<div class="qna-controls">
+  <div class="qna-ctrl-info">
+    <strong id="qna-open-count">0</strong> of <strong>27</strong> answers shown
+  </div>
+  <div class="qna-ctrl-btns">
+    <button class="qna-btn qna-btn-show" onclick="qnaShowAll()">Show All</button>
+    <button class="qna-btn qna-btn-hide" onclick="qnaHideAll()">Hide All</button>
+  </div>
+</div>
+
+<!-- Mark navigation -->
+<div class="qna-mark-nav">
+  <button class="qna-mark-btn on" data-mark="1" onclick="qnaMarkSwitch(this,&#39;1m&#39;)">
+    <span class="mb-pip"></span>1 Mark Questions<span class="mb-count">12</span>
+  </button>
+  <button class="qna-mark-btn" data-mark="2" onclick="qnaMarkSwitch(this,&#39;2m&#39;)">
+    <span class="mb-pip"></span>2 Marks Questions<span class="mb-count">10</span>
+  </button>
+  <button class="qna-mark-btn" data-mark="4" onclick="qnaMarkSwitch(this,&#39;4m&#39;)">
+    <span class="mb-pip"></span>4 Marks Questions<span class="mb-count">5</span>
+  </button>
+</div>
+
+<!-- 1-MARK PANEL -->
+<div class="qna-mark-panel on" id="qna-panel-1m">
+  
+    <div class="qna-group-head">
+      <div class="qna-group-icon gi-1m">🔵</div>
+      <div>
+        <div class="qna-group-title">Very Short Questions — 1 Mark</div>
+        <div class="qna-group-sub">Fill in the blank · MCQ · True/False · One-word answers</div>
+      </div>
+    </div>
+  
+    <div class="qna-card m1">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">8</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">1 Mark · Fill in the Blank</div>
+          <div class="qna-q-en">Nepal's first computer, an IBM 1401, was installed at the _______ in 1971.</div>
+          <div class="qna-q-np">नेपालको पहिलो कम्प्युटर IBM 1401 सन् १९७१ मा _______ मा जडान गरिएको थियो।</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>Central Bureau of Statistics (CBS) / केन्द्रीय तथ्याङ्क विभाग</strong></p><p>Nepal's first computer was an IBM 1401 (a second-generation transistor computer) installed at the Central Bureau of Statistics in Kathmandu in 1971. It was used to process census data, making Nepal one of the earliest countries in South Asia to use a computer for government work.</p></div></div>
+    </div>
+    <div class="qna-card m1">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">12</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">1 Mark · MCQ</div>
+          <div class="qna-q-en">Internet service was first introduced in Nepal in which year?<br>a) 1990 &nbsp; b) 1994 &nbsp; c) 1999 &nbsp; d) 2007</div>
+          <div class="qna-q-np">नेपालमा इन्टरनेट सेवा पहिलो पटक कुन सालमा सुरु भयो?<br>a) १९९० &nbsp; b) १९९४ &nbsp; c) १९९९ &nbsp; d) २००७</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>b) 1994</strong></p><p>Nepal Telecom introduced the first internet service in Nepal in 1994, making Nepal one of the early South Asian countries with internet connectivity. Initially available only as dial-up connections for institutions, internet access gradually expanded to the public through the 1990s and 2000s.</p></div></div>
+    </div>
+    <div class="qna-card m1">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">4</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">1 Mark · Fill in the Blank</div>
+          <div class="qna-q-en">ENIAC stands for _______.</div>
+          <div class="qna-q-np">ENIAC को पूर्ण रूप _______ हो।</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>Electronic Numerical Integrator And Computer</strong></p><p>ENIAC was built at the University of Pennsylvania between 1943–1945. It was the first general-purpose electronic computer — weighed 30 tons, occupied 1,800 sq ft, and used 18,000 vacuum tubes. It could perform 5,000 additions per second.</p></div></div>
+    </div>
+    <div class="qna-card m1">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">11</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">1 Mark · One Word</div>
+          <div class="qna-q-en">Name the first general-purpose electronic computer built in 1945.</div>
+          <div class="qna-q-np">सन् १९४५ मा निर्मित पहिलो सर्वउद्देश्यीय इलेक्ट्रोनिक कम्प्युटरको नाम लेख्नुहोस्।</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>ENIAC</strong> (Electronic Numerical Integrator And Computer)</p><p>Built at the University of Pennsylvania by J. Presper Eckert and John Mauchly. Completed in 1945, it was the first Turing-complete, general-purpose electronic computer. It filled an entire room and was used by the US Army for ballistic trajectory calculations.</p></div></div>
+    </div>
+    <div class="qna-card m1">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">9</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">1 Mark · MCQ</div>
+          <div class="qna-q-en">Which technology characterises FIFTH generation computers?<br>a) Vacuum tubes &nbsp; b) Transistors &nbsp; c) Integrated Circuits &nbsp; d) Artificial Intelligence</div>
+          <div class="qna-q-np">पाँचौँ पुस्ताका कम्प्युटरको विशेषता कुन प्रविधि हो?<br>a) भ्याकुम ट्युब &nbsp; b) ट्रान्जिस्टर &nbsp; c) इन्टिग्रेटेड सर्किट &nbsp; d) कृत्रिम बुद्धिमत्ता</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>d) Artificial Intelligence (AI)</strong></p><p>Fifth generation computers (present and future) are based on AI, machine learning, neural networks, natural language processing and parallel processing. They aim to create machines that can think and reason. Japan's FGCS project pioneered this. Examples: ChatGPT, AlphaGo, self-driving cars.</p></div></div>
+    </div>
+    <div class="qna-card m1">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">5</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">1 Mark · MCQ</div>
+          <div class="qna-q-en">Who is known as the "Father of the Computer"?<br>a) Alan Turing &nbsp; b) John von Neumann &nbsp; c) Charles Babbage &nbsp; d) Grace Hopper</div>
+          <div class="qna-q-np">"कम्प्युटरका पिता" को रूपमा कसलाई चिनिन्छ?<br>a) एलन ट्युरिङ &nbsp; b) जोन भन न्युम्यान &nbsp; c) चार्ल्स ब्याबेज &nbsp; d) ग्रेस हपर</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>c) Charles Babbage (1791–1871)</strong></p><p>Charles Babbage designed the Difference Engine (1822) and Analytical Engine (1837) — mechanical computing machines that laid the conceptual foundation of all modern computers. He is therefore called the "Father of the Computer."</p></div></div>
+    </div>
+    <div class="qna-card m1">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">10</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">1 Mark · MCQ</div>
+          <div class="qna-q-en">Napier's Bones (1617) were primarily used for:<br>a) Addition and subtraction &nbsp; b) Multiplication and division &nbsp; c) Memory storage &nbsp; d) Binary computation</div>
+          <div class="qna-q-np">नेपियरको हड्डी (१६१७) मुख्यतः कसका लागि प्रयोग गरिन्थ्यो?<br>a) जोड र घटाउ &nbsp; b) गुणा र भाग &nbsp; c) मेमोरी भण्डारण &nbsp; d) बाइनरी गणना</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>b) Multiplication and division</strong></p><p>John Napier invented Napier's Bones in 1617 — a set of numbered rods (originally made from bone or ivory) that allowed rapid multiplication and division of large numbers. They were also used to extract square roots and cube roots. Napier also invented logarithms, which revolutionised mathematics.</p></div></div>
+    </div>
+    <div class="qna-card m1">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">2</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">1 Mark · MCQ</div>
+          <div class="qna-q-en">Who invented the Pascaline (1642)?<br>a) Charles Babbage &nbsp; b) Blaise Pascal &nbsp; c) Ada Lovelace &nbsp; d) Alan Turing</div>
+          <div class="qna-q-np">पास्कलिन (१६४२) कसले आविष्कार गरे?<br>a) चार्ल्स ब्याबेज &nbsp; b) ब्लेज पास्कल &nbsp; c) एडा लभलेस &nbsp; d) एलन ट्युरिङ</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>b) Blaise Pascal</strong></p><p>Blaise Pascal (French mathematician, 1623–1662) invented the Pascaline in 1642 at age 19 to help his father with tax calculations. It was a mechanical adding machine using gears and wheels that could add and subtract numbers automatically.</p></div></div>
+    </div>
+    <div class="qna-card m1">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">1</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">1 Mark · Fill in the Blank</div>
+          <div class="qna-q-en">The earliest computing tool, the _______, was invented in China around 2400 BC.</div>
+          <div class="qna-q-np">सबैभन्दा पुरानो कम्प्युटिङ उपकरण _______ चीनमा सन् २४०० ईसापूर्वतिर आविष्कार भएको थियो।</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>Abacus (अबाकस)</strong></p><p>The Abacus is the world's oldest computing device, originating in China ~2400 BC. It uses rows of beads on rods to perform arithmetic (addition, subtraction, multiplication, division). Still used today in some parts of Asia for mental arithmetic training.</p></div></div>
+    </div>
+    <div class="qna-card m1">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">7</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">1 Mark · MCQ</div>
+          <div class="qna-q-en">The WWW (World Wide Web) was invented in which year?<br>a) 1969 &nbsp; b) 1981 &nbsp; c) 1989 &nbsp; d) 1995</div>
+          <div class="qna-q-np">WWW (वर्ल्ड वाइड वेब) कुन सालमा आविष्कार भयो?<br>a) १९६९ &nbsp; b) १९८१ &nbsp; c) १९८९ &nbsp; d) १९९५</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>c) 1989</strong></p><p>Tim Berners-Lee invented the World Wide Web in 1989 at CERN (European Organisation for Nuclear Research) in Switzerland. He proposed it as an information management system using hypertext links. The first website went live in 1991.</p></div></div>
+    </div>
+    <div class="qna-card m1">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">3</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">1 Mark · MCQ</div>
+          <div class="qna-q-en">Which generation of computers used transistors?<br>a) First &nbsp; b) Second &nbsp; c) Third &nbsp; d) Fourth</div>
+          <div class="qna-q-np">कुन पुस्ताको कम्प्युटरमा ट्रान्जिस्टर प्रयोग भयो?<br>a) पहिलो &nbsp; b) दोस्रो &nbsp; c) तेस्रो &nbsp; d) चौथो</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>b) Second Generation (1956–1963)</strong></p><p>Second generation computers replaced large, unreliable vacuum tubes with transistors — smaller, faster, more reliable semiconductor devices. They consumed far less power and generated less heat. Examples: IBM 1401, IBM 7090.</p></div></div>
+    </div>
+    <div class="qna-card m1">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">6</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">1 Mark · True / False</div>
+          <div class="qna-q-en">State True or False: Ada Lovelace is considered the world's first computer programmer.</div>
+          <div class="qna-q-np">सत्य वा असत्य बताउनुहोस्: एडा लभलेसलाई संसारकी पहिलो कम्प्युटर प्रोग्रामर मानिन्छ।</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>True (सत्य)</strong></p><p>Ada Lovelace (1815–1852) wrote the first algorithm intended to be executed by a machine — for Charles Babbage's Analytical Engine in 1843. This algorithm was designed to compute Bernoulli numbers, making her the world's first programmer, over 100 years before modern computers existed.</p></div></div>
+    </div>
+</div>
+
+<!-- 2-MARK PANEL -->
+<div class="qna-mark-panel" id="qna-panel-2m">
+  
+    <div class="qna-group-head">
+      <div class="qna-group-icon gi-2m">🟠</div>
+      <div>
+        <div class="qna-group-title">Short Answer &amp; Reason Questions — 2 Marks</div>
+        <div class="qna-group-sub">Short answers · Give reason · Differentiate</div>
+      </div>
+    </div>
+  
+    <div class="qna-card m2">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">2</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">2 Marks · Short Answer</div>
+          <div class="qna-q-en">What is the difference between the Difference Engine and the Analytical Engine designed by Charles Babbage?</div>
+          <div class="qna-q-np">चार्ल्स ब्याबेजले डिजाइन गरेको डिफरेन्स इन्जिन र एनालिटिकल इन्जिनमा के फरक छ?</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><table><tbody><tr><th>Feature</th><th>Difference Engine (1822)</th><th>Analytical Engine (1837)</th></tr><tr><td>Purpose</td><td>Compute mathematical tables only (specific task)</td><td>General-purpose — could perform any calculation</td></tr><tr><td>Programmable?</td><td>No — fixed function</td><td>Yes — via punched cards</td></tr><tr><td>Components</td><td>Gears and columns</td><td>Mill (CPU), Store (memory), Input, Output</td></tr><tr><td>Modern equivalent</td><td>A calculator</td><td>A full computer</td></tr></tbody></table></div></div>
+    </div>
+    <div class="qna-card m2">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">3</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">2 Marks · Give Reason</div>
+          <div class="qna-q-en">Give reason: Second generation computers were much better than first generation computers.</div>
+          <div class="qna-q-np">कारण दिनुहोस्: दोस्रो पुस्ताका कम्प्युटरहरू पहिलो पुस्ताका भन्दा धेरै राम्रा थिए।</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p>Second generation computers (1956–1963) replaced vacuum tubes with <strong>transistors</strong>, which gave several major advantages:</p><ul><li><strong>Smaller size:</strong> Transistors are fingernail-sized vs. light-bulb-sized vacuum tubes → computers shrank from room-sized to cabinet-sized</li><li><strong>Faster speed:</strong> ~100× faster processing</li><li><strong>More reliable:</strong> Transistors rarely burned out; vacuum tubes failed constantly</li><li><strong>Less power:</strong> Used far less electricity and generated much less heat</li><li><strong>Better programming:</strong> High-level languages (COBOL, FORTRAN) appeared</li></ul></div></div>
+    </div>
+    <div class="qna-card m2">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">5</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">2 Marks · Short Answer</div>
+          <div class="qna-q-en">What is the von Neumann Architecture? Why is it important?</div>
+          <div class="qna-q-np">भन न्युम्यान आर्किटेक्चर भनेको के हो? यो किन महत्त्वपूर्ण छ?</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p>The <strong>von Neumann Architecture</strong> (1945), proposed by mathematician John von Neumann, is a computer design model with four key components:</p><ul><li><strong>CPU</strong> — processes instructions</li><li><strong>Memory (RAM)</strong> — stores both programs AND data in the same place</li><li><strong>Input/Output</strong> — communicates with the outside world</li><li><strong>Control Unit</strong> — fetches, decodes and executes instructions in sequence</li></ul><p><strong>Importance:</strong> ALL modern computers — from smartphones to supercomputers — use von Neumann Architecture. The critical innovation was the <em>stored-program concept</em>: programs are stored in memory just like data, meaning the computer can be reprogrammed without physical rewiring.</p></div></div>
+    </div>
+    <div class="qna-card m2">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">7</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">2 Marks · Give Reason</div>
+          <div class="qna-q-en">Give reason: Computers became affordable for ordinary people only in the fourth generation.</div>
+          <div class="qna-q-np">कारण दिनुहोस्: चौथो पुस्तामा मात्र कम्प्युटर सामान्य मानिसहरूका लागि किफायती भयो।</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p>Fourth generation computers (1971–present) use <strong>microprocessors</strong> — entire CPUs etched onto a single tiny silicon chip using Very Large Scale Integration (VLSI) technology.</p><p><strong>Why this made computers affordable:</strong></p><ul><li>Manufacturing chips is cheap at scale — millions of transistors on a chip costing cents</li><li>Computers shrank from cabinet-sized to desktop-sized</li><li>Intel 4004 (1971) → Apple II (1977) → IBM PC (1981) → prices dropped from millions to hundreds of dollars</li><li>Mass production of standardised components drove costs down further each year</li><li>By the 1980s, individuals and families could own a personal computer for the first time</li></ul></div></div>
+    </div>
+    <div class="qna-card m2">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">6</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">2 Marks · Short Answer</div>
+          <div class="qna-q-en">What was the UNIVAC-I and why was it historically significant?</div>
+          <div class="qna-q-np">UNIVAC-I के थियो र यो ऐतिहासिक रूपमा किन महत्त्वपूर्ण थियो?</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>UNIVAC-I</strong> (Universal Automatic Computer, 1951) was the first commercially produced computer in the United States, designed by J. Presper Eckert and John Mauchly.</p><p><strong>Historical significance:</strong></p><ul><li>First computer sold commercially to a business — delivered to the US Census Bureau in 1951</li><li>First computer used to predict a US Presidential election result (1952) — correctly predicted Eisenhower's victory</li><li>Used magnetic tape instead of punched cards — much faster data storage</li><li>Proved computers were practical tools for business and government, not just academic experiments</li></ul></div></div>
+    </div>
+    <div class="qna-card m2">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">10</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">2 Marks · Differentiate</div>
+          <div class="qna-q-en">Differentiate between Analog and Digital computers.</div>
+          <div class="qna-q-np">एनालग र डिजिटल कम्प्युटरबीच भिन्नता लेख्नुहोस्।</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><table><tbody><tr><th>Feature</th><th>Analog Computer</th><th>Digital Computer</th></tr><tr><td>Data type</td><td>Continuous signals (voltage, current, temperature)</td><td>Discrete values — only 0s and 1s</td></tr><tr><td>Accuracy</td><td>Less precise — approximate results</td><td>Very precise — exact results</td></tr><tr><td>Speed</td><td>Real-time but not programmable</td><td>Very fast and fully programmable</td></tr><tr><td>Examples</td><td>Speedometer, thermometer, oscilloscope</td><td>PC, laptop, smartphone, tablet</td></tr><tr><td>Use today</td><td>Rare — mostly industrial sensors</td><td>Universal — almost all modern computers</td></tr></tbody></table></div></div>
+    </div>
+    <div class="qna-card m2">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">8</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">2 Marks · Short Answer</div>
+          <div class="qna-q-en">What is the binary number system and why do computers use it?</div>
+          <div class="qna-q-np">बाइनरी नम्बर सिस्टम भनेको के हो र कम्प्युटरले यसलाई किन प्रयोग गर्छ?</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p>The <strong>binary number system</strong> uses only two digits — <strong>0</strong> and <strong>1</strong> (bits). Every number, letter, image and video stored in a computer is represented as a combination of 0s and 1s.</p><p><strong>Why computers use binary:</strong></p><ul><li>Electronic circuits have only two reliable states: <strong>OFF</strong> (no voltage = 0) and <strong>ON</strong> (voltage = 1)</li><li>This maps perfectly to binary — making hardware extremely simple, reliable and fast</li><li>Gottfried Leibniz invented binary in 1671; George Boole formalised Boolean algebra (AND/OR/NOT operations) in 1854 — the mathematical foundation of all computing</li></ul><p>Example: Letter "A" = decimal 65 = binary 01000001</p></div></div>
+    </div>
+    <div class="qna-card m2">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">1</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">2 Marks · Short Answer</div>
+          <div class="qna-q-en">What is the Jacquard Loom and why is it significant in the history of computing?</div>
+          <div class="qna-q-np">ज्याकार्ड लुम भनेको के हो र कम्प्युटिङको इतिहासमा यसको के महत्त्व छ?</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p>The <strong>Jacquard Loom</strong> (1801) was a mechanical weaving loom invented by Joseph Marie Jacquard in France. It used <strong>punched cards</strong> to control the pattern of weaving — each card had holes that guided the loom's needles.</p><p><strong>Significance:</strong> It was the world's first programmable machine — the idea of using punched cards to store and execute instructions directly inspired Charles Babbage's Analytical Engine and later computer punched-card input systems used well into the 1970s.</p></div></div>
+    </div>
+    <div class="qna-card m2">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">4</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">2 Marks · Short Answer</div>
+          <div class="qna-q-en">Who was Grace Hopper and what were her two most important contributions to computing?</div>
+          <div class="qna-q-np">ग्रेस हपर को थिइन् र कम्प्युटिङमा उनका दुईवटा महत्त्वपूर्ण योगदानहरू के थिए?</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>Grace Hopper (1906–1992)</strong> was an American computer scientist and US Navy Rear Admiral who made fundamental contributions to early computing:</p><p><strong>1. First Compiler (1952):</strong> Created the first compiler — a program that automatically translates human-readable code into machine language. This made programming vastly easier and is the foundation of all modern programming languages.</p><p><strong>2. Coined "Debugging" (1947):</strong> When a relay in the Harvard Mark II computer failed due to a trapped moth, she taped the moth in the logbook and wrote "First actual case of bug being found." The word "debugging" for fixing software errors originates from this incident.</p></div></div>
+    </div>
+    <div class="qna-card m2">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">9</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">2 Marks · Short Answer</div>
+          <div class="qna-q-en">Write two major contributions of Nepal in the field of ICT development.</div>
+          <div class="qna-q-np">ICT विकासको क्षेत्रमा नेपालका दुईवटा प्रमुख योगदानहरू लेख्नुहोस्।</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>1. Early adoption of computing (1971):</strong> Nepal installed its first computer (IBM 1401) at the Central Bureau of Statistics in 1971 — making it one of the earliest countries in South Asia to use computing for government administration. Nepal introduced computer education in schools as early as 1992.</p><p><strong>2. Digital financial innovation:</strong> Nepal developed eSewa (2009), one of South Asia's earliest mobile payment platforms, enabling millions of Nepalis to make digital transactions without a bank account. This innovation preceded similar platforms in many larger countries and helped bridge the financial access gap in remote areas of Nepal.</p></div></div>
+    </div>
+</div>
+
+<!-- 4-MARK PANEL -->
+<div class="qna-mark-panel" id="qna-panel-4m">
+  
+    <div class="qna-group-head">
+      <div class="qna-group-icon gi-4m">🟢</div>
+      <div>
+        <div class="qna-group-title">Long Answer Questions — 4 Marks</div>
+        <div class="qna-group-sub">Essay answers · Detailed comparisons · Nepal history</div>
+      </div>
+    </div>
+  
+    <div class="qna-card m4">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">2</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">4 Marks · Long Answer</div>
+          <div class="qna-q-en">Write a detailed account of the history of computers in Nepal from 1971 to the present day.</div>
+          <div class="qna-q-np">सन् १९७१ देखि आजसम्म नेपालमा कम्प्युटरको इतिहासको विस्तृत विवरण लेख्नुहोस्।</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p>Nepal's computing history spans over five decades of steady progress:</p><p><strong>1971 — First Computer:</strong> IBM 1401 installed at the Central Bureau of Statistics for census data processing. Nepal was among South Asia's earliest computer users.</p><p><strong>1975:</strong> Tribhuvan University acquired computers for academic research. Computer education began at the university level.</p><p><strong>1980s:</strong> Banks and government ministries computerised records. Computers were rare and expensive — only large institutions could afford them.</p><p><strong>1992:</strong> Computer science introduced as a school subject (Grades 9–10) — a landmark for national computer literacy.</p><p><strong>1994:</strong> Nepal Telecom launched internet services — Nepal became one of South Asia's earliest countries with internet access.</p><p><strong>1999:</strong> Government formulated Nepal's first National IT Policy, establishing ICT as a development priority.</p><p><strong>2000s:</strong> Internet cafés spread across cities and towns; personal computer prices fell; computer training institutes opened in every district.</p><p><strong>2007:</strong> e-governance initiatives — online tax filing, digital land records, government websites. ADSL broadband launched.</p><p><strong>2009–2010s:</strong> eSewa mobile payment launched (2009) — a pioneering digital finance platform. Smartphone adoption surged. 3G then 4G mobile internet reached most districts.</p><p><strong>2017:</strong> Digital Nepal Framework launched — ambitious plan to digitise agriculture, health, education, energy, tourism and finance.</p><p><strong>2020–present:</strong> COVID-19 accelerated online education (Pragyapath, YouTube, Zoom). Over 40 million internet users. Starlink satellite internet available (2023). 5G trials underway.</p><p><strong>Remaining challenges:</strong> Rural-urban digital divide, electricity reliability, insufficient Nepali-language digital content, affordability of devices in remote areas.</p></div></div>
+    </div>
+    <div class="qna-card m4">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">3</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">4 Marks · Long Answer</div>
+          <div class="qna-q-en">Explain the contributions of Charles Babbage and Ada Lovelace to the history of computing. Why are they both considered pioneers?</div>
+          <div class="qna-q-np">कम्प्युटिङको इतिहासमा चार्ल्स ब्याबेज र एडा लभलेसको योगदान व्याख्या गर्नुहोस्। उनीहरू दुवैलाई अग्रदूत किन मानिन्छ?</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>Charles Babbage (1791–1871) — "Father of the Computer":</strong></p><ul><li><strong>Difference Engine (1822):</strong> Designed a mechanical steam-powered calculator to compute polynomial mathematical tables automatically. Funded by the British government. Proved the principle of mechanical computation.</li><li><strong>Analytical Engine (1837):</strong> A far more ambitious design — the first concept of a general-purpose programmable computer. It had: a "Mill" (equivalent to today's CPU), a "Store" (memory that could hold 1,000 50-digit numbers), punched card input, and printed output. Babbage's Analytical Engine contained ALL the logical elements of a modern computer — over 150 years before electronic computers existed.</li><li>Never fully built in his lifetime due to funding and technical limitations, but later reconstructed by the London Science Museum (1991), proving his designs were correct.</li></ul><p><strong>Ada Lovelace (1815–1852) — "World's First Programmer":</strong></p><ul><li>Daughter of poet Lord Byron; studied mathematics under Mary Somerville.</li><li>In 1843, she translated an Italian article about Babbage's Analytical Engine and added her own extensive notes — three times longer than the original article.</li><li>Her Note G contained the first published algorithm intended for machine execution — a method to compute Bernoulli numbers. This is recognised as the first computer program.</li><li>She also predicted that the Analytical Engine could compose music and handle any symbolic information, not just numbers — a revolutionary vision of what computers could do.</li></ul><p><strong>Why they are pioneers:</strong> Together, Babbage and Lovelace conceptualised hardware (programmable mechanical computer) and software (algorithm) — the two pillars of computing — nearly a century before electronics made it practical.</p></div></div>
+    </div>
+    <div class="qna-card m4">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">1</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">4 Marks · Long Answer</div>
+          <div class="qna-q-en">Describe the five generations of computers. Include the technology used, notable machines, and key characteristics of each generation.</div>
+          <div class="qna-q-np">कम्प्युटरका पाँच पुस्ताहरूको वर्णन गर्नुहोस्। प्रत्येक पुस्तामा प्रयोग गरिएको प्रविधि, उल्लेखनीय मेसिन र मुख्य विशेषताहरू समावेश गर्नुहोस्।</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p>Computers are classified into <strong>five generations</strong> based on the technology used:</p><table><tbody><tr><th>Generation</th><th>Period</th><th>Technology</th><th>Key Feature</th><th>Example</th></tr><tr><td><strong>1st</strong></td><td>1940s–1956</td><td>Vacuum tubes</td><td>Room-sized, very hot, punched card input, machine language only</td><td>ENIAC, UNIVAC-I</td></tr><tr><td><strong>2nd</strong></td><td>1956–1963</td><td>Transistors</td><td>Smaller, faster, more reliable, assembly + high-level languages (COBOL, FORTRAN)</td><td>IBM 1401, IBM 7090</td></tr><tr><td><strong>3rd</strong></td><td>1964–1971</td><td>Integrated Circuits (IC)</td><td>Much smaller chips, operating systems, multi-user time-sharing, nanosecond speed</td><td>IBM System/360</td></tr><tr><td><strong>4th</strong></td><td>1971–present</td><td>Microprocessors (VLSI)</td><td>Personal computers, GUI, internet, billions of transistors on one chip</td><td>Apple Mac, IBM PC</td></tr><tr><td><strong>5th</strong></td><td>Present–future</td><td>AI / Quantum</td><td>Machine learning, neural networks, natural language processing, parallel processing</td><td>ChatGPT, quantum computers</td></tr></tbody></table><p><strong>Trend across generations:</strong> Each generation brought computers that were faster ↑, smaller ↓, cheaper ↓, more energy-efficient ↑, and more accessible to ordinary people ↑.</p></div></div>
+    </div>
+    <div class="qna-card m4">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">4</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">4 Marks · Long Answer</div>
+          <div class="qna-q-en">Compare the first and fourth generations of computers in detail, covering technology, size, speed, cost, programming, and use.</div>
+          <div class="qna-q-np">पहिलो र चौथो पुस्ताका कम्प्युटरहरूको विस्तृत तुलना गर्नुहोस् — प्रविधि, आकार, गति, लागत, प्रोग्रामिङ र प्रयोग समावेश गर्नुहोस्।</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><table><tbody><tr><th>Feature</th><th>First Generation (1940s–1956)</th><th>Fourth Generation (1971–present)</th></tr><tr><td>Core technology</td><td>Vacuum tubes (18,000 in ENIAC)</td><td>Microprocessors (VLSI — billions of transistors on one chip)</td></tr><tr><td>Size</td><td>Room-sized (1,800 sq ft for ENIAC)</td><td>Fits in a pocket (smartphone)</td></tr><tr><td>Weight</td><td>~30,000 kg</td><td>~170 g (smartphone)</td></tr><tr><td>Speed</td><td>~5,000 operations per second</td><td>Billions per second (GHz)</td></tr><tr><td>Power use</td><td>150,000 watts</td><td>5–100 watts</td></tr><tr><td>Reliability</td><td>Poor — vacuum tubes burned out constantly</td><td>Very high — no moving parts in chips</td></tr><tr><td>Programming</td><td>Machine language only (binary); physical switches and punched cards</td><td>High-level languages (Python, Java, C); GUI; touch interfaces</td></tr><tr><td>Cost</td><td>$400,000+ (1940s dollars)</td><td>$200–$2,000</td></tr><tr><td>Storage</td><td>Punched cards; no permanent storage</td><td>256 GB+ SSD; cloud storage</td></tr><tr><td>Users</td><td>Only trained engineers; 1 computer for entire institution</td><td>Billions of ordinary people worldwide</td></tr><tr><td>Connectivity</td><td>None — completely isolated machines</td><td>Internet, Wi-Fi, Bluetooth, 5G</td></tr></tbody></table><p><strong>Conclusion:</strong> In just 80 years, computers evolved from a 30-ton room-filling machine affordable only to governments, to a 170-gram pocket device used by over 4 billion people. This is arguably the fastest technological transformation in human history.</p></div></div>
+    </div>
+    <div class="qna-card m4">
+      <div class="qna-q" onclick="qnaToggle(this)">
+        <div class="qna-q-num">5</div>
+        <div class="qna-q-body">
+          <div class="qna-badge">4 Marks · Long Answer</div>
+          <div class="qna-q-en">Explain the contributions of Alan Turing and John von Neumann to the history of computing.</div>
+          <div class="qna-q-np">कम्प्युटिङको इतिहासमा एलन ट्युरिङ र जोन भन न्युम्यानको योगदान व्याख्या गर्नुहोस्।</div>
+        </div>
+        <div class="qna-chevron">▼</div>
+      </div>
+      <div class="qna-a"><div class="qna-a-inner"><p><strong>Alan Turing (1912–1954):</strong></p><ul><li><strong>Turing Machine (1936):</strong> Proposed a theoretical mathematical model of computation — a device that reads and writes symbols on an infinite tape according to rules. This abstract model defines what is "computable" and is the theoretical foundation of all modern computers and computer science.</li><li><strong>Codebreaking in WW2 (1939–1945):</strong> Led the team at Bletchley Park that cracked the German Enigma cipher using the "Bombe" machine, shortening WW2 by an estimated 2–4 years and saving millions of lives.</li><li><strong>Turing Test (1950):</strong> Proposed a test for machine intelligence — if a human cannot distinguish a machine's responses from a human's, the machine can be considered "intelligent." This is the foundation of Artificial Intelligence research.</li><li>Called the "Father of Computer Science and Artificial Intelligence."</li></ul><p><strong>John von Neumann (1903–1957):</strong></p><ul><li><strong>Von Neumann Architecture (1945):</strong> Described the stored-program computer model — a computer where programs are stored in the same memory as data. This revolutionary idea meant computers could be reprogrammed without physical rewiring.</li><li>His architecture (CPU + Memory + I/O + sequential instruction execution) is used by ALL computers today — from microcontrollers to supercomputers.</li><li>Contributed to the Manhattan Project, game theory, quantum mechanics, and numerical analysis — but his computer architecture is his most enduring legacy.</li></ul><p><strong>Combined legacy:</strong> Turing defined WHAT a computer can do theoretically; von Neumann defined HOW to build one practically. Together, their work forms the complete intellectual foundation of the computer age.</p></div></div>
+    </div>
+</div>
+
+</div><!-- /qna -->
+
+</div><!-- /wrap -->
+
+      <footer class="site-footer" role="contentinfo" aria-label="Pragyapath footer">
+        <div class="footer-inner">
+
+          <div class="footer-brand">
+            <div class="logo-mark" aria-hidden="true">📚</div>
+            <div class="name">Pragyapath</div>
+            <div class="np-name">प्रज्ञापथ — ज्ञानको मार्ग</div>
+            <p>Nepal's free interactive learning platform for Class 7–12, aligned with the NEB curriculum. Bilingual English and Nepali content.</p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Class 7 Subjects</h4>
+            <a href="https://pragyapath.com/class7/math/index.html">Mathematics</a><a href="https://pragyapath.com/class7/science/index.html">Science</a><a href="https://pragyapath.com/class7/english/index.html">English</a><a href="https://pragyapath.com/class7/nepali/index.html">Nepali</a><a href="https://pragyapath.com/class7/social/index.html">Social Studies</a><a href="https://pragyapath.com/class7/computer/index.html">Computer Science</a><a href="https://pragyapath.com/class7/health/index.html">Health &amp; PE</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>All Classes</h4>
+            <a href="https://pragyapath.com/class7/index.html">Class 7</a><a href="https://pragyapath.com/class8/index.html">Class 8</a><a href="https://pragyapath.com/class9/index.html">Class 9</a><a href="https://pragyapath.com/class10/index.html">Class 10 (SEE)</a><a href="https://pragyapath.com/class11/index.html">Class 11 (NEB +2)</a><a href="https://pragyapath.com/class12/index.html">Class 12 (NEB +2)</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <a href="https://pragyapath.com/practice/index.html">Board Papers</a>
+            <a href="https://pragyapath.com/tools/whiteboard.html">Teaching Board</a>
+            <a href="https://pragyapath.com/tools/question-generator.html">AI Questions</a>
+            <a href="https://pragyapath.com/tools/cdc-textbooks.html">CDC Textbooks</a>
+            <a href="https://pragyapath.com/about.html">About</a>
+            <a href="https://pragyapath.com/contact.html">Contact</a>
+            <a href="https://pragyapath.com/privacy.html">Privacy</a>
+          </div>
+
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Pragyapath. Made with ❤️ for students of Nepal.</p>
+          <p>NEB Curriculum 2078 · <span class="np" style="font-family: var(--font-np); display: none;">शिक्षा सबैको अधिकार हो</span><span class="en">Education is everyone's right.</span></p>
+        </div>
+      </footer>
+<script src="./generation-timeline_files/chapters.js.download"></script>
+<script src="./generation-timeline_files/shared.js.download"></script>
+<script>
+var MCQA = {
+  c1a1:"B",
+  c1a2:"B",
+  c1a3:"B",
+  c1a4:"C",
+  c1a5:"B",
+  c1a6:"B",
+  c1a7:"C",
+  c1a8:"A",
+  c1b1:"A",
+  c1b2:"B",
+  c1b3:"C",
+  c1b4:"D",
+  c1b5:"C",
+  c1b6:"C",
+  c1b7:"B",
+};
+var MCQE = {
+  c1a1:"Blaise Pascal (French mathematician) invented the Pascaline in 1642 — a mechanical adding machine with gears that could add and subtract.",
+  c1a2:"ENIAC (Electronic Numerical Integrator And Computer) was the first general-purpose electronic computer, completed in 1945 at the University of Pennsylvania.",
+  c1a3:"The Abacus originated in China around 2400 BC. It uses beads on rods to perform arithmetic calculations.",
+  c1a4:"Charles Babbage (1791–1871) designed the Difference Engine and Analytical Engine — mechanical computers that laid the foundation of modern computing.",
+  c1a5:"Ada Lovelace wrote the first algorithm intended for Charles Babbage's Analytical Engine, making her the world's first computer programmer (1843).",
+  c1a6:"Second generation computers (1956–1963) replaced vacuum tubes with transistors — smaller, faster, more reliable and energy-efficient.",
+  c1a7:"UNIVAC-I (1951) was the first commercially produced computer sold to a business — the US Census Bureau. It marked the start of the commercial computer era.",
+  c1a8:"ENIAC = Electronic Numerical Integrator And Computer. Built 1943–1945 at UPenn, it weighed 30 tons, filled an entire room and used 18,000 vacuum tubes.",
+  c1b1:"Hybrid computers combine analog and digital components. Used in hospitals (ECG monitors) and industrial control systems where both continuous and discrete data are needed.",
+  c1b2:"1st gen: Vacuum tubes → 2nd gen: Transistors → 3rd gen: Integrated Circuits (IC) → 4th gen: Very Large Scale Integration (VLSI) / Microprocessors.",
+  c1b3:"Charles Babbage designed the Difference Engine in 1822 to compute mathematical tables. Though never fully built in his lifetime, it proved the concept of mechanical computation.",
+  c1b4:"5th generation computers (present–future) use AI, machine learning, parallel processing and natural language processing. Japan's FGCS project pioneered this concept.",
+  c1b5:"John Napier invented Napier's Bones in 1617 — a set of numbered rods that could rapidly perform multiplication and division calculations.",
+  c1b6:"Tim Berners-Lee invented the World Wide Web in 1989 at CERN, Switzerland. He proposed it as a way to share information among researchers using hyperlinks.",
+  c1b7:"First generation computers used punched cards and paper tape for input. Programs were entered by physically punching holes in cards that the machine could read.",
+};
+
+// ── Section navigation ──
+document.addEventListener('click', function(e){
+  var el = e.target;
+  for(var i=0;i<8;i++){
+    if(!el||el===document.body) break;
+    if(el.dataset&&el.dataset.nav){
+      document.querySelectorAll('.mnav').forEach(b=>b.classList.remove('on'));
+      el.classList.add('on');
+      document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+      var sec=document.getElementById('sec-'+el.dataset.nav);
+      if(sec) sec.classList.add('on');
+      updateExTotal(); return;
+    }
+    if(el.dataset&&el.dataset.ct){
+      var fid=el.dataset.fid||el.dataset.ct;
+      var container=el.closest('.card')||el.closest('.sim-box')||el.closest('.sec');
+      if(container){
+        container.querySelectorAll('.ctab').forEach(t=>t.classList.remove('on'));
+        el.classList.add('on');
+        container.querySelectorAll('.cpanel').forEach(p=>p.classList.remove('on'));
+        var panel=container.querySelector('#'+fid);
+        if(panel) panel.classList.add('on');
+      }
+      return;
+    }
+    if(el.dataset&&el.dataset.et){
+      document.querySelectorAll('.ex-tab').forEach(t=>t.classList.remove('on'));
+      el.classList.add('on');
+      document.querySelectorAll('.ex-sec').forEach(s=>s.classList.remove('on'));
+      var esec=document.getElementById('ex-'+el.dataset.et);
+      if(esec){ esec.classList.add('on'); updateExTotal(); }
+      return;
+    }
+    if(el.dataset&&el.dataset.dev){
+      var grid=el.closest('.device-grid');
+      if(grid) grid.querySelectorAll('.device-card').forEach(c=>c.classList.remove('on'));
+      el.classList.add('on');
+      document.querySelectorAll('.device-detail').forEach(d=>d.classList.remove('on'));
+      var dd=document.getElementById('dd-'+el.dataset.dev);
+      if(dd) dd.classList.add('on');
+      return;
+    }
+    if(el.dataset&&el.dataset.mcq){doMCQ(el.dataset.mcq,el.dataset.c);return;}
+    if(el.dataset&&el.dataset.reset){resetAll();return;}
+    el=el.parentElement;
+  }
+});
+
+// ── MCQ Engine ──
+var score=0,answered=0;
+function doMCQ(qid,chosen){
+  var card=document.getElementById(qid);
+  if(!card||card.dataset.done) return;
+  card.dataset.done='1';
+  var correct=MCQA[qid],letters=['A','B','C','D'];
+  card.querySelectorAll('.opt').forEach((o,i)=>{
+    if(letters[i]===chosen&&chosen===correct) o.classList.add('ok');
+    else if(letters[i]===chosen) o.classList.add('ng');
+    else if(letters[i]===correct) o.classList.add('ok');
+    else o.classList.add('dim');
+  });
+  var fb=document.getElementById('fb-'+qid);
+  if(fb){
+    if(chosen===correct){fb.className='fb on ok';fb.innerHTML='✓ Correct! '+MCQE[qid];score++;}
+    else{fb.className='fb on ng';fb.innerHTML='✗ Answer: <strong>'+correct+'</strong>. '+MCQE[qid];}
+  }
+  answered++; updScore();
+}
+function updScore(){
+  var sn=document.getElementById('ex-score-num');
+  var sa=document.getElementById('ex-score-ans');
+  var pb=document.getElementById('ex-pbar');
+  var tot=parseInt((document.getElementById('ex-total')||{}).textContent)||1;
+  if(sn) sn.textContent=score;
+  if(sa) sa.textContent=answered;
+  if(pb) pb.style.width=(answered/tot*100)+'%';
+}
+function resetAll(){
+  score=0;answered=0;
+  document.querySelectorAll('.q-card').forEach(c=>delete c.dataset.done);
+  document.querySelectorAll('.opt').forEach(o=>o.className='opt');
+  document.querySelectorAll('.fb').forEach(f=>{f.className='fb';f.innerHTML='';});
+  updScore(); updateExTotal();
+}
+function updateExTotal(){
+  var vis=document.querySelector('.ex-sec.on');
+  var el=document.getElementById('ex-total');
+  if(el) el.textContent=vis?vis.querySelectorAll('.q-card').length:0;
+}
+
+// ── zoom.js fallback lightbox ──
+(function(){
+  var ov=null;
+  function makeOv(){
+    var o=document.createElement('div');
+    o.style.cssText='position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;animation:fadeUp .2s ease';
+    var img=document.createElement('img');
+    img.style.cssText='max-width:min(90vw,900px);max-height:85vh;object-fit:contain;border-radius:8px;box-shadow:0 8px 48px rgba(0,0,0,.7)';
+    o.appendChild(img);
+    o.addEventListener('click',function(){document.body.removeChild(o);ov=null;document.body.style.overflow='';});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov){document.body.removeChild(ov);ov=null;document.body.style.overflow='';}});
+    return {overlay:o,img:img};
+  }
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    if(t.tagName==='IMG'&&(t.classList.contains('zoomable')||t.closest('.wiki-fig')||t.closest('.wiki-item'))){
+      if(ov) return;
+      var r=makeOv();
+      r.img.src=t.src;r.img.alt=t.alt||'';
+      ov=r.overlay;
+      document.body.appendChild(ov);
+      document.body.style.overflow='hidden';
+    }
+  });
+})();
+
+
+// Binary bit toggle
+document.getElementById('bit-row')&&document.getElementById('bit-row').addEventListener('click',function(e){
+  var bit=e.target.closest('.bit');
+  if(!bit) return;
+  bit.classList.toggle('on');
+  bit.textContent=bit.classList.contains('on')?'1':'0';
+  updateBits();
+});
+function updateBits(){
+  var bits=document.querySelectorAll('.bit');
+  var val=0;
+  bits.forEach(function(b){
+    if(b.classList.contains('on')) val+=Math.pow(2,parseInt(b.dataset.pos));
+  });
+  document.getElementById('bit-val').innerHTML='Decimal value: <span style="color:var(--brand)">'+val+'</span>';
+  var info=document.getElementById('bin-info');
+  if(info){
+    var ascii=val>=32&&val<=126?String.fromCharCode(val):'—';
+    info.textContent='Binary: '+Array.from(document.querySelectorAll('.bit')).map(b=>b.textContent).join('') + 
+      ' = Decimal: '+val + (ascii!=='—'?' = ASCII character: "'+ascii+'"':'') +
+      (val===0?' — All bits OFF (0)':val===255?' — All bits ON (maximum 8-bit value)':'');
+  }
+}
+function setBits(n){
+  document.querySelectorAll('.bit').forEach(function(b){
+    var on=(n>>parseInt(b.dataset.pos))&1;
+    b.classList.toggle('on',on===1);
+    b.textContent=on===1?'1':'0';
+  });
+  updateBits();
+}
+
+
+/* ══ QnA toggle & controls ══ */
+function qnaToggle(el){
+  var card=el.closest('.qna-card');
+  card.classList.toggle('open');
+  qnaUpdCount();
+}
+function qnaMarkSwitch(btn,panelId){
+  document.querySelectorAll('.qna-mark-btn').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  document.querySelectorAll('.qna-mark-panel').forEach(function(p){p.classList.remove('on');});
+  var panel=document.getElementById('qna-panel-'+panelId);
+  if(panel) panel.classList.add('on');
+  qnaUpdCount();
+}
+function qnaShowAll(){
+  var panel=document.querySelector('.qna-mark-panel.on');
+  if(panel) panel.querySelectorAll('.qna-card').forEach(function(c){c.classList.add('open');});
+  qnaUpdCount();
+}
+function qnaHideAll(){
+  var panel=document.querySelector('.qna-mark-panel.on');
+  if(panel) panel.querySelectorAll('.qna-card').forEach(function(c){c.classList.remove('open');});
+  qnaUpdCount();
+}
+function qnaUpdCount(){
+  var panel=document.querySelector('.qna-mark-panel.on');
+  var open=panel?panel.querySelectorAll('.qna-card.open').length:0;
+  var el=document.getElementById('qna-open-count');
+  if(el) el.textContent=open;
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  updateExTotal(); updScore();
+});
+
+</script>
+<script type="module" src="./generation-timeline_files/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;ebcdd60518444fe3a31ff11772b193c7&quot;,&quot;r&quot;:1}" crossorigin="anonymous"></script>
+
+<div id="pp-search-widget">
+      <button id="pp-search-btn" type="button" aria-label="Search" title="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+      <form id="pp-search-form" role="search" autocomplete="off">
+        <input id="pp-search-input" type="search" placeholder="Search chapters, papers…" aria-label="Search Pragyapath">
+      </form></div><div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation"><a href="https://pragyapath.com/class7/math/index.html" class="nav-link" aria-current="false">Mathematics</a><a href="https://pragyapath.com/class7/science/index.html" class="nav-link" aria-current="false">Science</a><a href="https://pragyapath.com/class7/english/index.html" class="nav-link" aria-current="false">English</a><a href="https://pragyapath.com/class7/nepali/index.html" class="nav-link" aria-current="false">Nepali</a><a href="https://pragyapath.com/class7/social/index.html" class="nav-link" aria-current="false">Social Studies</a><a href="https://pragyapath.com/class7/computer/index.html" class="nav-link active" aria-current="page">Computer Science</a><a href="https://pragyapath.com/practice/index.html" class="nav-link" aria-current="false">Practice</a><a href="https://pragyapath.com/tools/index.html" class="nav-link" aria-current="false">Tools</a><a href="https://pragyapath.com/blog/index.html" class="nav-link" aria-current="false">Blog</a></div><script src="./generation-timeline_files/annotation.js.download"></script><canvas id="ann-canvas" aria-hidden="true" width="1920" height="5923" style="width: 1920px; height: 5923px;"></canvas><button id="ann-toggle" aria-label="Toggle annotation mode" title="Annotate this page">✏️<span class="ann-tip">Annotate page</span><div id="ann-count"></div></button><div id="ann-toolbar" role="toolbar" aria-label="Annotation tools"><button class="ann-btn sel" data-tool="pen" aria-label="Pen (P)">🖊️<span class="ann-tip">Pen (P)</span></button><button class="ann-btn" data-tool="highlight" aria-label="Highlighter (H)">🟨<span class="ann-tip">Highlighter (H)</span></button><button class="ann-btn" data-tool="arrow" aria-label="Arrow (A)">↗️<span class="ann-tip">Arrow (A)</span></button><button class="ann-btn" data-tool="eraser" aria-label="Eraser (E)">🧹<span class="ann-tip">Eraser (E)</span></button><div class="ann-sep"></div><div class="ann-colours"><button class="ann-col sel" aria-label="Crimson" title="Crimson" style="background: rgb(220, 20, 60);"></button><button class="ann-col" aria-label="Indigo" title="Indigo" style="background: rgb(44, 62, 158);"></button><button class="ann-col" aria-label="Amber" title="Amber" style="background: rgb(245, 158, 11);"></button><button class="ann-col" aria-label="Green" title="Green" style="background: rgb(22, 163, 74);"></button><button class="ann-col" aria-label="Purple" title="Purple" style="background: rgb(124, 58, 237);"></button><button class="ann-col" aria-label="Teal" title="Teal" style="background: rgb(8, 145, 178);"></button><button class="ann-col" aria-label="Pink" title="Pink" style="background: rgb(236, 72, 153);"></button><button class="ann-col" aria-label="Ink" title="Ink" style="background: rgb(26, 29, 46);"></button></div><div class="ann-sep"></div><button class="ann-thick" data-thick="2" aria-label="Thickness 2">·</button><button class="ann-thick" data-thick="4" aria-label="Thickness 4">●</button><button class="ann-thick" data-thick="8" aria-label="Thickness 8">◉</button><button class="ann-thick" data-thick="16" aria-label="Thickness 16">⬤</button><div class="ann-sep"></div><button class="ann-btn" aria-label="Undo (Ctrl+Z)">↩️<span class="ann-tip">Undo (Ctrl+Z)</span></button><button class="ann-btn danger" aria-label="Clear all annotations">🗑️<span class="ann-tip">Clear page</span></button><button class="ann-btn" aria-label="Export annotations as PNG">⬇️<span class="ann-tip">Export PNG</span></button></div></body></html>
