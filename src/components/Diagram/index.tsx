@@ -609,12 +609,18 @@ function steps(p: DiagramProps, W: number, marker: string, big: boolean) {
 
 /* -------------------------------------------------------------- pyramid --- */
 
-function pyramid(p: DiagramProps, W: number, topW: number, botW: number, tierH: number, big: boolean) {
+function pyramid(p: DiagramProps, W: number, topW: number, botW: number, big: boolean) {
   const items = p.items ?? [];
   const n = Math.max(items.length, 1);
   const top = p.eyebrow ? 44 : 24;
   const cx = W / 2;
-  const H = top + n * tierH + (p.footnote ? 46 : 20);
+
+  /* A tier has to be tall enough for its text, or the line below the title
+     runs into the edge of the next tier. */
+  const maxLines = Math.max(...items.map((i) => i.lines?.length ?? 0), 0);
+  const tierH = (big ? 62 : 54) + maxLines * (big ? 26 : 22);
+
+  const H = top + n * tierH + (p.footnote ? 44 : 20);
   const widthAt = (i: number) => topW + ((botW - topW) * i) / n;
 
   return (
@@ -629,26 +635,24 @@ function pyramid(p: DiagramProps, W: number, topW: number, botW: number, tierH: 
         const yBot = yTop + tierH;
         const wT = widthAt(i);
         const wB = widthAt(i + 1);
-        const hasLines = (item.lines?.length ?? 0) > 0;
+        const nl = item.lines?.length ?? 0;
+        const contentH = 18 + nl * (big ? 22 : 20);
+        const titleY = yTop + (tierH - contentH) / 2 + 15;
+
         return (
           <g key={`t${i}`}>
             <polygon
               points={`${cx - wT / 2},${yTop} ${cx + wT / 2},${yTop} ${cx + wB / 2},${yBot} ${cx - wB / 2},${yBot}`}
               className={item.highlight ? 'nx-box nx-box--mem' : 'nx-box'}
             />
-            <text
-              x={cx}
-              y={yTop + tierH / 2 + (hasLines ? -4 : 6)}
-              textAnchor="middle"
-              className="nx-t nx-t--sm"
-            >
+            <text x={cx} y={titleY} textAnchor="middle" className="nx-t nx-t--sm">
               {item.title}
             </text>
             {(item.lines ?? []).map((line, j) => (
               <text
                 key={j}
                 x={cx}
-                y={yTop + tierH / 2 + 20 + j * 20}
+                y={titleY + 22 + j * (big ? 22 : 20)}
                 textAnchor="middle"
                 className={big ? 'nx-s nx-s--m' : 'nx-s'}
               >
@@ -658,11 +662,17 @@ function pyramid(p: DiagramProps, W: number, topW: number, botW: number, tierH: 
           </g>
         );
       })}
-      {p.footnote && (
-        <text x={cx} y={H - 14} textAnchor="middle" className={big ? 'nx-s nx-s--m' : 'nx-s'}>
-          {p.footnote}
+      {(p.footnote ? wrapText(p.footnote, big ? 44 : 110) : []).map((line, i, all) => (
+        <text
+          key={i}
+          x={cx}
+          y={H - (all.length - i) * 20 + 6}
+          textAnchor="middle"
+          className={big ? 'nx-s nx-s--m' : 'nx-s'}
+        >
+          {line}
         </text>
-      )}
+      ))}
     </svg>
   );
 }
@@ -686,9 +696,14 @@ export default function Diagram(props: DiagramProps): ReactNode {
   } else if (props.type === 'tree') {
     wide = treeWide(props, mW);
     narrow = treeNarrow(props, mN);
+  } else if (props.type === 'pyramid') {
+    wide = pyramid(props, 880, 160, 560, false);
+    narrow = pyramid(props, 420, 120, 360, true);
   } else {
-    wide = pyramid(props, 880, 160, 560, 74, false);
-    narrow = pyramid(props, 420, 120, 360, 108, true);
+    /* An unknown type must not fall through to a shape that quietly distorts
+       the content. Rows always fit whatever they are given. */
+    wide = steps(props, 880, mW, false);
+    narrow = steps(props, 420, mN, true);
   }
 
   return (
