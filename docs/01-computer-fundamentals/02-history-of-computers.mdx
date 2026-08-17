@@ -1,1 +1,350 @@
+---
+title: "History of Computers"
+sidebar_position: 2
+sidebar_label: "History of Computers"
+slug: /computer-fundamentals/history-of-computers
+description: "How computing grew from the abacus to the microprocessor — the machines, the people, the dates and the ideas that survived, with diagrams, tables and practice questions."
+keywords:
+  - history of computers
+  - Charles Babbage analytical engine
+  - ENIAC UNIVAC
+  - abacus Pascaline
+  - father of computer
+  - first computer in India
+---
 
+import RunInLab from '@site/src/components/RunInLab';
+import AskBox from '@site/src/components/AskBox';
+import Diagram from '@site/src/components/Diagram';
+import { Lede, Callout, ProsCons, Quiz, Revision, Eq } from '@site/src/components/Note';
+
+# History of Computers
+
+<Lede>
+Nobody sat down and invented the computer. It arrived in pieces, over four
+thousand years, as people kept running into the same problem: too many numbers,
+too little time. This topic follows that line — who built what, in which year,
+and which of their ideas your laptop still uses today.
+</Lede>
+
+## Overview
+
+Every machine on this page exists because counting by hand failed at some
+scale. A merchant outgrew his fingers and reached for an **abacus**. A tax
+office outgrew clerks and reached for **punched cards**. An army outgrew desk
+calculators and built **ENIAC**. The pattern repeats; only the technology
+changes.
+
+<Callout kind="def" title="Definition">
+  The history of computers is the record of how calculating devices developed
+  from manual aids, through mechanical and electromechanical machines, to the
+  electronic stored-program computers in use today.
+</Callout>
+
+Four ages, and the technology that defines each:
+
+<Diagram
+  type="chain"
+  label="Fig 1"
+  title="The three machine ages"
+  eyebrow="WHAT EACH AGE RAN ON"
+  caption="Each age kept the previous age's ideas and changed only what the machine was built from."
+  items={[
+    { title: 'MECHANICAL', lines: ['gears, wheels and levers', '1642 to 1837'] },
+    { title: 'ELECTROMECHANICAL', lines: ['relays and punched cards', '1890 to 1945'], highlight: true },
+    { title: 'ELECTRONIC', lines: ['valves, then transistors', '1946 onward'] },
+  ]}
+  footnote="Before all three came the manual age: the abacus, in use around 3000 BC."
+/>
+
+<Callout kind="tip" title="Exam tip">
+  Questions here are almost always "who / what / when". Learn the table below
+  as three columns — device, year, inventor — and you can answer nearly every
+  form the question takes.
+</Callout>
+
+## Key Concepts
+
+### The manual and mechanical age
+
+<Diagram
+  type="chain"
+  label="Fig 2"
+  title="From counting beads to a calculating machine"
+  caption="Each machine did one thing more than the one before it."
+  items={[
+    { title: 'ABACUS', lines: ['c. 3000 BC', 'counts, does not calculate'] },
+    { title: "NAPIER'S BONES", lines: ['1617, John Napier', 'multiplication by rods'] },
+    { title: 'PASCALINE', lines: ['1642, Blaise Pascal', 'first adding machine'] },
+    { title: 'STEPPED RECKONER', lines: ['1673, G. W. Leibniz', 'also multiplies, divides'], highlight: true },
+  ]}
+/>
+
+| Device | Year | Inventor | What it could do first |
+| --- | --- | --- | --- |
+| **Abacus** | c. 3000 BC | Mesopotamia, then China | Recorded numbers on beads; the operator did the thinking |
+| **Napier's bones** | 1617 | John Napier | Turned multiplication into simple addition of rods |
+| **Slide rule** | 1622 | William Oughtred | Multiplied and divided using logarithm scales |
+| **Pascaline** | 1642 | Blaise Pascal | Added and subtracted by gears — the first true calculator |
+| **Stepped Reckoner** | 1673 | Gottfried Leibniz | Multiplied and divided as well; Leibniz also championed binary |
+| **Jacquard loom** | 1801 | Joseph Marie Jacquard | Took its instructions from punched cards — a stored program in cloth |
+
+<Callout kind="note" title="Why a loom belongs in a computer syllabus">
+  The Jacquard loom was not a calculator at all. It mattered because it proved
+  a machine could follow a set of instructions fed in from outside, and be
+  given a different job by changing the cards. Babbage borrowed the idea
+  directly.
+</Callout>
+
+### Charles Babbage and the machine that was never built
+
+Babbage designed the **Difference Engine** in 1822 to print error-free
+mathematical tables, then abandoned it for something far more ambitious. The
+**Analytical Engine** of 1837 was the first design for a general-purpose
+computer — a machine that would do whatever the cards told it to do.
+
+<Diagram
+  type="tree"
+  label="Fig 3"
+  title="The Analytical Engine, and what each part became"
+  caption="Babbage's names for these parts died; the parts themselves did not."
+  root="Analytical Engine, 1837"
+  branches={[
+    {
+      title: 'The Store',
+      subtitle: 'where numbers waited',
+      items: ['Held about 1,000 numbers', 'Today: main memory, the RAM'],
+    },
+    {
+      title: 'The Mill',
+      subtitle: 'where numbers were worked on',
+      items: ['Added, subtracted, compared', 'Today: the ALU inside the CPU'],
+    },
+    {
+      title: 'Punched cards',
+      subtitle: 'what to do, and with what',
+      items: ['Operation cards and number cards', 'Today: the program and its input'],
+    },
+  ]}
+/>
+
+The engine was never finished — Victorian workshops could not machine the parts
+to the tolerance it needed — but the design was right, and it is the reason
+Babbage is called the **Father of the Computer**.
+
+<Callout kind="tip" title="Two names, one mark each">
+  **Charles Babbage** — Father of the Computer, for the Analytical Engine.
+  **Ada Lovelace** — the world's first programmer, for the 1843 notes in which
+  she wrote a step-by-step method for the engine to compute Bernoulli numbers,
+  and pointed out it could work on symbols, not just numbers.
+</Callout>
+
+### The electromechanical age
+
+| Machine | Year | Built by | Why it matters |
+| --- | --- | --- | --- |
+| **Tabulating machine** | 1890 | Herman Hollerith | Processed the US census in about two years instead of eight; his company grew into **IBM** |
+| **Z3** | 1941 | Konrad Zuse | First programmable machine to work using binary and relays |
+| **Harvard Mark I** | 1944 | Howard Aiken, with IBM | 15 metres long, driven by relays and a rotating shaft; ran for fifteen years |
+
+### The electronic age
+
+Relays click; valves do not move at all. Replacing one with the other made
+machines roughly a thousand times faster, and started the era we are still in.
+
+<Diagram
+  type="chain"
+  label="Fig 4"
+  title="The four machines that set the pattern"
+  eyebrow="1944 TO 1951, IN ORDER"
+  caption="Read them as a sequence of firsts: first automatic, first electronic, first stored-program, first sold."
+  items={[
+    { title: 'MARK I', lines: ['1944 · relays', 'first automatic machine'] },
+    { title: 'ENIAC', lines: ['1946 · 18,000 valves', 'first electronic, general purpose'] },
+    { title: 'EDSAC', lines: ['1949 · Maurice Wilkes', 'first practical stored program'], highlight: true },
+    { title: 'UNIVAC I', lines: ['1951 · Eckert, Mauchly', 'first sold commercially'] },
+  ]}
+  footnote="ENIAC was reprogrammed by rewiring it by hand; EDSAC kept its program in memory, like every machine since."
+/>
+
+<Callout kind="def" title="The stored-program concept">
+  Proposed by John von Neumann in his 1945 report on the EDVAC: keep the
+  program in the same memory as the data, so the machine can be given a new job
+  by loading new instructions instead of rewiring it. This is the single idea
+  that separates a computer from a calculator.
+</Callout>
+
+### Three inventions that shrank the machine
+
+| Invention | Year | Who | Effect |
+| --- | --- | --- | --- |
+| **Transistor** | 1947 | Bardeen, Brattain, Shockley (Bell Labs) | Replaced the valve — smaller, cooler, far more reliable |
+| **Integrated circuit** | 1958 | Jack Kilby (TI), Robert Noyce (Fairchild) | Put many components on one chip of silicon |
+| **Microprocessor** | 1971 | Intel 4004 team, led by Ted Hoff | Put an entire CPU on one chip, which made the personal computer possible |
+
+The rate of that shrinking was noticed early. **Moore's law**, stated by Gordon
+Moore in 1965, says the number of transistors on a chip roughly doubles every
+two years:
+
+<Eq block>{String.raw`N(t) = N_0 \cdot 2^{\,t/2}`}</Eq>
+
+where <Eq>{String.raw`N_0`}</Eq> is the count today and <Eq>{String.raw`t`}</Eq>
+is the number of years ahead. It is an observation about industry, not a law of
+physics — and it has been slowing since about 2015.
+
+### Computers in India
+
+| Milestone | Year | Detail |
+| --- | --- | --- |
+| **First computer in India** | 1955 | HEC-2M, installed at the Indian Statistical Institute, Kolkata |
+| **First computer built in India** | 1960 | TIFRAC, built at the Tata Institute of Fundamental Research, Mumbai |
+| **First Indian-made commercial series** | 1970s | The Siddhartha and TDC series from ECIL, Hyderabad |
+| **First Indian supercomputer** | 1991 | PARAM 8000, built by C-DAC under Vijay Bhatkar |
+
+<Callout kind="warn" title="Careless-mistake trap">
+  ENIAC is the first general-purpose **electronic** computer, not the first
+  computer. UNIVAC I is the first **commercially sold** computer, not the first
+  built. Mark I is **electromechanical**, not electronic. Half the marks in this
+  topic are lost on those three words.
+</Callout>
+
+### What the whole story bought us
+
+<ProsCons
+  pros={[
+    'Speed rose from a few operations a second to billions',
+    'Size fell from a room to a fingernail',
+    'Cost fell far enough for one machine per person',
+    'Reliability rose as moving parts disappeared',
+    'Programs replaced rewiring, so one machine does any job',
+  ]}
+  cons={[
+    'Early machines needed specialists and constant repair',
+    'Each generation made the one before it worthless',
+    'Electronic waste and power use grew with the numbers',
+    'Automation displaced the clerks these machines replaced',
+    'Miniaturisation is now hitting physical limits',
+  ]}
+  prosTitle="What improved"
+  consTitle="What it cost"
+/>
+
+## Example
+
+A timeline is just data, and data is something you can sort. This prints the
+milestones in order and works out how long each gap was — which is where the
+story becomes visible.
+
+```python
+# 1. INPUT — the milestones as (year, machine) pairs
+timeline = [
+    (1642, "Pascaline"),
+    (1837, "Analytical Engine"),
+    (1946, "ENIAC"),
+    (1971, "Intel 4004"),
+]
+
+# 2. PROCESS — the gap between each machine and the next
+for i in range(len(timeline) - 1):
+    year, name = timeline[i]
+    next_year, next_name = timeline[i + 1]
+    gap = next_year - year
+    print(f"{name} to {next_name}: {gap} years")
+
+# 3. OUTPUT — how fast the last stretch moved
+print("Span of the whole story:", timeline[-1][0] - timeline[0][0], "years")
+```
+
+Expected output:
+
+```text
+Pascaline to Analytical Engine: 195 years
+Analytical Engine to ENIAC: 109 years
+ENIAC to Intel 4004: 25 years
+Span of the whole story: 329 years
+```
+
+Notice the gaps shrinking: 195 years, then 109, then 25. Progress in computing
+does not move at a steady speed — each machine makes the next one easier.
+
+## Run your code
+
+<RunInLab topic="History of Computers" lang="python" code={`timeline = [
+    (1642, "Pascaline"),
+    (1837, "Analytical Engine"),
+    (1946, "ENIAC"),
+    (1971, "Intel 4004"),
+]
+
+for i in range(len(timeline) - 1):
+    year, name = timeline[i]
+    next_year, next_name = timeline[i + 1]
+    print(f"{name} to {next_name}: {next_year - year} years")
+
+print("Span of the whole story:", timeline[-1][0] - timeline[0][0], "years")`} />
+
+## Practice Questions
+
+Answer each one in your head first, then open it.
+
+<Quiz
+  items={[
+    {
+      q: 'Who is called the Father of the Computer, and for which machine?',
+      a: 'Charles Babbage, for the Analytical Engine he designed in 1837 — the first design for a general-purpose computer, with a store, a mill and punched-card instructions.',
+    },
+    {
+      q: 'Who is regarded as the first programmer, and why?',
+      a: 'Ada Lovelace. In her 1843 notes on the Analytical Engine she wrote a step-by-step method for it to compute Bernoulli numbers, and observed that the machine could operate on symbols rather than only numbers.',
+    },
+    {
+      q: 'Name the first mechanical calculating machine and its inventor.',
+      a: 'The Pascaline, built by Blaise Pascal in 1642. It added and subtracted using geared wheels.',
+    },
+    {
+      q: 'What was ENIAC, and in what sense was it a first?',
+      a: 'ENIAC, completed in 1946 by Eckert and Mauchly, was the first general-purpose electronic computer. It used about 18,000 vacuum tubes and was reprogrammed by rewiring it by hand.',
+    },
+    {
+      q: 'State the stored-program concept and who proposed it.',
+      a: 'Keeping the program in the same memory as the data, so the machine can be given a new job by loading new instructions instead of being rewired. Proposed by John von Neumann in his 1945 EDVAC report; EDSAC (1949) was the first practical machine to use it.',
+    },
+    {
+      q: 'Which machine was the first to be sold commercially?',
+      a: 'UNIVAC I, in 1951, from Eckert and Mauchly. Its famous early use was predicting the 1952 US presidential election result.',
+    },
+    {
+      q: 'How did the Jacquard loom influence computing?',
+      a: 'It took its instructions from punched cards, so the same machine could weave a different pattern by changing the cards. Babbage adapted the idea for the Analytical Engine, and Hollerith used punched cards for the 1890 census.',
+    },
+    {
+      q: 'Name the first computer installed in India and the first built in India.',
+      a: 'The HEC-2M, installed at the Indian Statistical Institute, Kolkata in 1955, was the first installed. TIFRAC, built at the Tata Institute of Fundamental Research in 1960, was the first built in India.',
+    },
+    {
+      q: 'State Moore\'s law and say what kind of statement it is.',
+      a: 'The number of transistors on a chip roughly doubles every two years. It is an empirical observation about the semiconductor industry made by Gordon Moore in 1965, not a physical law, and its pace has slowed since around 2015.',
+    },
+  ]}
+/>
+
+### Quick revision
+
+<Revision
+  points={[
+    'Abacus c. 3000 BC — the oldest counting aid, still not a calculator.',
+    'Pascaline 1642, Pascal — first mechanical adding machine.',
+    'Stepped Reckoner 1673, Leibniz — added multiplication and division.',
+    'Jacquard loom 1801 — punched-card instructions.',
+    'Babbage 1837, Analytical Engine — Father of the Computer: store, mill, cards.',
+    'Ada Lovelace 1843 — first programmer.',
+    'Hollerith 1890 — tabulating machine; his company became IBM.',
+    'Mark I 1944 — electromechanical. ENIAC 1946 — first electronic, general purpose.',
+    'Von Neumann 1945 — stored program; EDSAC 1949 — first practical one.',
+    'UNIVAC I 1951 — first sold commercially.',
+    'Transistor 1947, IC 1958, microprocessor Intel 4004 in 1971.',
+    'India: HEC-2M 1955 installed, TIFRAC 1960 built, PARAM 8000 in 1991.',
+  ]}
+/>
+
+<AskBox topic="History of Computers" section="Computer Fundamentals" />
