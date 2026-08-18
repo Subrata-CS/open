@@ -342,6 +342,11 @@ int main() {
 ```
 
 **What happens here:** `INT_MAX` (usually `2147483647`) is the largest value a standard signed `int` can hold on most systems. Adding just 1 more pushes it past its limit, and instead of giving an error, the value **wraps around** to `INT_MIN`, the smallest possible negative number:
+```text
+Before overflow: 2147483647
+After overflow: -2147483648
+Minimum possible int: -2147483648
+```
 
 This is called **integer overflow**, and it's a real source of bugs in software — the computer doesn't "know" the math is wrong; it simply runs out of space to represent the correct answer and silently produces an incorrect one. Using `INT_MAX` and `INT_MIN` from `limits.h` (instead of hardcoding numbers) is the correct, portable way to check these limits, since they can technically vary slightly between systems.
 
