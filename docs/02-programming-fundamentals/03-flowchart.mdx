@@ -13,15 +13,217 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Flowchart - part of Programming Fundamentals. A short introduction goes here._
+A **Flowchart** is a way of drawing an algorithm using shapes and arrows instead of just plain sentences. Every step of the algorithm becomes a box, and arrows show the order in which those steps happen — including which direction the program goes when it has to make a decision.
+
+Remember our tea-making algorithm from earlier? We wrote it as a numbered list of steps. A flowchart takes that same list and turns it into a **picture** — a visual map you can follow with your eyes, moving from box to box along the arrows. Many people find it much easier to understand logic when they can *see* it laid out visually, especially when there are decisions involved (like "if this is true, go this way; if false, go that way").
+
+Flowcharts are especially useful *before* writing any code, because they force you to think through every possible path your program could take — including what happens for both a "yes" and a "no" answer to any question — before you get lost in the details of actual programming syntax.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Start/End Shape (Oval)** — Marks where the flowchart begins and where it ends. Every flowchart has exactly one start and at least one end.
+- **Process Shape (Rectangle)** — Represents a single action or instruction, like "add 5 to the total" or "store the result."
+- **Decision Shape (Diamond)** — Represents a question with a Yes/No (or True/False) answer, splitting the flow into two different paths depending on the answer.
+- **Input/Output Shape (Parallelogram)** — Represents getting information from the user (input) or showing information to the user (output).
+- **Arrows (Flow Lines)** — Connect the shapes and show the exact order/direction the program follows, step by step.
+- **Flow of Control** — The overall path the program takes as it moves through the flowchart, which can branch (at decisions) or loop back (during repetition).
 
-## Example
+## Visual Flow — The Basic Flowchart Shapes
 
-_A worked example with code._
+Here are the standard shapes used in every flowchart, and what each one means:
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+  padding: '2rem 1rem'
+}}>
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '999px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.08)',
+    textAlign: 'center',
+    minWidth: '110px'
+  }}>
+    <div style={{ fontSize: '1.6rem' }}>⭕</div>
+    <div style={{ fontWeight: 700, fontSize: '0.85rem', marginTop: '0.3rem' }}>Start / End</div>
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '8px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '110px'
+  }}>
+    <div style={{ fontSize: '1.6rem' }}>▭</div>
+    <div style={{ fontWeight: 700, fontSize: '0.85rem', marginTop: '0.3rem' }}>Process</div>
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '8px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '110px'
+  }}>
+    <div style={{ fontSize: '1.6rem' }}>◇</div>
+    <div style={{ fontWeight: 700, fontSize: '0.85rem', marginTop: '0.3rem' }}>Decision</div>
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '8px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.08)',
+    textAlign: 'center',
+    minWidth: '110px'
+  }}>
+    <div style={{ fontSize: '1.6rem' }}>▱</div>
+    <div style={{ fontWeight: 700, fontSize: '0.85rem', marginTop: '0.3rem' }}>Input / Output</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  Every flowchart in the world is built using just these four basic shapes
+</div>
+
+## Example — Turning an Algorithm Into a Flowchart, Step by Step
+
+**Problem:** Check whether a number is even or odd (the same problem from our earlier Programming Concepts lesson) — but this time, let's *draw* the logic instead of just writing it.
+
+**Step 1 — Here's the full flowchart, drawn using our shapes:**
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '0.6rem',
+  padding: '2rem 1rem'
+}}>
+
+  <div style={{
+    padding: '0.8rem 1.5rem',
+    borderRadius: '999px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    fontWeight: 700,
+    textAlign: 'center'
+  }}>
+    ⭕ Start
+  </div>
+
+  <div style={{ fontSize: '1.3rem', color: '#999' }}>⬇</div>
+
+  <div style={{
+    padding: '0.8rem 1.5rem',
+    borderRadius: '8px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    ▱ Input a number (n)
+  </div>
+
+  <div style={{ fontSize: '1.3rem', color: '#999' }}>⬇</div>
+
+  <div style={{
+    padding: '0.8rem 1.5rem',
+    borderRadius: '8px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    ◇ Is n % 2 == 0 ?
+  </div>
+
+  <div style={{ display: 'flex', gap: '3rem', marginTop: '0.3rem' }}>
+    <div style={{ textAlign: 'center' }}>
+      <div style={{ fontSize: '0.85rem', color: '#2ecc71', fontWeight: 700, marginBottom: '0.3rem' }}>Yes ⬇</div>
+      <div style={{
+        padding: '0.8rem 1.2rem',
+        borderRadius: '8px',
+        border: '2px solid #4f8cff',
+        background: 'rgba(79,140,255,0.08)',
+        fontWeight: 600
+      }}>
+        ▭ Print "Even"
+      </div>
+    </div>
+    <div style={{ textAlign: 'center' }}>
+      <div style={{ fontSize: '0.85rem', color: '#ff6b6b', fontWeight: 700, marginBottom: '0.3rem' }}>No ⬇</div>
+      <div style={{
+        padding: '0.8rem 1.2rem',
+        borderRadius: '8px',
+        border: '2px solid #4f8cff',
+        background: 'rgba(79,140,255,0.08)',
+        fontWeight: 600
+      }}>
+        ▭ Print "Odd"
+      </div>
+    </div>
+  </div>
+
+  <div style={{ fontSize: '1.3rem', color: '#999', marginTop: '0.3rem' }}>⬇</div>
+
+  <div style={{
+    padding: '0.8rem 1.5rem',
+    borderRadius: '999px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    fontWeight: 700,
+    textAlign: 'center'
+  }}>
+    ⭕ End
+  </div>
+
+</div>
+
+Notice the **diamond shape** is where the flowchart splits into two separate paths — one for "Yes" and one for "No." Both paths eventually rejoin and lead to the same "End," but they print different messages along the way.
+
+**Step 2 — Now translate this exact flowchart into C code:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int n;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    if (n % 2 == 0) {
+        printf("Even\n");
+    } else {
+        printf("Odd\n");
+    }
+
+    return 0;
+}
+```
+
+**Step 3 — Match each line back to the flowchart:**
+
+- `printf("Enter a number: "); scanf("%d", &n);` — This is the **parallelogram** (Input) — asking the user for a number and storing it in `n`.
+- `if (n % 2 == 0) {` — This is the **diamond** (Decision) — checking the exact question from our flowchart.
+- `printf("Even\n");` — This is the **rectangle** (Process) on the "Yes" path.
+- `printf("Odd\n");` — This is the **rectangle** (Process) on the "No" path.
+- The program naturally ends after either branch runs, matching the flowchart's single "End" oval.
+
+This is exactly why flowcharts are so useful — every shape in the diagram maps directly onto a specific piece of real code, making it much easier to plan complex logic before you start typing.
 
 ## Run your code
 
@@ -29,6 +231,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What do the oval, rectangle, diamond, and parallelogram shapes each represent in a flowchart?
+2. Why is a flowchart useful to draw *before* writing actual code?
+3. In the even/odd flowchart, what happens differently on the "Yes" path versus the "No" path?
+4. If you were making a flowchart for "check if a person is eligible to vote (age 18 or older)," what would go in the decision diamond?
+5. Why do both paths of a decision diamond eventually need to lead back to the same flow, even if they print different things?
 
 <AskBox topic="Flowchart" section="Programming Fundamentals" />
