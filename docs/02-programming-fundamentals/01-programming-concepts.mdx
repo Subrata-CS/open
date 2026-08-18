@@ -13,15 +13,247 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Programming Concepts - part of Programming Fundamentals. A short introduction goes here._
+**Programming** simply means giving a computer a set of clear, step-by-step instructions to follow, so it can complete a task for you. That's it — nothing magical. A computer is incredibly fast and never gets tired, but it's also completely "dumb" in one specific way: it can **only** do exactly what you tell it to do, in exactly the order you tell it. It cannot guess, assume, or read your mind.
+
+Before we even touch code, let's understand this with something everyone already knows: **a recipe**.
+
+Imagine you want to teach someone (who has never cooked before) how to make tea. You wouldn't just say "make tea" — that's too vague for someone with zero knowledge. Instead, you'd break it into exact steps:
+
+1. Boil water.
+2. Add tea leaves.
+3. Wait 3 minutes.
+4. Add milk and sugar.
+5. Pour into a cup.
+
+This exact list of steps — clear, ordered, and specific — is called an **Algorithm**. A recipe is an algorithm for cooking. A computer program is an algorithm for a computer. **Programming is the act of writing algorithms in a language a computer can understand.**
 
 ## Key Concepts
 
-_The main ideas, one line each._
+Let's slowly build up the core ideas, one at a time, from the ground up.
 
-## Example
+- **Algorithm** — A step-by-step set of instructions to solve a problem or complete a task (like our tea recipe above).
+- **Program** — An algorithm written in a specific programming language (like C, Python, or JavaScript) so a computer can actually run it.
+- **Programming Language** — A special language with strict rules (called **syntax**) that lets humans write instructions the computer can understand. Just like English has grammar rules, programming languages have their own grammar.
+- **Variable** — A named "container" that stores a piece of information (like a number or a word), so the program can use or change it later. Think of it like a labeled box: you write "age" on a box and put the number 25 inside it.
+- **Instruction/Statement** — A single command telling the computer to do one specific thing, like "add these two numbers" or "show this text on screen."
+- **Sequence** — Instructions run one after another, in the exact order you write them — just like our tea steps had to happen in order (you can't add milk before boiling water).
+- **Condition (Decision Making)** — Letting a program make a choice: "IF this is true, do this — OTHERWISE, do that." Like deciding "if it's raining, take an umbrella; otherwise, don't."
+- **Loop (Repetition)** — Repeating an instruction multiple times without rewriting it, like saying "stir the tea 10 times" instead of writing "stir" ten separate times.
+- **Function** — A named, reusable block of instructions you can "call" whenever needed, instead of rewriting the same steps over and over. Like having a name for the whole "make tea" process, so you can just say "make tea" instead of listing all 5 steps every time.
 
-_A worked example with code._
+## Visual Flow — From Problem to Working Program
+
+Here's the big-picture flow of how programming actually works, from a real-world problem to a running program:
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+  padding: '2rem 1rem'
+}}>
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '110px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>🤔</div>
+    <div style={{ fontWeight: 700, marginTop: '0.3rem', fontSize: '0.85rem' }}>Real Problem</div>
+  </div>
+
+  <div style={{ fontSize: '1.5rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '110px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>📝</div>
+    <div style={{ fontWeight: 700, marginTop: '0.3rem', fontSize: '0.85rem' }}>Write Algorithm</div>
+  </div>
+
+  <div style={{ fontSize: '1.5rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.08)',
+    textAlign: 'center',
+    minWidth: '110px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>💻</div>
+    <div style={{ fontWeight: 700, marginTop: '0.3rem', fontSize: '0.85rem' }}>Write Code</div>
+  </div>
+
+  <div style={{ fontSize: '1.5rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.08)',
+    textAlign: 'center',
+    minWidth: '110px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>⚙️</div>
+    <div style={{ fontWeight: 700, marginTop: '0.3rem', fontSize: '0.85rem' }}>Computer Runs It</div>
+  </div>
+
+  <div style={{ fontSize: '1.5rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #ff6b6b',
+    background: 'rgba(255,107,107,0.08)',
+    textAlign: 'center',
+    minWidth: '110px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>✅</div>
+    <div style={{ fontWeight: 700, marginTop: '0.3rem', fontSize: '0.85rem' }}>Problem Solved</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  Every single program you'll ever write follows this exact same journey
+</div>
+
+## Example — Let's Solve a Simple Math Problem, Step by Step
+
+Before jumping into real code, let's think through a problem the way a programmer would — using pure logic and simple math first.
+
+**Problem:** We want to find the sum of two numbers, and tell the user if the result is even or odd.
+
+**Step 1 — Break the problem into small pieces (write the algorithm in plain words):**
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>📦 Store the numbers:</strong> Keep the two numbers in variables, let's call them <code>a</code> and <code>b</code>.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>➕ Add them:</strong> Calculate <code>a + b</code> and store the result in a new variable, <code>sum</code>.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>🤔 Make a decision:</strong> Check IF <code>sum</code> divided by 2 leaves no remainder — if so, it's even. Otherwise, it's odd.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>4️⃣</div>
+    <div>
+      <strong>🖥️ Show the result:</strong> Display the sum, and whether it's even or odd.
+    </div>
+  </div>
+
+</div>
+
+Notice something important: **we planned this entire solution without writing a single line of real code.** This is exactly what professional programmers do — think through the logic first, in plain language, *before* touching any programming language. This is the real skill of programming; the code itself is just "translating" this thinking into a language the computer understands.
+
+**Step 2 — Now let's translate this exact plan into actual C code:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5;
+    int b = 7;
+    int sum = a + b;
+
+    if (sum % 2 == 0) {
+        printf("Sum is %d, which is even.\n", sum);
+    } else {
+        printf("Sum is %d, which is odd.\n", sum);
+    }
+
+    return 0;
+}
+```
+
+**Step 3 — Let's understand every single line, so nothing feels like "magic":**
+
+- `#include <stdio.h>` — This tells the computer "I want to use basic input/output tools," like `printf` (used for showing text on screen).
+- `int main() {` — Every C program starts running from here. Think of `main()` as the "start" button of your program.
+- `int a = 5;` — Creates a variable named `a`, and stores the number 5 inside it. `int` just means "this variable will hold a whole number."
+- `int b = 7;` — Same idea, creates variable `b` with the value 7.
+- `int sum = a + b;` — Adds `a` and `b` (5 + 7 = 12), and stores that result in a new variable called `sum`.
+- `if (sum % 2 == 0) {` — This is the **decision** step. The `%` symbol means "remainder after division." If dividing `sum` by 2 leaves 0 remainder, it's even.
+- `printf("Sum is %d, which is even.\n", sum);` — If the condition above was true, this line displays the message on screen, inserting the actual value of `sum` where `%d` is.
+- `else { ... }` — If the condition was false (there was a remainder), this block runs instead, printing "odd" instead of "even."
+- `return 0;` — Tells the computer "the program finished successfully."
+
+**Step 4 — Trace through it like the computer would:**
+
+Since `a = 5` and `b = 7`, sum becomes `5 + 7 = 12`. Then the computer checks: does 12 divided by 2 leave a remainder? No — 12 ÷ 2 = 6 exactly, remainder 0. So the condition `sum % 2 == 0` is **true**, and the program prints:
+
+That's the entire thinking process behind even a "simple" program — break the problem into small logical steps first, then translate each step into code, one line at a time.
 
 ## Run your code
 
@@ -29,6 +261,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What is an algorithm, and how is a recipe a real-life example of one?
+2. What is the difference between an algorithm and a program?
+3. What does a variable do, and how is it like a labeled box?
+4. In the example code, what would the output be if `a = 3` and `b = 4` instead?
+5. Why is it useful to plan out the steps of a program in plain language before writing actual code?
 
 <AskBox topic="Programming Concepts" section="Programming Fundamentals" />
