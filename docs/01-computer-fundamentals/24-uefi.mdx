@@ -13,15 +13,179 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_UEFI - part of Computer Fundamentals. A short introduction goes here._
+**UEFI (Unified Extensible Firmware Interface)** is the modern replacement for traditional BIOS. It does the same core job — running first when you power on the computer, checking hardware, and starting the boot process — but it's faster, more capable, and easier to use than old-style BIOS.
+
+Think of UEFI as BIOS's smarter, more advanced successor. Where BIOS was like a simple text-based checklist from the 1980s, UEFI is like a modern app with a mouse-clickable graphical menu, support for larger storage drives, faster startup times, and better built-in security features.
+
+Almost all computers made in the last decade use UEFI instead of traditional BIOS, though many people still casually call it "BIOS" out of habit, even when their system is technically running UEFI.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Successor to BIOS** — UEFI performs the same essential startup role as BIOS, but with modern improvements in speed, security, and usability.
+- **Graphical Interface** — Unlike old BIOS (text-only, keyboard-controlled), UEFI often supports mouse input and graphical menus, making settings easier to navigate.
+- **Faster Boot Times** — UEFI can initialize hardware and hand off to the operating system more quickly than legacy BIOS.
+- **Secure Boot** — A security feature in UEFI that checks whether the operating system's startup software is trusted and unmodified, helping protect against malware that tries to load before the OS.
+- **Support for Large Drives** — UEFI supports the GPT (GUID Partition Table) disk format, allowing computers to use storage drives larger than 2TB — something older BIOS with MBR partitioning couldn't handle.
+- **Backward Compatibility** — Many UEFI systems include a "Legacy BIOS mode" or "CSM" to still support older operating systems and hardware that expect traditional BIOS behavior.
 
-## Example
+## Visual Flow — UEFI in the Startup Process
 
-_A worked example with code._
+Follow the arrows to see where UEFI fits into a modern computer's startup sequence:
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+  padding: '2rem 1rem'
+}}>
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '130px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>🔌</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Power On</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.8rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    textAlign: 'center',
+    minWidth: '130px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>🛡️</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>UEFI Initializes</div>
+    <div style={{ fontSize: '0.85rem', color: '#666' }}>checks hardware</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '130px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>🔒</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Secure Boot Check</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.08)',
+    textAlign: 'center',
+    minWidth: '130px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>🖥️</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>OS Takes Over</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  UEFI does everything BIOS does, plus an extra security checkpoint and much faster startup
+</div>
+
+## Example — Watch It Happen Step by Step
+
+Let's trace what happens when a modern computer with UEFI **starts up and loads Windows**.
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>🔌 Power On:</strong> You press the power button, and the motherboard sends power to the CPU.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>🛡️ UEFI Initializes:</strong> UEFI firmware runs first, quickly checking the CPU, RAM, and storage devices.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>🔒 Secure Boot Verifies:</strong> UEFI checks that the operating system loader hasn't been tampered with by malware.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>4️⃣</div>
+    <div>
+      <strong>🖥️ Windows Loads:</strong> With hardware confirmed and security verified, UEFI hands off control, and Windows starts loading — usually in just a few seconds.
+    </div>
+  </div>
+
+</div>
+
+This entire UEFI process typically takes just 1–2 seconds on modern hardware, which is a big reason why newer computers boot up so much faster than older ones using legacy BIOS.
 
 ## Run your code
 
@@ -29,6 +193,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What does UEFI stand for, and what role does it play at startup?
+2. Name two advantages UEFI has over traditional BIOS.
+3. What is Secure Boot, and why is it useful?
+4. Why can UEFI support storage drives larger than 2TB, while old BIOS could not?
+5. What is "Legacy BIOS mode" or "CSM" used for in a UEFI system?
 
 <AskBox topic="UEFI" section="Computer Fundamentals" />
