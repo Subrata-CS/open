@@ -13,15 +13,107 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Number System - part of Computer Fundamentals. A short introduction goes here._
+A **Number System** is a way of writing and representing numbers using a specific set of symbols. Humans normally count using 10 digits (0–9) — this is called the **decimal system**. But computers don't understand "10 digits" the way we do — internally, they only understand two states: **on** and **off**, represented as **1** and **0**.
+
+Because of this, computers use different number systems depending on the situation — mainly **Binary**, **Octal**, **Decimal**, and **Hexadecimal**. These aren't different "types" of numbers — they're just different ways of writing the same number, using a different count of available symbols (called the **base**).
+
+Understanding number systems is the foundation for understanding how computers store, process, and display all data — from a simple number to an entire image or video.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Base (Radix)** — The number of unique digits a number system uses. Decimal has base 10 (0–9), Binary has base 2 (0–1), Octal has base 8 (0–7), Hexadecimal has base 16 (0–9, A–F).
+- **Binary (Base 2)** — Uses only 0 and 1. This is the native language of computers, since each digit (called a **bit**) maps directly to an electrical signal being off (0) or on (1).
+- **Decimal (Base 10)** — The everyday number system humans use, with digits 0–9.
+- **Octal (Base 8)** — Uses digits 0–7. Historically used as a shorter way to represent binary numbers.
+- **Hexadecimal (Base 16)** — Uses digits 0–9 and letters A–F (where A=10, B=11 ... F=15). Commonly used in programming, such as color codes (#FF0000) or memory addresses.
+- **Conversion** — The same value can be written in any of these systems; for example, the decimal number 10 is written as 1010 in binary, 12 in octal, and A in hexadecimal.
+
+## How Number Systems Work (Diagram)
+
+The diagram below shows the same value (ten) written in each number system.
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1.5rem',
+  padding: '2.5rem 1rem'
+}}>
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    🔟 Decimal: 10
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    💡 Binary: 1010
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    📦 Octal: 12
+  </div>
+
+  <div style={{
+    padding: '1rem 1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    🎨 Hexadecimal: A
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-1rem',
+  marginBottom: '2rem'
+}}>
+  All four boxes represent the exact same value — just written using different symbol systems
+</div>
+
+> Computers only understand binary (on/off signals), but humans work more easily with decimal and hexadecimal — so conversion between these systems happens constantly.
 
 ## Example
 
-_A worked example with code._
+Let's see how a decimal number is converted and shown in binary using Python:
+
+```python
+number = 5
+print(bin(number))  # Output: 0b101
+```
+
+Here's what happens step by step:
+
+1. **Decimal** — You write the number 5, the way humans normally count.
+2. **Conversion** — The computer converts 5 into binary internally, since it can only work with on/off electrical signals.
+3. **Binary Result** — 5 becomes `101` in binary, meaning (1×4) + (0×2) + (1×1) = 5.
+4. **Displayed Back** — When you print the number, the computer converts it back to decimal (5) so it's easy for you to read.
+
+This constant back-and-forth conversion — decimal for humans, binary for the computer — happens billions of times per second without you ever noticing.
 
 ## Run your code
 
@@ -29,6 +121,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. Why do computers use binary instead of decimal internally?
+2. What does "base" mean in a number system?
+3. Convert the decimal number 8 into binary.
+4. Why is hexadecimal commonly used in programming, even though computers use binary?
+5. What are the valid digits used in octal, and how many are there?
 
 <AskBox topic="Number System" section="Computer Fundamentals" />
