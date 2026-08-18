@@ -13,15 +13,181 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Internet Basics - part of Computer Fundamentals. A short introduction goes here._
+The **Internet** is a massive network of computers all over the world, connected together so they can share information with each other. When you visit a website, send a message, or watch a video online, your computer is talking to another computer (a **server**) somewhere else in the world, exchanging data back and forth through this network.
+
+Think of the internet like a giant postal system. When you write a letter (a request, like typing a website address), it doesn't go directly to its destination in one jump — it passes through many post offices and sorting centers (routers) along the way, each one reading the address and forwarding it closer to its destination. The reply (the website's data) travels back to you the same way.
+
+No single company or computer "owns" the internet — it's a cooperative network of millions of interconnected devices, all following shared rules (called **protocols**) so they can understand each other.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Server** — A powerful computer that stores websites, files, or data, and responds to requests from other computers (like yours).
+- **Client** — Your device (phone, laptop) that requests information from a server, such as asking to load a webpage.
+- **IP Address** — A unique numerical address assigned to every device on a network, similar to a postal address, so data knows where to go.
+- **Router** — A device that directs data between networks, forwarding information toward its correct destination, step by step.
+- **ISP (Internet Service Provider)** — The company (like your local broadband or mobile provider) that connects your home or device to the wider internet.
+- **Protocol** — A shared set of rules that computers follow to communicate correctly, such as **HTTP/HTTPS** (used for websites) or **TCP/IP** (the underlying rules for sending data reliably across the internet).
 
-## Example
+## Visual Flow — How a Webpage Reaches You
 
-_A worked example with code._
+Follow the arrows to see what happens when you type a website address and press Enter:
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+  padding: '2rem 1rem'
+}}>
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>💻</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Your Device</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>(Client)</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>📡</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>ISP + Router</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.8rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>🗄️</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Server</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>hosts the website</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>🖥️</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Page Loads</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>back on your screen</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  This entire round trip usually happens in well under a second, even across continents
+</div>
+
+## Example — Watch It Happen Step by Step
+
+Let's trace exactly what happens when you **type a website address and press Enter**.
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>💻 Request Sent:</strong> You type a website address in your browser and press Enter — your device (the client) sends out a request.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>📡 Travels Through Routers:</strong> Your request passes through your ISP and multiple routers, each one forwarding it closer to the correct destination using its IP address.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>🗄️ Server Responds:</strong> The website's server receives your request and sends back the webpage's data (text, images, etc.).
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>4️⃣</div>
+    <div>
+      <strong>🖥️ Page Displays:</strong> The data travels all the way back through the same network path, and your browser displays the finished webpage.
+    </div>
+  </div>
+
+</div>
+
+Even though the server might be located on the other side of the world, this entire request-and-response journey usually completes in a fraction of a second, thanks to the speed of modern networks and protocols like HTTP/HTTPS working reliably in the background.
 
 ## Run your code
 
@@ -29,6 +195,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What is the difference between a client and a server?
+2. What is an IP address, and why does every device need one?
+3. What role does a router play when data travels across the internet?
+4. What is an ISP, and what does it do?
+5. Why do computers need shared "protocols" like HTTP to communicate?
 
 <AskBox topic="Internet Basics" section="Computer Fundamentals" />
