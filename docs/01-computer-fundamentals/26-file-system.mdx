@@ -13,15 +13,162 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_File System - part of Computer Fundamentals. A short introduction goes here._
+A **File System** is the method a computer uses to organize, name, store, and retrieve files on a storage device (like an SSD or HDD). Without a file system, a storage drive would just be a giant blob of raw data — the computer wouldn't know where one file ends and another begins, or even what to call them.
+
+Think of a file system like a library's cataloging system. A library doesn't just throw books onto random shelves — every book has a specific location, a label, and an entry in the catalog so it can be found again instantly. A file system does the same thing for your data: it keeps track of exactly where each file is physically stored on the drive, along with its name, size, and folder location.
+
+Different operating systems use different file systems — for example, Windows commonly uses **NTFS**, macOS uses **APFS**, and Linux often uses **ext4** — but they all serve the same basic purpose.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **File** — A named collection of data stored on a device, such as a document, photo, or program.
+- **Folder/Directory** — A container used to organize files into groups, and folders can contain other folders too, forming a tree-like structure.
+- **File Path** — The exact "address" of a file, showing which folders you'd need to go through to reach it, like `C:\Users\John\Documents\notes.txt`.
+- **File Extension** — The part of a filename after the dot (like `.docx`, `.mp3`, `.jpg`) that tells the computer what type of file it is and which program should open it.
+- **File Allocation Table / Index** — A behind-the-scenes record the file system keeps, tracking exactly where each file's data physically sits on the storage drive.
+- **Common File Systems** — NTFS (Windows), APFS (macOS), ext4 (Linux), and FAT32/exFAT (widely compatible, often used for USB drives).
 
-## Example
+## Visual Flow — How the File System Organizes Data
 
-_A worked example with code._
+Follow the structure below to see how files are organized in a tree, from drive down to individual file:
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '0.8rem',
+  padding: '2rem 1rem'
+}}>
+
+  <div style={{
+    padding: '1rem 1.8rem',
+    borderRadius: '12px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    fontWeight: 700,
+    textAlign: 'center'
+  }}>
+    💽 Storage Drive (C:)
+  </div>
+
+  <div style={{ fontSize: '1.3rem', color: '#999' }}>⬇</div>
+
+  <div style={{
+    padding: '0.9rem 1.6rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    📁 Users → John → Documents
+  </div>
+
+  <div style={{ fontSize: '1.3rem', color: '#999' }}>⬇</div>
+
+  <div style={{
+    padding: '0.9rem 1.6rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    📄 notes.txt
+  </div>
+
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  This full path — drive → folders → file — is exactly what a "file path" describes
+</div>
+
+## Example — Watch It Happen Step by Step
+
+Let's trace what happens when you **save a new document** on your computer.
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>📝 You Click Save:</strong> You finish typing a document and click "Save," naming it "notes.txt".
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>🗂️ File System Finds Space:</strong> The file system locates free space on the storage drive to physically write the file's data.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>📇 Index Updated:</strong> The file system records the file's name, location, size, and folder path in its index, so it can be found again later.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>4️⃣</div>
+    <div>
+      <strong>📁 File Appears in Folder:</strong> "notes.txt" now shows up inside your Documents folder, ready to be opened anytime.
+    </div>
+  </div>
+
+</div>
+
+The next time you double-click "notes.txt," the file system instantly looks up its recorded location in the index and retrieves the exact data from the storage drive — without this system, the computer would have no way of finding your file among potentially millions of others.
 
 ## Run your code
 
@@ -29,6 +176,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What is the main job of a file system?
+2. What is the difference between a file and a folder/directory?
+3. What does a file extension (like `.jpg` or `.mp3`) tell the computer?
+4. Name three common file systems and the operating systems that use them.
+5. Why does a computer need an "index" to keep track of files?
 
 <AskBox topic="File System" section="Computer Fundamentals" />
