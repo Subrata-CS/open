@@ -1,34 +1,395 @@
 ---
-title: "Variables & Data Types"
+title: "Variables and Data Types"
 sidebar_position: 5
-sidebar_label: "Variables & Data Types"
+sidebar_label: "Variables and Data Types"
 slug: /programming-fundamentals/variables-and-data-types
-description: "Variables & Data Types - Programming Fundamentals | Open CS Hub"
+description: "Variables and Data Types - Programming Fundamentals | Open CS Hub"
 ---
 
 import RunInLab from '@site/src/components/RunInLab';
 import AskBox from '@site/src/components/AskBox';
 
-# Variables & Data Types
+# Variables and Data Types
 
 ## Overview
 
-_Variables & Data Types - part of Programming Fundamentals. A short introduction goes here._
+A **Variable** is a named container that stores a piece of information (a value) inside a computer's memory, so a program can use, change, or refer to that information later. A **Data Type** tells the computer *what kind* of information is being stored — a whole number, a decimal number, a single letter, or a longer piece of text — because different kinds of data need to be stored differently in memory.
+
+Think of a variable like a labeled box in a warehouse. You write a label on the box (the variable name), and you put something inside it (the value). But before you even use the box, you need to know *what kind* of box it is — a box for storing liquids is built differently than a box for storing books. In the same way, a computer needs to know in advance whether a variable will hold a whole number, a decimal, or a letter, because each type is stored differently in memory and takes up a different amount of space.
+
+This is why, in many programming languages like C, you must **declare** a variable's type before using it — you're essentially telling the computer, "I need a box, and it needs to be the kind that holds whole numbers," before you're allowed to put anything inside it.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Variable Declaration** — Telling the computer to reserve memory space for a variable, along with its name and type, e.g., `int age;`
+- **Variable Initialization** — Giving a variable its first value at the same time you declare it, e.g., `int age = 25;`
+- **Assignment** — Changing the value stored in a variable after it already exists, using the `=` sign, e.g., `age = 30;`
+- **Naming Rules** — Variable names must start with a letter or underscore (not a number), can only contain letters, numbers, and underscores, cannot use spaces or reserved keywords (like `int` or `if`), and are case-sensitive (`age` and `Age` are different variables).
+- **Data Type** — Defines what kind of value a variable can hold (whole number, decimal, character, etc.) and how much memory it needs.
+- **Type Conversion** — Converting a value from one data type to another, either automatically (**implicit**) or manually by the programmer (**explicit**, also called "type casting").
+- **Constant** — A value that, once set, cannot be changed later in the program, declared using the `const` keyword, e.g., `const float PI = 3.14;`
+- **Scope** — Where in the program a variable is accessible from — a variable declared inside a function is usually only usable within that function (**local**), while one declared outside all functions can be used anywhere in the program (**global**).
+- **Storage Class** — Controls a variable's lifetime (how long it exists in memory) and visibility (where it can be accessed from) — covered in detail below.
+- **sizeof() Operator** — A built-in operator that tells you exactly how many bytes of memory a data type or variable occupies.
 
-## Example
+## Full Table — Data Types in C, A to Z
 
-_A worked example with code._
+This table covers every commonly used data type in C, its size, its range, and what it's used for:
+
+| Data Type | Keyword | Typical Size | Range (approx.) | Example Value |
+|---|---|---|---|---|
+| Integer | `int` | 4 bytes | -2,147,483,648 to 2,147,483,647 | `25`, `-100` |
+| Short Integer | `short` | 2 bytes | -32,768 to 32,767 | `120` |
+| Long Integer | `long` | 8 bytes | Very large whole numbers | `10000000000` |
+| Unsigned Integer | `unsigned int` | 4 bytes | 0 to 4,294,967,295 (no negatives) | `4000000000` |
+| Floating Point | `float` | 4 bytes | ~6-7 decimal digits precision | `3.14` |
+| Double | `double` | 8 bytes | ~15-16 decimal digits precision | `3.14159265` |
+| Character | `char` | 1 byte | -128 to 127 (or 0 to 255 unsigned) | `'A'`, `'5'`, `'$'` |
+| Boolean | `_Bool` / `bool` | 1 byte | True or false only (needs `stdbool.h`) | `1` (true), `0` (false) |
+| Void | `void` | 0 bytes | Represents "no value" | *(no value)* |
+| String (char array) | `char[]` | Varies (1 byte per character) | Text made of multiple characters | `"Hello"` |
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  Sizes can vary slightly by compiler/system, but these are the standard values on most modern computers
+</div>
+
+## Signed vs Unsigned — What's the Difference?
+
+Every whole number type (`int`, `short`, `long`) can be either **signed** (default) or **unsigned**:
+
+- **Signed** — Can store both positive and negative numbers. Half the range is used for negative values, half for positive.
+- **Unsigned** — Can only store zero and positive numbers, but in exchange, it can store a *larger maximum* positive value, since no space is "wasted" on negative numbers.
+
+```c
+int signedNum = -50;           // valid
+unsigned int unsignedNum = -50; // invalid logically — becomes a huge positive number instead!
+```
+
+This is a common beginner mistake — assigning a negative number to an `unsigned` variable doesn't cause an error, but it silently wraps around to a very large positive number instead, which can cause confusing bugs.
+
+## Storage Classes — Controlling Lifetime and Visibility
+
+A **storage class** decides *how long* a variable stays in memory and *where* in the program it can be accessed from:
+
+| Storage Class | Lifetime | Visibility | Default Value |
+|---|---|---|---|
+| `auto` | Exists only within the block/function it's declared in | Local only | Garbage (unset) |
+| `static` | Exists for the entire program's runtime, even after the function ends | Local (but remembers its value between calls) | 0 |
+| `extern` | Exists for the entire program's runtime | Can be shared across multiple files | 0 |
+| `register` | Exists only within the block/function | Local only | Garbage (unset) |
+
+```c
+#include <stdio.h>
+
+void counter() {
+    static int count = 0; // static keeps its value between function calls
+    count++;
+    printf("Count: %d\n", count);
+}
+
+int main() {
+    counter(); // Output: Count: 1
+    counter(); // Output: Count: 2
+    counter(); // Output: Count: 3
+    return 0;
+}
+```
+
+Notice how `count` doesn't reset to 0 every time `counter()` is called — because it's `static`, it remembers its previous value across multiple function calls, unlike a normal (`auto`) local variable which would reset every time.
+
+## Visual Flow — What Happens When You Declare a Variable
+
+Follow the arrows to see what happens behind the scenes the moment you write `int age = 25;`
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+  padding: '2rem 1rem'
+}}>
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>🏷️</div>
+    <div style={{ fontWeight: 700, marginTop: '0.3rem', fontSize: '0.85rem' }}>Type Declared</div>
+    <div style={{ fontSize: '0.75rem', color: '#666' }}>int</div>
+  </div>
+
+  <div style={{ fontSize: '1.5rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>📦</div>
+    <div style={{ fontWeight: 700, marginTop: '0.3rem', fontSize: '0.85rem' }}>Memory Reserved</div>
+    <div style={{ fontSize: '0.75rem', color: '#666' }}>4 bytes set aside</div>
+  </div>
+
+  <div style={{ fontSize: '1.5rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.4rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    fontWeight: 700,
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>🔖</div>
+    <div style={{ marginTop: '0.3rem', fontSize: '0.85rem' }}>Named "age"</div>
+  </div>
+
+  <div style={{ fontSize: '1.5rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>✅</div>
+    <div style={{ fontWeight: 700, marginTop: '0.3rem', fontSize: '0.85rem' }}>Value Stored</div>
+    <div style={{ fontSize: '0.75rem', color: '#666' }}>25</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  This entire process happens instantly, every time a variable is declared and initialized
+</div>
+
+## Example — Using Every Major Data Type Together, Step by Step
+
+Let's write one complete program that uses **every major data type**, so you can see them all working side by side.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int age = 25;
+    float height = 5.9;
+    double distance = 384400.756;
+    char grade = 'A';
+    int isStudent = 1; // Acting as a boolean: 1 = true, 0 = false
+    char name[20] = "Rahul";
+    int a, b, c; // Multiple variables declared in one line
+
+    a = 1; b = 2; c = 3;
+
+    printf("Name: %s\n", name);
+    printf("Age: %d\n", age);
+    printf("Height: %.1f feet\n", height);
+    printf("Distance: %.3lf km\n", distance);
+    printf("Grade: %c\n", grade);
+    printf("Is Student: %d\n", isStudent);
+    printf("a=%d, b=%d, c=%d\n", a, b, c);
+    printf("Size of int: %lu bytes\n", sizeof(age));
+    printf("Size of double: %lu bytes\n", sizeof(distance));
+
+    return 0;
+}
+```
+
+**Step-by-step explanation of every single line:**
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>int age = 25;</strong> Declares a variable that holds a whole number, and stores 25 in it.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>float height = 5.9; / double distance = ...;</strong> Store decimal numbers — float for less precision, double for more.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>char grade = 'A'; / char name[20] = "Rahul";</strong> A single character uses single quotes ('A'); a string (multiple characters) uses double quotes ("Rahul") and needs an array of characters.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>4️⃣</div>
+    <div>
+      <strong>int a, b, c;</strong> Declares three separate integer variables in a single line, instead of writing three separate lines.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff6b6b',
+    background: 'rgba(255,107,107,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>5️⃣</div>
+    <div>
+      <strong>sizeof(age);</strong> Returns exactly how many bytes the variable <code>age</code> takes up in memory — here, 4 bytes.
+    </div>
+  </div>
+
+</div>
+
+**Understanding the `printf` format specifiers used:**
+
+| Specifier | Used For | Example |
+|---|---|---|
+| `%d` | int (whole numbers) | `printf("%d", age);` |
+| `%f` | float (decimals, 6 decimal places by default) | `printf("%f", height);` |
+| `%.1f` | float, rounded to 1 decimal place | `printf("%.1f", height);` |
+| `%lf` | double (decimals) | `printf("%lf", distance);` |
+| `%c` | char (single character) | `printf("%c", grade);` |
+| `%s` | string (text/char array) | `printf("%s", name);` |
+| `%lu` | size_t (used with sizeof) | `printf("%lu", sizeof(age));` |
+
+**Running this program produces the following output:**
+
+## Example — Type Conversion (Implicit vs Explicit)
+
+```c
+#include <stdio.h>
+
+int main() {
+    int wholeNumber = 9;
+    float result;
+
+    // Explicit conversion (type casting) - done manually by the programmer
+    result = (float) wholeNumber / 2;
+
+    printf("Result: %.2f\n", result);
+
+    return 0;
+}
+```
+
+Here, `(float) wholeNumber` **explicitly** converts the integer 9 into a float *before* dividing by 2. Without this cast, dividing two integers (`9 / 2`) in C would give `4` (losing the decimal part), because integer division drops anything after the decimal point. By casting to float first, we correctly get `4.50` as the result.
+
+- **Implicit Conversion** happens automatically, without you writing anything special — for example, if you assign an `int` value to a `float` variable, C automatically converts it for you behind the scenes.
+- **Explicit Conversion (Type Casting)** happens when you deliberately force a value from one type into another, by writing the target type in parentheses before the value, like `(float) wholeNumber`.
+
+## Escape Sequences — Special Characters in Strings and Chars
+
+Sometimes you need to represent characters that can't be typed directly, like a new line or a tab. These are written using a backslash `\`:
+
+| Escape Sequence | Meaning |
+|---|---|
+| `\n` | New line |
+| `\t` | Tab space |
+| `\\` | A single backslash character |
+| `\'` | A single quote character |
+| `\"` | A double quote character |
+| `\0` | Null character (marks the end of a string in C) |
+
+```c
+printf("Hello\nWorld\t!\n");
+```
+
+This prints "Hello", then moves to a new line, prints "World", adds a tab space, then "!".
+
+## Naming Convention Best Practices
+
+While C allows flexible variable names, following consistent naming styles makes code much easier to read:
+
+- **camelCase** — `studentAge`, `totalMarks` (common in many languages, capitalize each word after the first)
+- **snake_case** — `student_age`, `total_marks` (common in C, words separated by underscores)
+- Use meaningful names (`age` instead of `a`, `totalPrice` instead of `tp`) so your code is understandable without extra comments.
+- Avoid starting variable names with a number, and avoid using reserved keywords (`int`, `return`, `if`, etc.) as variable names.
 
 ## Run your code
 
-<RunInLab topic="Variables & Data Types" lang="c" />
+<RunInLab topic="Variables and Data Types" lang="c" />
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
 
-<AskBox topic="Variables & Data Types" section="Programming Fundamentals" />
+1. What is the difference between declaring a variable and initializing a variable?
+2. What is the difference between `float` and `double`? Why might a programmer choose one over the other?
+3. What is the difference between implicit and explicit type conversion? Give an example of each.
+4. What happens if you assign a negative number to an `unsigned int`? Why?
+5. What does the `static` storage class do differently compared to a normal local variable?
+6. What does the `sizeof()` operator return, and why is it useful?
+7. What is the purpose of the escape sequence `\n`, and where might you use it?
+8. Why is `total_marks` generally considered better than `tm` as a variable name?
+
+<AskBox topic="Variables and Data Types" section="Programming Fundamentals" />
