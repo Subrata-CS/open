@@ -13,15 +13,209 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Algorithm - part of Programming Fundamentals. A short introduction goes here._
+An **Algorithm** is a clear, step-by-step set of instructions to solve a specific problem or complete a task. It's not tied to any particular programming language — it's the *thinking* and *planning* that happens before you write any code at all.
+
+Think about how you'd explain to a friend how to find the largest of three numbers written on paper. You wouldn't just say "find the biggest" — you'd walk them through exact steps: "Look at the first two numbers, keep whichever is bigger. Now compare that with the third number, and keep whichever is bigger this time. That's your answer." This exact sequence of steps — clear, ordered, and unambiguous — is an algorithm.
+
+The important thing to understand is: **the same algorithm can be written in any programming language** — C, Python, JavaScript — because an algorithm is about the *logic*, not the *syntax*. This is why learning to think in algorithms is more valuable than memorizing any one language; once you can plan a solution clearly, translating it into code becomes the easy part.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Problem** — The task you're trying to solve, described in plain terms (e.g., "find the largest of three numbers").
+- **Steps** — Individual instructions that, when followed in order, solve the problem. Each step must be clear and unambiguous — no guessing allowed.
+- **Input** — The information an algorithm needs to start working (e.g., the three numbers you're comparing).
+- **Output** — The result the algorithm produces after following all its steps (e.g., the largest number).
+- **Finite** — A proper algorithm must eventually stop — it can't run forever. It should reach an answer in a limited number of steps.
+- **Flowchart** — A visual diagram using boxes and arrows to represent an algorithm's steps and decisions, often used to plan logic before writing code.
+- **Pseudocode** — Writing an algorithm in a code-like structure, but using plain English instead of a specific programming language's exact syntax — a useful middle step between plain language and real code.
 
-## Example
+## Visual Flow — What Makes Something an Algorithm
 
-_A worked example with code._
+Every algorithm follows this same basic shape, no matter how simple or complex the problem is:
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+  padding: '2rem 1rem'
+}}>
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>📥</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Input</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>the starting data</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.8rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>⚙️</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Steps</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>clear, ordered logic</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>📤</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Output</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>the final answer</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  Input → Steps → Output — this pattern applies whether the algorithm is 3 steps or 3,000
+</div>
+
+## Example — Solving a Problem With an Algorithm, Step by Step
+
+**Problem:** Given three numbers, find the largest one.
+
+**Step 1 — Write the algorithm in plain words first (this is the actual "algorithm"):**
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>📥 Start:</strong> Take three numbers as input — call them <code>a</code>, <code>b</code>, and <code>c</code>.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>⚖️ Compare a and b:</strong> If <code>a</code> is bigger than <code>b</code>, temporarily treat <code>a</code> as the "largest so far." Otherwise, treat <code>b</code> as the largest so far.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>⚖️ Compare with c:</strong> Take whichever number won step 2, and compare it with <code>c</code>. Keep whichever is bigger.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>4️⃣</div>
+    <div>
+      <strong>📤 Output:</strong> Display the final number that remained — that's the largest of the three.
+    </div>
+  </div>
+
+</div>
+
+Notice we solved the *entire logic* using only plain language and comparisons — no programming language needed yet. This is the real value of an algorithm: it works no matter what language you eventually use to write it.
+
+**Step 2 — Now translate this exact plan into C code:**
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 12, b = 45, c = 30;
+    int largest;
+
+    if (a > b) {
+        largest = a;
+    } else {
+        largest = b;
+    }
+
+    if (c > largest) {
+        largest = c;
+    }
+
+    printf("The largest number is %d\n", largest);
+
+    return 0;
+}
+```
+
+**Step 3 — Understand each line:**
+
+- `int a = 12, b = 45, c = 30;` — Creates three variables holding our three numbers.
+- `int largest;` — Creates an empty variable that will eventually hold whichever number turns out to be the biggest.
+- `if (a > b) { largest = a; } else { largest = b; }` — This matches step 2 of our algorithm exactly: compare `a` and `b`, and store the bigger one in `largest`.
+- `if (c > largest) { largest = c; }` — This matches step 3: compare `c` against whatever's currently in `largest`, and update it if `c` is bigger.
+- `printf("The largest number is %d\n", largest);` — This matches step 4: display the final answer.
+
+**Step 4 — Trace through it like the computer would:**
+
+With `a = 12`, `b = 45`, `c = 30`: first, is `a > b`? Is 12 > 45? No — so `largest` becomes `b`, which is 45. Next, is `c > largest`? Is 30 > 45? No — so `largest` stays 45. The program prints:
+
+Notice how the code follows the exact same steps we planned in plain English — that's the whole point of writing the algorithm first.
 
 ## Run your code
 
@@ -29,6 +223,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What is the difference between an algorithm and a program?
+2. Why must an algorithm be "finite" (eventually stop)?
+3. What is pseudocode, and why is it useful?
+4. Using the "largest of three numbers" algorithm, what would the output be if `a = 50`, `b = 20`, `c = 60`?
+5. Why can the same algorithm be written in different programming languages, like C or Python?
 
 <AskBox topic="Algorithm" section="Programming Fundamentals" />
