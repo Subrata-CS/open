@@ -13,15 +13,179 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Search Engine - part of Computer Fundamentals. A short introduction goes here._
+A **Search Engine** is a service (like Google, Bing, or DuckDuckGo) that helps you find information on the internet without needing to already know a website's exact address. You type in a few words describing what you're looking for, and the search engine instantly returns a ranked list of relevant websites.
+
+Think of a search engine as a librarian for the entire internet. There are billions of webpages out there — far too many for any person to browse manually. A search engine has already "read" and organized an enormous portion of the internet ahead of time, so when you ask a question, it can instantly point you to the most relevant, useful pages, ranked by how well they match what you're looking for.
+
+Search engines are different from web browsers: a **browser** (like Chrome) is the software you use to view any website, while a **search engine** (like Google) is just one particular website you visit through your browser to help you find other websites.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Crawling** — Search engines use automated programs called **crawlers** (or "spiders") that constantly scan the internet, visiting webpages and following links to discover new content.
+- **Indexing** — After crawling a page, the search engine stores and organizes its content in a massive database (the "index"), similar to a library catalog, so it can be retrieved quickly later.
+- **Ranking Algorithm** — When you search, the engine doesn't just find matching pages — it ranks them using complex algorithms that consider relevance, popularity, and trustworthiness, showing the best results first.
+- **Keywords** — The words you type into the search bar, which the search engine matches against its index to find related pages.
+- **SEO (Search Engine Optimization)** — Techniques website owners use to help their pages rank higher in search results, by making content more relevant and easier for crawlers to understand.
+- **Search Results Page (SERP)** — The page showing your search results, typically including links, brief descriptions, and sometimes direct answers, ads, or images.
 
-## Example
+## Visual Flow — How a Search Engine Finds Answers
 
-_A worked example with code._
+Follow the arrows to see what happens between typing a search and seeing results:
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+  padding: '2rem 1rem'
+}}>
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>🔎</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>You Type a Query</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>📚</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Index Searched</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>pre-built database</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>⚖️</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Results Ranked</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.8rem',
+    borderRadius: '14px',
+    border: '3px solid #a55eea',
+    background: 'rgba(165,94,234,0.1)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>📋</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Results Shown</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  This entire search usually completes in well under a second, searching billions of indexed pages
+</div>
+
+## Example — Watch It Happen Step by Step
+
+Let's trace exactly what happens when you **search for "how does the internet work"** in a search engine.
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>🔎 You Type a Query:</strong> You type "how does the internet work" and press Enter.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>📚 Index Searched:</strong> The search engine instantly scans its pre-built index — built earlier by crawlers — for pages matching these keywords.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>⚖️ Ranking Algorithm Runs:</strong> Out of thousands of matching pages, the algorithm ranks them by relevance, quality, and trustworthiness.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>4️⃣</div>
+    <div>
+      <strong>📋 Results Displayed:</strong> You see a ranked list of links, with the most relevant, trustworthy pages appearing near the top.
+    </div>
+  </div>
+
+</div>
+
+Even though this feels instant to you, behind the scenes it involves searching through an index built from crawling billions of webpages — all made possible because that indexing work was already done well before you ever typed your search.
 
 ## Run your code
 
@@ -29,6 +193,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What is the difference between a search engine and a web browser?
+2. What do "crawling" and "indexing" mean in the context of search engines?
+3. Why does a search engine rank results instead of just listing every matching page?
+4. What does SEO stand for, and why do website owners care about it?
+5. Why can a search engine return results in under a second, despite the internet having billions of pages?
 
 <AskBox topic="Search Engine" section="Computer Fundamentals" />
