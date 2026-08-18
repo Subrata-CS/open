@@ -13,15 +13,165 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Cloud Storage - part of Computer Fundamentals. A short introduction goes here._
+**Cloud Storage** lets you save files on the internet instead of only on your own device's hard drive or SSD. Services like Google Drive, Dropbox, and iCloud store your data on powerful remote servers (called "the cloud"), which you can access from any device with an internet connection — your laptop, phone, or a friend's computer.
+
+Think of cloud storage like renting a storage unit in another city, except this "unit" is accessible instantly from anywhere, at any time, through the internet. Instead of only being able to open your files on the one computer where you saved them, cloud storage lets you upload a file from your laptop and open that same file minutes later on your phone, without needing to physically transfer it yourself.
+
+Behind the scenes, "the cloud" isn't some magical floating place — it's simply someone else's data center, full of thousands of powerful servers, constantly running and maintained by companies so your files stay safe and available.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Upload** — Sending a copy of your file from your device to the cloud storage server, over the internet.
+- **Download** — Retrieving a file from the cloud storage server back onto your device.
+- **Sync** — Automatically keeping files updated and identical across all your devices, so a change made on one device appears everywhere else too.
+- **Data Center** — A large facility full of servers where cloud companies physically store and manage your data.
+- **Backup** — Cloud storage is often used to keep a safe copy of important files, protecting them even if your physical device is lost, stolen, or damaged.
+- **Sharing/Collaboration** — Cloud storage often allows you to share files or folders with others, letting multiple people view or edit the same document.
 
-## Example
+## Visual Flow — How Cloud Storage Works
 
-_A worked example with code._
+Follow the arrows to see how a file gets from your device to the cloud, and back to another device:
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+  padding: '2rem 1rem'
+}}>
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>💻</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Your Laptop</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.8rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>☁️</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Cloud Server</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>data center</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>📱</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Your Phone</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  Upload from one device, and the file becomes available on every other device instantly
+</div>
+
+## Example — Watch It Happen Step by Step
+
+Let's trace what happens when you **upload a photo from your phone and open it later on your laptop**.
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>📱 You Take a Photo:</strong> You take a photo on your phone, and your cloud storage app automatically starts uploading it.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>📡 Uploaded Over the Internet:</strong> The photo travels from your phone, through the internet, to the cloud storage company's data center.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>☁️ Stored on Servers:</strong> The photo is saved on remote servers, linked to your account, and marked ready to sync.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>4️⃣</div>
+    <div>
+      <strong>💻 Appears on Your Laptop:</strong> When you open the same cloud storage app on your laptop, it downloads the photo automatically, and there it is — the exact same file.
+    </div>
+  </div>
+
+</div>
+
+If you delete the photo from your phone, it usually still exists safely in the cloud (and on your other devices), which is exactly why cloud storage is so useful as a backup — your files aren't dependent on any single physical device.
 
 ## Run your code
 
@@ -29,6 +179,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What is the difference between uploading and downloading a file?
+2. What does "syncing" mean in the context of cloud storage?
+3. Why is cloud storage useful as a backup?
+4. What is a data center, and what does it have to do with "the cloud"?
+5. Give one example of how cloud storage enables collaboration between multiple people.
 
 <AskBox topic="Cloud Storage" section="Computer Fundamentals" />
