@@ -13,15 +13,179 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Email - part of Computer Fundamentals. A short introduction goes here._
+**Email (Electronic Mail)** is a way of sending digital messages over the internet from one person to another. Instead of writing a letter and mailing it physically, you type a message on a device, and it travels instantly through the internet to arrive in the recipient's inbox — often within seconds, no matter how far apart you are.
+
+Think of email like a digital version of the postal system. Every person has a unique email address (like a house address), which tells the system exactly where to deliver the message. When you hit "Send," your message doesn't go directly to the recipient's device — it first travels to a **mail server**, gets sorted, and is then delivered to the recipient's mail server, where it waits for them to check their inbox.
+
+Email is one of the oldest and still most widely used forms of internet communication, used for everything from personal messages to business communication, account verifications, and newsletters.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Email Address** — A unique identifier in the format `username@domain.com`, telling the system who the message is for and which mail service handles it.
+- **Mail Server** — A specialized server responsible for sending, receiving, and storing email messages, acting as the digital "post office."
+- **Inbox** — Where your received emails are stored and displayed, ready for you to read.
+- **Attachments** — Files (documents, photos, etc.) that can be included alongside an email message.
+- **SMTP, IMAP, POP3** — Protocols (shared rules) that control how email is sent (SMTP) and retrieved (IMAP/POP3) between devices and mail servers.
+- **Spam/Junk Filter** — A system that automatically detects and separates unwanted or suspicious emails, keeping your main inbox cleaner and safer.
 
-## Example
+## Visual Flow — How an Email Travels
 
-_A worked example with code._
+Follow the arrows to see the journey a message takes from sender to receiver:
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+  padding: '2rem 1rem'
+}}>
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>✍️</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>You Write & Send</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>📤</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Your Mail Server</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>SMTP</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.8rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>📥</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Receiver's Mail Server</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>📬</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Appears in Inbox</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  Even across the world, this journey usually takes just a few seconds
+</div>
+
+## Example — Watch It Happen Step by Step
+
+Let's trace exactly what happens when you **send an email to a friend**.
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>✍️ You Write & Send:</strong> You type a message, enter your friend's email address, and click "Send."
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>📤 Sent to Your Mail Server:</strong> Your email provider's server receives the message using the SMTP protocol and figures out where it needs to go.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>📥 Delivered to Their Server:</strong> The message travels across the internet to your friend's email provider's server, which stores it for them.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>4️⃣</div>
+    <div>
+      <strong>📬 Appears in Inbox:</strong> The next time your friend checks their email, the message is already waiting for them in their inbox.
+    </div>
+  </div>
+
+</div>
+
+If the message contains suspicious links or looks like unwanted advertising, the receiving mail server's **spam filter** may automatically move it to a Junk/Spam folder instead of the main inbox, protecting the recipient from unwanted or harmful content.
 
 ## Run your code
 
@@ -29,6 +193,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What is the format of a typical email address, and what does each part mean?
+2. What is the role of a mail server in sending and receiving email?
+3. What is the difference between SMTP and IMAP/POP3?
+4. What is a spam filter, and why is it useful?
+5. Why can an email attachment increase the size of a message being sent?
 
 <AskBox topic="Email" section="Computer Fundamentals" />
