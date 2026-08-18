@@ -13,15 +13,180 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Browser - part of Computer Fundamentals. A short introduction goes here._
+A **Web Browser** is the software you use to access and view websites on the internet — examples include Chrome, Firefox, Safari, and Edge. It's your window into the World Wide Web: you type an address or search for something, and the browser fetches that content from a server and displays it on your screen in a readable, clickable format.
+
+Think of a browser as a translator and delivery person combined. Websites are actually stored as raw code (HTML, CSS, JavaScript) — a jumble of text instructions that would look meaningless if you opened it directly. The browser's job is to fetch that code from the server, "translate" it, and instantly turn it into the nicely formatted pages, images, and buttons you see and interact with.
+
+Without a browser, the internet's content would still exist on servers, but you'd have no easy way to actually see or use it — the browser is what makes the web usable for everyday people.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **URL (Uniform Resource Locator)** — The web address you type in, like `https://www.example.com`, telling the browser exactly which page to fetch.
+- **HTML, CSS, JavaScript** — The core building blocks of a webpage: HTML provides structure/content, CSS handles styling/design, and JavaScript adds interactivity.
+- **Rendering** — The process where the browser takes the raw HTML/CSS/JavaScript code and converts it into the visual page you see on screen.
+- **Tabs** — Modern browsers let you open multiple websites at once, each in its own tab, so you can switch between them easily.
+- **Cache** — Browsers temporarily save parts of websites you've visited (images, files) so they load faster the next time you visit.
+- **Search Engine** — A separate service (like Google) that the browser can use to help you find websites when you don't already know the exact URL.
 
-## Example
+## Visual Flow — How a Browser Loads a Webpage
 
-_A worked example with code._
+Follow the arrows to see what happens the moment you hit Enter after typing a web address:
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+  padding: '2rem 1rem'
+}}>
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>⌨️</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Type URL</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>📡</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Request Sent</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>to server</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.5rem',
+    borderRadius: '12px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>📦</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Code Received</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>HTML/CSS/JS</div>
+  </div>
+
+  <div style={{ fontSize: '2rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.8rem',
+    borderRadius: '14px',
+    border: '3px solid #a55eea',
+    background: 'rgba(165,94,234,0.1)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '2rem' }}>🖥️</div>
+    <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>Page Rendered</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  "Rendering" is the browser's final step — turning raw code into the visual page you see
+</div>
+
+## Example — Watch It Happen Step by Step
+
+Let's trace exactly what happens when you **type a website address into your browser and press Enter**.
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>⌨️ You Type a URL:</strong> You enter <code>www.example.com</code> in the address bar and press Enter.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>📡 Browser Sends Request:</strong> The browser sends a request out over the internet to the server hosting that website.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>📦 Server Responds:</strong> The server sends back the raw HTML, CSS, and JavaScript code that makes up the page.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>4️⃣</div>
+    <div>
+      <strong>🖥️ Browser Renders:</strong> The browser reads that code and draws it on screen as a fully formatted, clickable webpage.
+    </div>
+  </div>
+
+</div>
+
+If you visit the same page again soon after, the browser may load some parts instantly from its **cache** instead of re-downloading everything, which is why revisiting a website often feels faster than the first visit.
 
 ## Run your code
 
@@ -29,6 +194,12 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What is the main job of a web browser?
+2. What do HTML, CSS, and JavaScript each do on a webpage?
+3. What does "rendering" mean in the context of a browser?
+4. What is a browser cache, and how does it make browsing faster?
+5. What's the difference between a browser and a search engine?
 
 <AskBox topic="Browser" section="Computer Fundamentals" />
