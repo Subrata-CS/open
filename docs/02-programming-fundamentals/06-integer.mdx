@@ -13,15 +13,337 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Integer - part of Programming Fundamentals. A short introduction goes here._
+An **Integer** is a whole number — meaning it has no decimal point or fractional part. It can be positive (5, 100), negative (-5, -100), or zero. In programming, the `int` data type is used to store these whole numbers, and it's one of the most commonly used data types in any program, since so much of what computers count, index, or calculate involves whole numbers — ages, scores, quantities, positions, and more.
+
+Think of an integer like counting people in a room — you can have 5 people, 0 people, or even "-5 people" doesn't really make physical sense, but mathematically an integer *can* represent negative values too (like a temperature of -5°C, or a bank balance of -500). What an integer **cannot** do is represent "half a person" or "5.5 people" — for that, you'd need a decimal type like `float` or `double`, covered separately.
+
+Internally, a computer stores an integer as a fixed-size chunk of memory (commonly 4 bytes / 32 bits), made up entirely of 0s and 1s (binary). This fixed size is exactly why integers have a *limited range* — they can't grow infinitely large, because only a fixed number of bits are available to represent the value.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Whole Number** — A number with no decimal or fractional part; integers can be positive, negative, or zero.
+- **`int` Keyword** — The keyword used in C (and many languages) to declare an integer variable, e.g., `int score = 90;`
+- **Signed Integer** — Can store both positive and negative numbers (this is the default behavior of `int`).
+- **Unsigned Integer** — Can only store zero and positive numbers, using the `unsigned` keyword, allowing a larger maximum positive value in exchange.
+- **Integer Size Variants** — `short`, `int`, and `long` represent different memory sizes, letting you choose smaller or larger ranges depending on your needs.
+- **Overflow** — What happens when a calculation produces a value larger than the maximum an integer type can hold, causing it to "wrap around" to an unexpected (often negative) value.
+- **Integer Division** — When dividing two integers in most languages, the result is also an integer, and any decimal/remainder part is dropped (not rounded).
+- **Modulus Operator (`%`)** — Returns the *remainder* left over after dividing one integer by another, commonly used to check things like even/odd numbers.
+- **Integer Literal** — A fixed integer value written directly in code, which can be written in decimal, octal, hexadecimal, or binary form.
 
-## Example
+## Full Table — Integer Types in C, A to Z
 
-_A worked example with code._
+| Type | Keyword | Typical Size | Approximate Range |
+|---|---|---|---|
+| Short Integer | `short int` / `short` | 2 bytes | -32,768 to 32,767 |
+| Unsigned Short | `unsigned short` | 2 bytes | 0 to 65,535 |
+| Integer | `int` | 4 bytes | -2,147,483,648 to 2,147,483,647 |
+| Unsigned Integer | `unsigned int` | 4 bytes | 0 to 4,294,967,295 |
+| Long Integer | `long int` / `long` | 4 or 8 bytes | Up to ±9,223,372,036,854,775,807 (on most systems) |
+| Unsigned Long | `unsigned long` | 4 or 8 bytes | 0 to a very large positive number |
+| Long Long Integer | `long long` | 8 bytes | Extremely large whole numbers |
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  Exact sizes can vary slightly between compilers/systems, but these are the standard ranges on most modern computers
+</div>
+
+## Integer Literals — Writing Numbers in Different Bases
+
+By default, when you type a number in code, it's read as decimal (base 10). But C also lets you write integer literals in other number systems:
+
+| Base | Prefix | Example | Decimal Value |
+|---|---|---|---|
+| Decimal (base 10) | *(none)* | `25` | 25 |
+| Octal (base 8) | `0` | `031` | 25 |
+| Hexadecimal (base 16) | `0x` or `0X` | `0x19` | 25 |
+| Binary (base 2, C99+) | `0b` or `0B` | `0b11001` | 25 |
+
+```c
+int a = 25;      // decimal
+int b = 031;     // octal, also equals 25
+int c = 0x19;    // hexadecimal, also equals 25
+
+printf("%d %d %d\n", a, b, c); // Output: 25 25 25
+```
+
+Notice all three print the same value `25` — they're just three different ways of *writing* the same number, similar to what we covered in the Number System topic.
+
+## Integer Suffixes — Telling the Compiler the Exact Type
+
+You can add a letter suffix directly after a number to specify its exact type:
+
+| Suffix | Meaning | Example |
+|---|---|---|
+| `L` or `l` | long | `100000L` |
+| `UL` or `ul` | unsigned long | `100000UL` |
+| `LL` or `ll` | long long | `10000000000LL` |
+| `U` or `u` | unsigned int | `100U` |
+
+```c
+long distance = 1500000000L;
+unsigned int positiveOnly = 100U;
+```
+
+## Visual Flow — How an Integer Is Stored in Memory
+
+Follow along to see how the number **10** is actually stored as binary bits inside a 4-byte integer:
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+  padding: '2rem 1rem'
+}}>
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>🔟</div>
+    <div style={{ fontWeight: 700, marginTop: '0.3rem', fontSize: '0.85rem' }}>Decimal: 10</div>
+  </div>
+
+  <div style={{ fontSize: '1.5rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '150px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>💡</div>
+    <div style={{ fontWeight: 700, marginTop: '0.3rem', fontSize: '0.85rem' }}>Binary: 00000000...1010</div>
+  </div>
+
+  <div style={{ fontSize: '1.5rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.4rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    fontWeight: 700,
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>📦</div>
+    <div style={{ marginTop: '0.3rem', fontSize: '0.85rem' }}>Stored in 4 bytes</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  A 4-byte int has 32 bits total — the number 10 only needs a few of them, and the rest stay as 0
+</div>
+
+## Example — Taking Integer Input and Performing Operations
+
+Let's write a program that takes two numbers **from the user**, and shows the most important integer behaviors — including one that often confuses beginners: **integer division**.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a, b;
+
+    printf("Enter first number: ");
+    scanf("%d", &a);
+    printf("Enter second number: ");
+    scanf("%d", &b);
+
+    int sum = a + b;
+    int difference = a - b;
+    int product = a * b;
+    int quotient = a / b;      // Integer division
+    int remainder = a % b;     // Modulus
+
+    printf("Sum: %d\n", sum);
+    printf("Difference: %d\n", difference);
+    printf("Product: %d\n", product);
+    printf("Quotient (a/b): %d\n", quotient);
+    printf("Remainder (a%%b): %d\n", remainder);
+
+    return 0;
+}
+```
+
+**Step-by-step explanation:**
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>scanf("%d", &amp;a);</strong> Reads a whole number typed by the user and stores it in <code>a</code>. The <code>&amp;</code> symbol means "the memory address of," telling scanf exactly where to store the value.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>sum, difference, product:</strong> Straightforward — addition, subtraction, and multiplication work exactly as expected.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>quotient = a / b:</strong> If a=17, b=5, then 17 ÷ 5 = 3.4 in real math — but since both are integers, C **drops the decimal part entirely**, giving just 3.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>4️⃣</div>
+    <div>
+      <strong>remainder = a % b:</strong> The modulus operator gives what's "left over" after division: 17 ÷ 5 = 3 remainder 2, so this equals 2.
+    </div>
+  </div>
+
+</div>
+
+**Sample output (if user enters 17 and 5):**
+
+```text
+Enter first number: 17
+Enter second number: 5
+Sum: 22
+Difference: 12
+Product: 85
+Quotient (a/b): 3
+Remainder (a%b): 2
+```
+
+
+This is a very common beginner trap: many people expect `a / b` to give `3.4`, but since `a` and `b` are both `int`, C performs **integer division**, silently dropping the decimal part. To get `3.4`, you'd need to convert at least one of the numbers to a `float` or `double` first, as shown in the earlier Variables and Data Types topic.
+
+## Increment, Decrement, and Compound Assignment Operators
+
+These are shortcuts that make changing an integer's value faster to write:
+
+| Operator | Meaning | Equivalent To |
+|---|---|---|
+| `x++` | Post-increment: increases x by 1 | `x = x + 1` |
+| `x--` | Post-decrement: decreases x by 1 | `x = x - 1` |
+| `++x` | Pre-increment: increases x by 1 before use | `x = x + 1` |
+| `x += 5` | Adds 5 to x | `x = x + 5` |
+| `x -= 3` | Subtracts 3 from x | `x = x - 3` |
+| `x *= 2` | Multiplies x by 2 | `x = x * 2` |
+| `x /= 4` | Divides x by 4 | `x = x / 4` |
+
+```c
+int score = 10;
+score++;        // score is now 11
+score += 5;      // score is now 16
+score -= 2;      // score is now 14
+printf("%d\n", score); // Output: 14
+```
+
+The difference between `x++` (post-increment) and `++x` (pre-increment) only matters when used *inside* a larger expression — `x++` uses the current value first, then increases it; `++x` increases it first, then uses the new value.
+
+## Comparison Operators with Integers
+
+Used to compare two integer values, always producing a true (1) or false (0) result:
+
+| Operator | Meaning | Example |
+|---|---|---|
+| `==` | Equal to | `a == b` |
+| `!=` | Not equal to | `a != b` |
+| `>` | Greater than | `a > b` |
+| `<` | Less than | `a < b` |
+| `>=` | Greater than or equal to | `a >= b` |
+| `<=` | Less than or equal to | `a <= b` |
+
+```c
+int a = 10, b = 20;
+printf("%d\n", a < b);  // Output: 1 (true)
+printf("%d\n", a == b); // Output: 0 (false)
+```
+
+## Example — Integer Overflow (What Happens When a Number Is Too Big)
+
+Instead of hardcoding the maximum value, we can get it properly using the `limits.h` library:
+
+```c
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+    int maxValue = INT_MAX; // The true maximum value for this system's int
+    printf("Before overflow: %d\n", maxValue);
+
+    maxValue = maxValue + 1; // Adding 1 pushes it past the maximum
+    printf("After overflow: %d\n", maxValue);
+
+    printf("Minimum possible int: %d\n", INT_MIN);
+
+    return 0;
+}
+```
+
+**What happens here:** `INT_MAX` (usually `2147483647`) is the largest value a standard signed `int` can hold on most systems. Adding just 1 more pushes it past its limit, and instead of giving an error, the value **wraps around** to `INT_MIN`, the smallest possible negative number:
+
+This is called **integer overflow**, and it's a real source of bugs in software — the computer doesn't "know" the math is wrong; it simply runs out of space to represent the correct answer and silently produces an incorrect one. Using `INT_MAX` and `INT_MIN` from `limits.h` (instead of hardcoding numbers) is the correct, portable way to check these limits, since they can technically vary slightly between systems.
 
 ## Run your code
 
@@ -29,6 +351,15 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What is the difference between a signed integer and an unsigned integer?
+2. Why does `17 / 5` give `3` instead of `3.4` when both numbers are integers?
+3. What does the modulus operator (`%`) return? Give an example.
+4. What is integer overflow, and why does it happen?
+5. Write the number 25 as an octal literal and as a hexadecimal literal.
+6. What is the difference between `x++` and `++x`?
+7. What library would you include to use `INT_MAX` and `INT_MIN`, and what do they represent?
+8. If you needed to store a person's age, would you use `short`, `int`, or `long`? Why?
 
 <AskBox topic="Integer" section="Programming Fundamentals" />
