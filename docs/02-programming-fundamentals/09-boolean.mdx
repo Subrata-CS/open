@@ -13,15 +13,452 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Boolean - part of Programming Fundamentals. A short introduction goes here._
+A **Boolean** is a data type that can only hold one of two possible values: **true** or **false**. There's no in-between, no "maybe," no partial value — it's exactly like a light switch that's either on or off, nothing else. This might sound almost too simple to matter, but boolean logic is actually the foundation of *every single decision* a computer program ever makes.
+
+Think about how you make decisions in real life: "Is it raining? Yes or no." "Am I 18 or older? Yes or no." "Did the password match? Yes or no." Each of these questions has exactly one of two answers — and that's precisely what a boolean represents in code. Every `if` statement, every loop condition, every comparison you've used in earlier topics (`a > b`, `x == y`) actually produces a boolean value behind the scenes, even if you never explicitly stored it in a boolean variable.
+
+The name "Boolean" comes from **George Boole**, a 19th-century mathematician who developed a system of logic using only true/false values — this system, now called **Boolean algebra**, became the mathematical foundation for how all digital computers make decisions today, all the way down to individual transistors being "on" or "off."
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **True/False** — The only two possible values a boolean can hold, representing "yes" or "no," "on" or "off," "correct" or "incorrect."
+- **`bool` Keyword (C99+)** — The keyword used in modern C to declare a boolean variable, available after including `stdbool.h`.
+- **Boolean Without stdbool.h** — In older/traditional C, there's no true boolean type — programmers use `int`, where `0` means false and **any non-zero value** means true.
+- **Relational Operators** — Operators like `==`, `!=`, `>`, `<`, `>=`, `<=` that compare two values and produce a boolean result (true or false).
+- **Logical Operators** — Operators (`&&`, `||`, `!`) that combine or invert boolean values to build more complex conditions.
+- **Truthy/Falsy in C** — Since C treats booleans as integers, `0` is always false, and **every other number** (including negative numbers) is treated as true.
+- **Short-Circuit Evaluation** — A performance behavior where `&&` and `||` skip evaluating the second condition if the first one already determines the final result.
+- **Bitwise Operators (Not the Same as Logical!)** — `&`, `|`, and `^` look similar to `&&` and `||` but work completely differently, operating on individual bits rather than true/false logic.
 
-## Example
+## Full Table — Logical Operators, A to Z
 
-_A worked example with code._
+| Operator | Name | Meaning | Example | Result |
+|---|---|---|---|---|
+| `&&` | Logical AND | True only if **both** sides are true | `(5 > 3) && (2 < 4)` | `1` (true) |
+| `\|\|` | Logical OR | True if **at least one** side is true | `(5 > 3) \|\| (2 > 4)` | `1` (true) |
+| `!` | Logical NOT | Reverses true to false, or false to true | `!(5 > 3)` | `0` (false) |
+
+## Full Table — Relational (Comparison) Operators
+
+| Operator | Meaning | Example | Result |
+|---|---|---|---|
+| `==` | Equal to | `5 == 5` | `1` (true) |
+| `!=` | Not equal to | `5 != 3` | `1` (true) |
+| `>` | Greater than | `5 > 3` | `1` (true) |
+| `<` | Less than | `5 < 3` | `0` (false) |
+| `>=` | Greater than or equal to | `5 >= 5` | `1` (true) |
+| `<=` | Less than or equal to | `3 <= 5` | `1` (true) |
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  In C, true is printed as 1 and false is printed as 0 — there's no literal word shown, even when using bool
+</div>
+
+## Visual Flow — How a Boolean Decision Is Made
+
+Follow the arrows to see how a condition turns into a true/false result, which then decides what the program does next:
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+  padding: '2rem 1rem'
+}}>
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '130px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>🤔</div>
+    <div style={{ fontWeight: 700, marginTop: '0.3rem', fontSize: '0.85rem' }}>Condition</div>
+    <div style={{ fontSize: '0.75rem', color: '#666' }}>age &gt;= 18</div>
+  </div>
+
+  <div style={{ fontSize: '1.5rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.4rem',
+    borderRadius: '14px',
+    border: '3px solid #2ecc71',
+    background: 'rgba(46,204,113,0.1)',
+    fontWeight: 700,
+    textAlign: 'center',
+    minWidth: '130px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>⚖️</div>
+    <div style={{ marginTop: '0.3rem', fontSize: '0.85rem' }}>Boolean Result</div>
+    <div style={{ fontSize: '0.75rem', color: '#666' }}>true or false</div>
+  </div>
+
+  <div style={{ fontSize: '1.5rem', color: '#999' }}>➜</div>
+
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '130px'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>🖥️</div>
+    <div style={{ fontWeight: 700, marginTop: '0.3rem', fontSize: '0.85rem' }}>Program Acts</div>
+    <div style={{ fontSize: '0.75rem', color: '#666' }}>runs correct branch</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  Every "if" statement you've ever written follows exactly this pattern underneath
+</div>
+
+## Example — Using bool with stdbool.h
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main() {
+    bool isRaining = true;
+    bool hasUmbrella = false;
+
+    printf("Is raining: %d\n", isRaining);
+    printf("Has umbrella: %d\n", hasUmbrella);
+    printf("Size of bool: %lu byte\n", sizeof(isRaining));
+
+    if (isRaining && !hasUmbrella) {
+        printf("You will get wet!\n");
+    } else {
+        printf("You are fine.\n");
+    }
+
+    return 0;
+}
+```
+
+**Step-by-step explanation:**
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>#include &lt;stdbool.h&gt;:</strong> This gives access to the `bool` keyword, and the words `true` (equal to 1) and `false` (equal to 0), which don't exist in C by default.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>bool isRaining = true;</strong> Creates a boolean variable, storing the value true (which is really just 1 underneath).
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>sizeof(isRaining):</strong> In most C compilers, a `bool` takes up just **1 byte** of memory, even though it only ever needs to represent 1 bit of actual information (true/false).
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>4️⃣</div>
+    <div>
+      <strong>isRaining && !hasUmbrella:</strong> `!hasUmbrella` flips false to true (since there's no umbrella), and `&&` checks that BOTH conditions are true.
+    </div>
+  </div>
+
+</div>
+
+**Output:**
+```text
+Is raining: 1
+Has umbrella: 0
+Size of bool: 1 byte
+You will get wet!
+```
+
+Notice that even though we used `true`/`false` as words in the code, `printf("%d", ...)` still shows them as **1** and **0** — because in C, a bool truly is just a small integer behind the scenes, `stdbool.h` just gives us nicer words to write in our code.
+
+## Boolean Without stdbool.h — The Traditional C Way
+
+Before C99, and still commonly seen in older or minimal C code, there was no true boolean type at all:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int isLoggedIn = 1;  // 1 = true
+    int isAdmin = 0;     // 0 = false
+
+    if (isLoggedIn) {
+        printf("Welcome back!\n");
+    }
+
+    if (!isAdmin) {
+        printf("You do not have admin access.\n");
+    }
+
+    return 0;
+}
+```
+
+Here, `int` is used to represent a boolean concept, using the convention that `0` means false and `1` (or really, **any non-zero value**) means true.
+
+## Truthy and Falsy Values in C — An Important Quirk
+
+```c
+#include <stdio.h>
+
+int main() {
+    if (5) {
+        printf("5 is treated as true\n");
+    }
+
+    if (-3) {
+        printf("-3 is ALSO treated as true\n");
+    }
+
+    if (0) {
+        printf("This will never print\n");
+    } else {
+        printf("0 is treated as false\n");
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+5 is treated as true
+-3 is ALSO treated as true
+0 is treated as false
+```
+
+This surprises many beginners: in C, **only `0` is false** — every other number, including negative numbers, is treated as **true**. Understanding this "truthy/falsy" behavior is important, because it explains why code like `if (someNumber)` works as a shortcut for `if (someNumber != 0)`.
+
+## ⚠️ Logical Operators vs Bitwise Operators — Don't Mix Them Up!
+
+This is one of the most common mistakes beginners make, because the symbols look almost identical:
+
+| Symbol | Type | What It Actually Does |
+|---|---|---|
+| `&&` | Logical AND | Combines two true/false conditions |
+| `&` | Bitwise AND | Compares individual bits of two numbers |
+| `\|\|` | Logical OR | Combines two true/false conditions |
+| `\|` | Bitwise OR | Compares individual bits of two numbers |
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 5;  // binary: 0101
+    int b = 3;  // binary: 0011
+
+    printf("Logical AND (a && b): %d\n", a && b); // both non-zero, so true
+    printf("Bitwise AND (a & b): %d\n", a & b);    // compares bits: 0101 & 0011 = 0001
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+Logical AND (a && b): 1
+Bitwise AND (a & b): 1
+```
+
+In this specific example they happen to look similar, but they mean **completely different things** — `&&` asks "are both values truthy?" while `&` performs actual binary math on the bits. Using a single `&` when you meant `&&` (or vice versa) is a classic bug that can silently produce wrong results without any error message. Bitwise operators are covered in more depth in a later, dedicated topic.
+
+## Short-Circuit Evaluation — A Smart Optimization
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+bool checkSecondCondition() {
+    printf("Second condition was checked!\n");
+    return true;
+}
+
+int main() {
+    bool firstCondition = false;
+
+    if (firstCondition && checkSecondCondition()) {
+        printf("Both true\n");
+    } else {
+        printf("At least one was false\n");
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+At least one was false
+```
+
+Notice that **"Second condition was checked!" never printed.** This is called **short-circuit evaluation**: since `firstCondition` was already `false`, C knows the entire `&&` expression *must* be false no matter what the second part says — so it doesn't even bother running `checkSecondCondition()` at all.
+
+This isn't just a curiosity — it's used intentionally, for example to safely check a condition before doing something risky:
+
+```c
+if (count != 0 && (total / count > 10)) {
+    printf("Average is greater than 10\n");
+}
+```
+
+Here, if `count` is `0`, the second condition (`total / count`) is **never evaluated**, safely avoiding a division-by-zero error.
+
+## The Classic Trap — Chained Comparisons Don't Work Like Math
+
+```c
+int x = 15;
+
+// WRONG — this does NOT check if x is between 0 and 10!
+if (0 < x < 10) {
+    printf("This runs even though x = 15!\n");
+}
+```
+
+This is a famous beginner trap. In math, `0 < x < 10` naturally means "x is between 0 and 10." But C evaluates this **left to right**: first, `0 < x` is checked (15 > 0, so this is `true`, which equals `1`). Then, C evaluates `1 < 10` — and since 1 is indeed less than 10, this is **also true**! So the whole expression is true, even though `x = 15` is clearly not between 0 and 10.
+
+**Correct way**, using `&&` to properly combine two separate conditions:
+
+```c
+if (0 < x && x < 10) {
+    printf("x is between 0 and 10\n");
+} else {
+    printf("x is NOT between 0 and 10\n");
+}
+```
+
+## Boolean in Loops and the Ternary Operator
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main() {
+    bool keepRunning = true;
+    int count = 0;
+
+    while (keepRunning) {
+        count++;
+        printf("Count: %d\n", count);
+        if (count == 3) {
+            keepRunning = false; // stops the loop
+        }
+    }
+
+    // Ternary operator: a compact way to choose between two values based on a boolean
+    int age = 20;
+    const char *status = (age >= 18) ? "Adult" : "Minor";
+    printf("Status: %s\n", status);
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+Count: 1
+Count: 2
+Count: 3
+Status: Adult
+```
+
+- **`while (keepRunning)`** — A boolean variable is commonly used to control when a loop should stop, making the loop's intent very readable.
+- **Ternary operator (`condition ? valueIfTrue : valueIfFalse`)** — A shorthand way to write a simple `if...else` that picks between two values, based directly on a boolean condition.
+
+## Boolean Return Values from Functions
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+bool isEven(int number) {
+    return number % 2 == 0;
+}
+
+int main() {
+    int value = 14;
+
+    if (isEven(value)) {
+        printf("%d is even\n", value);
+    } else {
+        printf("%d is odd\n", value);
+    }
+
+    return 0;
+}
+```
+
+Here, `number % 2 == 0` is itself already a boolean expression — it directly evaluates to `true` or `false`, so we can `return` it immediately, without needing an `if` statement inside the function at all.
+
+**Output:**
+```text
+14 is even
+```
 
 ## Run your code
 
@@ -29,6 +466,15 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What two values can a boolean hold, and what header file gives C its `bool` keyword?
+2. In C, which single number is treated as false, and what's treated as true?
+3. What is the difference between `&&` (logical AND) and `&` (bitwise AND)?
+4. Why does `0 < x < 10` NOT correctly check if x is between 0 and 10 in C? What's the correct way to write it?
+5. What is short-circuit evaluation, and why is it useful in an expression like `count != 0 && (total / count > 10)`?
+6. What does the ternary operator (`? :`) do, and how does it relate to a boolean condition?
+7. How many bytes does `sizeof(bool)` typically return, even though a boolean only needs 1 bit of information?
+8. Write a function (in words or code) that returns true if a number is negative, and false otherwise.
 
 <AskBox topic="Boolean" section="Programming Fundamentals" />
