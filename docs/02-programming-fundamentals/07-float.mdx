@@ -13,15 +13,357 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Float - part of Programming Fundamentals. A short introduction goes here._
+A **Float** (short for "floating-point number") is a data type used to store numbers that have a decimal point — like 3.14, 9.5, or -0.001. Unlike an integer, which can only represent whole numbers, a float can represent fractional values, making it essential for things like measurements, prices, percentages, scientific calculations, and anything that isn't a clean whole number.
+
+The term "floating-point" comes from how these numbers are stored internally: the decimal point can "float" to different positions depending on the number's size, similar to how scientific notation works (like 3.14 × 10⁰ or 6.022 × 10²³). This clever system lets a float represent both very large and very small numbers using a fixed amount of memory.
+
+Think of a float as a more flexible cousin of the integer — where an integer is like a ruler with only whole-centimeter marks, a float is like a ruler with fine millimeter marks, letting you measure things precisely between the whole numbers.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Decimal Number** — A number that includes a fractional part after a decimal point, such as 3.14 or -0.5.
+- **`float` Keyword** — The keyword used in C to declare a single-precision floating-point variable, e.g., `float price = 9.99;`
+- **`double` Keyword** — A data type similar to float, but with roughly double the precision and range, used when more accuracy is needed. By default, any decimal literal you type (like `9.99`) is treated as a `double` unless you add an `f` suffix.
+- **Precision** — How many significant digits a floating-point number can accurately represent before rounding errors start to appear.
+- **Floating-Point Rounding Error** — A small, unavoidable inaccuracy that can occur when storing certain decimal values, because not all decimal fractions can be represented perfectly in binary.
+- **Scientific Notation** — A way of writing very large or very small floats using an "e" (exponent) format, like `1.5e3` meaning 1.5 × 10³ = 1500.
+- **Type Conversion with Float** — Converting between `int` and `float` (or `double`), either automatically (implicit) or manually (explicit/casting).
 
-## Example
+## Full Table — Floating-Point Types in C, A to Z
 
-_A worked example with code._
+| Type | Keyword | Typical Size | Precision (approx.) | Format Specifier | Literal Suffix |
+|---|---|---|---|---|---|
+| Single Precision Float | `float` | 4 bytes | ~6-7 significant digits | `%f` | `f` or `F` |
+| Double Precision Float | `double` | 8 bytes | ~15-16 significant digits | `%lf` | *(none, this is default)* |
+| Extended Precision Float | `long double` | 10, 12, or 16 bytes (varies) | ~18-19+ significant digits | `%Lf` | `l` or `L` |
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  "Significant digits" means the total meaningful digits, not just digits after the decimal point
+</div>
+
+## Float Literal Suffixes — Telling C Exactly Which Type You Mean
+
+```c
+float a = 9.99f;    // f suffix explicitly marks this as float
+double b = 9.99;     // no suffix defaults to double
+long double c = 9.99L; // L suffix marks this as long double
+```
+
+This matters because, without the `f` suffix, C treats every decimal number you type as a `double` by default — even if you're storing it in a `float` variable. It still works correctly for simple cases, but being explicit with `f` is good practice, especially in performance-sensitive code.
+
+## Visual Flow — How a Float "Floats" Its Decimal Point
+
+Floating-point numbers work like scientific notation — a small set of significant digits, multiplied by a power of 10 (or 2, internally). Here's how the same value can be represented at different "scales":
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '1rem',
+  padding: '2rem 1rem'
+}}>
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '130px'
+  }}>
+    <div style={{ fontSize: '1.6rem', fontWeight: 700 }}>1500.0</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>standard form</div>
+  </div>
+
+  <div style={{ fontSize: '1.5rem', color: '#999' }}>=</div>
+
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '130px'
+  }}>
+    <div style={{ fontSize: '1.6rem', fontWeight: 700 }}>1.5e3</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>1.5 × 10³</div>
+  </div>
+
+  <div style={{ fontSize: '1.5rem', color: '#999' }}>=</div>
+
+  <div style={{
+    padding: '1.2rem',
+    borderRadius: '12px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.08)',
+    textAlign: 'center',
+    minWidth: '130px'
+  }}>
+    <div style={{ fontSize: '1.6rem', fontWeight: 700 }}>0.15e4</div>
+    <div style={{ fontSize: '0.8rem', color: '#666' }}>0.15 × 10⁴</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  All three represent the exact same value — the decimal point "floats" depending on how the exponent is written
+</div>
+
+## Example — Taking Float Input and Performing Basic Operations
+
+```c
+#include <stdio.h>
+
+int main() {
+    float price, discount;
+
+    printf("Enter price: ");
+    scanf("%f", &price);
+    printf("Enter discount percent: ");
+    scanf("%f", &discount);
+
+    float finalPrice = price - (price * discount / 100);
+
+    printf("Original Price: %.2f\n", price);
+    printf("Discount: %.1f%%\n", discount);
+    printf("Final Price: %.2f\n", finalPrice);
+
+    return 0;
+}
+```
+
+**Step-by-step explanation:**
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>scanf("%f", &amp;price);</strong> Reads a decimal number typed by the user and stores it in <code>price</code>. Note: `%f` is used for reading a float — unlike printf, scanf does not use `%lf` for float, only for double.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>price * discount / 100:</strong> Calculates the discount percentage of the price.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>%.2f:</strong> Rounds and displays the float with exactly 2 decimal places — important for showing clean currency values.
+    </div>
+  </div>
+
+</div>
+
+**Sample output (if user enters 49.99 and 10.5):**
+```text
+Enter price: 49.99
+Enter discount percent: 10.5
+Original Price: 49.99
+Discount: 10.5%
+Final Price: 44.74
+```
+
+## Controlling Decimal Places, and Scientific Notation with printf
+
+```c
+float pi = 3.14159265f;
+
+printf("%f\n", pi);    // Output: 3.141593 (default: 6 decimal places)
+printf("%.2f\n", pi);  // Output: 3.14
+printf("%.0f\n", pi);  // Output: 3 (rounded, no decimals)
+printf("%.4f\n", pi);  // Output: 3.1416
+printf("%e\n", pi);    // Output: 3.141593e+00 (scientific notation)
+printf("%g\n", pi);    // Output: 3.14159 (shortest accurate representation)
+```
+
+- **`%f`** — Standard decimal format, 6 decimal places by default.
+- **`%e`** — Forces scientific notation output, useful for very large or very small numbers.
+- **`%g`** — Automatically picks whichever format (`%f` or `%e`) is shorter/cleaner for the given value.
+
+Notice that `printf` **rounds** the displayed value based on the digit after the cutoff point — it doesn't just chop off the extra digits.
+
+## Float vs Double — Why Precision Matters
+
+```c
+#include <stdio.h>
+
+int main() {
+    float floatValue = 1.0f / 3.0f;
+    double doubleValue = 1.0 / 3.0;
+
+    printf("float:  %.10f\n", floatValue);
+    printf("double: %.10lf\n", doubleValue);
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+float: 0.3333333433
+double: 0.3333333333
+```
+
+Notice that `float` starts showing inaccurate digits earlier (`...3433` instead of continuing `...3333`), because it has less precision (about 6-7 significant digits) compared to `double` (about 15-16 significant digits). This is why `double` is generally preferred for scientific or financial calculations where accuracy really matters, while `float` is often used when memory efficiency matters more than extreme precision (like in graphics programming).
+
+## Finding the True Limits with float.h
+
+Just like `limits.h` gives exact integer limits, `float.h` gives the true, portable limits for floating-point types:
+
+```c
+#include <stdio.h>
+#include <float.h>
+
+int main() {
+    printf("Max float: %e\n", FLT_MAX);
+    printf("Min positive float: %e\n", FLT_MIN);
+    printf("Max double: %e\n", DBL_MAX);
+
+    return 0;
+}
+```
+
+**Sample output:**
+```text
+Max float: 3.402823e+38
+Min positive float: 1.175494e-38
+Max double: 1.797693e+308
+```
+
+`FLT_MIN` is a bit of a misleading name — it means the **smallest positive value** a float can represent (closest to zero), not the most negative value. Using these constants (instead of guessing numbers) is the correct way to check a system's actual floating-point limits.
+
+## Floating-Point Rounding Errors — A Real Quirk You'll Encounter
+
+```c
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float a = 0.1f;
+    float b = 0.2f;
+    float sum = a + b;
+
+    printf("%.10f\n", sum);
+
+    if (sum == 0.3f) {
+        printf("Equal to 0.3\n");
+    } else {
+        printf("NOT exactly equal to 0.3!\n");
+    }
+
+    // Safer way to compare floats
+    if (fabs(sum - 0.3f) < 0.00001f) {
+        printf("Close enough to 0.3 (safe comparison)\n");
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+0.3000000119
+NOT exactly equal to 0.3!
+Close enough to 0.3 (safe comparison)
+```
+
+This surprises almost every beginner. The issue is that computers store floats in **binary**, and just like 1/3 can't be written exactly in decimal (0.333...), many decimal fractions like 0.1 can't be represented *exactly* in binary either — leading to tiny rounding errors. This is why you should **never directly compare two floats with `==`** — instead, use `fabs()` (absolute value, from `math.h`) to check if their difference is smaller than a tiny acceptable margin, as shown above.
+
+## Comparison Operators with Float (Safe Usage)
+
+| Operator | Safe to Use Directly? | Notes |
+|---|---|---|
+| `>` , `<` , `>=` , `<=` | ✅ Yes | Generally safe, since these check ranges, not exact equality |
+| `==` , `!=` | ⚠️ Risky | Avoid — use `fabs(a - b) < tolerance` instead, as shown above |
+
+```c
+float temperature = 36.6f;
+
+if (temperature > 37.0f) {
+    printf("Fever\n");
+} else {
+    printf("Normal\n");
+}
+```
+
+## Type Conversion Between int and float
+
+```c
+#include <stdio.h>
+
+int main() {
+    int wholeNumber = 7;
+    float decimalResult;
+
+    // Explicit conversion (casting)
+    decimalResult = (float) wholeNumber / 2;
+    printf("Explicit cast result: %.2f\n", decimalResult);
+
+    // Implicit conversion
+    float autoConverted = wholeNumber; // int automatically becomes float
+    printf("Implicit conversion: %.2f\n", autoConverted);
+
+    return 0;
+}
+```
+
+**Output:**
+```c
+Explicit cast result: 3.50
+Implicit conversion: 7.00
+```
+
+- **Explicit conversion (casting)** — `(float) wholeNumber` deliberately tells C to treat the integer as a float *before* doing the division, avoiding integer division's decimal-dropping behavior.
+- **Implicit conversion** — Simply assigning an `int` to a `float` variable automatically converts it, since a whole number can always be represented as a decimal with `.00`.
 
 ## Run your code
 
@@ -29,6 +371,16 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What is the difference between `float` and `double`, and when would you choose one over the other?
+2. What does `%.2f` do differently compared to just `%f` in printf?
+3. Why did `0.1 + 0.2` not exactly equal `0.3` in the example program?
+4. Why should you avoid comparing two floats directly using `==`? What should you do instead?
+5. What is the difference between `%e` and `%g` in printf?
+6. What does `FLT_MAX` represent, and which header file do you need to include to use it?
+7. Why does adding an `f` suffix to a float literal (like `9.99f`) matter?
+8. If you needed extremely high precision for a scientific calculation, would you use `float` or `double`? Why?
 
 <AskBox topic="Float" section="Programming Fundamentals" />
+
