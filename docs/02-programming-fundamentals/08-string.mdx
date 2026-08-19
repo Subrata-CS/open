@@ -13,15 +13,399 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_String - part of Programming Fundamentals. A short introduction goes here._
+A **String** is a sequence of characters used to represent text — like a name, a sentence, or a word. In C, unlike languages such as Python or JavaScript, there's no built-in "string" data type. Instead, a string is simply an **array of characters (`char`)**, ending with a special invisible character called the **null terminator** (`\0`), which tells the computer "the text ends here."
+
+Think of a string like a row of labeled mailboxes lined up in a row, each box holding exactly one letter. The very last box in the row doesn't hold a letter at all — it holds a special "stop sign" (`\0`) telling anyone reading the boxes, "there's nothing more after this point." Without this stop sign, the computer wouldn't know where the text actually ends, since a `char` array's total size doesn't automatically tell you how much of it is "real" text.
+
+This is different from a single `char`, which stores just one character. A string is a whole collection of characters treated together as one piece of text.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Character Array** — In C, a string is stored as an array of `char` values, e.g., `char name[20];`
+- **Null Terminator (`\0`)** — A special invisible character automatically placed at the end of every string, marking where the text stops.
+- **String Literal** — Text written directly in code using double quotes, e.g., `"Hello"`. C automatically adds the null terminator at the end for you.
+- **String Length** — The number of *visible* characters in a string, **not including** the null terminator (found using `strlen()`).
+- **`string.h` Library** — A standard C library containing many useful built-in functions for working with strings, like `strlen()`, `strcpy()`, `strcat()`, and `strcmp()`.
+- **Array of Strings** — A collection of multiple strings, stored as a 2D character array or an array of character pointers.
+- **String vs Char** — A `char` (single quotes, `'A'`) holds exactly one character; a string (double quotes, `"A"`) is technically an array holding `'A'` followed by `'\0'` — two elements, not one.
+- **Character Pointer (`char *`)** — An alternative way to represent a string, storing just the memory address of where the string's first character begins, rather than a fixed-size array.
 
-## Example
+## Visual Flow — How a String Is Actually Stored in Memory
 
-_A worked example with code._
+Let's see exactly how the string `"Hi"` is stored, character by character, inside a `char` array:
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '0.6rem',
+  padding: '2rem 1rem',
+  flexWrap: 'wrap'
+}}>
+  <div style={{
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.08)',
+    textAlign: 'center',
+    minWidth: '70px'
+  }}>
+    <div style={{ fontSize: '1.4rem', fontWeight: 700 }}>H</div>
+    <div style={{ fontSize: '0.75rem', color: '#666' }}>index 0</div>
+  </div>
+
+  <div style={{
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    textAlign: 'center',
+    minWidth: '70px'
+  }}>
+    <div style={{ fontSize: '1.4rem', fontWeight: 700 }}>i</div>
+    <div style={{ fontSize: '0.75rem', color: '#666' }}>index 1</div>
+  </div>
+
+  <div style={{
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '3px solid #ff6b6b',
+    background: 'rgba(255,107,107,0.1)',
+    textAlign: 'center',
+    minWidth: '70px'
+  }}>
+    <div style={{ fontSize: '1.4rem', fontWeight: 700 }}>\0</div>
+    <div style={{ fontSize: '0.75rem', color: '#666' }}>index 2</div>
+  </div>
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  "Hi" needs 3 bytes of memory, not 2 — the hidden null terminator always takes one extra slot
+</div>
+
+> This is why `char name[20];` can safely store a name up to **19 characters**, not 20 — the last slot must always be reserved for `\0`.
+
+## Example — Declaring, Reading, and Printing Strings
+
+```c
+#include <stdio.h>
+
+int main() {
+    char name[20] = "Rahul";        // string literal, auto null-terminated
+    char city[20];
+
+    printf("Enter your city: ");
+    scanf("%s", city);              // no & needed — array name is already an address
+
+    printf("Name: %s\n", name);
+    puts(city);                     // another way to print a string (adds newline automatically)
+
+    return 0;
+}
+```
+
+**Step-by-step explanation:**
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>char name[20] = "Rahul";</strong> Creates a 20-character array, storing "Rahul" plus an automatic `\0` after it.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>scanf("%s", city);</strong> Reads text typed by the user. Notice there's **no `&`** before `city` — an array's name already represents its memory address.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>puts(city);</strong> A simpler alternative to `printf("%s\n", city)` — it prints the string and automatically adds a newline at the end.
+    </div>
+  </div>
+
+</div>
+
+**Important limitation:** `scanf("%s", ...)` **stops reading at the first space**, so it can't correctly read a full sentence like "New York City" — only "New" would be captured. To read a full line including spaces, use `fgets()` instead, shown below.
+
+## Reading a Full Line with fgets() — And Why Not gets()
+
+```c
+#include <stdio.h>
+
+int main() {
+    char sentence[100];
+
+    printf("Enter a sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);
+
+    printf("You typed: %s", sentence);
+
+    return 0;
+}
+```
+
+`fgets()` reads an entire line, including spaces, up to the buffer size you specify (`sizeof(sentence)` here) — making it much safer than `scanf("%s", ...)` for reading full sentences.
+
+**A word of caution:** Older C code sometimes uses a function called `gets()` to read a line of text. **Never use `gets()`** — it has no way of limiting how many characters it reads, meaning if the user types more text than the array can hold, it silently writes past the array's boundary, corrupting nearby memory. This is such a serious security risk that `gets()` has been officially removed from modern versions of the C standard. Always use `fgets()` instead.
+
+## char[] vs char* — Two Ways to Represent a String
+
+```c
+char name1[] = "Hello";   // an array — modifiable, stored on the stack
+char *name2 = "World";    // a pointer to a string literal — should NOT be modified
+
+name1[0] = 'J';  // OK — arrays can be changed
+// name2[0] = 'J'; // DANGEROUS — modifying a string literal via pointer is undefined behavior
+```
+
+- **`char name1[]`** creates an actual array in memory that you can freely read from and write to.
+- **`char *name2`** creates a pointer that points to a string literal stored in a special read-only part of memory — attempting to modify it can crash your program or cause unpredictable behavior.
+
+As a beginner, prefer `char array[]` when you need to *change* the string's contents, and reserve `char *` for cases where the string will only be read, not modified (this becomes more relevant once you study Pointers in a later topic).
+
+## The Most Important string.h Functions, A to Z
+
+| Function | What It Does | Example |
+|---|---|---|
+| `strlen(str)` | Returns the length of a string (not counting `\0`) | `strlen("Hello")` → `5` |
+| `strcpy(dest, src)` | Copies one string into another | `strcpy(name, "Amit")` |
+| `strcat(dest, src)` | Joins (concatenates) one string onto the end of another | `strcat(greeting, name)` |
+| `strcmp(str1, str2)` | Compares two strings; returns `0` if exactly equal | `strcmp("cat", "cat")` → `0` |
+| `strncpy(dest, src, n)` | Copies only the first `n` characters (safer than strcpy) | `strncpy(dest, src, 5)` |
+| `strncat(dest, src, n)` | Concatenates only the first `n` characters (safer than strcat) | `strncat(dest, src, 3)` |
+| `strchr(str, ch)` | Finds the first occurrence of a character in a string | `strchr("Hello", 'l')` |
+| `strstr(str1, str2)` | Finds the first occurrence of one string inside another | `strstr("Hello World", "World")` |
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char first[20] = "Hello, ";
+    char second[20] = "World!";
+
+    printf("Length of first: %lu\n", strlen(first));
+
+    strcat(first, second); // joins second onto the end of first
+    printf("Combined: %s\n", first);
+
+    if (strcmp("apple", "apple") == 0) {
+        printf("Strings are equal\n");
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+
+```text
+Length of first: 7
+Combined: Hello, World!
+Strings are equal
+```
+
+## Why strcpy/strcat Can Be Dangerous — Buffer Overflow
+
+```c
+char small[5];
+strcpy(small, "This is way too long!"); // DANGER: overflows the array!
+```
+
+Here, `small` only has room for 5 characters, but we're copying a much longer string into it. `strcpy()` doesn't check the destination's size — it will happily write past the array's boundary, corrupting whatever memory comes after it. This is called a **buffer overflow**, and it's one of the most common causes of crashes and security vulnerabilities in C programs.
+
+**Safer approach**, using the size-limited versions:
+
+```c
+char small[5];
+strncpy(small, "This is way too long!", sizeof(small) - 1);
+small[sizeof(small) - 1] = '\0'; // manually ensure null termination
+```
+
+`strncpy()` won't write more than the specified number of characters, but it also won't automatically add a `\0` if the source is longer than the limit — so you often need to add it manually, as shown above.
+
+## Comparing Strings Correctly — A Common Beginner Mistake
+
+```c
+char password[20] = "secret123";
+
+// WRONG — this compares memory addresses, not the actual text!
+if (password == "secret123") {
+    printf("This will likely NOT work as expected\n");
+}
+
+// CORRECT — use strcmp to compare actual string content
+if (strcmp(password, "secret123") == 0) {
+    printf("Password matches!\n");
+}
+```
+
+This is one of the most common bugs beginners run into: using `==` on strings in C compares the **memory addresses** (where the arrays are stored), not the actual text inside them. Always use `strcmp()` to properly compare the *content* of two strings.
+
+## Converting Between Strings and Numbers
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    char numberText[10] = "42";
+    char decimalText[10] = "3.14";
+
+    int wholeNumber = atoi(numberText);      // string to int
+    float decimalNumber = atof(decimalText); // string to float
+
+    // The other direction: number to string, using sprintf
+    char result[20];
+    int score = 95;
+    sprintf(result, "Score: %d", score);
+
+    printf("Whole: %d\n", wholeNumber);
+    printf("Decimal: %.2f\n", decimalNumber);
+    printf("Formatted: %s\n", result);
+
+    return 0;
+}
+```
+
+- **`atoi()`** — "ASCII to integer," converts a numeric string into an `int`.
+- **`atof()`** — "ASCII to float," converts a numeric string into a `double`.
+- **`sprintf()`** — Works like `printf`, but instead of printing to the screen, it "prints" the formatted result *into a string variable* — extremely useful for building formatted text to store or use later.
+- **`sscanf()`** — The reverse of `sprintf()`: reads formatted values *out of* a string, similar to how `scanf` reads from user input.
+
+**Output:**
+
+```text
+Whole: 42
+Decimal: 3.14
+Formatted: Score: 95
+```
+
+## Case Conversion — toupper() and tolower()
+
+```c
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char word[] = "Hello";
+    int i = 0;
+
+    while (word[i] != '\0') {
+        word[i] = toupper(word[i]); // convert each character to uppercase
+        i++;
+    }
+
+    printf("%s\n", word);
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+HELLO
+```
+
+`toupper()` and `tolower()` (from `ctype.h`) work on **one character at a time**, which is why we loop through the string and apply them to each character individually — there's no built-in function that converts an entire string at once.
+
+## Traversing a String Character by Character
+
+```c
+#include <stdio.h>
+
+int main() {
+    char word[] = "Code";
+    int i = 0;
+
+    while (word[i] != '\0') {
+        printf("Character %d: %c\n", i, word[i]);
+        i++;
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+Character 0: C
+Character 1: o
+Character 2: d
+Character 3: e
+```
+
+This loop keeps going *until it finds `\0`* — this is exactly why the null terminator matters so much: without it, the loop would have no idea where to stop, and would keep reading random memory beyond the actual string.
+
+## Array of Strings (Multiple Strings Together)
+
+```c
+#include <stdio.h>
+
+int main() {
+    char fruits[3][10] = {"Apple", "Mango", "Banana"};
+
+    for (int i = 0; i < 3; i++) {
+        printf("Fruit %d: %s\n", i, fruits[i]);
+    }
+
+    return 0;
+}
+```
+
+Here, `fruits[3][10]` is a **2D character array** — think of it as 3 separate string "boxes," each able to hold up to 9 characters plus a null terminator.
+
+**Output:**
+```text
+Fruit 0: Apple
+Fruit 1: Mango
+Fruit 2: Banana
+```
 
 ## Run your code
 
@@ -29,6 +413,17 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. Why is a string in C considered an array of characters, rather than its own separate data type?
+2. What is the null terminator, and why is it necessary?
+3. Why is `gets()` dangerous, and what should you use instead?
+4. What is a buffer overflow, and how can `strncpy()` help prevent it compared to `strcpy()`?
+5. Why shouldn't you compare two strings using `==`? What should you use instead?
+6. What is the difference between `char name[]` and `char *name` when representing a string?
+7. What does `sprintf()` do, and how is it different from regular `printf()`?
+8. Why does `toupper()` need to be applied inside a loop, instead of on the whole string at once?
 
 <AskBox topic="String" section="Programming Fundamentals" />
+
+
