@@ -13,15 +13,555 @@ import AskBox from '@site/src/components/AskBox';
 
 ## Overview
 
-_Control Flow - part of Programming Fundamentals. A short introduction goes here._
+**Control Flow** refers to the order in which a program's instructions are executed. By default, a computer runs code **line by line, from top to bottom** — this is called **sequential flow**. But real programs almost always need to make decisions: "do this if a condition is true, otherwise do something else." Control flow statements are exactly what let a program *choose* between different paths, instead of blindly running every line in order.
+
+Think back to our flowchart topic — remember the diamond (decision) shape? Control flow statements like `if`, `else`, and `switch` are the actual code versions of that diamond shape. They're what let your program "branch" — taking one path or another — based on whatever condition or boolean value you give it.
+
+Without control flow, every program would behave identically every single time, regardless of user input or circumstances. Control flow is what makes a program *responsive* — able to react differently to different situations, which is really the whole point of writing software in the first place.
 
 ## Key Concepts
 
-_The main ideas, one line each._
+- **Sequential Flow** — The default behavior: instructions run one after another, top to bottom, unless something changes that order.
+- **Conditional Statement** — Code that only runs if a certain condition is true, using `if`.
+- **Branching** — When a program's execution path splits into two or more possible directions, based on a condition.
+- **`if` Statement** — Runs a block of code only if a condition evaluates to true.
+- **`else` Statement** — Runs a block of code when the `if` condition was false.
+- **`else if`** — Lets you check multiple different conditions in sequence, one after another.
+- **Nested `if`** — An `if` statement placed inside another `if` statement, for checking more specific conditions.
+- **Ternary Operator (`? :`)** — A compact, one-line shorthand for a simple `if/else` that produces a value.
+- **`switch` Statement** — An alternative to many `else if` checks, useful when comparing one variable against several exact possible values.
+- **`break`** — Used inside a `switch` to stop checking further cases once a match is found.
+- **`goto`** — A rarely-used statement that jumps execution directly to a labeled point in the code, generally avoided in modern programming.
 
-## Example
+## Visual Flow — if / else if / else, Step by Step
 
-_A worked example with code._
+Let's see exactly how a program decides which path to take when there are multiple conditions:
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '0.6rem',
+  padding: '2rem 1rem'
+}}>
+
+  <div style={{
+    padding: '0.8rem 1.5rem',
+    borderRadius: '8px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.08)',
+    fontWeight: 600,
+    textAlign: 'center'
+  }}>
+    ◇ if (score &gt;= 90) ?
+  </div>
+
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', marginTop: '0.3rem' }}>
+    <div style={{ textAlign: 'center' }}>
+      <div style={{ fontSize: '0.8rem', color: '#2ecc71', fontWeight: 700 }}>Yes ⬇</div>
+      <div style={{
+        padding: '0.7rem 1rem',
+        borderRadius: '8px',
+        border: '2px solid #4f8cff',
+        background: 'rgba(79,140,255,0.08)',
+        fontWeight: 600
+      }}>
+        Print "Grade A"
+      </div>
+    </div>
+    <div style={{ textAlign: 'center' }}>
+      <div style={{ fontSize: '0.8rem', color: '#ff6b6b', fontWeight: 700 }}>No ⬇</div>
+      <div style={{
+        padding: '0.7rem 1rem',
+        borderRadius: '8px',
+        border: '2px solid #ff9f43',
+        background: 'rgba(255,159,67,0.08)',
+        fontWeight: 600
+      }}>
+        ◇ else if (score &gt;= 75) ?
+      </div>
+    </div>
+  </div>
+
+  <div style={{ display: 'flex', gap: '1rem', marginTop: '0.3rem' }}>
+    <div style={{ textAlign: 'center' }}>
+      <div style={{ fontSize: '0.8rem', color: '#2ecc71', fontWeight: 700 }}>Yes ⬇</div>
+      <div style={{
+        padding: '0.7rem 1rem',
+        borderRadius: '8px',
+        border: '2px solid #4f8cff',
+        background: 'rgba(79,140,255,0.08)',
+        fontWeight: 600
+      }}>
+        Print "Grade B"
+      </div>
+    </div>
+    <div style={{ textAlign: 'center' }}>
+      <div style={{ fontSize: '0.8rem', color: '#ff6b6b', fontWeight: 700 }}>No ⬇</div>
+      <div style={{
+        padding: '0.7rem 1rem',
+        borderRadius: '8px',
+        border: '2px solid #a55eea',
+        background: 'rgba(165,94,234,0.08)',
+        fontWeight: 600
+      }}>
+        else: Print "Grade C"
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style={{
+  textAlign: 'center',
+  color: '#888',
+  fontSize: '0.9rem',
+  marginTop: '-0.5rem',
+  marginBottom: '2rem'
+}}>
+  Only ONE of these three messages will ever print — the program stops checking as soon as one condition is true
+</div>
+
+## Example — if, else if, else, Step by Step
+
+```c
+#include <stdio.h>
+
+int main() {
+    int score = 82;
+
+    if (score >= 90) {
+        printf("Grade A\n");
+    } else if (score >= 75) {
+        printf("Grade B\n");
+    } else if (score >= 50) {
+        printf("Grade C\n");
+    } else {
+        printf("Grade F\n");
+    }
+
+    return 0;
+}
+```
+
+**Step-by-step explanation:**
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>if (score &gt;= 90):</strong> Is 82 &gt;= 90? No — so C skips this block entirely and checks the next condition.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>else if (score &gt;= 75):</strong> Is 82 &gt;= 75? Yes! This block runs, and — importantly — **C stops checking any further conditions after this**, even if they'd also be true.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>else if (score &gt;= 50) and else:</strong> Since a match was already found above, these remaining checks are **completely skipped**, never even evaluated.
+    </div>
+  </div>
+
+</div>
+
+**Output:**
+```text
+Grade B
+```
+
+This is an important behavior to understand: `if / else if / else` chains always run **at most one** block — as soon as a true condition is found, every remaining `else if`/`else` in that chain is skipped, no matter what.
+
+## Combining Conditions with && and || Inside if
+
+Real-world decisions often depend on more than one thing at once:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int age = 25;
+    int hasLicense = 1;
+    int hasInsurance = 0;
+
+    if (age >= 18 && hasLicense && hasInsurance) {
+        printf("You can legally drive.\n");
+    } else if (age >= 18 && hasLicense && !hasInsurance) {
+        printf("Get insurance before driving.\n");
+    } else {
+        printf("You cannot drive yet.\n");
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+Get insurance before driving.
+```
+
+Here, three separate boolean conditions are combined with `&&` to check that **all** requirements are met, and `!hasInsurance` checks that insurance is specifically missing. This is where control flow and boolean logic (from the previous topic) work directly together.
+
+## Nested if — Decisions Inside Decisions
+
+```c
+#include <stdio.h>
+
+int main() {
+    int age = 20;
+    int hasTicket = 1;
+
+    if (age >= 18) {
+        if (hasTicket) {
+            printf("Entry allowed\n");
+        } else {
+            printf("Buy a ticket first\n");
+        }
+    } else {
+        printf("Must be 18 or older\n");
+    }
+
+    return 0;
+}
+```
+
+Here, the inner `if (hasTicket)` only gets checked **at all** if the outer condition (`age >= 18`) was already true — this is called **nesting**.
+
+**Output:**
+```text
+Entry allowed
+```
+
+## ⚠️ The Dangling Else Problem — A Common Beginner Trap
+
+```c
+int x = 5, y = 10;
+
+if (x > 0)
+    if (y > 20)
+        printf("Both conditions true\n");
+    else
+        printf("This else belongs to the INNER if, not the outer one!\n");
+```
+
+This is a classic gotcha: without curly braces `{ }`, an `else` always attaches to the **nearest unmatched `if`** — which is `if (y > 20)`, not `if (x > 0)`.
+
+**Best practice:** Always use curly braces `{ }` around `if`/`else` blocks, even for single-line statements:
+
+```c
+if (x > 0) {
+    if (y > 20) {
+        printf("Both conditions true\n");
+    } else {
+        printf("Now it's unambiguous which if this belongs to\n");
+    }
+}
+```
+
+## ⚠️ The Accidental Semicolon Bug
+
+```c
+#include <stdio.h>
+
+int main() {
+    int x = 5;
+
+    if (x > 10);  // DANGER: notice the semicolon here!
+    {
+        printf("This ALWAYS prints, regardless of x!\n");
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+This ALWAYS prints, regardless of x!
+```
+
+This is a sneaky, silent bug: the semicolon right after `if (x > 10)` actually ends the `if` statement immediately, with an **empty statement** as its body. The `{ }` block below is now just a regular, independent block of code that always runs — completely disconnected from the `if` condition. C won't warn you about this, since it's technically valid syntax, which makes it one of the most frustrating bugs for beginners to spot. Always double-check that there's no stray semicolon right after an `if (...)` or `while (...)` condition.
+
+## The Ternary Operator — A Compact if/else Shortcut
+
+```c
+#include <stdio.h>
+
+int main() {
+    int age = 16;
+
+    // Long way, using if/else:
+    const char *status1;
+    if (age >= 18) {
+        status1 = "Adult";
+    } else {
+        status1 = "Minor";
+    }
+
+    // Short way, using the ternary operator:
+    const char *status2 = (age >= 18) ? "Adult" : "Minor";
+
+    printf("%s\n", status1);
+    printf("%s\n", status2);
+
+    return 0;
+}
+```
+
+Both `status1` and `status2` produce the exact same result: `"Minor"`. The ternary operator `condition ? valueIfTrue : valueIfFalse` is best used for **simple** either/or decisions that produce a value — for more complex logic with multiple statements, a regular `if/else` is usually clearer and easier to read.
+
+## The switch Statement — A Cleaner Alternative for Multiple Exact Matches
+
+```c
+#include <stdio.h>
+
+int main() {
+    int day = 3;
+
+    switch (day) {
+        case 1:
+            printf("Monday\n");
+            break;
+        case 2:
+            printf("Tuesday\n");
+            break;
+        case 3:
+            printf("Wednesday\n");
+            break;
+        case 4:
+            printf("Thursday\n");
+            break;
+        case 5:
+            printf("Friday\n");
+            break;
+        default:
+            printf("Weekend\n");
+    }
+
+    return 0;
+}
+```
+
+**Step-by-step explanation:**
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1.5rem 0'
+}}>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #4f8cff',
+    background: 'rgba(79,140,255,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>1️⃣</div>
+    <div>
+      <strong>switch (day):</strong> Tells C to compare the variable `day` against a list of exact possible values.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #ff9f43',
+    background: 'rgba(255,159,67,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>2️⃣</div>
+    <div>
+      <strong>case 3:</strong> Since `day` equals 3, this matching case runs, printing "Wednesday".
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #2ecc71',
+    background: 'rgba(46,204,113,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>3️⃣</div>
+    <div>
+      <strong>break;</strong> Stops the switch statement immediately after a match, preventing it from continuing to check the remaining cases below.
+    </div>
+  </div>
+
+  <div style={{ textAlign: 'center', color: '#aaa' }}>⬇</div>
+
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    padding: '1rem',
+    borderRadius: '10px',
+    border: '2px solid #a55eea',
+    background: 'rgba(165,94,234,0.05)'
+  }}>
+    <div style={{ fontSize: '1.8rem' }}>4️⃣</div>
+    <div>
+      <strong>default:</strong> Runs only if none of the cases above matched — similar to a final `else`.
+    </div>
+  </div>
+
+</div>
+
+**Output:**
+```text
+Wednesday
+```
+
+## switch with char — Not Just Numbers
+
+`switch` isn't limited to integers — it also works cleanly with single characters:
+
+```c
+#include <stdio.h>
+
+int main() {
+    char grade = 'B';
+
+    switch (grade) {
+        case 'A':
+            printf("Excellent!\n");
+            break;
+        case 'B':
+            printf("Good job!\n");
+            break;
+        case 'C':
+            printf("You can do better.\n");
+            break;
+        default:
+            printf("Invalid grade\n");
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+```text
+Good job!
+```
+
+This works because in C, a `char` is really just stored as a small integer internally (its ASCII value), so `switch` can compare characters exactly the same way it compares numbers.
+
+## ⚠️ Forgetting break — "Fall-Through" Behavior
+
+```c
+int day = 2;
+
+switch (day) {
+    case 1:
+        printf("Monday\n");
+    case 2:
+        printf("Tuesday\n");
+    case 3:
+        printf("Wednesday\n");
+        break;
+    default:
+        printf("Other day\n");
+}
+```
+
+**Output:**
+```text
+Tuesday
+Wednesday
+```
+
+Notice this printed **two lines**, not one! Since `case 2` had no `break;`, C doesn't stop there — it keeps "falling through" and running every case below it too, until it finally hits a `break;` inside `case 3`. This is called **fall-through**, and forgetting a `break` is one of the most common `switch` mistakes beginners make.
+
+## if/else vs switch — When to Use Which
+
+| Use `if / else if / else` when... | Use `switch` when... |
+|---|---|
+| Checking ranges (`score >= 90`) | Checking exact values only (`day == 3`) |
+| Checking multiple different variables | Checking one single variable repeatedly |
+| Using complex conditions (`&&`, `\|\|`) | Comparing against a fixed list of possible values |
+| Conditions involve floats or strings | Conditions involve integers or characters (in C) |
+
+## goto — Mentioned for Completeness (Best Avoided)
+
+```c
+#include <stdio.h>
+
+int main() {
+    int x = 5;
+
+    if (x == 5) {
+        goto skip;
+    }
+
+    printf("This will be skipped\n");
+
+    skip:
+        printf("Jumped here directly\n");
+
+    return 0;
+}
+```
+
+**Output:**
+
+```text
+Jumped here directly
+```
+
+`goto` jumps execution directly to a labeled line elsewhere in the code, bypassing normal control flow entirely. While it technically exists in C, it's **almost universally discouraged** in modern programming, because overusing it makes code extremely hard to read and follow — famously nicknamed "spaghetti code," since the program's execution path can jump around unpredictably instead of following clear, structured branches like `if`/`else` or loops. It's included here only so you recognize it if you ever encounter it in older code; you generally won't need to use it yourself.
 
 ## Run your code
 
@@ -29,6 +569,15 @@ _A worked example with code._
 
 ## Practice Questions
 
-_Questions to try once you have read the notes above._
+Try answering these questions yourself after reading the notes above:
+
+1. What is the difference between sequential flow and branching?
+2. In an `if / else if / else` chain, why does only one block ever run, even if multiple conditions would technically be true?
+3. What is the "dangling else" problem, and how do curly braces `{ }` prevent it?
+4. What does the stray semicolon do in `if (x > 10);`? Why is this bug so hard to spot?
+5. What does `break` do inside a `switch` statement, and what happens if you forget it?
+6. When would you use the ternary operator instead of a full `if/else` statement?
+7. Why does `switch` work with `char` values, even though `switch` is often thought of as only working with numbers?
+8. Why is `goto` generally avoided in modern programming, even though it still exists in C?
 
 <AskBox topic="Control Flow" section="Programming Fundamentals" />
