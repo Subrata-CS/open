@@ -1,0 +1,9 @@
+{
+  "label": "Bioinformatics and Computational Biology",
+  "position": 20,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Algorithms for living systems."
+  }
+}

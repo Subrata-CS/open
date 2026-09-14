@@ -1,0 +1,9 @@
+{
+  "label": "Recovery",
+  "position": 10,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Recovery"
+  }
+}

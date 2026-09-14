@@ -1,0 +1,9 @@
+{
+  "label": "Artificial Intelligence",
+  "position": 20,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Making machines act sensibly."
+  }
+}

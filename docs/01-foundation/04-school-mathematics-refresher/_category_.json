@@ -1,0 +1,9 @@
+{
+  "label": "School Mathematics Refresher",
+  "position": 4,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "The maths every CS course assumes you already have."
+  }
+}

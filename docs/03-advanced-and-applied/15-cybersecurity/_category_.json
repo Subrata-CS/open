@@ -1,0 +1,9 @@
+{
+  "label": "Cybersecurity",
+  "position": 15,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Attack, defence and the mindset between."
+  }
+}

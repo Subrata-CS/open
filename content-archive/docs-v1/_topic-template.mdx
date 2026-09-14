@@ -1,0 +1,209 @@
+---
+title: "TOPIC NAME"
+sidebar_position: 1
+sidebar_label: "TOPIC NAME"
+slug: /section-slug/topic-slug
+description: "One sentence a search engine can show. Say what the reader will be able to do after reading."
+keywords:
+  - topic name
+  - two or three phrases people actually type
+---
+
+import RunInLab from '@site/src/components/RunInLab';
+import AskBox from '@site/src/components/AskBox';
+import Diagram from '@site/src/components/Diagram';
+import { Lede, Callout, ProsCons, Quiz, Revision, Eq } from '@site/src/components/Note';
+
+{/*
+  ══════════════════════════════════════════════════════════════════════════
+  Copy this file to docs/<section>/<nn>-<topic>.mdx and change the WORDS only.
+
+  No CSS, no SVG, no coordinates on a topic page. The components below draw
+  everything to the same house style, on every screen size.
+
+  Diagram type="chain"   boxes in order with arrows  (a process, a pipeline)
+  Diagram type="tree"    a root splitting into lists (a classification)
+  Diagram type="pyramid" stacked tiers               (a hierarchy)
+
+  Everything else is ordinary markdown: ##, tables, **bold**, `code`.
+  ══════════════════════════════════════════════════════════════════════════
+*/}
+
+# TOPIC NAME
+
+<Lede>
+Two or three sentences for a reader who knows nothing yet. Say what this topic
+answers and why it sits at this point in the section.
+</Lede>
+
+## Overview
+
+Plain-language explanation, two short paragraphs at most. Bold the **terms**
+that appear again in the tables below, so the eye can find them.
+
+<Callout kind="def" title="Definition">
+  The one sentence worth memorising, written the way an examiner would accept
+  it.
+</Callout>
+
+| Term | Meaning | Example |
+| --- | --- | --- |
+| **Term one** | Short meaning. | Concrete example |
+| **Term two** | Short meaning. | Concrete example |
+
+<Callout kind="tip" title="Exam tip">
+  The shortest correct answer to the one-mark version of this question, or the
+  mistake most people make.
+</Callout>
+
+## Key Concepts
+
+### First idea
+
+Explain it in words, then show it. A diagram comes after the sentence it
+illustrates, never before.
+
+<Diagram
+  type="chain"
+  label="Fig 1"
+  title="What the diagram shows"
+  eyebrow="A SHORT CAPS LABEL"
+  caption="One sentence saying what the reader should notice."
+  items={[
+    { title: 'FIRST', lines: ['what happens here', 'a real example'] },
+    { title: 'SECOND', lines: ['what happens here', 'a real example'], highlight: true },
+    { title: 'THIRD', lines: ['what happens here', 'a real example'] },
+  ]}
+  aside={{ title: 'SIDE BOX', lines: ['optional — delete this line if not needed'] }}
+  footnote="Optional sentence drawn under the diagram."
+/>
+
+A table straight after a diagram, naming the same blocks in the same order, is
+what makes the diagram stick:
+
+| Part | Job in one line | Remember it as |
+| --- | --- | --- |
+| **First** | What it does. | A one-word handle |
+| **Second** | What it does. | A one-word handle |
+
+<Callout kind="note" title="Common confusion">
+  The two things students mix up here, and the line that separates them.
+</Callout>
+
+### A classification
+
+<Diagram
+  type="tree"
+  label="Fig 2"
+  title="How it divides"
+  caption="One sentence on what the split tells you."
+  root="The whole thing"
+  branches={[
+    {
+      title: 'First kind',
+      subtitle: 'what marks it out',
+      items: ['Sub-item one', 'Sub-item two', 'Sub-item three'],
+    },
+    {
+      title: 'Second kind',
+      subtitle: 'what marks it out',
+      items: ['Sub-item one', 'Sub-item two'],
+    },
+  ]}
+/>
+
+### A hierarchy
+
+<Diagram
+  type="pyramid"
+  label="Fig 3"
+  title="Biggest to smallest"
+  eyebrow="OPTIONAL CAPS LABEL"
+  caption="One sentence on what the shape means."
+  items={[
+    { title: 'Top tier', lines: ['rarest, most powerful'] },
+    { title: 'Second tier' },
+    { title: 'Third tier' },
+    { title: 'Bottom tier', lines: ['most common'], highlight: true },
+  ]}
+  footnote="Optional line under the pyramid."
+/>
+
+### A formula
+
+Inline maths sits in a sentence like <Eq>{String.raw`v = f\lambda`}</Eq>, and a
+formula worth memorising gets its own line:
+
+<Eq block>{String.raw`T_{\text{avg}} = \frac{1}{n}\sum_{i=1}^{n} t_i`}</Eq>
+
+Write the TeX exactly as you would in LaTeX. Use `String.raw` so backslashes
+survive.
+
+### Advantages and limitations
+
+<ProsCons
+  pros={['Point one', 'Point two', 'Point three']}
+  cons={['Point one', 'Point two', 'Point three']}
+/>
+
+<Callout kind="warn" title="Watch out">
+  The trap that costs marks, stated in two lines.
+</Callout>
+
+## Example
+
+Say what the example demonstrates before the code, so the reader knows what to
+look for. Keep it under fifteen lines and comment the stages.
+
+```python
+# 1. what this line sets up
+data = [1, 2, 3]
+
+# 2. the idea of this topic, in action
+result = sum(data)
+
+# 3. what came out
+print(result)
+```
+
+Expected output:
+
+```text
+6
+```
+
+Then one sentence tying the output back to the definition at the top.
+
+## Run your code
+
+<RunInLab topic="TOPIC NAME" lang="python" code={`data = [1, 2, 3]
+result = sum(data)
+print(result)`} />
+
+## Practice Questions
+
+Answer each one in your head first, then open it.
+
+<Quiz
+  items={[
+    { q: 'A definition question.', a: 'The answer, as it should appear on an answer sheet.' },
+    { q: 'A difference-between question.', a: 'Both sides named, and the one line that separates them.' },
+    { q: 'A why question.', a: 'The reason spelled out rather than assumed.' },
+    { q: 'A numerical or example question.', a: 'The answer with the working shown in one line.' },
+    { q: 'A question the exam actually asked.', a: 'The answer.' },
+  ]}
+/>
+
+### Quick revision
+
+<Revision
+  points={[
+    'The definition, compressed to one line.',
+    'The diagram, compressed to its block names in order.',
+    'The classification list.',
+    'The one number or ratio worth memorising.',
+    'The single most common mistake.',
+  ]}
+/>
+
+<AskBox topic="TOPIC NAME" section="SECTION NAME" />

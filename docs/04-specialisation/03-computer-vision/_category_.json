@@ -1,0 +1,9 @@
+{
+  "label": "Computer Vision",
+  "position": 3,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Teaching machines to see."
+  }
+}

@@ -1,0 +1,452 @@
+---
+title: Computer Hardware
+sidebar_position: 5
+sidebar_label: Hardware
+slug: /computer-fundamentals/hardware
+description: Complete guide to computer hardware with diagrams, images, tables, advantages, disadvantages and practice questions.
+keywords:
+  - computer hardware
+  - hardware
+  - cpu
+  - ram
+  - motherboard
+---
+
+import RunInLab from '@site/src/components/RunInLab';
+import AskBox from '@site/src/components/AskBox';
+import Diagram from '@site/src/components/Diagram';
+import { Lede, Callout, ProsCons, Quiz, Revision } from '@site/src/components/Note';
+
+# Computer Hardware
+
+<Lede>
+Computer hardware refers to every physical component of a computer system. It includes the processor, motherboard, memory, storage devices, keyboard, monitor, printer, and every electronic part that can be touched.
+</Lede>
+
+---
+
+## What is Computer Hardware?
+
+<Callout kind="def" title="Definition">
+Computer hardware is the collection of all physical electronic and mechanical components that make up a computer system.
+</Callout>
+
+A computer cannot work using hardware alone. Hardware performs the physical work while software provides the instructions.
+
+---
+
+## Real-Life Example
+
+| Human Body | Computer Hardware |
+|---|---|
+| Brain | CPU |
+| Memory | RAM |
+| Eyes | Monitor |
+| Hands | Keyboard & Mouse |
+| Skeleton | Computer Cabinet |
+| Heart | Power Supply Unit |
+
+---
+
+# Classification of Hardware
+
+<Diagram
+  type="tree"
+  label="Fig 1"
+  title="Classification of Computer Hardware"
+  root="Computer Hardware"
+  branches={[
+    {
+      title: "Internal Hardware",
+      subtitle: "Inside the system unit",
+      items: ["CPU", "Motherboard", "RAM", "Storage", "PSU"],
+    },
+    {
+      title: "External Hardware",
+      subtitle: "Outside the computer",
+      items: ["Keyboard", "Mouse", "Monitor", "Printer"],
+    },
+  ]}
+/>
+
+Hardware is divided into **Internal Hardware** and **External Hardware**.
+
+---
+
+# Internal Hardware
+
+## 1. Central Processing Unit (CPU)
+
+![CPU](/img/cpu.jpg)
+
+*Figure 1. Central Processing Unit*
+
+The **CPU** is known as the **Brain of the Computer** because it performs calculations, logical operations, and executes instructions.
+
+### Features
+
+| Feature | Description |
+|---|---|
+| Full Name | Central Processing Unit |
+| Function | Executes instructions |
+| Speed | Measured in GHz |
+| Operations | Arithmetic & Logical |
+| Examples | Intel Core i7, AMD Ryzen |
+
+### Main Functions
+
+- Executes program instructions
+- Controls computer operations
+- Performs calculations
+- Processes data
+
+<Callout kind="tip" title="Did You Know?">
+A modern CPU can perform billions of instructions every second.
+</Callout>
+
+---
+
+## 2. Motherboard
+
+![Motherboard](/img/motherboard.jpg)
+
+*Figure 2. Desktop Motherboard*
+
+The **Motherboard** is the main printed circuit board (PCB) that connects every hardware component together.
+
+### Main Parts
+
+| Component | Purpose |
+|---|---|
+| CPU Socket | Holds the processor |
+| RAM Slots | Install memory modules |
+| PCIe Slot | Graphics & expansion cards |
+| BIOS Chip | Starts the computer |
+| SATA Port | Connects HDD & SSD |
+
+### Real-Life Example
+
+The motherboard is like the **road network of a city**. Every component communicates through it.
+
+---
+
+## 3. RAM (Random Access Memory)
+
+![RAM](/img/ram.jpg)
+
+*Figure 3. DDR4 RAM Module*
+
+RAM stores data **temporarily** while applications are running.
+
+<Callout kind="note" title="Important">
+RAM is **volatile memory**, meaning all data disappears when the computer is powered off.
+</Callout>
+
+### Example
+
+When you open Photoshop:
+
+1. The application loads into RAM.
+2. CPU processes images.
+3. Saved files are written to SSD.
+
+---
+
+## 4. Storage Devices
+
+![SSD and HDD](/img/ssd-hdd.jpg)
+
+*Figure 4. SSD and HDD Storage Devices*
+
+Storage keeps data permanently.
+
+### Types of Storage
+
+| Device | Speed | Capacity |
+|---|---|---|
+| HDD | Slow | Very High |
+| SSD | Fast | High |
+| NVMe SSD | Very Fast | High |
+
+### HDD vs SSD
+
+| Feature | HDD | SSD |
+|---|---|---|
+| Moving Parts | Yes | No |
+| Speed | Slow | Fast |
+| Noise | Yes | Silent |
+| Durability | Lower | Higher |
+| Power Use | Higher | Lower |
+
+---
+
+## 5. Power Supply Unit (PSU)
+
+![Power Supply](/img/psu.jpg)
+
+*Figure 5. ATX Power Supply Unit*
+
+The **Power Supply Unit** converts **AC electricity** into **DC power** for computer hardware.
+
+<Diagram
+  type="flow"
+  label="Fig 2"
+  title="Power Conversion Process"
+  items={["AC Electricity", "Power Supply", "DC Electricity", "Hardware Components"]}
+/>
+
+---
+
+# External Hardware
+
+External hardware includes devices connected outside the computer.
+
+## Keyboard
+
+![Keyboard](/img/keyboard.jpg)
+
+*Figure 6. Mechanical Keyboard*
+
+The keyboard is the primary **input device** used to enter text and commands.
+
+### Types
+
+- Mechanical Keyboard
+- Membrane Keyboard
+- Wireless Keyboard
+- Ergonomic Keyboard
+
+---
+
+## Mouse
+
+![Mouse](/img/mouse.jpg)
+
+*Figure 7. Optical Wireless Mouse*
+
+A mouse is a **pointing device** used to control the cursor.
+
+| Type | Application |
+|---|---|
+| Optical | Daily use |
+| Laser | High precision |
+| Wireless | Portable |
+| Gaming | Fast response |
+
+---
+
+## Monitor
+
+![Monitor](/img/monitor.jpg)
+
+*Figure 8. LED Computer Monitor*
+
+The monitor displays visual information generated by the computer.
+
+### Common Types
+
+- LCD
+- LED
+- IPS
+- OLED
+
+---
+
+## Printer
+
+![Printer](/img/printer.jpg)
+
+*Figure 9. Color Laser Printer*
+
+Printers produce **hard-copy output** on paper.
+
+| Printer Type | Best For |
+|---|---|
+| Inkjet | Home |
+| Laser | Office |
+| Dot Matrix | Billing |
+
+---
+
+# Hardware Working Process
+
+<Diagram
+  type="cycle"
+  label="Fig 3"
+  title="How Hardware Works Together"
+  steps={[
+    "Input Device",
+    "CPU Processing",
+    "RAM Memory",
+    "Storage",
+    "Output Device",
+  ]}
+/>
+
+### Step-by-Step
+
+1. User enters data using the keyboard.
+2. CPU processes the instruction.
+3. RAM stores temporary information.
+4. SSD saves data permanently.
+5. Monitor displays the result.
+
+---
+
+# Hardware Classification by Function
+
+| Hardware Type | Examples | Purpose |
+|---|---|---|
+| Input | Keyboard, Mouse | Enter Data |
+| Processing | CPU | Execute Instructions |
+| Memory | RAM | Temporary Storage |
+| Storage | SSD, HDD | Permanent Storage |
+| Output | Monitor, Printer | Display Results |
+
+---
+
+# Characteristics of Hardware
+
+- Physical and tangible
+- Electronic device
+- Requires electricity
+- Upgradeable
+- Durable
+- Works together with software
+
+---
+
+# Advantages and Disadvantages
+
+<ProsCons
+  pros={[
+    "High processing speed",
+    "Reliable performance",
+    "Upgradeable components",
+    "Long service life",
+    "Supports multitasking",
+  ]}
+  cons={[
+    "Can be physically damaged",
+    "Requires electricity",
+    "Produces heat",
+    "Needs maintenance",
+    "Hardware upgrades may be expensive",
+  ]}
+/>
+
+---
+
+# Internal vs External Hardware
+
+| Feature | Internal Hardware | External Hardware |
+|---|---|---|
+| Location | Inside cabinet | Outside cabinet |
+| Access | Limited | Easy |
+| Examples | CPU, RAM | Keyboard, Mouse |
+| Replacement | Moderate | Easy |
+
+---
+
+# Python Demonstration
+
+```python
+hardware = {
+    "CPU": "Intel Core i7",
+    "RAM": "16 GB",
+    "Storage": "512 GB SSD",
+    "Monitor": "24 inch LED"
+}
+
+for device, value in hardware.items():
+    print(device, ":", value)
+```
+
+### Output
+
+```text
+CPU : Intel Core i7
+RAM : 16 GB
+Storage : 512 GB SSD
+Monitor : 24 inch LED
+```
+
+<RunInLab
+  topic="Computer Hardware"
+  lang="python"
+  code={`hardware = {
+    "CPU": "Intel Core i7",
+    "RAM": "16 GB",
+    "Storage": "512 GB SSD",
+    "Monitor": "24 inch LED"
+}
+
+for device, value in hardware.items():
+    print(device, ":", value)`}
+/>
+
+---
+
+# Practice Questions
+
+<Quiz
+  items={[
+    {
+      q: "What is computer hardware?",
+      a: "The collection of all physical components of a computer system.",
+    },
+    {
+      q: "Why is the CPU called the brain of the computer?",
+      a: "Because it processes instructions and controls all computer operations.",
+    },
+    {
+      q: "Which memory is volatile?",
+      a: "RAM.",
+    },
+    {
+      q: "Which storage device is faster, HDD or SSD?",
+      a: "SSD.",
+    },
+    {
+      q: "What is the function of the motherboard?",
+      a: "It connects all hardware components together.",
+    },
+  ]}
+/>
+
+---
+
+# Interview Questions
+
+### Q1. What is hardware?
+
+Hardware refers to every physical electronic component of a computer system.
+
+### Q2. What is the difference between RAM and SSD?
+
+RAM stores temporary data, while SSD stores permanent data.
+
+### Q3. Why is the motherboard important?
+
+It allows communication between the CPU, RAM, storage, graphics card, and other devices.
+
+---
+
+# Quick Revision
+
+<Revision
+  points={[
+    "Hardware means physical components.",
+    "CPU is the brain of the computer.",
+    "Motherboard connects all components.",
+    "RAM is volatile memory.",
+    "SSD provides permanent storage.",
+    "Keyboard is an input device.",
+    "Monitor is an output device.",
+    "PSU converts AC into DC power.",
+  ]}
+/>
+
+---
+
+<AskBox topic="Computer Hardware" section="Computer Fundamentals"/>

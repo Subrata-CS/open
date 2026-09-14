@@ -1,0 +1,9 @@
+{
+  "label": "Research Frontiers",
+  "position": 11,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "A living section, updated as fields move."
+  }
+}

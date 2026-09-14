@@ -1,0 +1,9 @@
+{
+  "label": "Numerical Methods",
+  "position": 27,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Computing answers when formulas run out."
+  }
+}

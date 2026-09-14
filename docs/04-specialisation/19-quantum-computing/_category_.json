@@ -1,0 +1,9 @@
+{
+  "label": "Quantum Computing",
+  "position": 19,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Computing with amplitudes."
+  }
+}

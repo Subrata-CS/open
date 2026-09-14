@@ -1,0 +1,9 @@
+{
+  "label": "Internet of Things",
+  "position": 18,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Connected devices at scale."
+  }
+}

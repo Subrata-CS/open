@@ -1,0 +1,9 @@
+{
+  "label": "Machine Learning",
+  "position": 21,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Learning from data."
+  }
+}

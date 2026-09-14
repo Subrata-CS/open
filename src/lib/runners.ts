@@ -18,7 +18,39 @@ import { runTypeScript } from './tsRunner';
  * Anything the reader writes runs, not just the samples on the page.
  */
 
-const WANDBOX = 'https://wandbox.org/api/compile.json';
+/**
+ * Remote execution.
+ *
+ * Wandbox was used here before. Its sandbox now fails for every compile with
+ * `Failed to get uid: exit status 125`, so C, C++, Java and eleven other
+ * languages stopped running. Piston, the usual replacement, became
+ * whitelist-only in February 2026.
+ *
+ * Judge0 CE runs all of them. Each id below was verified by compiling and
+ * running real code through it, not taken from documentation.
+ */
+const JUDGE0 = 'https://ce.judge0.com';
+
+const JUDGE0_ID: Record<string, number> = {
+  c: 110,          // C (Clang 19.1.7)
+  cpp: 105,        // C++ (GCC 14.1.0)
+  java: 91,        // Java (JDK 17.0.6)
+  go: 107,         // Go 1.23.5
+  rust: 108,       // Rust 1.85.0
+  csharp: 51,      // C# (Mono 6.6)
+  ruby: 72,        // Ruby 2.7
+  php: 98,         // PHP 8.3.11
+  bash: 46,        // Bash 5.0
+  r: 99,           // R 4.4.1
+  scala: 112,      // Scala 3.4.2
+  haskell: 61,     // Haskell GHC 8.8.1
+  lua: 64,         // Lua 5.3.5
+  perl: 85,        // Perl 5.28.1
+  python: 113,     // only used if the browser runtime fails to load
+  javascript: 102,
+  typescript: 101,
+  sql: 82,         // SQLite 3.27
+};
 
 export type LangId =
   | 'python'
@@ -47,7 +79,11 @@ export type LangSpec = {
   prism: string;
   /** Extension used when downloading. */
   ext: string;
-  /** Wandbox compiler id — omitted for locally executed languages. */
+  /**
+   * Legacy Wandbox compiler id. No longer used — execution now goes through
+   * Judge0 and the id comes from JUDGE0_ID above. Kept only so older entries
+   * in this list still typecheck; safe to delete.
+   */
   compiler?: string;
   /** Runs in the browser rather than remotely. */
   local?: boolean;
@@ -236,16 +272,15 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
  */
 async function post(spec: LangSpec, code: string, stdin: string): Promise<Response> {
   const body = JSON.stringify({
-    compiler: spec.compiler,
-    code: prepare(spec.id, code),
+    language_id: JUDGE0_ID[spec.id],
+    source_code: prepare(spec.id, code),
     stdin,
-    save: false,
   });
 
   let last: Response | null = null;
   for (let attempt = 0; attempt < 3; attempt++) {
     if (attempt > 0) await sleep(900 * attempt);
-    last = await fetch(WANDBOX, {
+    last = await fetch(`${JUDGE0}/submissions?wait=true`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body,
@@ -276,22 +311,42 @@ async function runRemote(
     }
 
     const data = await res.json();
-    const compileErr: string = (data?.compiler_error ?? '').trim();
-    const out: string = (data?.program_output ?? '').trim();
-    const runErr: string = (data?.program_error ?? '').trim();
-    const ok = String(data?.status ?? '1') === '0';
 
-    if (compileErr && !out) return { ok: false, output: compileErr };
+    // Judge0 reports the verdict in status.id:
+    //   3 = ran and exited cleanly, 6 = would not compile,
+    //   5 = ran too long, 7-12 = crashed at runtime.
+    const verdict: number = Number(data?.status?.id ?? 0);
+    const label: string = String(data?.status?.description ?? '');
+    const out: string = (data?.stdout ?? '').replace(/\s+$/, '');
+    const runErr: string = (data?.stderr ?? '').trim();
+    const compileErr: string = (data?.compile_output ?? '').trim();
 
-    const parts = [out, runErr].filter(Boolean);
-    if (compileErr) parts.push('--- compiler warnings ---', compileErr);
+    // A program that will not compile never ran, so show only the compiler.
+    if (verdict === 6) {
+      return { ok: false, output: compileErr || 'The program did not compile.' };
+    }
 
-    return { ok, output: parts.join('\n') || '(no output)' };
+    if (verdict === 5) {
+      return {
+        ok: false,
+        output:
+          (out ? out + '\n\n' : '') +
+          'Stopped: the program ran past the time limit. An endless loop, or waiting for input that never arrives, will do this.',
+      };
+    }
+
+    const parts: string[] = [];
+    if (out) parts.push(out);
+    if (runErr) parts.push(runErr);
+    if (verdict > 6) parts.push(`Stopped: ${label}.`);
+    if (compileErr && verdict === 3) parts.push('--- compiler warnings ---', compileErr);
+
+    return { ok: verdict === 3, output: parts.join('\n') || '(no output)' };
   } catch {
     return {
       ok: false,
       output:
-        'Could not reach the compile service. Check your connection and try again — Python, JavaScript, TypeScript and SQL still run offline.',
+        'Could not reach the compile service. Check your connection and try again — Python, JavaScript, TypeScript and SQL still run offline in your browser.',
     };
   }
 }

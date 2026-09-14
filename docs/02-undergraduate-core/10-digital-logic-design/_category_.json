@@ -1,0 +1,9 @@
+{
+  "label": "Digital Logic Design",
+  "position": 10,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "From transistors to a working circuit."
+  }
+}

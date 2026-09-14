@@ -1,0 +1,9 @@
+{
+  "label": "Kernel internals",
+  "position": 1,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Kernel internals"
+  }
+}

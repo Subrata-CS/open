@@ -1,0 +1,9 @@
+{
+  "label": "Data Structures",
+  "position": 4,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "How data is arranged so it can be used."
+  }
+}

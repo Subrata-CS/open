@@ -1,0 +1,9 @@
+{
+  "label": "Topics",
+  "position": 1,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Topics"
+  }
+}

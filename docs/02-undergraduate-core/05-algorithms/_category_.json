@@ -1,0 +1,9 @@
+{
+  "label": "Algorithms",
+  "position": 5,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Method, and how to reason about cost."
+  }
+}

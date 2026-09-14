@@ -1,0 +1,9 @@
+{
+  "label": "The Command Line and Linux Basics",
+  "position": 3,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "The tool every later section assumes."
+  }
+}

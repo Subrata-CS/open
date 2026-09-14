@@ -1,0 +1,9 @@
+{
+  "label": "Programming Languages",
+  "position": 2,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "One full course per language."
+  }
+}

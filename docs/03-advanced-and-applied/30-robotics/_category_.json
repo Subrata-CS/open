@@ -1,0 +1,9 @@
+{
+  "label": "Robotics",
+  "position": 30,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Machines that sense, decide and move."
+  }
+}

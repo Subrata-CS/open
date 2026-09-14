@@ -1,0 +1,9 @@
+{
+  "label": "Advanced Algorithms",
+  "position": 13,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Beyond worst-case deterministic."
+  }
+}

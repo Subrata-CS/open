@@ -1,0 +1,9 @@
+{
+  "label": "Parallel and High-Performance Computing",
+  "position": 9,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Using all the hardware."
+  }
+}

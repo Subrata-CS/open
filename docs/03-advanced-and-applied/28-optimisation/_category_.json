@@ -1,0 +1,9 @@
+{
+  "label": "Optimisation",
+  "position": 28,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Finding the best under constraints."
+  }
+}

@@ -1,0 +1,331 @@
+/* ===========================================================================
+   ACADEMIC THEME
+   ---------------------------------------------------------------------------
+   The look of a university course catalogue — MIT, Stanford, ETH, Penn.
+
+   Three rules, applied everywhere:
+
+     1. One flat background colour. No gradient, no glow, no pattern, no
+        animation behind the text. It is identical on every page and on every
+        visit, so the site feels like one building rather than six.
+     2. One accent colour, used sparingly — links, the active item, a rule
+        under a heading. Nothing else is coloured.
+     3. A serif for headings, a clean sans for body, and a reading measure of
+        about 72 characters. Authority comes from typography, not decoration.
+
+   This file is loaded last, so it overrides the theme above it.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------- palette */
+
+:root {
+  --ac-paper: #fbfaf8;          /* the one background colour */
+  --ac-card: #ffffff;
+  --ac-ink: #1a1a1a;
+  --ac-ink-soft: #4a4a4a;
+  --ac-ink-faint: #767676;
+  --ac-rule: #e3e0da;
+  --ac-accent: #8a1a1a;         /* the single accent */
+  --ac-accent-soft: #f6efef;
+  --ac-code-bg: #f6f5f2;
+
+  --ac-serif: 'Source Serif 4', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --ac-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* hand the same values to Infima so every built-in component follows */
+  --ifm-background-color: var(--ac-paper);
+  --ifm-background-surface-color: var(--ac-card);
+  --ifm-font-color-base: var(--ac-ink);
+  --ifm-heading-font-family: var(--ac-serif);
+  --ifm-heading-font-weight: 600;
+  --ifm-font-family-base: var(--ac-sans);
+  --ifm-color-primary: #8a1a1a;
+  --ifm-color-primary-dark: #7a1717;
+  --ifm-color-primary-darker: #6b1414;
+  --ifm-color-primary-darkest: #571010;
+  --ifm-color-primary-light: #a03030;
+  --ifm-color-primary-lighter: #b04747;
+  --ifm-color-primary-lightest: #c96a6a;
+  --ifm-link-color: var(--ac-accent);
+  --ifm-link-hover-color: var(--ac-accent);
+  --ifm-toc-border-color: var(--ac-rule);
+  --ifm-code-background: var(--ac-code-bg);
+  --ifm-code-border-radius: 2px;
+  --ifm-global-radius: 2px;
+  --ifm-navbar-background-color: var(--ac-card);
+  --ifm-navbar-shadow: none;
+  --ifm-footer-background-color: var(--ac-card);
+  --ifm-line-height-base: 1.72;
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-h2-font-size: 1.55rem;
+  --ifm-h3-font-size: 1.18rem;
+}
+
+/* The dark variant stays deliberately plain — a dark paper, the same rules. */
+[data-theme='dark'] {
+  --ac-paper: #14130f;
+  --ac-card: #1a1917;
+  --ac-ink: #ece9e3;
+  --ac-ink-soft: #bdb9b1;
+  --ac-ink-faint: #8e8a82;
+  --ac-rule: #33312c;
+  --ac-accent: #e0857f;
+  --ac-accent-soft: #2a1d1c;
+  --ac-code-bg: #201e1b;
+
+  --ifm-background-color: var(--ac-paper);
+  --ifm-background-surface-color: var(--ac-card);
+  --ifm-font-color-base: var(--ac-ink);
+  --ifm-color-primary: #e0857f;
+  --ifm-color-primary-dark: #d66d66;
+  --ifm-color-primary-darker: #cc5a52;
+  --ifm-color-primary-darkest: #b4443c;
+  --ifm-color-primary-light: #e89d98;
+  --ifm-color-primary-lighter: #efb3af;
+  --ifm-color-primary-lightest: #f5cbc8;
+  --ifm-link-color: var(--ac-accent);
+  --ifm-link-hover-color: var(--ac-accent);
+  --ifm-navbar-background-color: var(--ac-card);
+  --ifm-footer-background-color: var(--ac-card);
+  --ifm-toc-border-color: var(--ac-rule);
+  --ifm-code-background: var(--ac-code-bg);
+}
+
+/* -------------------------------------------------- the background itself */
+
+html,
+body {
+  background: var(--ac-paper) !important;
+  color: var(--ac-ink);
+}
+
+/* Nothing decorative sits behind the text. These are the gradient washes,
+   glows and floating shapes from the previous theme. */
+body::before,
+body::after,
+main::before,
+main::after,
+[class*='heroGlow'],
+[class*='heroAura'],
+[class*='spotlight'],
+[class*='ambient'],
+[class*='orbGlow'],
+[class*='gridLines'],
+[class*='noise'],
+[class*='blob'] {
+  display: none !important;
+  background: none !important;
+}
+
+/* ------------------------------------------------------------- typography */
+
+h1, h2, h3, h4, h5, h6,
+.hero__title,
+.markdown h1, .markdown h2, .markdown h3 {
+  font-family: var(--ac-serif) !important;
+  letter-spacing: -0.015em;
+  color: var(--ac-ink);
+}
+
+h1, .hero__title {
+  font-weight: 600;
+  line-height: 1.16;
+}
+
+/* A hairline under every section heading — the single most "academic" cue. */
+.markdown > h2 {
+  border-bottom: 1px solid var(--ac-rule);
+  padding-bottom: 0.34rem;
+  margin-top: 2.6rem;
+}
+
+.markdown > h3 { margin-top: 1.9rem; }
+
+/* Prose is set to a comfortable measure. Full-window text is the single
+   fastest way to make a page look like documentation rather than a book. */
+.theme-doc-markdown.markdown > *:not(table):not(.tabs-container):not(figure) {
+  max-width: 72ch;
+}
+
+article .markdown a { text-decoration: underline; text-underline-offset: 2px; }
+article .markdown a:hover { text-decoration-thickness: 2px; }
+
+/* --------------------------------------------------------------- surfaces */
+
+.navbar {
+  border-bottom: 1px solid var(--ac-rule);
+  background: var(--ac-card) !important;
+}
+.navbar__title, .navbar__brand b { font-family: var(--ac-serif); font-weight: 700; }
+.navbar__link { font-size: 0.9rem; color: var(--ac-ink-soft); }
+.navbar__link:hover, .navbar__link--active { color: var(--ac-accent); }
+
+.footer {
+  background: var(--ac-card) !important;
+  border-top: 1px solid var(--ac-rule);
+  color: var(--ac-ink-faint);
+}
+.footer__title { font-family: var(--ac-serif); color: var(--ac-ink); }
+.footer__link-item { color: var(--ac-ink-faint); }
+.footer__copyright { color: var(--ac-ink-faint); font-size: 0.85rem; }
+
+/* Sidebar reads as a contents page: quiet, dense, one accent for where I am. */
+.theme-doc-sidebar-container { border-right: 1px solid var(--ac-rule); background: var(--ac-card); }
+.menu { font-size: 0.885rem; padding: 0.75rem 0.6rem 2rem; }
+.menu__link { border-radius: 2px; color: var(--ac-ink-soft); padding: 0.32rem 0.6rem; }
+.menu__link:hover { background: var(--ac-accent-soft); color: var(--ac-accent); }
+.menu__link--active,
+.menu__link--active:hover {
+  background: none;
+  color: var(--ac-accent);
+  font-weight: 600;
+  box-shadow: inset 2px 0 0 var(--ac-accent);
+}
+.menu__list-item-collapsible:hover { background: var(--ac-accent-soft); }
+.menu__list .menu__list { border-left: 1px solid var(--ac-rule); margin-left: 0.55rem; padding-left: 0.35rem; }
+
+.table-of-contents { font-size: 0.8rem; border-left: 1px solid var(--ac-rule); }
+.table-of-contents__link--active { color: var(--ac-accent); font-weight: 600; }
+
+.breadcrumbs__item--active .breadcrumbs__link { background: none; color: var(--ac-ink); font-weight: 600; }
+.breadcrumbs__link { background: none; color: var(--ac-ink-faint); font-size: 0.8rem; padding: 0 0.25rem; }
+
+/* ------------------------------------------------------------------ cards */
+/* Each section is a plate: flat, evenly spaced, a thin border, no shadow. */
+
+.card,
+[class*='card_'],
+article.margin-bottom--lg {
+  background: var(--ac-card);
+  border: 1px solid var(--ac-rule);
+  border-radius: 2px;
+  box-shadow: none !important;
+  transition: border-color 0.15s ease;
+}
+.card:hover,
+[class*='card_']:hover {
+  border-color: var(--ac-accent);
+  transform: none !important;
+}
+
+/* ------------------------------------------------------------ code blocks */
+
+.theme-code-block,
+pre[class*='language-'] {
+  border: 1px solid var(--ac-rule);
+  border-radius: 2px;
+  box-shadow: none !important;
+}
+code { border: none; }
+
+/* ----------------------------------------------------------------- tables */
+
+.markdown table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+  font-size: 0.94rem;
+}
+.markdown table thead tr { border-bottom: 2px solid var(--ac-rule); }
+.markdown table th {
+  background: none;
+  text-align: left;
+  font-family: var(--ac-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ac-ink-faint);
+  font-weight: 600;
+  border: none;
+  padding: 0.6rem 0.8rem;
+}
+.markdown table td {
+  border: none;
+  border-bottom: 1px solid var(--ac-rule);
+  padding: 0.65rem 0.8rem;
+  color: var(--ac-ink-soft);
+}
+.markdown table tr:nth-child(2n) { background: none; }
+
+/* ------------------------------------------------------------- admonition */
+
+.theme-admonition {
+  border: none;
+  border-left: 3px solid var(--ac-accent);
+  border-radius: 0;
+  background: var(--ac-accent-soft);
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------- buttons */
+
+.button--primary {
+  background: var(--ac-accent);
+  border-color: var(--ac-accent);
+  border-radius: 2px;
+  color: #fff;
+  box-shadow: none;
+}
+.button--secondary {
+  background: none;
+  border: 1px solid var(--ac-rule);
+  color: var(--ac-ink);
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------- pagination */
+
+.pagination-nav__link {
+  border: 1px solid var(--ac-rule);
+  border-radius: 2px;
+  background: var(--ac-card);
+}
+.pagination-nav__sublabel { color: var(--ac-ink-faint); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.pagination-nav__label { font-family: var(--ac-serif); font-weight: 600; }
+
+/* ------------------------------------------------------------------ misc */
+
+hr { border: none; border-top: 1px solid var(--ac-rule); }
+::selection { background: var(--ac-accent-soft); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ------------------------------------------------- stray floating controls */
+/* Scroll-to-top / scroll-down buttons kept the old purple. Put them on the
+   accent so no second colour survives anywhere on the page. */
+[class*='scrollTop'],
+[class*='scrollDown'],
+[class*='toTop'],
+[class*='floatBtn'] {
+  background: var(--ac-accent) !important;
+  border-color: var(--ac-accent) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  border-radius: 2px !important;
+}
+[class*='scrollTop']:hover,
+[class*='scrollDown']:hover,
+[class*='toTop']:hover,
+[class*='floatBtn']:hover {
+  background: var(--ac-ink) !important;
+  border-color: var(--ac-ink) !important;
+}
+
+/* The navbar brand mark carried a purple gradient tile. */
+.navbar__logo img { filter: grayscale(1) contrast(1.15); }
+
+/* ------------------------------------------------------ skip-to-content link */
+/* Docusaurus parks this link at left:100%, which makes the document wider than
+   the window and can raise a horizontal scrollbar. Move it off-screen with a
+   transform instead, so it still appears for keyboard users on focus but no
+   longer stretches the page. */
+a[class*='skipToContent_'] {
+  left: 0 !important;
+  transform: translateX(-200%);
+}
+a[class*='skipToContent_']:focus {
+  transform: none;
+}

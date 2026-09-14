@@ -70,7 +70,7 @@ const config: Config = {
           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
           "img-src 'self' data: blob: https:",
           "font-src 'self' data: https://fonts.gstatic.com",
-          "connect-src 'self' blob: data: https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://esm.run https://wandbox.org https://countapi.mileshilliard.com https://huggingface.co https://raw.githubusercontent.com",
+          "connect-src 'self' blob: data: https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://esm.run https://ce.judge0.com https://countapi.mileshilliard.com https://huggingface.co https://raw.githubusercontent.com",
           "frame-src 'none'",
           "manifest-src 'self'",
           "upgrade-insecure-requests",
@@ -101,6 +101,10 @@ const config: Config = {
     ],
   ],
 
+  stylesheets: [
+    { href: 'https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap', type: 'text/css' },
+  ],
+
   presets: [
     [
       'classic',
@@ -119,7 +123,7 @@ const config: Config = {
         },
         blog: false,
         theme: {
-          customCss:  ['./src/css/custom.css', './src/css/notes.css'],
+          customCss:  ['./src/css/custom.css', './src/css/notes.css', './src/css/university.css', './src/css/academic.css'],
         },
         sitemap: {
           changefreq: 'weekly',
@@ -133,8 +137,8 @@ const config: Config = {
     image: 'img/social-card.svg',
     // Dark only â€” no light theme, no toggle.
     colorMode: {
-      defaultMode: 'dark',
-      disableSwitch: true,
+      defaultMode: 'light',
+      disableSwitch: false,
       respectPrefersColorScheme: false,
     },
     docs: {
@@ -197,7 +201,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [],
-      copyright: `MIT License Â· Â© ${new Date().getFullYear()} Subrata Pramanik`,
+      copyright: `© ${new Date().getFullYear()} Subrata Pramanik`,
     },
     prism: {
       theme: prismThemes.github,

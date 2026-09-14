@@ -1,0 +1,9 @@
+{
+  "label": "Cryptography",
+  "position": 16,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "The mathematics of secrets."
+  }
+}

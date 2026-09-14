@@ -1,362 +1,911 @@
 [
   {
     "num": 1,
-    "title": "Computer Fundamentals",
-    "slug": "computer-fundamentals",
-    "href": "/docs/computer-fundamentals",
-    "topics": 31,
-    "track": "Foundations",
+    "title": "How a Computer Actually Works",
+    "slug": "how-a-computer-actually-works",
+    "href": "/docs/foundation/how-a-computer-actually-works",
+    "topics": 18,
+    "track": "Foundation",
     "tone": "indigo"
   },
   {
     "num": 2,
-    "title": "Programming Fundamentals",
-    "slug": "programming-fundamentals",
-    "href": "/docs/programming-fundamentals",
-    "topics": 37,
-    "track": "Foundations",
+    "title": "Using a Computer Well",
+    "slug": "using-a-computer-well",
+    "href": "/docs/foundation/using-a-computer-well",
+    "topics": 8,
+    "track": "Foundation",
     "tone": "indigo"
   },
   {
     "num": 3,
-    "title": "Discrete Mathematics",
-    "slug": "discrete-mathematics",
-    "href": "/docs/discrete-mathematics",
-    "topics": 22,
-    "track": "Foundations",
+    "title": "The Command Line and Linux Basics",
+    "slug": "the-command-line-and-linux-basics",
+    "href": "/docs/foundation/the-command-line-and-linux-basics",
+    "topics": 14,
+    "track": "Foundation",
     "tone": "indigo"
   },
   {
     "num": 4,
-    "title": "Linear Algebra",
-    "slug": "linear-algebra",
-    "href": "/docs/linear-algebra",
-    "topics": 12,
-    "track": "Foundations",
+    "title": "School Mathematics Refresher",
+    "slug": "school-mathematics-refresher",
+    "href": "/docs/foundation/school-mathematics-refresher",
+    "topics": 36,
+    "track": "Foundation",
     "tone": "indigo"
   },
   {
     "num": 5,
-    "title": "Probability & Statistics",
-    "slug": "probability-and-statistics",
-    "href": "/docs/probability-and-statistics",
-    "topics": 16,
-    "track": "Foundations",
+    "title": "Logic and Reasoning",
+    "slug": "logic-and-reasoning",
+    "href": "/docs/foundation/logic-and-reasoning",
+    "topics": 10,
+    "track": "Foundation",
     "tone": "indigo"
   },
   {
     "num": 6,
-    "title": "Calculus",
-    "slug": "calculus",
-    "href": "/docs/calculus",
-    "topics": 10,
-    "track": "Foundations",
+    "title": "Your First Program",
+    "slug": "your-first-program",
+    "href": "/docs/foundation/your-first-program",
+    "topics": 13,
+    "track": "Foundation",
     "tone": "indigo"
   },
   {
     "num": 7,
-    "title": "Data Structures & Algorithms",
-    "slug": "data-structures-and-algorithms",
-    "href": "/docs/data-structures-and-algorithms",
-    "topics": 36,
-    "track": "Core CS",
-    "tone": "cyan"
+    "title": "How to Learn Computer Science",
+    "slug": "how-to-learn-computer-science",
+    "href": "/docs/foundation/how-to-learn-computer-science",
+    "topics": 7,
+    "track": "Foundation",
+    "tone": "indigo"
   },
   {
     "num": 8,
-    "title": "Computer Organization & Architecture",
-    "slug": "computer-organization-and-architecture",
-    "href": "/docs/computer-organization-and-architecture",
-    "topics": 14,
-    "track": "Core CS",
-    "tone": "cyan"
+    "title": "Programming Fundamentals",
+    "slug": "programming-fundamentals",
+    "href": "/docs/undergraduate-core/programming-fundamentals",
+    "topics": 25,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 9,
-    "title": "Operating Systems",
-    "slug": "operating-systems",
-    "href": "/docs/operating-systems",
-    "topics": 26,
-    "track": "Core CS",
-    "tone": "cyan"
+    "title": "Programming Languages",
+    "slug": "programming-languages",
+    "href": "/docs/undergraduate-core/programming-languages",
+    "topics": 372,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 10,
-    "title": "Computer Networks",
-    "slug": "computer-networks",
-    "href": "/docs/computer-networks",
-    "topics": 23,
-    "track": "Core CS",
-    "tone": "cyan"
+    "title": "Object-Oriented Programming",
+    "slug": "object-oriented-programming",
+    "href": "/docs/undergraduate-core/object-oriented-programming",
+    "topics": 19,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 11,
-    "title": "Database Systems",
-    "slug": "database-systems",
-    "href": "/docs/database-systems",
-    "topics": 16,
-    "track": "Core CS",
-    "tone": "cyan"
+    "title": "Data Structures",
+    "slug": "data-structures",
+    "href": "/docs/undergraduate-core/data-structures",
+    "topics": 48,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 12,
-    "title": "Software Engineering",
-    "slug": "software-engineering",
-    "href": "/docs/software-engineering",
-    "topics": 13,
-    "track": "Core CS",
-    "tone": "cyan"
+    "title": "Algorithms",
+    "slug": "algorithms",
+    "href": "/docs/undergraduate-core/algorithms",
+    "topics": 73,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 13,
-    "title": "Git & GitHub",
-    "slug": "git-and-github",
-    "href": "/docs/git-and-github",
-    "topics": 9,
-    "track": "Engineering",
-    "tone": "violet"
+    "title": "Discrete Mathematics",
+    "slug": "discrete-mathematics",
+    "href": "/docs/undergraduate-core/discrete-mathematics",
+    "topics": 43,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 14,
-    "title": "Web Development",
-    "slug": "web-development",
-    "href": "/docs/web-development",
-    "topics": 18,
-    "track": "Engineering",
-    "tone": "violet"
+    "title": "Linear Algebra",
+    "slug": "linear-algebra",
+    "href": "/docs/undergraduate-core/linear-algebra",
+    "topics": 34,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 15,
-    "title": "Mobile Development",
-    "slug": "mobile-development",
-    "href": "/docs/mobile-development",
-    "topics": 8,
-    "track": "Engineering",
-    "tone": "violet"
+    "title": "Calculus and Analysis",
+    "slug": "calculus-and-analysis",
+    "href": "/docs/undergraduate-core/calculus-and-analysis",
+    "topics": 26,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 16,
-    "title": "Cloud Computing",
-    "slug": "cloud-computing",
-    "href": "/docs/cloud-computing",
-    "topics": 13,
-    "track": "Engineering",
-    "tone": "violet"
+    "title": "Probability and Statistics",
+    "slug": "probability-and-statistics",
+    "href": "/docs/undergraduate-core/probability-and-statistics",
+    "topics": 34,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 17,
-    "title": "Cybersecurity",
-    "slug": "cybersecurity",
-    "href": "/docs/cybersecurity",
-    "topics": 15,
-    "track": "Engineering",
-    "tone": "violet"
+    "title": "Digital Logic Design",
+    "slug": "digital-logic-design",
+    "href": "/docs/undergraduate-core/digital-logic-design",
+    "topics": 33,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 18,
-    "title": "Compiler Design",
-    "slug": "compiler-design",
-    "href": "/docs/compiler-design",
-    "topics": 8,
-    "track": "Engineering",
-    "tone": "violet"
+    "title": "Computer Organisation and Architecture",
+    "slug": "computer-organisation-and-architecture",
+    "href": "/docs/undergraduate-core/computer-organisation-and-architecture",
+    "topics": 36,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 19,
-    "title": "Theory of Computation",
-    "slug": "theory-of-computation",
-    "href": "/docs/theory-of-computation",
-    "topics": 7,
-    "track": "Engineering",
-    "tone": "violet"
+    "title": "Microprocessors and Assembly",
+    "slug": "microprocessors-and-assembly",
+    "href": "/docs/undergraduate-core/microprocessors-and-assembly",
+    "topics": 16,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 20,
-    "title": "Distributed Systems",
-    "slug": "distributed-systems",
-    "href": "/docs/distributed-systems",
-    "topics": 11,
-    "track": "Engineering",
-    "tone": "violet"
+    "title": "Operating Systems",
+    "slug": "operating-systems",
+    "href": "/docs/undergraduate-core/operating-systems",
+    "topics": 64,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 21,
-    "title": "Parallel Computing",
-    "slug": "parallel-computing",
-    "href": "/docs/parallel-computing",
-    "topics": 5,
-    "track": "Engineering",
-    "tone": "violet"
+    "title": "Computer Networks",
+    "slug": "computer-networks",
+    "href": "/docs/undergraduate-core/computer-networks",
+    "topics": 53,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 22,
-    "title": "Computer Graphics",
-    "slug": "computer-graphics",
-    "href": "/docs/computer-graphics",
-    "topics": 6,
-    "track": "Engineering",
-    "tone": "violet"
+    "title": "Database Systems",
+    "slug": "database-systems",
+    "href": "/docs/undergraduate-core/database-systems",
+    "topics": 105,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 23,
-    "title": "Human-Computer Interaction",
-    "slug": "human-computer-interaction",
-    "href": "/docs/human-computer-interaction",
-    "topics": 6,
-    "track": "Engineering",
-    "tone": "violet"
+    "title": "Software Engineering",
+    "slug": "software-engineering",
+    "href": "/docs/undergraduate-core/software-engineering",
+    "topics": 32,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 24,
-    "title": "Embedded Systems",
-    "slug": "embedded-systems",
-    "href": "/docs/embedded-systems",
-    "topics": 5,
-    "track": "Engineering",
-    "tone": "violet"
+    "title": "Theory of Computation",
+    "slug": "theory-of-computation",
+    "href": "/docs/undergraduate-core/theory-of-computation",
+    "topics": 31,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 25,
-    "title": "Real-Time Systems",
-    "slug": "real-time-systems",
-    "href": "/docs/real-time-systems",
-    "topics": 4,
-    "track": "Engineering",
-    "tone": "violet"
+    "title": "Compiler Design",
+    "slug": "compiler-design",
+    "href": "/docs/undergraduate-core/compiler-design",
+    "topics": 38,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 26,
-    "title": "Data Science",
-    "slug": "data-science",
-    "href": "/docs/data-science",
-    "topics": 6,
-    "track": "AI & Data",
-    "tone": "green"
+    "title": "Git and Version Control",
+    "slug": "git-and-version-control",
+    "href": "/docs/undergraduate-core/git-and-version-control",
+    "topics": 32,
+    "track": "Undergraduate Core",
+    "tone": "teal"
   },
   {
     "num": 27,
-    "title": "Data Mining",
-    "slug": "data-mining",
-    "href": "/docs/data-mining",
-    "topics": 4,
-    "track": "AI & Data",
-    "tone": "green"
+    "title": "Design and Analysis of Algorithms",
+    "slug": "design-and-analysis-of-algorithms",
+    "href": "/docs/advanced-and-applied/design-and-analysis-of-algorithms",
+    "topics": 13,
+    "track": "Advanced and Applied",
+    "tone": "amber"
   },
   {
     "num": 28,
-    "title": "Information Retrieval",
-    "slug": "information-retrieval",
-    "href": "/docs/information-retrieval",
-    "topics": 6,
-    "track": "AI & Data",
-    "tone": "green"
+    "title": "System Design",
+    "slug": "system-design",
+    "href": "/docs/advanced-and-applied/system-design",
+    "topics": 29,
+    "track": "Advanced and Applied",
+    "tone": "amber"
   },
   {
     "num": 29,
-    "title": "Artificial Intelligence",
-    "slug": "artificial-intelligence",
-    "href": "/docs/artificial-intelligence",
-    "topics": 7,
-    "track": "AI & Data",
-    "tone": "green"
+    "title": "Web Development \u2014 Frontend",
+    "slug": "web-development-frontend",
+    "href": "/docs/advanced-and-applied/web-development-frontend",
+    "topics": 41,
+    "track": "Advanced and Applied",
+    "tone": "amber"
   },
   {
     "num": 30,
-    "title": "Machine Learning",
-    "slug": "machine-learning",
-    "href": "/docs/machine-learning",
-    "topics": 21,
-    "track": "AI & Data",
-    "tone": "green"
+    "title": "Web Development \u2014 Backend and APIs",
+    "slug": "web-development-backend-and-apis",
+    "href": "/docs/advanced-and-applied/web-development-backend-and-apis",
+    "topics": 32,
+    "track": "Advanced and Applied",
+    "tone": "amber"
   },
   {
     "num": 31,
-    "title": "Deep Learning",
-    "slug": "deep-learning",
-    "href": "/docs/deep-learning",
-    "topics": 14,
-    "track": "AI & Data",
-    "tone": "green"
+    "title": "Mobile Development",
+    "slug": "mobile-development",
+    "href": "/docs/advanced-and-applied/mobile-development",
+    "topics": 20,
+    "track": "Advanced and Applied",
+    "tone": "amber"
   },
   {
     "num": 32,
-    "title": "Specialized AI Fields",
-    "slug": "specialized-ai-fields",
-    "href": "/docs/specialized-ai-fields",
-    "topics": 91,
-    "track": "AI & Data",
-    "tone": "green"
+    "title": "Cloud Computing",
+    "slug": "cloud-computing",
+    "href": "/docs/advanced-and-applied/cloud-computing",
+    "topics": 17,
+    "track": "Advanced and Applied",
+    "tone": "amber"
   },
   {
     "num": 33,
-    "title": "MLOps",
-    "slug": "mlops",
-    "href": "/docs/mlops",
-    "topics": 6,
-    "track": "AI & Data",
-    "tone": "green"
+    "title": "DevOps",
+    "slug": "devops",
+    "href": "/docs/advanced-and-applied/devops",
+    "topics": 22,
+    "track": "Advanced and Applied",
+    "tone": "amber"
   },
   {
     "num": 34,
-    "title": "DevOps",
-    "slug": "devops",
-    "href": "/docs/devops",
-    "topics": 6,
-    "track": "AI & Data",
-    "tone": "green"
+    "title": "Software Testing and Quality Assurance",
+    "slug": "software-testing-and-quality-assurance",
+    "href": "/docs/advanced-and-applied/software-testing-and-quality-assurance",
+    "topics": 19,
+    "track": "Advanced and Applied",
+    "tone": "amber"
   },
   {
     "num": 35,
-    "title": "Blockchain",
-    "slug": "blockchain",
-    "href": "/docs/blockchain",
-    "topics": 6,
-    "track": "Frontier",
+    "title": "Design Patterns",
+    "slug": "design-patterns",
+    "href": "/docs/advanced-and-applied/design-patterns",
+    "topics": 29,
+    "track": "Advanced and Applied",
     "tone": "amber"
   },
   {
     "num": 36,
-    "title": "Internet of Things",
-    "slug": "internet-of-things",
-    "href": "/docs/internet-of-things",
-    "topics": 5,
-    "track": "Frontier",
+    "title": "Functional Programming",
+    "slug": "functional-programming",
+    "href": "/docs/advanced-and-applied/functional-programming",
+    "topics": 17,
+    "track": "Advanced and Applied",
     "tone": "amber"
   },
   {
     "num": 37,
-    "title": "Robotics",
-    "slug": "robotics",
-    "href": "/docs/robotics",
-    "topics": 6,
-    "track": "Frontier",
+    "title": "Clean Code and Refactoring",
+    "slug": "clean-code-and-refactoring",
+    "href": "/docs/advanced-and-applied/clean-code-and-refactoring",
+    "topics": 11,
+    "track": "Advanced and Applied",
     "tone": "amber"
   },
   {
     "num": 38,
-    "title": "Quantum Computing",
-    "slug": "quantum-computing",
-    "href": "/docs/quantum-computing",
-    "topics": 6,
-    "track": "Frontier",
+    "title": "Computer Graphics",
+    "slug": "computer-graphics",
+    "href": "/docs/advanced-and-applied/computer-graphics",
+    "topics": 22,
+    "track": "Advanced and Applied",
     "tone": "amber"
   },
   {
     "num": 39,
-    "title": "Research Methodology",
-    "slug": "research-methodology",
-    "href": "/docs/research-methodology",
-    "topics": 13,
-    "track": "Research",
-    "tone": "pink"
+    "title": "Game Development",
+    "slug": "game-development",
+    "href": "/docs/advanced-and-applied/game-development",
+    "topics": 14,
+    "track": "Advanced and Applied",
+    "tone": "amber"
   },
   {
     "num": 40,
-    "title": "Advanced Research Areas",
-    "slug": "advanced-research-areas",
-    "href": "/docs/advanced-research-areas",
+    "title": "Human\u2013Computer Interaction",
+    "slug": "humancomputer-interaction",
+    "href": "/docs/advanced-and-applied/humancomputer-interaction",
+    "topics": 14,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 41,
+    "title": "Cybersecurity",
+    "slug": "cybersecurity",
+    "href": "/docs/advanced-and-applied/cybersecurity",
+    "topics": 28,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 42,
+    "title": "Cryptography",
+    "slug": "cryptography",
+    "href": "/docs/advanced-and-applied/cryptography",
+    "topics": 23,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 43,
+    "title": "Embedded Systems",
+    "slug": "embedded-systems",
+    "href": "/docs/advanced-and-applied/embedded-systems",
+    "topics": 16,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 44,
+    "title": "Internet of Things",
+    "slug": "internet-of-things",
+    "href": "/docs/advanced-and-applied/internet-of-things",
+    "topics": 12,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 45,
+    "title": "Real-Time Systems",
+    "slug": "real-time-systems",
+    "href": "/docs/advanced-and-applied/real-time-systems",
+    "topics": 10,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 46,
+    "title": "Artificial Intelligence",
+    "slug": "artificial-intelligence",
+    "href": "/docs/advanced-and-applied/artificial-intelligence",
+    "topics": 36,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 47,
+    "title": "Machine Learning",
+    "slug": "machine-learning",
+    "href": "/docs/advanced-and-applied/machine-learning",
+    "topics": 48,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 48,
+    "title": "Data Science",
+    "slug": "data-science",
+    "href": "/docs/advanced-and-applied/data-science",
+    "topics": 24,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 49,
+    "title": "Data Mining and Warehousing",
+    "slug": "data-mining-and-warehousing",
+    "href": "/docs/advanced-and-applied/data-mining-and-warehousing",
+    "topics": 20,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 50,
+    "title": "Data Engineering and Big Data",
+    "slug": "data-engineering-and-big-data",
+    "href": "/docs/advanced-and-applied/data-engineering-and-big-data",
+    "topics": 21,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 51,
+    "title": "Data Visualisation",
+    "slug": "data-visualisation",
+    "href": "/docs/advanced-and-applied/data-visualisation",
+    "topics": 12,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 52,
+    "title": "Information Retrieval",
+    "slug": "information-retrieval",
+    "href": "/docs/advanced-and-applied/information-retrieval",
+    "topics": 30,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 53,
+    "title": "Numerical Methods",
+    "slug": "numerical-methods",
+    "href": "/docs/advanced-and-applied/numerical-methods",
+    "topics": 25,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 54,
+    "title": "Optimisation",
+    "slug": "optimisation",
+    "href": "/docs/advanced-and-applied/optimisation",
+    "topics": 18,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 55,
+    "title": "Blockchain",
+    "slug": "blockchain",
+    "href": "/docs/advanced-and-applied/blockchain",
+    "topics": 19,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 56,
+    "title": "Robotics",
+    "slug": "robotics",
+    "href": "/docs/advanced-and-applied/robotics",
+    "topics": 19,
+    "track": "Advanced and Applied",
+    "tone": "amber"
+  },
+  {
+    "num": 57,
+    "title": "Deep Learning",
+    "slug": "deep-learning",
+    "href": "/docs/specialisation/deep-learning",
+    "topics": 40,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 58,
+    "title": "Natural Language Processing",
+    "slug": "natural-language-processing",
+    "href": "/docs/specialisation/natural-language-processing",
+    "topics": 34,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 59,
+    "title": "Computer Vision",
+    "slug": "computer-vision",
+    "href": "/docs/specialisation/computer-vision",
+    "topics": 28,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 60,
+    "title": "Reinforcement Learning",
+    "slug": "reinforcement-learning",
+    "href": "/docs/specialisation/reinforcement-learning",
+    "topics": 24,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 61,
+    "title": "Generative AI and Large Language Models",
+    "slug": "generative-ai-and-large-language-models",
+    "href": "/docs/specialisation/generative-ai-and-large-language-models",
+    "topics": 30,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 62,
+    "title": "Document AI and Multimodal Retrieval",
+    "slug": "document-ai-and-multimodal-retrieval",
+    "href": "/docs/specialisation/document-ai-and-multimodal-retrieval",
+    "topics": 19,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 63,
+    "title": "MLOps",
+    "slug": "mlops",
+    "href": "/docs/specialisation/mlops",
+    "topics": 13,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 64,
+    "title": "Distributed Systems",
+    "slug": "distributed-systems",
+    "href": "/docs/specialisation/distributed-systems",
+    "topics": 28,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 65,
+    "title": "Parallel and High-Performance Computing",
+    "slug": "parallel-and-high-performance-computing",
+    "href": "/docs/specialisation/parallel-and-high-performance-computing",
+    "topics": 18,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 66,
+    "title": "Advanced Operating Systems",
+    "slug": "advanced-operating-systems",
+    "href": "/docs/specialisation/advanced-operating-systems",
+    "topics": 12,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 67,
+    "title": "Advanced Computer Networks",
+    "slug": "advanced-computer-networks",
+    "href": "/docs/specialisation/advanced-computer-networks",
+    "topics": 10,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 68,
+    "title": "Advanced Database Systems",
+    "slug": "advanced-database-systems",
+    "href": "/docs/specialisation/advanced-database-systems",
+    "topics": 9,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 69,
+    "title": "Advanced Algorithms",
+    "slug": "advanced-algorithms",
+    "href": "/docs/specialisation/advanced-algorithms",
+    "topics": 10,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 70,
+    "title": "Computational Complexity",
+    "slug": "computational-complexity",
+    "href": "/docs/specialisation/computational-complexity",
+    "topics": 11,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 71,
+    "title": "Formal Methods and Verification",
+    "slug": "formal-methods-and-verification",
+    "href": "/docs/specialisation/formal-methods-and-verification",
+    "topics": 10,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 72,
+    "title": "Programming Language Theory",
+    "slug": "programming-language-theory",
+    "href": "/docs/specialisation/programming-language-theory",
+    "topics": 11,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 73,
+    "title": "Information Theory",
+    "slug": "information-theory",
+    "href": "/docs/specialisation/information-theory",
+    "topics": 11,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 74,
+    "title": "Computational Geometry",
+    "slug": "computational-geometry",
+    "href": "/docs/specialisation/computational-geometry",
+    "topics": 10,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 75,
+    "title": "Quantum Computing",
+    "slug": "quantum-computing",
+    "href": "/docs/specialisation/quantum-computing",
+    "topics": 17,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 76,
+    "title": "Bioinformatics and Computational Biology",
+    "slug": "bioinformatics-and-computational-biology",
+    "href": "/docs/specialisation/bioinformatics-and-computational-biology",
+    "topics": 11,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 77,
+    "title": "AI Ethics, Safety and Policy",
+    "slug": "ai-ethics-safety-and-policy",
+    "href": "/docs/specialisation/ai-ethics-safety-and-policy",
+    "topics": 12,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 78,
+    "title": "Augmented and Virtual Reality",
+    "slug": "augmented-and-virtual-reality",
+    "href": "/docs/specialisation/augmented-and-virtual-reality",
+    "topics": 8,
+    "track": "Specialisation",
+    "tone": "rose"
+  },
+  {
+    "num": 79,
+    "title": "Research Methodology",
+    "slug": "research-methodology",
+    "href": "/docs/research/research-methodology",
     "topics": 10,
     "track": "Research",
-    "tone": "pink"
+    "tone": "violet"
+  },
+  {
+    "num": 80,
+    "title": "How to Read a Paper",
+    "slug": "how-to-read-a-paper",
+    "href": "/docs/research/how-to-read-a-paper",
+    "topics": 6,
+    "track": "Research",
+    "tone": "violet"
+  },
+  {
+    "num": 81,
+    "title": "How to Write a Paper",
+    "slug": "how-to-write-a-paper",
+    "href": "/docs/research/how-to-write-a-paper",
+    "topics": 15,
+    "track": "Research",
+    "tone": "violet"
+  },
+  {
+    "num": 82,
+    "title": "Experimental Design and Statistics for Research",
+    "slug": "experimental-design-and-statistics-for-research",
+    "href": "/docs/research/experimental-design-and-statistics-for-research",
+    "topics": 10,
+    "track": "Research",
+    "tone": "violet"
+  },
+  {
+    "num": 83,
+    "title": "Reproducibility and Open Science",
+    "slug": "reproducibility-and-open-science",
+    "href": "/docs/research/reproducibility-and-open-science",
+    "topics": 9,
+    "track": "Research",
+    "tone": "violet"
+  },
+  {
+    "num": 84,
+    "title": "Benchmarking and Evaluation",
+    "slug": "benchmarking-and-evaluation",
+    "href": "/docs/research/benchmarking-and-evaluation",
+    "topics": 9,
+    "track": "Research",
+    "tone": "violet"
+  },
+  {
+    "num": 85,
+    "title": "Peer Review",
+    "slug": "peer-review",
+    "href": "/docs/research/peer-review",
+    "topics": 8,
+    "track": "Research",
+    "tone": "violet"
+  },
+  {
+    "num": 86,
+    "title": "Literature Surveys and Systematic Reviews",
+    "slug": "literature-surveys-and-systematic-reviews",
+    "href": "/docs/research/literature-surveys-and-systematic-reviews",
+    "topics": 7,
+    "track": "Research",
+    "tone": "violet"
+  },
+  {
+    "num": 87,
+    "title": "Grants, Funding and Proposals",
+    "slug": "grants-funding-and-proposals",
+    "href": "/docs/research/grants-funding-and-proposals",
+    "topics": 6,
+    "track": "Research",
+    "tone": "violet"
+  },
+  {
+    "num": 88,
+    "title": "Presenting Your Work",
+    "slug": "presenting-your-work",
+    "href": "/docs/research/presenting-your-work",
+    "topics": 6,
+    "track": "Research",
+    "tone": "violet"
+  },
+  {
+    "num": 89,
+    "title": "Research Frontiers",
+    "slug": "research-frontiers",
+    "href": "/docs/research/research-frontiers",
+    "topics": 5,
+    "track": "Research",
+    "tone": "violet"
+  },
+  {
+    "num": 90,
+    "title": "Teaching and Mentoring",
+    "slug": "teaching-and-mentoring",
+    "href": "/docs/research/teaching-and-mentoring",
+    "topics": 6,
+    "track": "Research",
+    "tone": "violet"
+  },
+  {
+    "num": 91,
+    "title": "Research Careers",
+    "slug": "research-careers",
+    "href": "/docs/research/research-careers",
+    "topics": 6,
+    "track": "Research",
+    "tone": "violet"
+  },
+  {
+    "num": 92,
+    "title": "Competitive Programming",
+    "slug": "competitive-programming",
+    "href": "/docs/career-and-exams/competitive-programming",
+    "topics": 21,
+    "track": "Career and Exams",
+    "tone": "emerald"
+  },
+  {
+    "num": 93,
+    "title": "Interview Preparation \u2014 DSA",
+    "slug": "interview-preparation-dsa",
+    "href": "/docs/career-and-exams/interview-preparation-dsa",
+    "topics": 20,
+    "track": "Career and Exams",
+    "tone": "emerald"
+  },
+  {
+    "num": 94,
+    "title": "Interview Preparation \u2014 System Design",
+    "slug": "interview-preparation-system-design",
+    "href": "/docs/career-and-exams/interview-preparation-system-design",
+    "topics": 7,
+    "track": "Career and Exams",
+    "tone": "emerald"
+  },
+  {
+    "num": 95,
+    "title": "Interview Preparation \u2014 Behavioural",
+    "slug": "interview-preparation-behavioural",
+    "href": "/docs/career-and-exams/interview-preparation-behavioural",
+    "topics": 6,
+    "track": "Career and Exams",
+    "tone": "emerald"
+  },
+  {
+    "num": 96,
+    "title": "GATE Preparation",
+    "slug": "gate-preparation",
+    "href": "/docs/career-and-exams/gate-preparation",
+    "topics": 19,
+    "track": "Career and Exams",
+    "tone": "emerald"
+  },
+  {
+    "num": 97,
+    "title": "Aptitude and Logical Reasoning",
+    "slug": "aptitude-and-logical-reasoning",
+    "href": "/docs/career-and-exams/aptitude-and-logical-reasoning",
+    "topics": 24,
+    "track": "Career and Exams",
+    "tone": "emerald"
+  },
+  {
+    "num": 98,
+    "title": "Resume, Portfolio and Profile",
+    "slug": "resume-portfolio-and-profile",
+    "href": "/docs/career-and-exams/resume-portfolio-and-profile",
+    "topics": 9,
+    "track": "Career and Exams",
+    "tone": "emerald"
+  },
+  {
+    "num": 99,
+    "title": "Contributing to Open Source",
+    "slug": "contributing-to-open-source",
+    "href": "/docs/career-and-exams/contributing-to-open-source",
+    "topics": 8,
+    "track": "Career and Exams",
+    "tone": "emerald"
+  },
+  {
+    "num": 100,
+    "title": "Internships and Research Applications",
+    "slug": "internships-and-research-applications",
+    "href": "/docs/career-and-exams/internships-and-research-applications",
+    "topics": 8,
+    "track": "Career and Exams",
+    "tone": "emerald"
+  },
+  {
+    "num": 101,
+    "title": "Technical Writing and Communication",
+    "slug": "technical-writing-and-communication",
+    "href": "/docs/career-and-exams/technical-writing-and-communication",
+    "topics": 7,
+    "track": "Career and Exams",
+    "tone": "emerald"
   }
 ]

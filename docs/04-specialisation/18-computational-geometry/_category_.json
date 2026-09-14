@@ -1,0 +1,9 @@
+{
+  "label": "Computational Geometry",
+  "position": 18,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Algorithms on shapes."
+  }
+}

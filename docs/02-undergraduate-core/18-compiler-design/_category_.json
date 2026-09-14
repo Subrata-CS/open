@@ -1,0 +1,9 @@
+{
+  "label": "Compiler Design",
+  "position": 18,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Turning source text into a running program."
+  }
+}

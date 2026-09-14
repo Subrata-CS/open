@@ -1,0 +1,9 @@
+{
+  "label": "Distributed Systems",
+  "position": 8,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Many machines, one system."
+  }
+}

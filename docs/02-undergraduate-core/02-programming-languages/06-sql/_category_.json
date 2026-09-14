@@ -1,0 +1,9 @@
+{
+  "label": "SQL",
+  "position": 6,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "The language of data."
+  }
+}

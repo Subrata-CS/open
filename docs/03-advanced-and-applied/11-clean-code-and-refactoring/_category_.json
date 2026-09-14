@@ -1,0 +1,9 @@
+{
+  "label": "Clean Code and Refactoring",
+  "position": 11,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Code someone else can read."
+  }
+}

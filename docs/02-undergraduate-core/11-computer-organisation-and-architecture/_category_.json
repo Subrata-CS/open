@@ -1,0 +1,9 @@
+{
+  "label": "Computer Organisation and Architecture",
+  "position": 11,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "How the machine is actually built."
+  }
+}

@@ -1,0 +1,281 @@
+/* ===========================================================================
+   university.css — the look
+   ===========================================================================
+
+   Loaded last, so it has the final say over custom.css.
+
+   The direction: MIT, Stanford, ETH Zurich, Penn, Harvard. What those sites
+   actually do is restraint —
+
+     one flat background colour, never a gradient
+     one accent colour, used only for links and the active item
+     a serif for headings, a clean sans for body text
+     a reading column around 72 characters, never the full window
+     white cards with thin borders and almost no shadow
+     space doing the work instead of decoration
+
+   The background and the footer are defined here once and are identical on
+   every page, every visit, in both colour schemes.
+   =========================================================================== */
+
+:root {
+  /* --- the single accent ------------------------------------------------ */
+  --ifm-color-primary:          #8a1a1a;
+  --ifm-color-primary-dark:     #7c1717;
+  --ifm-color-primary-darker:   #741616;
+  --ifm-color-primary-darkest:  #601212;
+  --ifm-color-primary-light:    #a02020;
+  --ifm-color-primary-lighter:  #ab2222;
+  --ifm-color-primary-lightest: #c53030;
+
+  /* --- surfaces --------------------------------------------------------- */
+  --ifm-background-color:         #fbfaf8;
+  --ifm-background-surface-color: #ffffff;
+  --u-paper:  #fbfaf8;
+  --u-card:   #ffffff;
+  --u-rule:   #e3e0da;
+  --u-ink:    #1a1a1a;
+  --u-soft:   #4a4a4a;
+  --u-faint:  #767676;
+  --u-tint:   #f6efef;
+  --u-code:   #f6f5f2;
+
+  /* --- type ------------------------------------------------------------- */
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --u-serif: 'Source Serif 4', 'Charter', Georgia, 'Times New Roman', serif;
+  --ifm-heading-font-family: var(--u-serif);
+  --ifm-font-size-base: 17px;
+  --ifm-line-height-base: 1.72;
+  --ifm-heading-font-weight: 600;
+
+  --ifm-navbar-background-color: var(--u-card);
+  --ifm-navbar-shadow: none;
+  --ifm-footer-background-color: var(--u-card);
+  --ifm-toc-border-color: var(--u-rule);
+  --ifm-code-background: var(--u-code);
+  --ifm-code-font-size: 90%;
+  --ifm-global-radius: 2px;
+  --ifm-global-shadow-lw: none;
+  --ifm-global-shadow-md: none;
+  --ifm-global-shadow-tl: none;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary:          #e08a8a;
+  --ifm-color-primary-dark:     #d87575;
+  --ifm-color-primary-darker:   #d36a6a;
+  --ifm-color-primary-darkest:  #c44b4b;
+  --ifm-color-primary-light:    #e89f9f;
+  --ifm-color-primary-lighter:  #ecacac;
+  --ifm-color-primary-lightest: #f3cccc;
+
+  --ifm-background-color:         #16150f;
+  --ifm-background-surface-color: #1d1c16;
+  --u-paper: #16150f;
+  --u-card:  #1d1c16;
+  --u-rule:  #34322a;
+  --u-ink:   #ece9e2;
+  --u-soft:  #bdb9af;
+  --u-faint: #8d8a82;
+  --u-tint:  #2a2018;
+  --u-code:  #221f19;
+
+  --ifm-navbar-background-color: var(--u-card);
+  --ifm-footer-background-color: var(--u-card);
+}
+
+/* ===========================================================================
+   No decoration anywhere
+   =========================================================================== */
+
+html,
+body,
+#__docusaurus,
+main,
+.main-wrapper {
+  background: var(--u-paper) !important;
+  background-image: none !important;
+}
+
+/* any ambient shape, glow or gradient panel from the old theme */
+[class*='ambient'],
+[class*='Ambient'],
+[class*='glow'],
+[class*='Glow'],
+[class*='orb'],
+[class*='blob'] {
+  display: none !important;
+}
+
+/* ===========================================================================
+   Type
+   =========================================================================== */
+
+body { color: var(--u-ink); }
+
+h1, h2, h3, h4, h5, h6,
+.markdown h1, .markdown h2, .markdown h3 {
+  font-family: var(--u-serif);
+  letter-spacing: -0.014em;
+  color: var(--u-ink);
+}
+
+.markdown h1:first-child { font-size: 2.5rem; line-height: 1.16; margin-bottom: .4rem; }
+.markdown > h2 {
+  font-size: 1.5rem;
+  margin-top: 2.6rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid var(--u-rule);
+}
+.markdown > h3 { font-size: 1.14rem; margin-top: 1.7rem; }
+
+/* the reading column — the single biggest readability decision */
+.theme-doc-markdown.markdown { max-width: 72ch; }
+.markdown p, .markdown li { color: var(--u-soft); }
+.markdown strong { color: var(--u-ink); }
+.markdown a { text-decoration: none; }
+.markdown a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ===========================================================================
+   Navbar and footer — identical on every page
+   =========================================================================== */
+
+.navbar {
+  border-bottom: 1px solid var(--u-rule);
+  background: var(--u-card);
+}
+.navbar__title { font-family: var(--u-serif); font-weight: 700; letter-spacing: -0.01em; }
+.navbar__link { font-size: .9rem; color: var(--u-soft); }
+.navbar__link:hover, .navbar__link--active { color: var(--ifm-color-primary); }
+
+.footer {
+  background: var(--u-card);
+  border-top: 1px solid var(--u-rule);
+  color: var(--u-faint);
+  padding: 1.6rem 0;
+}
+.footer__title { font-family: var(--u-serif); color: var(--u-ink); }
+.footer__link-item { color: var(--u-faint); }
+.footer__copyright { color: var(--u-faint); font-size: .86rem; }
+
+/* ===========================================================================
+   Sidebar — a quiet index, not a menu
+   =========================================================================== */
+
+.theme-doc-sidebar-container { border-right: 1px solid var(--u-rule) !important; background: var(--u-paper); }
+.menu { padding: 1rem .7rem; font-size: .88rem; }
+.menu__link { color: var(--u-soft); border-radius: 2px; }
+.menu__link:hover { background: var(--u-tint); color: var(--ifm-color-primary); }
+.menu__link--active {
+  background: transparent;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  box-shadow: inset 2px 0 0 var(--ifm-color-primary);
+}
+.menu__list-item-collapsible:hover { background: var(--u-tint); }
+
+/* ===========================================================================
+   Cards — the "plate" for a section or a course
+   =========================================================================== */
+
+.card,
+article.margin-bottom--lg,
+.theme-doc-card {
+  background: var(--u-card);
+  border: 1px solid var(--u-rule);
+  border-radius: 2px;
+  box-shadow: none;
+  transition: border-color .16s ease;
+}
+.card:hover { border-color: var(--ifm-color-primary); box-shadow: none; }
+
+/* the generated-index grid Docusaurus builds for each category */
+.theme-doc-version-banner ~ * .card h2,
+.card h2 { font-size: 1.05rem; margin-bottom: .3rem; }
+.card p { font-size: .9rem; color: var(--u-faint); }
+
+/* ===========================================================================
+   Tables — readable, and card-shaped on a phone
+   =========================================================================== */
+
+.markdown table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+  background: var(--u-card);
+  font-size: .94rem;
+}
+.markdown table thead tr { border-bottom: 2px solid var(--u-rule); }
+.markdown table th {
+  background: transparent;
+  text-align: left;
+  font-size: .72rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--u-faint);
+  font-weight: 600;
+  border: none;
+  padding: .6rem .8rem;
+}
+.markdown table td { border: none; border-bottom: 1px solid var(--u-rule); padding: .7rem .8rem; color: var(--u-soft); }
+.markdown table tr:last-child td { border-bottom: none; }
+
+@media (max-width: 760px) {
+  .markdown table, .markdown thead, .markdown tbody, .markdown tr, .markdown td, .markdown th { display: block; }
+  .markdown thead { display: none; }
+  .markdown tr { border: 1px solid var(--u-rule); margin-bottom: .8rem; }
+  .markdown td { border: none; padding: .5rem .8rem; }
+  .markdown td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: .68rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--u-faint);
+    font-weight: 600;
+  }
+}
+
+/* ===========================================================================
+   Code
+   =========================================================================== */
+
+.theme-code-block, pre[class*='language-'] {
+  border: 1px solid var(--u-rule);
+  border-radius: 2px;
+  box-shadow: none !important;
+}
+.markdown code { background: var(--u-code); border: none; padding: .1em .35em; }
+
+/* ===========================================================================
+   Blockquote as a quiet callout
+   =========================================================================== */
+
+.markdown blockquote {
+  border-left: 3px solid var(--ifm-color-primary);
+  background: var(--u-tint);
+  color: var(--u-soft);
+  padding: .8rem 1.1rem;
+  margin: 1.4rem 0;
+}
+
+/* ===========================================================================
+   Pagination and breadcrumbs
+   =========================================================================== */
+
+.pagination-nav__link { border: 1px solid var(--u-rule); border-radius: 2px; }
+.pagination-nav__link:hover { border-color: var(--ifm-color-primary); }
+.pagination-nav__sublabel { color: var(--u-faint); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; }
+.pagination-nav__label { font-family: var(--u-serif); font-weight: 600; }
+
+.breadcrumbs__item--active .breadcrumbs__link { background: transparent; color: var(--u-ink); font-weight: 600; }
+.breadcrumbs__link { background: transparent; color: var(--u-faint); font-size: .82rem; }
+
+/* ===========================================================================
+   Motion
+   =========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

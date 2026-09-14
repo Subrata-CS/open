@@ -1,0 +1,9 @@
+{
+  "label": "Modern topics",
+  "position": 5,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Modern topics"
+  }
+}

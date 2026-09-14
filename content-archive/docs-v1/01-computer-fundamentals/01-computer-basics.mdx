@@ -1,0 +1,350 @@
+---
+title: Computer Basics
+sidebar_position: 1
+sidebar_label: Computer Basics
+slug: /computer-fundamentals/computer-basics
+description: Complete introduction to computers, IPO cycle, characteristics, applications, advantages, disadvantages, and block diagram.
+keywords:
+  - computer basics
+  - what is computer
+  - ipo cycle
+  - block diagram
+---
+
+import Diagram from '@site/src/components/Diagram';
+import RunInLab from '@site/src/components/RunInLab';
+import AskBox from '@site/src/components/AskBox';
+import { Lede, Callout, Quiz, Revision, ProsCons } from '@site/src/components/Note';
+
+# Computer Basics
+
+<Lede>
+A computer is an electronic programmable machine that accepts raw data, processes it according to instructions, stores it, and produces meaningful information. Every modern digital device—from smartphones to supercomputers—follows this same basic principle.
+</Lede>
+
+![Computer System](/img/computer-system.jpg)
+
+*Figure 1. A complete desktop computer system*
+
+---
+
+# What is a Computer?
+
+<Callout kind="def" title="Definition">
+A computer is an electronic device that accepts **input**, processes it according to stored instructions, stores data when necessary, and produces useful **output**.
+</Callout>
+
+### Simple Definition
+
+A computer performs four basic operations:
+
+1. Input
+2. Processing
+3. Storage
+4. Output
+
+---
+
+# Real-Life Example
+
+Imagine withdrawing money from an ATM.
+
+| Step | Computer | ATM Example |
+|---|---|---|
+| Input | Data entered | Insert ATM card |
+| Processing | CPU verifies PIN | Bank checks account |
+| Storage | Database | Account balance |
+| Output | Information | Cash & Receipt |
+
+Every computer system follows this workflow.
+
+---
+
+# Basic IPO Cycle
+
+![IPO Cycle](/img/ipo-cycle.jpg)
+
+*Figure 2. Input → Process → Output Cycle*
+
+<Diagram
+  type="flow"
+  label="Fig 2"
+  title="Input Process Output"
+  items={["Input","Process","Storage","Output"]}
+/>
+
+### Explanation
+
+| Stage | Description |
+|---|---|
+| Input | Data enters the computer |
+| Process | CPU performs calculations |
+| Storage | Memory stores information |
+| Output | Final result is displayed |
+
+---
+
+# Computer Block Diagram
+
+![Block Diagram](/img/computer-block.jpg)
+
+*Figure 3. Computer Block Diagram*
+
+<Diagram
+  type="block"
+  label="Fig 3"
+  title="Computer Architecture"
+  items={[
+    "Input Unit",
+    "CPU",
+    "Memory Unit",
+    "Storage",
+    "Output Unit"
+  ]}
+/>
+
+### Components
+
+| Unit | Function |
+|---|---|
+| Input Unit | Receives data |
+| CPU | Processes instructions |
+| Memory | Temporary storage |
+| Storage | Permanent storage |
+| Output Unit | Displays information |
+
+---
+
+# Characteristics of a Computer
+
+A computer has several unique characteristics that make it useful.
+
+### 1. Speed
+
+A modern processor performs **billions of operations every second**.
+
+### 2. Accuracy
+
+Computers produce highly accurate results when instructions are correct.
+
+### 3. Automation
+
+Once a program starts, the computer works automatically.
+
+### 4. Storage
+
+Large amounts of data can be stored permanently.
+
+### 5. Reliability
+
+Computers can perform repetitive tasks without getting tired.
+
+### 6. Multitasking
+
+One computer can run multiple applications simultaneously.
+
+---
+
+# Types of Data
+
+| Data | Example |
+|---|---|
+| Text | Name |
+| Number | Marks |
+| Image | Photo |
+| Audio | Music |
+| Video | Movie |
+
+---
+
+# Applications of Computer
+
+Computers are used in almost every industry.
+
+| Field | Example |
+|---|---|
+| Education | Online Learning |
+| Banking | ATM |
+| Hospital | Patient Records |
+| Business | Accounting |
+| Government | Passport System |
+| Science | Space Research |
+| Entertainment | Gaming & Movies |
+
+![Supercomputer](/img/supercomputer.jpg)
+
+*Figure 4. Modern Supercomputer*
+
+---
+
+# Input Devices
+
+![Input Devices](/img/input-devices.jpg)
+
+*Figure 5. Common Input Devices*
+
+Examples:
+
+- Keyboard
+- Mouse
+- Scanner
+- Webcam
+- Microphone
+
+---
+
+# Output Devices
+
+![Output Devices](/img/output-devices.jpg)
+
+*Figure 6. Common Output Devices*
+
+Examples:
+
+- Monitor
+- Printer
+- Speaker
+- Projector
+
+---
+
+# Storage Devices
+
+![Storage Devices](/img/storage-devices.jpg)
+
+*Figure 7. Permanent Storage Devices*
+
+| Device | Capacity | Speed |
+|---|---|---|
+| HDD | High | Slow |
+| SSD | High | Fast |
+| USB | Medium | Medium |
+| DVD | Low | Slow |
+
+---
+
+# Advantages & Disadvantages
+
+<ProsCons
+  pros={[
+    "Very high speed",
+    "Excellent accuracy",
+    "Large storage capacity",
+    "Reliable performance",
+    "Supports multitasking"
+  ]}
+  cons={[
+    "Cannot think independently",
+    "Requires electricity",
+    "Needs software",
+    "Security risks",
+    "Hardware failures are possible"
+  ]}
+/>
+
+---
+
+# Difference Between Data & Information
+
+| Data | Information |
+|---|---|
+| Raw facts | Processed result |
+| Unorganized | Organized |
+| Input | Output |
+| Example: 80,90 | Average = 85 |
+
+---
+
+# Python Example
+
+```python
+name = input("Enter name: ")
+marks = int(input("Enter marks: "))
+
+print("Student:", name)
+print("Marks:", marks)
+```
+
+### Output
+
+```text
+Enter name: Alex
+Enter marks: 95
+
+Student: Alex
+Marks: 95
+```
+
+<RunInLab
+  topic="Computer Basics"
+  lang="python"
+  code={`name = input("Enter name: ")
+marks = int(input("Enter marks: "))
+
+print("Student:", name)
+print("Marks:", marks)`}
+/>
+
+---
+
+# Practice Questions
+
+<Quiz
+  items={[
+    {
+      q:"What is a computer?",
+      a:"An electronic programmable machine that accepts input, processes data, stores it, and produces output."
+    },
+    {
+      q:"What are the four basic operations of a computer?",
+      a:"Input, Processing, Storage, and Output."
+    },
+    {
+      q:"Which unit is called the brain of the computer?",
+      a:"CPU."
+    },
+    {
+      q:"What is the difference between data and information?",
+      a:"Data is raw facts, while information is processed and meaningful."
+    }
+  ]}
+/>
+
+---
+
+# Interview Questions
+
+### Q1. What is a computer?
+
+A programmable electronic machine that processes data.
+
+### Q2. What is the IPO cycle?
+
+Input → Process → Output.
+
+### Q3. Why is CPU important?
+
+Because it controls and executes every instruction.
+
+### Q4. Give three applications of computers.
+
+Education, Banking, Healthcare.
+
+---
+
+# Quick Revision
+
+<Revision
+  points={[
+    "Computer = Input + Process + Storage + Output",
+    "CPU is the brain of the computer",
+    "RAM stores temporary data",
+    "Storage keeps data permanently",
+    "Data becomes information after processing",
+    "Computers are fast, accurate and reliable"
+  ]}
+/>
+
+---
+
+<AskBox topic="Computer Basics" section="Computer Fundamentals"/>

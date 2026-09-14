@@ -1,0 +1,9 @@
+{
+  "label": "Database Systems",
+  "position": 15,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Storing data so it stays correct."
+  }
+}

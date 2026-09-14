@@ -1,0 +1,9 @@
+{
+  "label": "Deep Learning",
+  "position": 1,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Learning representations with neural networks."
+  }
+}

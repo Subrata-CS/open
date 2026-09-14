@@ -1,0 +1,9 @@
+{
+  "label": "How a Computer Actually Works",
+  "position": 1,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "What the machine is doing underneath."
+  }
+}

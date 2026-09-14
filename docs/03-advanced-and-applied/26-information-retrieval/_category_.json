@@ -1,0 +1,9 @@
+{
+  "label": "Information Retrieval",
+  "position": 26,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Finding the right thing among many."
+  }
+}

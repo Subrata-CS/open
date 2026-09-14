@@ -1,0 +1,9 @@
+{
+  "label": "JavaScript",
+  "position": 5,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "The language of the browser."
+  }
+}

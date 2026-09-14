@@ -1,288 +1,259 @@
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  type CSSProperties,
-  type ReactNode,
-} from 'react';
+import { type ReactNode } from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
-import Globe from '@site/src/components/Globe';
-import HeroVisual from '@site/src/components/HeroVisual';
 import stats from '@site/src/data/stats.json';
 import tracksData from '@site/src/data/tracks.json';
 import { LANGS } from '@site/src/lib/runners';
-import { PROGRESS_EVENT, count } from '@site/src/lib/progress';
-import { toneOf } from '@site/src/lib/tones';
 import styles from './index.module.css';
 
 /**
- * Everything on this page is computed, never typed.
+ * The front page.
  *
- * `tools/generate.py` rewrites src/data/{stats,tracks,sections}.json from
- * tools/syllabus.txt, so section ranges ("01 - 06"), topic counts, the number
- * of tracks and the nodes on the globe all follow the syllabus by themselves.
+ * Written the way a university course catalogue is written: a plain statement
+ * of what this is, the numbers that describe it, then the syllabus laid out as
+ * a set of plates. No gradient, no globe, no motion. A reader should be able to
+ * tell within a few seconds what the site contains and where to begin.
  */
 
 type Track = {
   id: string;
   label: string;
-  tone: string;
   blurb: string;
   badge: string;
-  from: number;
-  to: number;
   sectionCount: number;
   topics: number;
   href: string;
-  sections: { num: number; title: string; href: string; topics: number }[];
+  sections?: { num: number; title: string; href: string; topics: number }[];
 };
 
 const TRACKS = tracksData as Track[];
 
-/* ------------------------------------------------------------------ hero */
+/* ----------------------------------------------------------------- masthead */
 
-function Hero(): ReactNode {
-  // Progress lives in the browser, so it can only be read after mounting.
-  const [read, setRead] = useState(0);
-
-  useEffect(() => {
-    const refresh = () => setRead(count());
-    refresh();
-    window.addEventListener(PROGRESS_EVENT, refresh);
-    return () => window.removeEventListener(PROGRESS_EVENT, refresh);
-  }, []);
-
+function Masthead(): ReactNode {
   return (
-    <header className={styles.hero}>
-      <div className={styles.heroGrid}>
-        <div className={styles.heroText}>
-          <h1 className={styles.title}>
-            A to Z <span className={styles.gradient}>Computer Science</span>
-          </h1>
+    <header className={styles.masthead}>
+      <div className={styles.inner}>
+        <p className={styles.eyebrow}>An open computer science curriculum</p>
 
-          <p className={styles.subtitle}>
-            One place to learn it all — from your first line of C to transformers, RAG and AI
-            agents. Notes, worked examples and practice questions, organised topic by topic,
-            with a code cell on every page.
-          </p>
+        <h1 className={styles.title}>
+          Computer science,
+          <br />
+          from the first line to the frontier.
+        </h1>
 
-          <dl className={styles.figures}>
-            <div>
-              <dt>{stats.sections}</dt>
-              <dd>sections</dd>
-            </div>
-            <div>
-              <dt>{stats.topics}</dt>
-              <dd>topics</dd>
-            </div>
-            <div>
-              <dt>{TRACKS.length}</dt>
-              <dd>tracks</dd>
-            </div>
-            <div>
-              <dt>{LANGS.length}</dt>
-              <dd>languages that run</dd>
-            </div>
-            {read > 0 && (
-              <div>
-                <dt className={styles.readCount}>{read}</dt>
-                <dd>you have read</dd>
-              </div>
-            )}
-          </dl>
+        <p className={styles.standfirst}>
+          One syllabus that begins where school leaves off and ends at the edge of
+          current research. Every topic is a page you can read, a diagram you can
+          follow and a program you can run without installing anything. It is
+          free, it carries no advertising, and it asks you for nothing.
+        </p>
 
-          <div className={styles.actions}>
-            <Link className={styles.primaryBtn} to="/docs">
-              Explore topics <span aria-hidden="true">→</span>
-            </Link>
-            <Link className={styles.secondaryBtn} to="/playground">
-              Open the Code Lab
-            </Link>
+        <div className={styles.actions}>
+          <Link className={styles.primary} to="/docs">
+            Read the syllabus
+          </Link>
+          <Link className={styles.secondary} to="/playground">
+            Open the Code Lab
+          </Link>
+        </div>
+
+        <dl className={styles.figures}>
+          <div>
+            <dt>{stats.sections}</dt>
+            <dd>Sections</dd>
           </div>
-        </div>
-
-        <div className={styles.heroVisual}>
-          <Globe />
-        </div>
+          <div>
+            <dt>{stats.topics.toLocaleString('en-GB')}</dt>
+            <dd>Topics</dd>
+          </div>
+          <div>
+            <dt>{TRACKS.length}</dt>
+            <dd>Stages</dd>
+          </div>
+          <div>
+            <dt>{LANGS.length}</dt>
+            <dd>Languages that run</dd>
+          </div>
+        </dl>
       </div>
     </header>
   );
 }
 
-/* ---------------------------------------------------------------- tracks */
+/* ------------------------------------------------------------------- intent */
 
-function TrackCard({ track }: { track: Track }): ReactNode {
-  const colour = toneOf(track.tone);
-  const shown = track.sections.slice(0, 4);
-  const rest = track.sections.length - shown.length;
-
+function Intent(): ReactNode {
   return (
-    <Link
-      to={track.href}
-      className={styles.card}
-      style={
-        {
-          '--tone': colour.base,
-          '--tone-line': colour.line,
-          '--tone-rgb': colour.rgb,
-        } as CSSProperties
-      }
-      data-tone={track.tone}
-      data-badge={String(track.from).padStart(2, '0')}>
-      <span className={styles.spotlight} aria-hidden="true" />
-
-      <div className={styles.cardTop}>
-        <span className={styles.cardBadge}>{track.badge}</span>
-        <span className={styles.cardCount}>
-          {track.sectionCount} sections · {track.topics} topics
-        </span>
-      </div>
-
-      <h3 className={styles.cardTitle}>{track.label}</h3>
-      <p className={styles.cardBlurb}>{track.blurb}</p>
-
-      <ul className={styles.chipList}>
-        {shown.map((section) => (
-          <li key={section.num}>
-            <span className={styles.chipNum}>{String(section.num).padStart(2, '0')}</span>
-            {section.title}
-          </li>
-        ))}
-        {rest > 0 && <li className={styles.chipMore}>+{rest} more</li>}
-      </ul>
-
-      <span className={styles.cardLink}>
-        Explore <span aria-hidden="true">→</span>
-      </span>
-    </Link>
-  );
-}
-
-function Tracks({ onTone }: { onTone: (tone: string | null) => void }): ReactNode {
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  /**
-   * One handler for the whole grid: it tints the page with the hovered card's
-   * colour and moves that card's spotlight to the cursor.
-   */
-  const move = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const card = (e.target as HTMLElement).closest<HTMLElement>('[data-tone]');
-      if (!card) {
-        onTone(null);
-        return;
-      }
-      onTone(card.dataset.tone ?? null);
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
-      card.style.setProperty('--my', `${e.clientY - rect.top}px`);
-    },
-    [onTone],
-  );
-
-  const out = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const to = e.relatedTarget as Node | null;
-      if (!to || !gridRef.current?.contains(to)) onTone(null);
-    },
-    [onTone],
-  );
-
-  return (
-    <section className={styles.section} id="tracks">
-      <p className={styles.kicker}>01 · Where to start</p>
-      <h2 className={styles.sectionTitle}>Choose a track</h2>
-      <p className={styles.sectionLead}>
-        The syllabus is {stats.sections} sections deep and grouped into {TRACKS.length} tracks.
-        Start at the beginning or jump straight to the part you need — every page stands on
-        its own.
-      </p>
-
-      <div className={styles.grid} ref={gridRef} onMouseMove={move} onMouseOut={out}>
-        {TRACKS.map((track) => (
-          <TrackCard key={track.id} track={track} />
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------- lab */
-
-const LAB_POINTS = [
-  'A practice cell sits under every topic — write code and run it without leaving the page.',
-  `Python and JavaScript execute inside your browser. C, C++, Java, Go, Rust, SQL and the rest of the ${LANGS.length} supported languages compile online.`,
-  'Open the full Code Lab when you want several cells, your own datasets and a notebook to download.',
-];
-
-function Lab(): ReactNode {
-  return (
-    <section className={styles.section}>
-      <p className={styles.kicker}>02 · Learn by running it</p>
-      <h2 className={styles.sectionTitle}>Read a page, run the code on it</h2>
-      <p className={styles.sectionLead}>
-        Reading about a quicksort is not the same as watching one sort your own array. Every
-        topic page carries a real runtime.
-      </p>
-
-      <div className={styles.labGrid}>
-        <ul className={styles.points}>
-          {LAB_POINTS.map((point) => (
-            <li key={point}>{point}</li>
-          ))}
-          <li className={styles.pointCta}>
-            <Link className={styles.secondaryBtn} to="/playground">
-              Open the Code Lab
-            </Link>
-          </li>
-        </ul>
-
-        <div className={styles.labVisual}>
-          <HeroVisual />
+    <section className={styles.band}>
+      <div className={styles.inner}>
+        <div className={styles.prose}>
+          <h2 className={styles.sectionHead}>Why this exists</h2>
+          <p>
+            Good teaching is not scarce because it is hard to write. It is scarce
+            because it is usually sold. A student who can pay reaches the clear
+            explanation, the worked example and someone who will answer the
+            question; a student who cannot is left with whatever is free, which is
+            rarely the same thing.
+          </p>
+          <p>
+            This site is an attempt to close part of that gap. The whole
+            curriculum is here, foundations through to doctoral material, written
+            to be understood on a first reading rather than admired on a second.
+            Nothing is held back for a paid tier, because there is no paid tier.
+          </p>
         </div>
       </div>
     </section>
   );
 }
 
-/* ------------------------------------------------------------------ page */
+/* ------------------------------------------------------------------- stages */
 
-export default function Home(): ReactNode {
-  const washRef = useRef<HTMLDivElement>(null);
-
-  /**
-   * The wash is painted straight onto the DOM node rather than held in state:
-   * hovering a card should tint the page, not re-render it.
-   */
-  const setWash = useCallback((tone: string | null) => {
-    const el = washRef.current;
-    if (!el) return;
-    if (tone) {
-      el.style.setProperty('--wash-rgb', toneOf(tone).rgb);
-      el.dataset.on = 'yes';
-    } else {
-      el.dataset.on = 'no';
-    }
-  }, []);
+function TrackPlate({ track }: { track: Track }): ReactNode {
+  const all = track.sections ?? [];
+  const shown = all.slice(0, 5);
+  const rest = all.length - shown.length;
 
   return (
+    <Link to={track.href} className={styles.plate}>
+      <span className={styles.plateBadge}>{track.badge}</span>
+      <h3 className={styles.plateTitle}>{track.label}</h3>
+      <p className={styles.plateBlurb}>{track.blurb}</p>
+
+      <ul className={styles.plateList}>
+        {shown.map((s) => (
+          <li key={s.num}>{s.title}</li>
+        ))}
+        {rest > 0 && <li className={styles.plateRest}>and {rest} more</li>}
+      </ul>
+
+      <span className={styles.plateFoot}>
+        {track.sectionCount} sections &middot;{' '}
+        {track.topics.toLocaleString('en-GB')} topics
+      </span>
+    </Link>
+  );
+}
+
+function Stages(): ReactNode {
+  return (
+    <section className={styles.band}>
+      <div className={styles.inner}>
+        <h2 className={styles.sectionHead}>The syllabus</h2>
+        <p className={styles.sectionLede}>
+          Six stages, in the order a student meets them. Each stage holds a set of
+          sections; each section breaks into chapters, and each chapter into
+          single topics. Begin wherever you honestly are — there is no penalty for
+          starting at the beginning.
+        </p>
+
+        <div className={styles.plates}>
+          {TRACKS.map((t) => (
+            <TrackPlate key={t.id} track={t} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------------------------------------------------------- page shape */
+
+const PAGE_PARTS: { h: string; p: string }[] = [
+  {
+    h: 'The problem before the definition',
+    p: 'Every topic opens with the difficulty that made the idea necessary. A definition learned before its problem is a definition soon forgotten.',
+  },
+  {
+    h: 'Diagrams drawn, not pasted',
+    p: 'Figures are drawn in the page itself, so they stay sharp at any size, work in either theme, and never break.',
+  },
+  {
+    h: 'Code that runs where you read it',
+    p: 'A cell on the page rather than a link to somewhere else. Edit the example, run it, and carry on reading without losing your place.',
+  },
+  {
+    h: 'Step through what changes',
+    p: 'Where something moves — a loop, a pointer, a tree rebalancing — you advance it one step at a time and watch it happen.',
+  },
+  {
+    h: 'The mistakes people actually make',
+    p: 'Each page names the errors that get written in practice, not the ones that are easy to list.',
+  },
+  {
+    h: 'Practice, then examinations',
+    p: 'Questions with answers you can check, followed by the examination and interview questions that come from that exact topic.',
+  },
+];
+
+function PageShape(): ReactNode {
+  return (
+    <section className={styles.band}>
+      <div className={styles.inner}>
+        <h2 className={styles.sectionHead}>What a page looks like</h2>
+        <p className={styles.sectionLede}>
+          Every topic is written to the same shape, so that once you have read one
+          page you know how to read all of them.
+        </p>
+
+        <ol className={styles.parts}>
+          {PAGE_PARTS.map((part, i) => (
+            <li key={part.h}>
+              <span className={styles.partNum}>
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div>
+                <h3>{part.h}</h3>
+                <p>{part.p}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------- start */
+
+function Start(): ReactNode {
+  return (
+    <section className={styles.bandLast}>
+      <div className={styles.inner}>
+        <div className={styles.prose}>
+          <h2 className={styles.sectionHead}>Where to begin</h2>
+          <p>
+            If you are starting from nothing, begin at Foundation. It assumes no
+            programming and no mathematics beyond school. If you are partway
+            through a degree, go straight to the section you are stuck on — every
+            page stands on its own. If you are looking for research material, the
+            later stages are written for you.
+          </p>
+          <div className={styles.actions}>
+            <Link className={styles.primary} to="/docs">
+              Start at the beginning
+            </Link>
+            <Link className={styles.secondary} to="/playground">
+              Try the Code Lab first
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default function Home(): ReactNode {
+  return (
     <Layout
-      title="A to Z Computer Science"
-      description={`Open learning hub — ${stats.sections} sections and ${stats.topics} topics covering programming fundamentals, DSA, machine learning, deep learning, generative AI and computer vision.`}>
-      <div
-        ref={washRef}
-        className={styles.wash}
-        data-on="no"
-        style={{ '--wash-rgb': toneOf(undefined).rgb } as CSSProperties}
-        aria-hidden="true"
-      />
-      <Hero />
-      <main>
-        <Tracks onTone={setWash} />
-        <Lab />
-      </main>
+      title="Computer science, from the first line to the frontier"
+      description="A free and complete computer science curriculum — foundations through to research — with diagrams and runnable code on every page.">
+      <Masthead />
+      <Intent />
+      <Stages />
+      <PageShape />
+      <Start />
     </Layout>
   );
 }

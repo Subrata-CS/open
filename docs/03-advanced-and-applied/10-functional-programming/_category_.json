@@ -1,0 +1,9 @@
+{
+  "label": "Functional Programming",
+  "position": 10,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Programming with values, not state."
+  }
+}
